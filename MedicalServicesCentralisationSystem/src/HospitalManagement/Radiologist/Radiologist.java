@@ -5,7 +5,7 @@
  */
 package HospitalManagement.Radiologist;
 
-import HospitalManagement.UserAccount.UserAccount;
+import MainCentralisationSystem.UserAccount;
 
 /**
  *

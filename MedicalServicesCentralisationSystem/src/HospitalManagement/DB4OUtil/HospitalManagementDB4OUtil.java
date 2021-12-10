@@ -1,7 +1,7 @@
 package HospitalManagement.DB4OUtil;
 
-import HospitalManagement.ConfigureASystem;
-import HospitalManagement.HospitalManagementEcoSystem;
+import MainCentralisationSystem.ConfigureASystem;
+import MainCentralisationSystem.MedicalServiceCentralisationEcoSystem;
 import com.db4o.Db4oEmbedded;
 import com.db4o.ObjectContainer;
 import com.db4o.ObjectSet;
@@ -39,7 +39,7 @@ public class HospitalManagementDB4OUtil {
             config.common().updateDepth(Integer.MAX_VALUE);
 
             //Register your top most Class here
-            config.common().objectClass(HospitalManagementEcoSystem.class).cascadeOnUpdate(true); // Change to the object you want to save
+            config.common().objectClass(MedicalServiceCentralisationEcoSystem.class).cascadeOnUpdate(true); // Change to the object you want to save
 
             ObjectContainer db = Db4oEmbedded.openFile(config, FILENAME);
             return db;
@@ -49,17 +49,17 @@ public class HospitalManagementDB4OUtil {
         return null;
     }
 
-    public synchronized void storeSystem(HospitalManagementEcoSystem system) {
+    public synchronized void storeSystem(MedicalServiceCentralisationEcoSystem system) {
         ObjectContainer conn = createConnection();
         conn.store(system);
         conn.commit();
         conn.close();
     }
     
-    public HospitalManagementEcoSystem retrieveSystem(){
+    public MedicalServiceCentralisationEcoSystem retrieveSystem(){
         ObjectContainer conn = createConnection();
-        ObjectSet<HospitalManagementEcoSystem> systems = conn.query(HospitalManagementEcoSystem.class); // Change to the object you want to save
-        HospitalManagementEcoSystem system;
+        ObjectSet<MedicalServiceCentralisationEcoSystem> systems = conn.query(MedicalServiceCentralisationEcoSystem.class); // Change to the object you want to save
+        MedicalServiceCentralisationEcoSystem system;
         if (systems.size() == 0){
             system = ConfigureASystem.configure();  // If there's no System in the record, create a new one
         }

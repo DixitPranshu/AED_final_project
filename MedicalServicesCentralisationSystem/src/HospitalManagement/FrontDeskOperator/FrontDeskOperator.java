@@ -5,7 +5,7 @@
  */
 package HospitalManagement.FrontDeskOperator;
 
-import HospitalManagement.UserAccount.UserAccount;
+import MainCentralisationSystem.UserAccount;
 
 /**
  *

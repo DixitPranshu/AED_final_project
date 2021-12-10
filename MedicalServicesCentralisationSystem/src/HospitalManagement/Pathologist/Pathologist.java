@@ -5,7 +5,7 @@
  */
 package HospitalManagement.Pathologist;
 
-import HospitalManagement.UserAccount.UserAccount;
+import MainCentralisationSystem.UserAccount;
 
 /**
  *

@@ -6,7 +6,7 @@
 package HospitalManagement.Technician;
 
 import HospitalManagement.Technician.*;
-import HospitalManagement.UserAccount.UserAccount;
+import MainCentralisationSystem.UserAccount;
 
 /**
  *

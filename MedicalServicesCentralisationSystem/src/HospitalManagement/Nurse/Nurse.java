@@ -7,7 +7,7 @@ package HospitalManagement.Nurse;
 
 import HospitalManagement.Doctor.*;
 import HospitalManagement.Nurse.*;
-import HospitalManagement.UserAccount.UserAccount;
+import MainCentralisationSystem.UserAccount;
 
 /**
  *

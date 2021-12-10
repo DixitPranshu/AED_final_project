@@ -6,7 +6,7 @@
 package userInterface.SystemAdminWorkArea;
 
 
-import HospitalManagement.HospitalManagementEcoSystem;
+import MainCentralisationSystem.MedicalServiceCentralisationEcoSystem;
 import java.awt.CardLayout;
 import java.util.ArrayList;
 import javax.swing.JPanel;
@@ -23,11 +23,11 @@ public class SystemAdminWorkAreaJPanel extends javax.swing.JPanel {
      * Creates new form SystemAdminWorkAreaJPanel
      */
     JPanel userProcessContainer;
-    HospitalManagementEcoSystem hospitalManagementEcoSystem;
-    public SystemAdminWorkAreaJPanel(JPanel userProcessContainer,HospitalManagementEcoSystem hospitalManagementEcoSystem) {
+    MedicalServiceCentralisationEcoSystem medicalServiceCentralisationEcoSystem;
+    public SystemAdminWorkAreaJPanel(JPanel userProcessContainer,MedicalServiceCentralisationEcoSystem medicalServiceCentralisationEcoSystem) {
         initComponents();
         this.userProcessContainer = userProcessContainer;
-        this.hospitalManagementEcoSystem = hospitalManagementEcoSystem;
+        this.medicalServiceCentralisationEcoSystem = medicalServiceCentralisationEcoSystem;
         jPanel1.setVisible(false);
         //jSplitPane.setVisible(false);
         //jPanel2.setVisible(true);
@@ -52,6 +52,7 @@ public class SystemAdminWorkAreaJPanel extends javax.swing.JPanel {
         jSplitPane = new javax.swing.JSplitPane();
         jPanel2 = new javax.swing.JPanel();
         jButtonCreateHospital = new javax.swing.JButton();
+        jButtonCreateCustomerSupport = new javax.swing.JButton();
         jPanel1 = new javax.swing.JPanel();
 
         setPreferredSize(new java.awt.Dimension(1720, 1080));
@@ -72,21 +73,35 @@ public class SystemAdminWorkAreaJPanel extends javax.swing.JPanel {
             }
         });
 
+        jButtonCreateCustomerSupport.setBackground(new java.awt.Color(0, 70, 169));
+        jButtonCreateCustomerSupport.setFont(new java.awt.Font("Tahoma", 1, 24)); // NOI18N
+        jButtonCreateCustomerSupport.setForeground(new java.awt.Color(255, 255, 255));
+        jButtonCreateCustomerSupport.setText("Manage Customer Support");
+        jButtonCreateCustomerSupport.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButtonCreateCustomerSupportActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
         jPanel2.setLayout(jPanel2Layout);
         jPanel2Layout.setHorizontalGroup(
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel2Layout.createSequentialGroup()
-                .addGap(398, 398, 398)
-                .addComponent(jButtonCreateHospital, javax.swing.GroupLayout.PREFERRED_SIZE, 401, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(941, Short.MAX_VALUE))
+                .addGap(437, 437, 437)
+                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addComponent(jButtonCreateCustomerSupport, javax.swing.GroupLayout.PREFERRED_SIZE, 401, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jButtonCreateHospital, javax.swing.GroupLayout.PREFERRED_SIZE, 401, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addContainerGap(902, Short.MAX_VALUE))
         );
         jPanel2Layout.setVerticalGroup(
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel2Layout.createSequentialGroup()
-                .addGap(600, 600, 600)
+                .addGap(241, 241, 241)
                 .addComponent(jButtonCreateHospital)
-                .addContainerGap(441, Short.MAX_VALUE))
+                .addGap(18, 18, 18)
+                .addComponent(jButtonCreateCustomerSupport)
+                .addContainerGap(745, Short.MAX_VALUE))
         );
 
         jSplitPane.setRightComponent(jPanel2);
@@ -111,14 +126,23 @@ public class SystemAdminWorkAreaJPanel extends javax.swing.JPanel {
 
     private void jButtonCreateHospitalActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonCreateHospitalActionPerformed
         // TODO add your handling code here:
-        HospitalAccountsPage hospitalAccountsPage = new HospitalAccountsPage(userProcessContainer,hospitalManagementEcoSystem);
+        HospitalAccountsPage hospitalAccountsPage = new HospitalAccountsPage(userProcessContainer,medicalServiceCentralisationEcoSystem);
         userProcessContainer.add("HospitalAccountsPage",hospitalAccountsPage);
         CardLayout cardLayout = (CardLayout) userProcessContainer.getLayout();
         cardLayout.show(userProcessContainer,"HospitalAccountsPage");
     }//GEN-LAST:event_jButtonCreateHospitalActionPerformed
 
+    private void jButtonCreateCustomerSupportActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonCreateCustomerSupportActionPerformed
+        // TODO add your handling code here:
+        CustomerSupportAccountsPage customerSupportAccountsPage = new CustomerSupportAccountsPage(userProcessContainer,medicalServiceCentralisationEcoSystem);
+        userProcessContainer.add("CustomerSupportAccountsPage",customerSupportAccountsPage);
+        CardLayout cardLayout = (CardLayout) userProcessContainer.getLayout();
+        cardLayout.show(userProcessContainer,"CustomerSupportAccountsPage");
+    }//GEN-LAST:event_jButtonCreateCustomerSupportActionPerformed
+
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton jButtonCreateCustomerSupport;
     private javax.swing.JButton jButtonCreateHospital;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;

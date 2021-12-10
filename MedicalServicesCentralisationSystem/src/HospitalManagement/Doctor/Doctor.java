@@ -5,7 +5,7 @@
  */
 package HospitalManagement.Doctor;
 
-import HospitalManagement.UserAccount.UserAccount;
+import MainCentralisationSystem.UserAccount;
 
 /**
  *

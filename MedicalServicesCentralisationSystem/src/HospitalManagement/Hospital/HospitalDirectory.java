@@ -5,7 +5,7 @@
  */
 package HospitalManagement.Hospital;
 
-import HospitalManagement.UserAccount.UserAccount;
+import MainCentralisationSystem.UserAccount;
 import java.util.ArrayList;
 
 /**

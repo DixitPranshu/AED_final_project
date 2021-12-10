@@ -3,22 +3,27 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package userInterface.SystemAdminWorkArea;
+package userInterface.CustomerSupport.CustomerSupportAdminWorkArea;
 
 
 
 import MainCentralisationSystem.MedicalServiceCentralisationEcoSystem;
 
+import CustomerSupportTeam.CustomerSupportMember.CustomerSupportMemberDirectory;
+import CustomerSupportTeam.CustomerSupportMember.CustomerSupportMember;
+import CustomerSupportTeam.CustomerSupportTeam;
 
-import MainCentralisationSystem.Role.HospitalAdminRole;
+
+import MainCentralisationSystem.Role.CustomerSupportMemberRole;
+import MainCentralisationSystem.Role.FrontDeskOperatorRole;
 import MainCentralisationSystem.Role.Role;
 
-import HospitalManagement.Hospital.Hospital;
-import HospitalManagement.Hospital.HospitalDirectory;
 import MainCentralisationSystem.UserAccount;
 import MainCentralisationSystem.UserAccountDirectory;
 import java.awt.CardLayout;
 import java.util.ArrayList;
+import java.util.HashMap;
+import javax.swing.DefaultComboBoxModel;
 import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 import javax.swing.table.DefaultTableModel;
@@ -27,30 +32,28 @@ import javax.swing.table.DefaultTableModel;
  *
  * @author Shreya
  */
-public class HospitalAccountsPage extends javax.swing.JPanel {
+public class CustomerSupportTeamAdminWorkAreaJPanel extends javax.swing.JPanel {
 
     /**
      * Creates new form OperationalAccountsPage
      */
     JPanel userProcessContainer;
     MedicalServiceCentralisationEcoSystem medicalServiceCentralisationEcoSystem;
-    HospitalDirectory hospitalDirectory;
-//    FrontDeskOperatorDirectory frontDeskOperatorDirectory;
+    CustomerSupportMemberDirectory accountantDirectory;
+    
     UserAccount userAccount;
     UserAccountDirectory UserAccountDirectory;
-
-    public HospitalAccountsPage(JPanel userProcessContainer , MedicalServiceCentralisationEcoSystem medicalServiceCentralisationEcoSystem) {
+    CustomerSupportTeam customerSupportTeam;
+    public CustomerSupportTeamAdminWorkAreaJPanel(JPanel userProcessContainer , MedicalServiceCentralisationEcoSystem medicalServiceCentralisationEcoSystem, CustomerSupportTeam customerSupportTeam) {
         
         this.userProcessContainer = userProcessContainer;
         this.medicalServiceCentralisationEcoSystem = medicalServiceCentralisationEcoSystem;
+        this.customerSupportTeam = customerSupportTeam;
         initComponents();
-        if(medicalServiceCentralisationEcoSystem.getHospitalDirectory()== null)
-           medicalServiceCentralisationEcoSystem.setHospitalDirectory(new HospitalDirectory());
+        if(customerSupportTeam.getCustomerSupportMemberDirectory()== null)
+           customerSupportTeam.setCustomerSupportMemberDirectory(new CustomerSupportMemberDirectory());
         
-//        addRolesComboBox();
-        addDefaultvalues();
         addrecordstotable();
-        
     }
 
     /**
@@ -67,24 +70,22 @@ public class HospitalAccountsPage extends javax.swing.JPanel {
         jScrollPane1 = new javax.swing.JScrollPane();
         jTableEmployee = new javax.swing.JTable();
         jButtonCreate = new javax.swing.JButton();
-        jTextFieldHospName = new javax.swing.JTextField();
+        jTextFieldEmpName = new javax.swing.JTextField();
         jButtonUpdate = new javax.swing.JButton();
         jLabelPassword = new javax.swing.JLabel();
-        jTextFieldHospPassword = new javax.swing.JTextField();
+        jTextFieldPassword = new javax.swing.JTextField();
         jButtonView = new javax.swing.JButton();
-        jTextFieldHospID = new javax.swing.JTextField();
+        jTextFieldEmpID = new javax.swing.JTextField();
         jLabelEmpID = new javax.swing.JLabel();
         jButtonDelete = new javax.swing.JButton();
         jLabelEmpName = new javax.swing.JLabel();
-        jLabelEmpName1 = new javax.swing.JLabel();
-        jTextFieldHospPincode = new javax.swing.JTextField();
 
         setBackground(new java.awt.Color(0, 70, 169));
 
         jLabel1.setFont(new java.awt.Font("Tahoma", 1, 48)); // NOI18N
         jLabel1.setForeground(new java.awt.Color(255, 255, 255));
         jLabel1.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jLabel1.setText("Hospital Account");
+        jLabel1.setText("Customer Support Members");
 
         jButton2.setBackground(new java.awt.Color(0, 70, 169));
         jButton2.setFont(new java.awt.Font("Tahoma", 0, 24)); // NOI18N
@@ -98,13 +99,13 @@ public class HospitalAccountsPage extends javax.swing.JPanel {
 
         jTableEmployee.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null}
+                {null, null, null},
+                {null, null, null},
+                {null, null, null},
+                {null, null, null}
             },
             new String [] {
-                "Hospital ID", "Hospital Name", "Pincode", "Password"
+                "Employee ID", "Employee Name", "Password"
             }
         ));
         jTableEmployee.addMouseListener(new java.awt.event.MouseAdapter() {
@@ -131,22 +132,22 @@ public class HospitalAccountsPage extends javax.swing.JPanel {
         jLabelPassword.setForeground(new java.awt.Color(255, 255, 255));
         jLabelPassword.setText("Password:");
 
-        jTextFieldHospPassword.addActionListener(new java.awt.event.ActionListener() {
+        jTextFieldPassword.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jTextFieldHospPasswordActionPerformed(evt);
+                jTextFieldPasswordActionPerformed(evt);
             }
         });
 
         jButtonView.setText("VIEW");
 
-        jTextFieldHospID.addActionListener(new java.awt.event.ActionListener() {
+        jTextFieldEmpID.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jTextFieldHospIDActionPerformed(evt);
+                jTextFieldEmpIDActionPerformed(evt);
             }
         });
 
         jLabelEmpID.setForeground(new java.awt.Color(255, 255, 255));
-        jLabelEmpID.setText("Hospital ID:");
+        jLabelEmpID.setText("Employee ID:");
 
         jButtonDelete.setText("DELETE");
         jButtonDelete.addActionListener(new java.awt.event.ActionListener() {
@@ -156,10 +157,7 @@ public class HospitalAccountsPage extends javax.swing.JPanel {
         });
 
         jLabelEmpName.setForeground(new java.awt.Color(255, 255, 255));
-        jLabelEmpName.setText("Hospital Name:");
-
-        jLabelEmpName1.setForeground(new java.awt.Color(255, 255, 255));
-        jLabelEmpName1.setText("Pincode");
+        jLabelEmpName.setText("Employee Name:");
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
         this.setLayout(layout);
@@ -175,34 +173,29 @@ public class HospitalAccountsPage extends javax.swing.JPanel {
                     .addGroup(layout.createSequentialGroup()
                         .addGap(127, 127, 127)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                                    .addComponent(jLabelEmpName)
-                                    .addGap(28, 28, 28))
-                                .addGroup(layout.createSequentialGroup()
-                                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                                        .addComponent(jLabelEmpID, javax.swing.GroupLayout.DEFAULT_SIZE, 104, Short.MAX_VALUE)
-                                        .addComponent(jLabelPassword, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                                    .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)))
                             .addGroup(layout.createSequentialGroup()
-                                .addComponent(jLabelEmpName1)
-                                .addGap(71, 71, 71)))
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                            .addComponent(jTextFieldHospID, javax.swing.GroupLayout.DEFAULT_SIZE, 351, Short.MAX_VALUE)
-                            .addComponent(jTextFieldHospName)
-                            .addComponent(jTextFieldHospPassword, javax.swing.GroupLayout.Alignment.TRAILING)
-                            .addComponent(jTextFieldHospPincode))
-                        .addGap(59, 59, 59)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jButtonCreate)
-                            .addComponent(jButtonDelete))
-                        .addGap(178, 178, 178)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jButtonView)
-                            .addComponent(jButtonUpdate)))
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(138, 138, 138)
-                        .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 787, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                                        .addComponent(jLabelEmpName)
+                                        .addGap(28, 28, 28))
+                                    .addGroup(layout.createSequentialGroup()
+                                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                                            .addComponent(jLabelEmpID, javax.swing.GroupLayout.DEFAULT_SIZE, 104, Short.MAX_VALUE)
+                                            .addComponent(jLabelPassword, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)))
+                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                                    .addComponent(jTextFieldEmpID, javax.swing.GroupLayout.DEFAULT_SIZE, 351, Short.MAX_VALUE)
+                                    .addComponent(jTextFieldEmpName)
+                                    .addComponent(jTextFieldPassword, javax.swing.GroupLayout.Alignment.TRAILING))
+                                .addGap(59, 59, 59)
+                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(jButtonCreate)
+                                    .addComponent(jButtonDelete))
+                                .addGap(178, 178, 178)
+                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(jButtonView)
+                                    .addComponent(jButtonUpdate)))
+                            .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 787, javax.swing.GroupLayout.PREFERRED_SIZE))))
                 .addContainerGap(216, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
@@ -215,33 +208,29 @@ public class HospitalAccountsPage extends javax.swing.JPanel {
                 .addGap(97, 97, 97)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(jLabelEmpID)
-                    .addComponent(jTextFieldHospID, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(jTextFieldEmpID, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
                         .addGap(18, 18, 18)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(jLabelEmpName)
-                            .addComponent(jTextFieldHospName, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                            .addComponent(jTextFieldEmpName, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
                     .addGroup(layout.createSequentialGroup()
                         .addGap(1, 1, 1)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(jButtonCreate)
                             .addComponent(jButtonUpdate))))
-                .addGap(22, 22, 22)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabelEmpName1)
-                    .addComponent(jTextFieldHospPincode, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addGap(50, 50, 50)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jButtonDelete)
                     .addComponent(jButtonView))
                 .addGap(18, 18, 18)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabelPassword)
-                    .addComponent(jTextFieldHospPassword, javax.swing.GroupLayout.PREFERRED_SIZE, 26, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(87, 87, 87)
+                    .addComponent(jTextFieldPassword, javax.swing.GroupLayout.PREFERRED_SIZE, 26, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(85, 85, 85)
                 .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 217, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(410, Short.MAX_VALUE))
+                .addContainerGap(415, Short.MAX_VALUE))
         );
     }// </editor-fold>//GEN-END:initComponents
 
@@ -251,35 +240,33 @@ public class HospitalAccountsPage extends javax.swing.JPanel {
             crdLyt.show(userProcessContainer,"Sysadmin");
     }//GEN-LAST:event_jButton2ActionPerformed
 
-    private void jTextFieldHospPasswordActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextFieldHospPasswordActionPerformed
+    private void jTextFieldPasswordActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextFieldPasswordActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_jTextFieldHospPasswordActionPerformed
+    }//GEN-LAST:event_jTextFieldPasswordActionPerformed
 
-    private void jTextFieldHospIDActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextFieldHospIDActionPerformed
+    private void jTextFieldEmpIDActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextFieldEmpIDActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_jTextFieldHospIDActionPerformed
+    }//GEN-LAST:event_jTextFieldEmpIDActionPerformed
 
     private void jButtonCreateActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonCreateActionPerformed
         // TODO add your handling code here:
         DefaultTableModel model = (DefaultTableModel) jTableEmployee.getModel();
         ArrayList<String> user_input = check_empty_field();
-        hospitalDirectory = medicalServiceCentralisationEcoSystem.getHospitalDirectory();
         UserAccountDirectory usersList = medicalServiceCentralisationEcoSystem.getUserAccountDirectory();
         if(usersList.checkIfUserIsUnique(user_input.get(0))){
             
-//            Employee employee = new Employee(user_input.get(0),user_input.get(1),new HospitalAdminRole());
+                userAccount = new UserAccount(user_input.get(0), user_input.get(2),new CustomerSupportMemberRole());
+                usersList.addUserAccount(userAccount);
+                CustomerSupportMember accountant = new CustomerSupportMember();
+                accountant.setCustomerSupportMemberId(user_input.get(0));
+                accountant.setCustomerSupportMemberName(user_input.get(1));  
+                accountantDirectory.addCustomerSupportMember(user_input.get(0), accountant);
+                customerSupportTeam.setCustomerSupportMemberDirectory(accountantDirectory);
+                userAccount.setCustomerSupportTeam(customerSupportTeam);
             
             
-            userAccount = new UserAccount(user_input.get(0), user_input.get(3), new HospitalAdminRole());
-            
-            Hospital hospital = new Hospital(user_input.get(0), user_input.get(1), user_input.get(2));
-            userAccount.setHospital(hospital);
-            hospitalDirectory.addHospital(hospital);
-            
-            usersList.addUserAccount(userAccount);
-            
-            JOptionPane.showMessageDialog(this, "New Hospital Information has been added.");
-            model.addRow(new Object[]{userAccount,user_input.get(1),user_input.get(2),user_input.get(3)});
+            JOptionPane.showMessageDialog(this, "New Employee Information has been added.");
+            model.addRow(new Object[]{userAccount,user_input.get(1),user_input.get(2)});
             clearFields();
         }
         else{
@@ -298,23 +285,19 @@ public class HospitalAccountsPage extends javax.swing.JPanel {
         DefaultTableModel model = (DefaultTableModel) jTableEmployee.getModel();
         UserAccount select_account_details = (UserAccount)model.getValueAt(selected_row_ix, 0);        
         UserAccountDirectory = medicalServiceCentralisationEcoSystem.getUserAccountDirectory();
-        hospitalDirectory = medicalServiceCentralisationEcoSystem.getHospitalDirectory();
         ArrayList<UserAccount> userAccountList = UserAccountDirectory.getUserAccountList();
         for(UserAccount userAccount: userAccountList)
         {
             if(userAccount.getUsername().equals(select_account_details.getUsername()))
             {
-                Hospital hospital = userAccount.getHospital();
+                CustomerSupportTeam customerSupportTeam = userAccount.getCustomerSupportTeam();
                 ArrayList<String> user_input = check_empty_field();
-//                model.setValueAt(user_input.get(1), selected_row_ix, 0);
                 model.setValueAt(user_input.get(1), selected_row_ix, 1);
                 model.setValueAt(user_input.get(2), selected_row_ix, 2);
-                model.setValueAt(user_input.get(3), selected_row_ix, 3);
-                hospitalDirectory.updateHospital(user_input, hospital);
                 UserAccountDirectory.updateAccount(set_user_input_values(userAccount, user_input));
                 break;
             }
-        }
+        }   
         
 //        medicalServiceCentralisationEcoSystem.setRestaurantDirectory(restaurantDirectory);
         JOptionPane.showMessageDialog(this, "Values updated");
@@ -332,8 +315,6 @@ public class HospitalAccountsPage extends javax.swing.JPanel {
         DefaultTableModel model = (DefaultTableModel) jTableEmployee.getModel();
         UserAccount select_user_account_details = (UserAccount)model.getValueAt(selected_row_ix, 0);
         UserAccountDirectory = medicalServiceCentralisationEcoSystem.getUserAccountDirectory();
-        Hospital hospital = select_user_account_details.getHospital();
-        hospitalDirectory.deleteHospital(hospital);
         UserAccountDirectory.deleteAccount(select_user_account_details);
 //        ecosystem.setRestaurantDirectory(restaurantDirectory);
         model.removeRow(selected_row_ix);
@@ -347,33 +328,41 @@ public class HospitalAccountsPage extends javax.swing.JPanel {
         int selected_row_ix = jTableEmployee.getSelectedRow();
         DefaultTableModel model = (DefaultTableModel) jTableEmployee.getModel();
         UserAccount select_user_account_details = (UserAccount)model.getValueAt(selected_row_ix, 0);
-        jTextFieldHospID.setEditable(false);
-        jTextFieldHospID.setText(select_user_account_details.getUsername());
-        jTextFieldHospName.setText(select_user_account_details.getHospital().getHospitalName());
-        jTextFieldHospPassword.setText(select_user_account_details.getPassword());
-        jTextFieldHospPincode.setText(select_user_account_details.getHospital().getHospitalpincode());
+        jTextFieldEmpID.setEditable(false);
+        jTextFieldEmpID.setText(select_user_account_details.getUsername());
+        
+        Role role = select_user_account_details.getRole();
+        System.out.println("role.toString(): "+role.toString());
+        
+        
+        if(role.toString().equals("CustomerSupportMember")){
+            CustomerSupportTeam customerSupportTeam = select_user_account_details.getCustomerSupportTeam();
+            accountantDirectory = customerSupportTeam.getCustomerSupportMemberDirectory();
+            HashMap<String, CustomerSupportMember> accountantList = accountantDirectory.getCustomerSupportMemberList();
+            CustomerSupportMember accountant = accountantList.get(select_user_account_details.getUsername());
+            jTextFieldEmpName.setText(accountant.getCustomerSupportMemberName());
+        }
+        
+        jTextFieldPassword.setText(select_user_account_details.getPassword());
         
     }//GEN-LAST:event_jTableEmployeeMouseClicked
     private UserAccount set_user_input_values(UserAccount userAccount, ArrayList<String> user_input) {
 //        userAccount.getEmployee().setEmployee_id(user_input.get(0));
-        userAccount.getHospital().setHospitalName(user_input.get(1));
-        userAccount.getHospital().setHospitalpincode(user_input.get(2));
-        userAccount.setPassword(user_input.get(3));
+//        userAccount.getEmployee().setEmployee_name(user_input.get(1));
+        userAccount.setPassword(user_input.get(2));
         return userAccount;
     }
     private void clearFields(){
-        jTextFieldHospID.setText("");
-        jTextFieldHospName.setText("");
-        jTextFieldHospPassword.setText("");
-        jTextFieldHospPincode.setText("");
+        jTextFieldEmpID.setText("");
+        jTextFieldEmpName.setText("");
+        jTextFieldPassword.setText("");
     }
     
     public ArrayList<String> check_empty_field(){
         ArrayList<String> user_input = new ArrayList<>();
-        String user_emp_id = jTextFieldHospID.getText();
-        String user_emp_name = jTextFieldHospName.getText();
-        String user_password = jTextFieldHospPassword.getText();
-        String user_pincode = jTextFieldHospPincode.getText();
+        String user_emp_id = jTextFieldEmpID.getText();
+        String user_emp_name = jTextFieldEmpName.getText();
+        String user_password = jTextFieldPassword.getText();
 
         
         if(user_emp_id.isEmpty()){
@@ -385,13 +374,10 @@ public class HospitalAccountsPage extends javax.swing.JPanel {
         else if(user_password.isEmpty()){
             JOptionPane.showMessageDialog(this, "Please enter a Password.");
         }
-        else if(user_pincode.isEmpty()){
-            JOptionPane.showMessageDialog(this, "Please enter the pincode.");
-        }
+        
         
         user_input.add(user_emp_id);
         user_input.add(user_emp_name);
-        user_input.add(user_pincode);
         user_input.add(user_password);
         
         return user_input;
@@ -409,49 +395,46 @@ public class HospitalAccountsPage extends javax.swing.JPanel {
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabelEmpID;
     private javax.swing.JLabel jLabelEmpName;
-    private javax.swing.JLabel jLabelEmpName1;
     private javax.swing.JLabel jLabelPassword;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JTable jTableEmployee;
-    private javax.swing.JTextField jTextFieldHospID;
-    private javax.swing.JTextField jTextFieldHospName;
-    private javax.swing.JTextField jTextFieldHospPassword;
-    private javax.swing.JTextField jTextFieldHospPincode;
+    private javax.swing.JTextField jTextFieldEmpID;
+    private javax.swing.JTextField jTextFieldEmpName;
+    private javax.swing.JTextField jTextFieldPassword;
     // End of variables declaration//GEN-END:variables
 
     
+
     private void addrecordstotable() {
-        UserAccountDirectory userAccountDirectory = medicalServiceCentralisationEcoSystem.getUserAccountDirectory();
-        ArrayList<UserAccount> usersList = userAccountDirectory.getUserAccountList();
-//        hospitalDirectory = medicalServiceCentralisationEcoSystem.getHospitalDirectory();
+        accountantDirectory = customerSupportTeam.getCustomerSupportMemberDirectory();
     
         DefaultTableModel model = (DefaultTableModel) jTableEmployee.getModel();
         model.setRowCount(0);
-//        ArrayList<Hospital> hospitalList = hospitalDirectory.getHospitalList();
+//        ArrayList<CustomerSupportMember> accountantList = accountantDirectory.getCustomerSupportMemberList();
+//        for(CustomerSupportMember accountant: accountantList)
+//        {
+//            model.addRow(new Object[]{accountant.getUserAccount(),accountant.getUserAccount().getEmployee().getEmployee_name(),"CustomerSupportMember",accountant.getUserAccount().getPassword()});
+//        }
+        UserAccountDirectory userAccountDirectory = medicalServiceCentralisationEcoSystem.getUserAccountDirectory();
+        ArrayList<UserAccount> usersList = userAccountDirectory.getUserAccountList();
+//        customerSupportTeamDirectory = medicalServiceCentralisationEcoSystem.getCustomerSupportTeamDirectory();
+        
+        model.setRowCount(0);
+//        ArrayList<CustomerSupportTeam> customerSupportTeamList = customerSupportTeamDirectory.getCustomerSupportTeamList();
         for(UserAccount userAccount: usersList)
         {   
-            if(userAccount.getRole().toString() == "HospitalAdmin"){
-                model.addRow(new Object[]{userAccount,userAccount.getHospital().getHospitalName(),userAccount.getHospital().getHospitalpincode(),userAccount.getPassword()});
+            System.out.println("userAccount.getRole().toString(): "+userAccount.getRole().toString());
+            if(userAccount.getRole().toString() == "CustomerSupportMember" && userAccount.getCustomerSupportTeam().equals(customerSupportTeam)){
+                
+                accountantDirectory = customerSupportTeam.getCustomerSupportMemberDirectory();
+                HashMap<String, CustomerSupportMember> accountantList = accountantDirectory.getCustomerSupportMemberList();
+                CustomerSupportMember accountant = accountantList.get(userAccount.getUsername());
+                model.addRow(new Object[]{userAccount,accountant.getCustomerSupportMemberName(),userAccount.getPassword()});
             }
         }
-        
+
         jTableEmployee.setModel(model);
     }
-
-    private void addDefaultvalues() {
-        
-        UserAccountDirectory usersList = medicalServiceCentralisationEcoSystem.getUserAccountDirectory();
-        userAccount = new UserAccount("hosp121", "pass",new HospitalAdminRole());
-        Hospital hospital = new Hospital("hosp121","hospname1","02215");
-        userAccount.setHospital(hospital);
-        if(usersList.checkIfUserIsUnique("hosp121")){
-        usersList.addUserAccount(userAccount);
-        }
-        userAccount = new UserAccount("hosp122", "pass",new HospitalAdminRole());
-        hospital = new Hospital("hosp122","hospname2","02215");
-        userAccount.setHospital(hospital);
-        if(usersList.checkIfUserIsUnique("hosp122")){
-        usersList.addUserAccount(userAccount);
-        }
-    }
+    
+    
 }

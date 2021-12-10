@@ -5,8 +5,7 @@
  */
 package HospitalManagement.Hospital;
 
-import HospitalManagement.UserAccount.UserAccount;
-import HospitalManagement.UserAccount.UserAccountDirectory;
+import MainCentralisationSystem.UserAccountDirectory;
 import HospitalManagement.Doctor.DoctorDirectory;
 import HospitalManagement.Nurse.NurseDirectory;
 import HospitalManagement.Radiologist.RadiologistDirectory;
@@ -60,14 +59,6 @@ public class Hospital {
     public void setHospitalpincode(String hospitalpincode) {
         this.hospitalpincode = hospitalpincode;
     }
-
-//    public UserAccount getUserAccount() {
-//        return userAccount;
-//    }
-//
-//    public void setUserAccount(UserAccount userAccount) {
-//        this.userAccount = userAccount;
-//    }
 
     public FrontDeskOperatorDirectory getFrontDeskOperatorDirectory() {
         return frontDeskOperatorDirectory;
@@ -127,13 +118,13 @@ public class Hospital {
 
     
 
-    public UserAccountDirectory getUserAccountDirectory() {
-        return UserAccountDirectory;
-    }
-
-    public void setUserAccountDirectory(UserAccountDirectory UserAccountDirectory) {
-        this.UserAccountDirectory = UserAccountDirectory;
-    }
+//    public UserAccountDirectory getUserAccountDirectory() {
+//        return UserAccountDirectory;
+//    }
+//
+//    public void setUserAccountDirectory(UserAccountDirectory UserAccountDirectory) {
+//        this.UserAccountDirectory = UserAccountDirectory;
+//    }
     
     
     

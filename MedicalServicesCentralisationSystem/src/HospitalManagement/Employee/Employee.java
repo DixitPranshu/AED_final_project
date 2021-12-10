@@ -5,7 +5,7 @@
  */
 package HospitalManagement.Employee;
 
-import HospitalManagement.Role.Role;
+import MainCentralisationSystem.Role.Role;
 
 /**
  *
