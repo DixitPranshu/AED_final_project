@@ -53,17 +53,19 @@ public class SystemAdminWorkAreaJPanel extends javax.swing.JPanel {
         jPanel2 = new javax.swing.JPanel();
         jButtonCreateHospital = new javax.swing.JButton();
         jButtonCreateCustomerSupport = new javax.swing.JButton();
+        bgdimg = new javax.swing.JLabel();
         jPanel1 = new javax.swing.JPanel();
 
         setPreferredSize(new java.awt.Dimension(1720, 1080));
-        setLayout(new java.awt.BorderLayout());
+        setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         jSplitPane.setPreferredSize(new java.awt.Dimension(1720, 1080));
 
         jPanel2.setBackground(new java.awt.Color(0, 70, 169));
         jPanel2.setPreferredSize(new java.awt.Dimension(1720, 1080));
+        jPanel2.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        jButtonCreateHospital.setBackground(new java.awt.Color(0, 70, 169));
+        jButtonCreateHospital.setBackground(new java.awt.Color(204, 204, 204));
         jButtonCreateHospital.setFont(new java.awt.Font("Tahoma", 1, 24)); // NOI18N
         jButtonCreateHospital.setForeground(new java.awt.Color(255, 255, 255));
         jButtonCreateHospital.setText("Manage Hospitals");
@@ -72,8 +74,9 @@ public class SystemAdminWorkAreaJPanel extends javax.swing.JPanel {
                 jButtonCreateHospitalActionPerformed(evt);
             }
         });
+        jPanel2.add(jButtonCreateHospital, new org.netbeans.lib.awtextra.AbsoluteConstraints(610, 730, 401, -1));
 
-        jButtonCreateCustomerSupport.setBackground(new java.awt.Color(0, 70, 169));
+        jButtonCreateCustomerSupport.setBackground(new java.awt.Color(204, 204, 204));
         jButtonCreateCustomerSupport.setFont(new java.awt.Font("Tahoma", 1, 24)); // NOI18N
         jButtonCreateCustomerSupport.setForeground(new java.awt.Color(255, 255, 255));
         jButtonCreateCustomerSupport.setText("Manage Customer Support");
@@ -82,27 +85,10 @@ public class SystemAdminWorkAreaJPanel extends javax.swing.JPanel {
                 jButtonCreateCustomerSupportActionPerformed(evt);
             }
         });
+        jPanel2.add(jButtonCreateCustomerSupport, new org.netbeans.lib.awtextra.AbsoluteConstraints(610, 790, 401, -1));
 
-        javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
-        jPanel2.setLayout(jPanel2Layout);
-        jPanel2Layout.setHorizontalGroup(
-            jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel2Layout.createSequentialGroup()
-                .addGap(437, 437, 437)
-                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addComponent(jButtonCreateCustomerSupport, javax.swing.GroupLayout.PREFERRED_SIZE, 401, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jButtonCreateHospital, javax.swing.GroupLayout.PREFERRED_SIZE, 401, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addContainerGap(902, Short.MAX_VALUE))
-        );
-        jPanel2Layout.setVerticalGroup(
-            jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel2Layout.createSequentialGroup()
-                .addGap(241, 241, 241)
-                .addComponent(jButtonCreateHospital)
-                .addGap(18, 18, 18)
-                .addComponent(jButtonCreateCustomerSupport)
-                .addContainerGap(745, Short.MAX_VALUE))
-        );
+        bgdimg.setIcon(new javax.swing.ImageIcon(getClass().getResource("/userInterface/Images/SystemAdminWorkAreaJPanel.jpg"))); // NOI18N
+        jPanel2.add(bgdimg, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 1740, 1080));
 
         jSplitPane.setRightComponent(jPanel2);
 
@@ -121,7 +107,7 @@ public class SystemAdminWorkAreaJPanel extends javax.swing.JPanel {
 
         jSplitPane.setLeftComponent(jPanel1);
 
-        add(jSplitPane, java.awt.BorderLayout.CENTER);
+        add(jSplitPane, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 1747, -1));
     }// </editor-fold>//GEN-END:initComponents
 
     private void jButtonCreateHospitalActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonCreateHospitalActionPerformed
@@ -142,6 +128,7 @@ public class SystemAdminWorkAreaJPanel extends javax.swing.JPanel {
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JLabel bgdimg;
     private javax.swing.JButton jButtonCreateCustomerSupport;
     private javax.swing.JButton jButtonCreateHospital;
     private javax.swing.JPanel jPanel1;

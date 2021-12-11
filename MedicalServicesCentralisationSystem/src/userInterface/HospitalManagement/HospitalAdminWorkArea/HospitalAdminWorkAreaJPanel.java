@@ -58,6 +58,7 @@ public class HospitalAdminWorkAreaJPanel extends javax.swing.JPanel {
         jButtonAdministrativeAccountsPage = new javax.swing.JButton();
         jButtonOperationalAccountsPage = new javax.swing.JButton();
         btnManageAdmin2 = new javax.swing.JButton();
+        bgdimg = new javax.swing.JLabel();
         jPanel1 = new javax.swing.JPanel();
 
         setPreferredSize(new java.awt.Dimension(1720, 1080));
@@ -67,89 +68,55 @@ public class HospitalAdminWorkAreaJPanel extends javax.swing.JPanel {
 
         jPanel2.setBackground(new java.awt.Color(0, 70, 169));
         jPanel2.setPreferredSize(new java.awt.Dimension(1720, 1080));
+        jPanel2.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        jButtonMedTechnicalAccountsPage.setBackground(new java.awt.Color(0, 70, 169));
-        jButtonMedTechnicalAccountsPage.setFont(new java.awt.Font("Tahoma", 1, 24)); // NOI18N
-        jButtonMedTechnicalAccountsPage.setForeground(new java.awt.Color(255, 255, 255));
-        jButtonMedTechnicalAccountsPage.setText("Technical & Lab Testing Team");
+        jButtonMedTechnicalAccountsPage.setBackground(new java.awt.Color(228, 238, 247));
+        jButtonMedTechnicalAccountsPage.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
+        jButtonMedTechnicalAccountsPage.setText("Technical & Lab Testing");
         jButtonMedTechnicalAccountsPage.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jButtonMedTechnicalAccountsPageActionPerformed(evt);
             }
         });
+        jPanel2.add(jButtonMedTechnicalAccountsPage, new org.netbeans.lib.awtextra.AbsoluteConstraints(210, 860, 220, 30));
 
-        jButtonAdministrativeAccountsPage.setBackground(new java.awt.Color(0, 70, 169));
-        jButtonAdministrativeAccountsPage.setFont(new java.awt.Font("Tahoma", 1, 24)); // NOI18N
-        jButtonAdministrativeAccountsPage.setForeground(new java.awt.Color(255, 255, 255));
-        jButtonAdministrativeAccountsPage.setText("Admin & Accounting Team");
+        jButtonAdministrativeAccountsPage.setBackground(new java.awt.Color(228, 238, 247));
+        jButtonAdministrativeAccountsPage.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
+        jButtonAdministrativeAccountsPage.setText("Admin & Accounting ");
         jButtonAdministrativeAccountsPage.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jButtonAdministrativeAccountsPageActionPerformed(evt);
             }
         });
+        jPanel2.add(jButtonAdministrativeAccountsPage, new org.netbeans.lib.awtextra.AbsoluteConstraints(210, 730, 220, 30));
 
-        jButtonOperationalAccountsPage.setBackground(new java.awt.Color(0, 70, 169));
-        jButtonOperationalAccountsPage.setFont(new java.awt.Font("Tahoma", 1, 24)); // NOI18N
-        jButtonOperationalAccountsPage.setForeground(new java.awt.Color(255, 255, 255));
+        jButtonOperationalAccountsPage.setBackground(new java.awt.Color(228, 238, 247));
+        jButtonOperationalAccountsPage.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
         jButtonOperationalAccountsPage.setText("Operational Team");
         jButtonOperationalAccountsPage.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jButtonOperationalAccountsPageActionPerformed(evt);
             }
         });
+        jPanel2.add(jButtonOperationalAccountsPage, new org.netbeans.lib.awtextra.AbsoluteConstraints(210, 800, 220, 30));
 
-        btnManageAdmin2.setBackground(new java.awt.Color(0, 70, 169));
-        btnManageAdmin2.setFont(new java.awt.Font("Tahoma", 1, 24)); // NOI18N
-        btnManageAdmin2.setForeground(new java.awt.Color(255, 255, 255));
+        btnManageAdmin2.setBackground(new java.awt.Color(228, 238, 247));
+        btnManageAdmin2.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
         btnManageAdmin2.setText("Search Employee");
         btnManageAdmin2.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnManageAdmin2ActionPerformed(evt);
             }
         });
+        jPanel2.add(btnManageAdmin2, new org.netbeans.lib.awtextra.AbsoluteConstraints(211, 919, 220, 30));
 
-        javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
-        jPanel2.setLayout(jPanel2Layout);
-        jPanel2Layout.setHorizontalGroup(
-            jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel2Layout.createSequentialGroup()
-                .addGap(398, 398, 398)
-                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addComponent(jButtonOperationalAccountsPage, javax.swing.GroupLayout.DEFAULT_SIZE, 401, Short.MAX_VALUE)
-                    .addComponent(jButtonAdministrativeAccountsPage, javax.swing.GroupLayout.DEFAULT_SIZE, 401, Short.MAX_VALUE)
-                    .addComponent(jButtonMedTechnicalAccountsPage, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(btnManageAdmin2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                .addContainerGap(941, Short.MAX_VALUE))
-        );
-        jPanel2Layout.setVerticalGroup(
-            jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel2Layout.createSequentialGroup()
-                .addGap(214, 214, 214)
-                .addComponent(jButtonAdministrativeAccountsPage)
-                .addGap(67, 67, 67)
-                .addComponent(jButtonOperationalAccountsPage)
-                .addGap(61, 61, 61)
-                .addComponent(jButtonMedTechnicalAccountsPage)
-                .addGap(58, 58, 58)
-                .addComponent(btnManageAdmin2)
-                .addContainerGap(530, Short.MAX_VALUE))
-        );
+        bgdimg.setIcon(new javax.swing.ImageIcon(getClass().getResource("/userInterface/Images/HospitalAdminWorkArea.jpg"))); // NOI18N
+        jPanel2.add(bgdimg, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 1740, 1080));
 
         jSplitPane.setRightComponent(jPanel2);
 
         jPanel1.setPreferredSize(new java.awt.Dimension(0, 1080));
-
-        javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
-        jPanel1.setLayout(jPanel1Layout);
-        jPanel1Layout.setHorizontalGroup(
-            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 0, Short.MAX_VALUE)
-        );
-        jPanel1Layout.setVerticalGroup(
-            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 1078, Short.MAX_VALUE)
-        );
-
+        jPanel1.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
         jSplitPane.setLeftComponent(jPanel1);
 
         add(jSplitPane, java.awt.BorderLayout.CENTER);
@@ -187,6 +154,7 @@ public class HospitalAdminWorkAreaJPanel extends javax.swing.JPanel {
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JLabel bgdimg;
     private javax.swing.JButton btnManageAdmin2;
     private javax.swing.JButton jButtonAdministrativeAccountsPage;
     private javax.swing.JButton jButtonMedTechnicalAccountsPage;
