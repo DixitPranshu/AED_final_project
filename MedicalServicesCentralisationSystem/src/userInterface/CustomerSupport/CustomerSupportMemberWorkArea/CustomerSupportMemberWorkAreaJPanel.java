@@ -13,6 +13,8 @@ import MainCentralisationSystem.MedicalServiceCentralisationEcoSystem;
 import CustomerSupportTeam.CustomerSupportMember.CustomerSupportMemberDirectory;
 import CustomerSupportTeam.CustomerSupportMember.CustomerSupportMember;
 import CustomerSupportTeam.CustomerSupportTeam;
+import HospitalManagement.Hospital.Hospital;
+import HospitalManagement.Hospital.HospitalDirectory;
 import HospitalManagement.Requests.Request;
 import HospitalManagement.Requests.RequestDirectory;
 
@@ -24,6 +26,7 @@ import MainCentralisationSystem.Role.Role;
 import MainCentralisationSystem.UserAccount;
 import MainCentralisationSystem.UserAccountDirectory;
 import java.awt.CardLayout;
+import java.awt.event.KeyEvent;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Date;
@@ -213,6 +216,17 @@ public class CustomerSupportMemberWorkAreaJPanel extends javax.swing.JPanel {
         jLabelEmpName3.setForeground(new java.awt.Color(255, 255, 255));
         jLabelEmpName3.setText("Customer Pincode");
 
+        jTextFieldCustPincode.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jTextFieldCustPincodeActionPerformed(evt);
+            }
+        });
+        jTextFieldCustPincode.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyPressed(java.awt.event.KeyEvent evt) {
+                jTextFieldCustPincodeKeyPressed(evt);
+            }
+        });
+
         jButtonSearchMedTest.setText("SEARCH MEDICAL TEST");
         jButtonSearchMedTest.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -262,48 +276,23 @@ public class CustomerSupportMemberWorkAreaJPanel extends javax.swing.JPanel {
                                 .addComponent(jTextFieldNotes, javax.swing.GroupLayout.PREFERRED_SIZE, 403, javax.swing.GroupLayout.PREFERRED_SIZE))
                             .addGroup(layout.createSequentialGroup()
                                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addGroup(layout.createSequentialGroup()
+                                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                                        .addComponent(jButtonSearchMedTest)
                                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                                                .addComponent(jButtonSearchMedTest)
-                                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                                    .addComponent(jLabelEmpID, javax.swing.GroupLayout.PREFERRED_SIZE, 104, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                                    .addComponent(jLabelEmpName2)))
-                                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                                                .addComponent(jLabelEmpName)
-                                                .addGap(35, 35, 35)))
-                                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                                            .addComponent(jTextFieldCustName)
-                                            .addComponent(jTextFieldCustPhone)
-                                            .addComponent(jTextFieldCustEmail, javax.swing.GroupLayout.PREFERRED_SIZE, 421, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                            .addGroup(layout.createSequentialGroup()
-                                                .addGap(52, 52, 52)
-                                                .addComponent(jButtonSearchConsultation)
-                                                .addGap(18, 18, 18)
-                                                .addComponent(jButtonSearchMedEquip))))
+                                            .addComponent(jLabelEmpID, javax.swing.GroupLayout.PREFERRED_SIZE, 104, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                            .addComponent(jLabelEmpName2)))
+                                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                                        .addComponent(jLabelEmpName)
+                                        .addGap(35, 35, 35)))
+                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                                    .addComponent(jTextFieldCustName)
+                                    .addComponent(jTextFieldCustPhone)
+                                    .addComponent(jTextFieldCustEmail, javax.swing.GroupLayout.PREFERRED_SIZE, 421, javax.swing.GroupLayout.PREFERRED_SIZE)
                                     .addGroup(layout.createSequentialGroup()
-                                        .addGap(43, 43, 43)
-                                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                                            .addGroup(layout.createSequentialGroup()
-                                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                                    .addComponent(jLabelEmpName3)
-                                                    .addComponent(jLabelEmpName4))
-                                                .addGap(18, 18, 18)
-                                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                                    .addComponent(jComboBoxHospitalList, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                                    .addComponent(jTextFieldCustPincode)))
-                                            .addGroup(layout.createSequentialGroup()
-                                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                                    .addComponent(jLabelEmpName1)
-                                                    .addComponent(jLabelEmpName5))
-                                                .addGap(18, 18, 18)
-                                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                                                    .addComponent(jRadioButtonMedTest)
-                                                    .addComponent(jDateChooserTestDate, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                                .addGap(18, 18, 18)
-                                                .addComponent(jRadioButtonConsultation)
-                                                .addGap(18, 18, 18)
-                                                .addComponent(jRadioButtonMedEquipment)))))
+                                        .addGap(52, 52, 52)
+                                        .addComponent(jButtonSearchConsultation)
+                                        .addGap(18, 18, 18)
+                                        .addComponent(jButtonSearchMedEquip)))
                                 .addGap(100, 100, 100)
                                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                     .addComponent(jButtonCreate)
@@ -311,7 +300,30 @@ public class CustomerSupportMemberWorkAreaJPanel extends javax.swing.JPanel {
                                 .addGap(178, 178, 178)
                                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                     .addComponent(jButtonView)
-                                    .addComponent(jButtonUpdate)))))
+                                    .addComponent(jButtonUpdate)))
+                            .addGroup(layout.createSequentialGroup()
+                                .addGap(43, 43, 43)
+                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                                    .addGroup(layout.createSequentialGroup()
+                                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                            .addComponent(jLabelEmpName3)
+                                            .addComponent(jLabelEmpName4))
+                                        .addGap(18, 18, 18)
+                                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                            .addComponent(jComboBoxHospitalList, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                            .addComponent(jTextFieldCustPincode)))
+                                    .addGroup(layout.createSequentialGroup()
+                                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                            .addComponent(jLabelEmpName1)
+                                            .addComponent(jLabelEmpName5))
+                                        .addGap(18, 18, 18)
+                                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                                            .addComponent(jRadioButtonMedTest)
+                                            .addComponent(jDateChooserTestDate, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                        .addGap(18, 18, 18)
+                                        .addComponent(jRadioButtonConsultation)
+                                        .addGap(18, 18, 18)
+                                        .addComponent(jRadioButtonMedEquipment))))))
                     .addGroup(layout.createSequentialGroup()
                         .addGap(67, 67, 67)
                         .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 1007, javax.swing.GroupLayout.PREFERRED_SIZE)))
@@ -423,6 +435,7 @@ public class CustomerSupportMemberWorkAreaJPanel extends javax.swing.JPanel {
         request.setRequest_category(user_input.get(6));
         request.setRequest_description(user_input.get(7));
         request.setModified_time(current_timeStamp);
+        request.setRequest_status("new");
         requestList.addRequest(request);
         
             
@@ -508,6 +521,10 @@ public class CustomerSupportMemberWorkAreaJPanel extends javax.swing.JPanel {
 
     private void jButtonSearchMedTestActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonSearchMedTestActionPerformed
         // TODO add your handling code here:
+        CustomerSupportMemberSearchMedicalTests customerSupportMemberSearchMedicalTests = new CustomerSupportMemberSearchMedicalTests(userProcessContainer, medicalServiceCentralisationEcoSystem);
+        userProcessContainer.add("CustomerSupportMemberSearchMedicalTests",customerSupportMemberSearchMedicalTests);
+        CardLayout cardLayout = (CardLayout) userProcessContainer.getLayout();
+        cardLayout.show(userProcessContainer,"CustomerSupportMemberSearchMedicalTests");
     }//GEN-LAST:event_jButtonSearchMedTestActionPerformed
 
     private void jButtonSearchConsultationActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonSearchConsultationActionPerformed
@@ -544,6 +561,29 @@ public class CustomerSupportMemberWorkAreaJPanel extends javax.swing.JPanel {
             request_category = "MedicalEquipment";
         }
     }//GEN-LAST:event_jRadioButtonMedEquipmentActionPerformed
+
+    private void jTextFieldCustPincodeActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextFieldCustPincodeActionPerformed
+        // TODO add your handling code here:
+        
+        
+    }//GEN-LAST:event_jTextFieldCustPincodeActionPerformed
+
+    private void jTextFieldCustPincodeKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_jTextFieldCustPincodeKeyPressed
+        // TODO add your handling code here:
+        jComboBoxHospitalList.removeAllItems();
+        if(evt.getKeyCode() == KeyEvent.VK_ENTER){
+            
+            HospitalDirectory hospitalDirectory = medicalServiceCentralisationEcoSystem.getHospitalDirectory();
+            ArrayList<Hospital> hospitalList = hospitalDirectory.getHospitalList();
+
+            for(Hospital hospital: hospitalList){
+                if(hospital.getHospitalpincode().equals(jTextFieldCustPincode.getText())){
+                    jComboBoxHospitalList.addItem(hospital.getHospitalId());
+
+                }
+        }
+        }
+    }//GEN-LAST:event_jTextFieldCustPincodeKeyPressed
     private UserAccount set_user_input_values(UserAccount userAccount, ArrayList<String> user_input) {
 //        userAccount.getEmployee().setEmployee_id(user_input.get(0));
 //        userAccount.getEmployee().setEmployee_name(user_input.get(1));

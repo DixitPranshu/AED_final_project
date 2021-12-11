@@ -48,7 +48,7 @@ public class HospitalAccountsPage extends javax.swing.JPanel {
            medicalServiceCentralisationEcoSystem.setHospitalDirectory(new HospitalDirectory());
         
 //        addRolesComboBox();
-        addDefaultvalues();
+        
         addrecordstotable();
         
     }
@@ -374,6 +374,7 @@ public class HospitalAccountsPage extends javax.swing.JPanel {
     
     private void addrecordstotable() {
         UserAccountDirectory userAccountDirectory = medicalServiceCentralisationEcoSystem.getUserAccountDirectory();
+        addDefaultvalues();
         ArrayList<UserAccount> usersList = userAccountDirectory.getUserAccountList();
 //        hospitalDirectory = medicalServiceCentralisationEcoSystem.getHospitalDirectory();
     
@@ -395,12 +396,15 @@ public class HospitalAccountsPage extends javax.swing.JPanel {
         UserAccountDirectory usersList = medicalServiceCentralisationEcoSystem.getUserAccountDirectory();
         userAccount = new UserAccount("hosp121", "pass",new HospitalAdminRole());
         Hospital hospital = new Hospital("hosp121","hospname1","02215");
+        hospitalDirectory = medicalServiceCentralisationEcoSystem.getHospitalDirectory();
+        hospitalDirectory.addHospital(hospital);
         userAccount.setHospital(hospital);
         if(usersList.checkIfUserIsUnique("hosp121")){
         usersList.addUserAccount(userAccount);
         }
         userAccount = new UserAccount("hosp122", "pass",new HospitalAdminRole());
         hospital = new Hospital("hosp122","hospname2","02215");
+        hospitalDirectory.addHospital(hospital);
         userAccount.setHospital(hospital);
         if(usersList.checkIfUserIsUnique("hosp122")){
         usersList.addUserAccount(userAccount);

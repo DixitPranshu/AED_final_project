@@ -39,20 +39,22 @@ public class CustomerSupportTeamAdminWorkAreaJPanel extends javax.swing.JPanel {
      */
     JPanel userProcessContainer;
     MedicalServiceCentralisationEcoSystem medicalServiceCentralisationEcoSystem;
-    CustomerSupportMemberDirectory accountantDirectory;
+    CustomerSupportMemberDirectory customerSupportMemberDirectory;
     
     UserAccount userAccount;
+    UserAccount userAccountLogin;
     UserAccountDirectory UserAccountDirectory;
     CustomerSupportTeam customerSupportTeam;
-    public CustomerSupportTeamAdminWorkAreaJPanel(JPanel userProcessContainer , MedicalServiceCentralisationEcoSystem medicalServiceCentralisationEcoSystem, CustomerSupportTeam customerSupportTeam) {
+    public CustomerSupportTeamAdminWorkAreaJPanel(JPanel userProcessContainer , MedicalServiceCentralisationEcoSystem medicalServiceCentralisationEcoSystem, CustomerSupportTeam customerSupportTeam, UserAccount userAccountLogin) {
         
         this.userProcessContainer = userProcessContainer;
         this.medicalServiceCentralisationEcoSystem = medicalServiceCentralisationEcoSystem;
         this.customerSupportTeam = customerSupportTeam;
+        this.userAccountLogin = userAccountLogin;
         initComponents();
         if(customerSupportTeam.getCustomerSupportMemberDirectory()== null)
            customerSupportTeam.setCustomerSupportMemberDirectory(new CustomerSupportMemberDirectory());
-        
+//        addDefaultValues(userAccountLogin);
         addrecordstotable();
     }
 
@@ -255,14 +257,14 @@ public class CustomerSupportTeamAdminWorkAreaJPanel extends javax.swing.JPanel {
         UserAccountDirectory usersList = medicalServiceCentralisationEcoSystem.getUserAccountDirectory();
         if(usersList.checkIfUserIsUnique(user_input.get(0))){
             
-                userAccount = new UserAccount(user_input.get(0), user_input.get(2),new CustomerSupportMemberRole());
-                usersList.addUserAccount(userAccount);
-                CustomerSupportMember accountant = new CustomerSupportMember();
-                accountant.setCustomerSupportMemberId(user_input.get(0));
-                accountant.setCustomerSupportMemberName(user_input.get(1));  
-                accountantDirectory.addCustomerSupportMember(user_input.get(0), accountant);
-                customerSupportTeam.setCustomerSupportMemberDirectory(accountantDirectory);
-                userAccount.setCustomerSupportTeam(customerSupportTeam);
+            userAccount = new UserAccount(user_input.get(0), user_input.get(2),new CustomerSupportMemberRole());
+            usersList.addUserAccount(userAccount);
+            CustomerSupportMember customerSupportMember = new CustomerSupportMember();
+            customerSupportMember.setCustomerSupportMemberId(user_input.get(0));
+            customerSupportMember.setCustomerSupportMemberName(user_input.get(1));  
+            customerSupportMemberDirectory.addCustomerSupportMember(user_input.get(0), customerSupportMember);
+            customerSupportTeam.setCustomerSupportMemberDirectory(customerSupportMemberDirectory);
+            userAccount.setCustomerSupportTeam(customerSupportTeam);
             
             
             JOptionPane.showMessageDialog(this, "New Employee Information has been added.");
@@ -337,8 +339,8 @@ public class CustomerSupportTeamAdminWorkAreaJPanel extends javax.swing.JPanel {
         
         if(role.toString().equals("CustomerSupportMember")){
             CustomerSupportTeam customerSupportTeam = select_user_account_details.getCustomerSupportTeam();
-            accountantDirectory = customerSupportTeam.getCustomerSupportMemberDirectory();
-            HashMap<String, CustomerSupportMember> accountantList = accountantDirectory.getCustomerSupportMemberList();
+            customerSupportMemberDirectory = customerSupportTeam.getCustomerSupportMemberDirectory();
+            HashMap<String, CustomerSupportMember> accountantList = customerSupportMemberDirectory.getCustomerSupportMemberList();
             CustomerSupportMember accountant = accountantList.get(select_user_account_details.getUsername());
             jTextFieldEmpName.setText(accountant.getCustomerSupportMemberName());
         }
@@ -402,37 +404,53 @@ public class CustomerSupportTeamAdminWorkAreaJPanel extends javax.swing.JPanel {
     private javax.swing.JTextField jTextFieldEmpName;
     private javax.swing.JTextField jTextFieldPassword;
     // End of variables declaration//GEN-END:variables
-
-    
-
-    private void addrecordstotable() {
-        accountantDirectory = customerSupportTeam.getCustomerSupportMemberDirectory();
-    
-        DefaultTableModel model = (DefaultTableModel) jTableEmployee.getModel();
-        model.setRowCount(0);
-//        ArrayList<CustomerSupportMember> accountantList = accountantDirectory.getCustomerSupportMemberList();
-//        for(CustomerSupportMember accountant: accountantList)
-//        {
-//            model.addRow(new Object[]{accountant.getUserAccount(),accountant.getUserAccount().getEmployee().getEmployee_name(),"CustomerSupportMember",accountant.getUserAccount().getPassword()});
-//        }
+    private void addUserAccount(String user_name, String password, String name, CustomerSupportMemberDirectory customerSupportMemberDirectory, CustomerSupportTeam customerSupportTeam){
+        UserAccountDirectory usersList = medicalServiceCentralisationEcoSystem.getUserAccountDirectory();
+        userAccount = new UserAccount(user_name, password,new CustomerSupportMemberRole());
+        usersList.addUserAccount(userAccount);
+        CustomerSupportMember customerSupportMember = new CustomerSupportMember();
+        customerSupportMember.setCustomerSupportMemberId(user_name);
+        customerSupportMember.setCustomerSupportMemberName(name);  
+        customerSupportMemberDirectory.addCustomerSupportMember(user_name, customerSupportMember);
+        customerSupportTeam.setCustomerSupportMemberDirectory(customerSupportMemberDirectory);
+        userAccount.setCustomerSupportTeam(customerSupportTeam);
+    }
+    private void addDefaultValues(UserAccount userAccountLogin, CustomerSupportMemberDirectory customerSupportMemberDirectory, CustomerSupportTeam customerSupportTeam){
+        
         UserAccountDirectory userAccountDirectory = medicalServiceCentralisationEcoSystem.getUserAccountDirectory();
         ArrayList<UserAccount> usersList = userAccountDirectory.getUserAccountList();
-//        customerSupportTeamDirectory = medicalServiceCentralisationEcoSystem.getCustomerSupportTeamDirectory();
+        System.out.println("userAccountLogin.getUsername(): "+userAccountLogin.getUsername());
+        if(userAccountLogin.getUsername().equals("custsupp121")){
+            if(userAccountDirectory.checkIfUserIsUnique("custsupp1"))
+                addUserAccount("custsupp1","pass","custsuppname1", customerSupportMemberDirectory, customerSupportTeam);
+            if(userAccountDirectory.checkIfUserIsUnique("custsupp2"))
+                addUserAccount("custsupp2","pass","custsuppname2", customerSupportMemberDirectory, customerSupportTeam);
+            
+        }
+    }
+
+    private void addrecordstotable() {
+        customerSupportMemberDirectory = customerSupportTeam.getCustomerSupportMemberDirectory();
+        addDefaultValues(userAccountLogin, customerSupportMemberDirectory, customerSupportTeam);
+        DefaultTableModel model = (DefaultTableModel) jTableEmployee.getModel();
+        model.setRowCount(0);
+
+        UserAccountDirectory userAccountDirectory = medicalServiceCentralisationEcoSystem.getUserAccountDirectory();
+        ArrayList<UserAccount> usersList = userAccountDirectory.getUserAccountList();
         
         model.setRowCount(0);
-//        ArrayList<CustomerSupportTeam> customerSupportTeamList = customerSupportTeamDirectory.getCustomerSupportTeamList();
         for(UserAccount userAccount: usersList)
         {   
             System.out.println("userAccount.getRole().toString(): "+userAccount.getRole().toString());
             if(userAccount.getRole().toString() == "CustomerSupportMember" && userAccount.getCustomerSupportTeam().equals(customerSupportTeam)){
                 
-                accountantDirectory = customerSupportTeam.getCustomerSupportMemberDirectory();
-                HashMap<String, CustomerSupportMember> accountantList = accountantDirectory.getCustomerSupportMemberList();
+                customerSupportMemberDirectory = customerSupportTeam.getCustomerSupportMemberDirectory();
+                HashMap<String, CustomerSupportMember> accountantList = customerSupportMemberDirectory.getCustomerSupportMemberList();
                 CustomerSupportMember accountant = accountantList.get(userAccount.getUsername());
                 model.addRow(new Object[]{userAccount,accountant.getCustomerSupportMemberName(),userAccount.getPassword()});
             }
         }
-
+        
         jTableEmployee.setModel(model);
     }
     

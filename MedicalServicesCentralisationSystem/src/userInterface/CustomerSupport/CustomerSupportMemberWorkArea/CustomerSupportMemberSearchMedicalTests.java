@@ -13,6 +13,9 @@ import MainCentralisationSystem.MedicalServiceCentralisationEcoSystem;
 import CustomerSupportTeam.CustomerSupportMember.CustomerSupportMemberDirectory;
 import CustomerSupportTeam.CustomerSupportMember.CustomerSupportMember;
 import CustomerSupportTeam.CustomerSupportTeam;
+import HospitalManagement.Hospital.Hospital;
+import HospitalManagement.Hospital.HospitalDirectory;
+import HospitalManagement.PatientTest.LabTest;
 
 
 import MainCentralisationSystem.Role.CustomerSupportMemberRole;
@@ -45,16 +48,15 @@ public class CustomerSupportMemberSearchMedicalTests extends javax.swing.JPanel 
     UserAccount userAccount;
     UserAccountDirectory UserAccountDirectory;
     CustomerSupportTeam customerSupportTeam;
-    public CustomerSupportMemberSearchMedicalTests(JPanel userProcessContainer , MedicalServiceCentralisationEcoSystem medicalServiceCentralisationEcoSystem, CustomerSupportTeam customerSupportTeam) {
+    ArrayList<LabTest> finallabTestList = new ArrayList<>();
+    public CustomerSupportMemberSearchMedicalTests(JPanel userProcessContainer , MedicalServiceCentralisationEcoSystem medicalServiceCentralisationEcoSystem) {
         
         this.userProcessContainer = userProcessContainer;
         this.medicalServiceCentralisationEcoSystem = medicalServiceCentralisationEcoSystem;
-        this.customerSupportTeam = customerSupportTeam;
-        initComponents();
-        if(customerSupportTeam.getCustomerSupportMemberDirectory()== null)
-           customerSupportTeam.setCustomerSupportMemberDirectory(new CustomerSupportMemberDirectory());
         
-        addrecordstotable();
+        initComponents();
+        
+//        addrecordstotable();
     }
 
     /**
@@ -70,11 +72,12 @@ public class CustomerSupportMemberSearchMedicalTests extends javax.swing.JPanel 
         jButton2 = new javax.swing.JButton();
         jScrollPane1 = new javax.swing.JScrollPane();
         jTableRequests = new javax.swing.JTable();
-        jButtonCreate = new javax.swing.JButton();
-        jTextFieldCustName = new javax.swing.JTextField();
+        jButtonSearch = new javax.swing.JButton();
+        jTextFieldTestName = new javax.swing.JTextField();
         jLabelEmpID = new javax.swing.JLabel();
         jLabelEmpID1 = new javax.swing.JLabel();
-        jTextFieldCustName1 = new javax.swing.JTextField();
+        jTextFieldPincode = new javax.swing.JTextField();
+        jButtonRefresh = new javax.swing.JButton();
 
         setBackground(new java.awt.Color(0, 70, 169));
 
@@ -95,6 +98,10 @@ public class CustomerSupportMemberSearchMedicalTests extends javax.swing.JPanel 
 
         jTableRequests.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
+                {null, null, null},
+                {null, null, null},
+                {null, null, null},
+                {null, null, null},
                 {null, null, null},
                 {null, null, null},
                 {null, null, null},
@@ -119,16 +126,16 @@ public class CustomerSupportMemberSearchMedicalTests extends javax.swing.JPanel 
         });
         jScrollPane1.setViewportView(jTableRequests);
 
-        jButtonCreate.setText("SEARCH");
-        jButtonCreate.addActionListener(new java.awt.event.ActionListener() {
+        jButtonSearch.setText("SEARCH");
+        jButtonSearch.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButtonCreateActionPerformed(evt);
+                jButtonSearchActionPerformed(evt);
             }
         });
 
-        jTextFieldCustName.addActionListener(new java.awt.event.ActionListener() {
+        jTextFieldTestName.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jTextFieldCustNameActionPerformed(evt);
+                jTextFieldTestNameActionPerformed(evt);
             }
         });
 
@@ -138,9 +145,16 @@ public class CustomerSupportMemberSearchMedicalTests extends javax.swing.JPanel 
         jLabelEmpID1.setForeground(new java.awt.Color(255, 255, 255));
         jLabelEmpID1.setText("Pincode");
 
-        jTextFieldCustName1.addActionListener(new java.awt.event.ActionListener() {
+        jTextFieldPincode.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jTextFieldCustName1ActionPerformed(evt);
+                jTextFieldPincodeActionPerformed(evt);
+            }
+        });
+
+        jButtonRefresh.setText("REFRESH");
+        jButtonRefresh.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButtonRefreshActionPerformed(evt);
             }
         });
 
@@ -163,14 +177,17 @@ public class CustomerSupportMemberSearchMedicalTests extends javax.swing.JPanel 
                                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                                     .addGroup(layout.createSequentialGroup()
                                         .addComponent(jLabelEmpID, javax.swing.GroupLayout.PREFERRED_SIZE, 104, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                        .addComponent(jTextFieldCustName, javax.swing.GroupLayout.PREFERRED_SIZE, 421, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                        .addGap(0, 0, 0)
+                                        .addComponent(jTextFieldTestName, javax.swing.GroupLayout.PREFERRED_SIZE, 421, javax.swing.GroupLayout.PREFERRED_SIZE))
                                     .addGroup(layout.createSequentialGroup()
                                         .addComponent(jLabelEmpID1, javax.swing.GroupLayout.PREFERRED_SIZE, 104, javax.swing.GroupLayout.PREFERRED_SIZE)
                                         .addGap(0, 0, 0)
-                                        .addComponent(jTextFieldCustName1, javax.swing.GroupLayout.PREFERRED_SIZE, 421, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                                        .addComponent(jTextFieldPincode, javax.swing.GroupLayout.PREFERRED_SIZE, 421, javax.swing.GroupLayout.PREFERRED_SIZE)))
                                 .addGap(100, 100, 100)
-                                .addComponent(jButtonCreate)))))
-                .addGap(410, 410, 410))
+                                .addComponent(jButtonSearch)))
+                        .addGap(30, 30, 30)
+                        .addComponent(jButtonRefresh)))
+                .addContainerGap(380, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -183,19 +200,21 @@ public class CustomerSupportMemberSearchMedicalTests extends javax.swing.JPanel 
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(jLabelEmpID)
                     .addGroup(layout.createSequentialGroup()
-                        .addComponent(jTextFieldCustName, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(jTextFieldTestName, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(layout.createSequentialGroup()
                                 .addGap(18, 18, 18)
                                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                     .addComponent(jLabelEmpID1)
-                                    .addComponent(jTextFieldCustName1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                                    .addComponent(jTextFieldPincode, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
                             .addGroup(layout.createSequentialGroup()
                                 .addGap(26, 26, 26)
-                                .addComponent(jButtonCreate)))))
+                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                                    .addComponent(jButtonSearch)
+                                    .addComponent(jButtonRefresh))))))
                 .addGap(18, 18, 18)
-                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 248, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(557, Short.MAX_VALUE))
+                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 122, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(683, Short.MAX_VALUE))
         );
     }// </editor-fold>//GEN-END:initComponents
 
@@ -205,98 +224,71 @@ public class CustomerSupportMemberSearchMedicalTests extends javax.swing.JPanel 
             crdLyt.show(userProcessContainer,"Sysadmin");
     }//GEN-LAST:event_jButton2ActionPerformed
 
-    private void jTextFieldCustNameActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextFieldCustNameActionPerformed
+    private void jTextFieldTestNameActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextFieldTestNameActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_jTextFieldCustNameActionPerformed
+    }//GEN-LAST:event_jTextFieldTestNameActionPerformed
 
-    private void jButtonCreateActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonCreateActionPerformed
+    private void jButtonSearchActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonSearchActionPerformed
         // TODO add your handling code here:
         DefaultTableModel model = (DefaultTableModel) jTableRequests.getModel();
+        model.setRowCount(0);
         ArrayList<String> user_input = check_empty_field();
-        UserAccountDirectory usersList = medicalServiceCentralisationEcoSystem.getUserAccountDirectory();
-        if(usersList.checkIfUserIsUnique(user_input.get(0))){
-            
-                userAccount = new UserAccount(user_input.get(0), user_input.get(2),new CustomerSupportMemberRole());
-                usersList.addUserAccount(userAccount);
-                CustomerSupportMember accountant = new CustomerSupportMember();
-                accountant.setCustomerSupportMemberId(user_input.get(0));
-                accountant.setCustomerSupportMemberName(user_input.get(1));  
-                accountantDirectory.addCustomerSupportMember(user_input.get(0), accountant);
-                customerSupportTeam.setCustomerSupportMemberDirectory(accountantDirectory);
-                userAccount.setCustomerSupportTeam(customerSupportTeam);
-            
-            
-            JOptionPane.showMessageDialog(this, "New Employee Information has been added.");
-            model.addRow(new Object[]{userAccount,user_input.get(1),user_input.get(2)});
-            clearFields();
+        HospitalDirectory hospitalDirectory = medicalServiceCentralisationEcoSystem.getHospitalDirectory();
+        ArrayList<Hospital> hospitalList = hospitalDirectory.getHospitalList();
+        
+        for(Hospital hospital: hospitalList){
+            if(hospital.getHospitalpincode().equals(user_input.get(1))){
+                ArrayList<LabTest> labTestList = hospital.getLabTestDirectory().getLabTestList();
+                for(LabTest labTest: labTestList){
+                    if(labTest.getTest_name().equals(user_input.get(0))){
+                        if(!finallabTestList.contains(labTest)){
+                            finallabTestList.add(labTest);
+                            model.addRow(new Object[]{user_input.get(0), user_input.get(1), hospital});
+                        }
+                        
+                    }
+                }
+                
+            }
         }
-        else{
-            JOptionPane.showMessageDialog(this, "This username is not available. Please select a new one.");
-        }
-    }//GEN-LAST:event_jButtonCreateActionPerformed
+        
+    }//GEN-LAST:event_jButtonSearchActionPerformed
 
     private void jTableRequestsMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jTableRequestsMouseClicked
         // TODO add your handling code here:
-        jButtonCreate.setEnabled(false);
-        int selected_row_ix = jTableRequests.getSelectedRow();
-        DefaultTableModel model = (DefaultTableModel) jTableRequests.getModel();
-        UserAccount select_user_account_details = (UserAccount)model.getValueAt(selected_row_ix, 0);
-        jTextFieldCustName.setEditable(false);
-        jTextFieldCustName.setText(select_user_account_details.getUsername());
-        
-        Role role = select_user_account_details.getRole();
-        System.out.println("role.toString(): "+role.toString());
-        
-        
-        if(role.toString().equals("CustomerSupportMember")){
-            CustomerSupportTeam customerSupportTeam = select_user_account_details.getCustomerSupportTeam();
-            accountantDirectory = customerSupportTeam.getCustomerSupportMemberDirectory();
-            HashMap<String, CustomerSupportMember> accountantList = accountantDirectory.getCustomerSupportMemberList();
-            CustomerSupportMember accountant = accountantList.get(select_user_account_details.getUsername());
-//            jTextFieldCustPhone.setText(accountant.getCustomerSupportMemberName());
-        }
-        
-//        jTextFieldPassword.setText(select_user_account_details.getPassword());
         
     }//GEN-LAST:event_jTableRequestsMouseClicked
 
-    private void jTextFieldCustName1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextFieldCustName1ActionPerformed
+    private void jTextFieldPincodeActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextFieldPincodeActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_jTextFieldCustName1ActionPerformed
-    private UserAccount set_user_input_values(UserAccount userAccount, ArrayList<String> user_input) {
-//        userAccount.getEmployee().setEmployee_id(user_input.get(0));
-//        userAccount.getEmployee().setEmployee_name(user_input.get(1));
-        userAccount.setPassword(user_input.get(2));
-        return userAccount;
-    }
-    private void clearFields(){
-        jTextFieldCustName.setText("");
-//        jTextFieldCustPhone.setText("");
-//        jTextFieldPassword.setText("");
-    }
+    }//GEN-LAST:event_jTextFieldPincodeActionPerformed
+
+    private void jButtonRefreshActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonRefreshActionPerformed
+        // TODO add your handling code here:
+        DefaultTableModel model = (DefaultTableModel) jTableRequests.getModel();
+        model.setRowCount(0);
+        jTableRequests.setModel(model);
+        jTextFieldPincode.setText("");
+        jTextFieldTestName.setText("");
+        finallabTestList.clear();
+    }//GEN-LAST:event_jButtonRefreshActionPerformed
+    
     
     public ArrayList<String> check_empty_field(){
         ArrayList<String> user_input = new ArrayList<>();
-        String user_emp_id = jTextFieldCustName.getText();
-//        String user_emp_name = jTextFieldCustPhone.getText();
-//        String user_password = jTextFieldPassword.getText();
+        String user_test_name = jTextFieldTestName.getText();
+        String user_pincode = jTextFieldPincode.getText();
 
-        
-        if(user_emp_id.isEmpty()){
-            JOptionPane.showMessageDialog(this, "User ID can't be left empty.");
+        if(user_test_name.isEmpty()){
+            JOptionPane.showMessageDialog(this, "Please enter Test Name");
         }
-//        else if(user_emp_name.isEmpty()){
-//            JOptionPane.showMessageDialog(this, "User Name can't be left empty.");
-//        }
-//        else if(user_password.isEmpty()){
-//            JOptionPane.showMessageDialog(this, "Please enter a Password.");
-//        }
-        
-        
-        user_input.add(user_emp_id);
-//        user_input.add(user_emp_name);
-//        user_input.add(user_password);
-//        
+        if(user_pincode.isEmpty()){
+            JOptionPane.showMessageDialog(this, "Please pincode.");
+        }
+
+        user_input.add(user_test_name);
+        user_input.add(user_pincode);
+   
         return user_input;
         
     }
@@ -305,14 +297,15 @@ public class CustomerSupportMemberSearchMedicalTests extends javax.swing.JPanel 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton jButton2;
-    private javax.swing.JButton jButtonCreate;
+    private javax.swing.JButton jButtonRefresh;
+    private javax.swing.JButton jButtonSearch;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabelEmpID;
     private javax.swing.JLabel jLabelEmpID1;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JTable jTableRequests;
-    private javax.swing.JTextField jTextFieldCustName;
-    private javax.swing.JTextField jTextFieldCustName1;
+    private javax.swing.JTextField jTextFieldPincode;
+    private javax.swing.JTextField jTextFieldTestName;
     // End of variables declaration//GEN-END:variables
 
     

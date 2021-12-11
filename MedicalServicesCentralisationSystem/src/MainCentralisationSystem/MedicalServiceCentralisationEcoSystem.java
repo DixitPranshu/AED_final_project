@@ -17,8 +17,8 @@ import java.util.ArrayList;
 
 public class MedicalServiceCentralisationEcoSystem extends HospitalManagementEnterprise{
     
-    private static HospitalDirectory hospitalDirectory;
-    private static CustomerSupportTeamDirectory customerSupportTeamDirectory;
+    private HospitalDirectory hospitalDirectory;
+    private CustomerSupportTeamDirectory customerSupportTeamDirectory;
     
     private UserAccountDirectory userAccountDirectory;
     private RequestDirectory requestDirectory;
@@ -26,6 +26,8 @@ public class MedicalServiceCentralisationEcoSystem extends HospitalManagementEnt
     public MedicalServiceCentralisationEcoSystem(){
         userAccountDirectory = new UserAccountDirectory();
         requestDirectory = new RequestDirectory();
+        hospitalDirectory = new HospitalDirectory();
+        customerSupportTeamDirectory = new CustomerSupportTeamDirectory();
     }
 
     public HospitalDirectory getHospitalDirectory() {

@@ -5,6 +5,7 @@
  */
 package userInterface.HospitalManagement.MedTechnicalWorkArea;
 
+import HospitalManagement.Hospital.Hospital;
 import userInterface.SystemAdminWorkArea.*;
 import MainCentralisationSystem.MedicalServiceCentralisationEcoSystem;
 import MainCentralisationSystem.HospitalManagementEnterprise;
@@ -22,10 +23,12 @@ public class MedTechnicalWorkAreaJPanel extends javax.swing.JPanel {
      */
     JPanel userProcessContainer;
     MedicalServiceCentralisationEcoSystem hospitalManagementEcoSystem;
-    public MedTechnicalWorkAreaJPanel(JPanel userProcessContainer,MedicalServiceCentralisationEcoSystem hospitalManagementEcoSystem) {
+    Hospital hospital;
+    public MedTechnicalWorkAreaJPanel(JPanel userProcessContainer,MedicalServiceCentralisationEcoSystem hospitalManagementEcoSystem, Hospital hospital) {
         initComponents();
         this.userProcessContainer = userProcessContainer;
         this.hospitalManagementEcoSystem = hospitalManagementEcoSystem;
+        this.hospital = hospital;
         jPanel1.setVisible(false);
         //jSplitPane.setVisible(false);
         //jPanel2.setVisible(true);
@@ -145,7 +148,7 @@ public class MedTechnicalWorkAreaJPanel extends javax.swing.JPanel {
 
     private void jButtonTestDatabaseActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonTestDatabaseActionPerformed
 
-        MedTechnicalTestDatabase medTechnicalTestDatabase = new MedTechnicalTestDatabase(userProcessContainer,hospitalManagementEcoSystem);
+        MedTechnicalTestDatabase medTechnicalTestDatabase = new MedTechnicalTestDatabase(userProcessContainer,hospitalManagementEcoSystem, hospital);
         userProcessContainer.add("medTechnicalTestDatabase",medTechnicalTestDatabase);
         CardLayout cardLayout = (CardLayout) userProcessContainer.getLayout();
         cardLayout.show(userProcessContainer,"medTechnicalTestDatabase");

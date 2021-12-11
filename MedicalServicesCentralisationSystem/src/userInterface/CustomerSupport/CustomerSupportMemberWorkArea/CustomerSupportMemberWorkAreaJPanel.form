@@ -39,62 +39,27 @@
                           </Group>
                           <Group type="102" alignment="0" attributes="0">
                               <Group type="103" groupAlignment="0" attributes="0">
-                                  <Group type="102" alignment="0" attributes="0">
+                                  <Group type="103" alignment="0" groupAlignment="1" attributes="0">
+                                      <Component id="jButtonSearchMedTest" min="-2" max="-2" attributes="0"/>
                                       <Group type="103" groupAlignment="0" attributes="0">
-                                          <Group type="103" alignment="0" groupAlignment="1" attributes="0">
-                                              <Component id="jButtonSearchMedTest" min="-2" max="-2" attributes="0"/>
-                                              <Group type="103" groupAlignment="0" attributes="0">
-                                                  <Component id="jLabelEmpID" alignment="0" min="-2" pref="104" max="-2" attributes="0"/>
-                                                  <Component id="jLabelEmpName2" alignment="0" min="-2" max="-2" attributes="0"/>
-                                              </Group>
-                                          </Group>
-                                          <Group type="102" alignment="1" attributes="0">
-                                              <Component id="jLabelEmpName" min="-2" max="-2" attributes="0"/>
-                                              <EmptySpace min="-2" pref="35" max="-2" attributes="0"/>
-                                          </Group>
-                                      </Group>
-                                      <Group type="103" groupAlignment="0" max="-2" attributes="0">
-                                          <Component id="jTextFieldCustName" alignment="0" max="32767" attributes="0"/>
-                                          <Component id="jTextFieldCustPhone" alignment="0" max="32767" attributes="0"/>
-                                          <Component id="jTextFieldCustEmail" alignment="0" min="-2" pref="421" max="-2" attributes="0"/>
-                                          <Group type="102" alignment="0" attributes="0">
-                                              <EmptySpace min="-2" pref="52" max="-2" attributes="0"/>
-                                              <Component id="jButtonSearchConsultation" min="-2" max="-2" attributes="0"/>
-                                              <EmptySpace type="separate" max="-2" attributes="0"/>
-                                              <Component id="jButtonSearchMedEquip" min="-2" max="-2" attributes="0"/>
-                                          </Group>
+                                          <Component id="jLabelEmpID" alignment="0" min="-2" pref="104" max="-2" attributes="0"/>
+                                          <Component id="jLabelEmpName2" alignment="0" min="-2" max="-2" attributes="0"/>
                                       </Group>
                                   </Group>
+                                  <Group type="102" alignment="1" attributes="0">
+                                      <Component id="jLabelEmpName" min="-2" max="-2" attributes="0"/>
+                                      <EmptySpace min="-2" pref="35" max="-2" attributes="0"/>
+                                  </Group>
+                              </Group>
+                              <Group type="103" groupAlignment="0" max="-2" attributes="0">
+                                  <Component id="jTextFieldCustName" alignment="0" max="32767" attributes="0"/>
+                                  <Component id="jTextFieldCustPhone" alignment="0" max="32767" attributes="0"/>
+                                  <Component id="jTextFieldCustEmail" alignment="0" min="-2" pref="421" max="-2" attributes="0"/>
                                   <Group type="102" alignment="0" attributes="0">
-                                      <EmptySpace min="-2" pref="43" max="-2" attributes="0"/>
-                                      <Group type="103" groupAlignment="0" max="-2" attributes="0">
-                                          <Group type="102" alignment="0" attributes="0">
-                                              <Group type="103" groupAlignment="0" attributes="0">
-                                                  <Component id="jLabelEmpName3" alignment="0" min="-2" max="-2" attributes="0"/>
-                                                  <Component id="jLabelEmpName4" alignment="0" min="-2" max="-2" attributes="0"/>
-                                              </Group>
-                                              <EmptySpace type="separate" max="-2" attributes="0"/>
-                                              <Group type="103" groupAlignment="0" attributes="0">
-                                                  <Component id="jComboBoxHospitalList" min="-2" max="-2" attributes="0"/>
-                                                  <Component id="jTextFieldCustPincode" max="32767" attributes="0"/>
-                                              </Group>
-                                          </Group>
-                                          <Group type="102" alignment="0" attributes="0">
-                                              <Group type="103" groupAlignment="0" attributes="0">
-                                                  <Component id="jLabelEmpName1" alignment="0" min="-2" max="-2" attributes="0"/>
-                                                  <Component id="jLabelEmpName5" alignment="0" min="-2" max="-2" attributes="0"/>
-                                              </Group>
-                                              <EmptySpace type="separate" max="-2" attributes="0"/>
-                                              <Group type="103" groupAlignment="1" attributes="0">
-                                                  <Component id="jRadioButtonMedTest" min="-2" max="-2" attributes="0"/>
-                                                  <Component id="jDateChooserTestDate" min="-2" max="-2" attributes="0"/>
-                                              </Group>
-                                              <EmptySpace type="separate" max="-2" attributes="0"/>
-                                              <Component id="jRadioButtonConsultation" min="-2" max="-2" attributes="0"/>
-                                              <EmptySpace type="separate" max="-2" attributes="0"/>
-                                              <Component id="jRadioButtonMedEquipment" min="-2" max="-2" attributes="0"/>
-                                          </Group>
-                                      </Group>
+                                      <EmptySpace min="-2" pref="52" max="-2" attributes="0"/>
+                                      <Component id="jButtonSearchConsultation" min="-2" max="-2" attributes="0"/>
+                                      <EmptySpace type="separate" max="-2" attributes="0"/>
+                                      <Component id="jButtonSearchMedEquip" min="-2" max="-2" attributes="0"/>
                                   </Group>
                               </Group>
                               <EmptySpace min="-2" pref="100" max="-2" attributes="0"/>
@@ -106,6 +71,37 @@
                               <Group type="103" groupAlignment="0" attributes="0">
                                   <Component id="jButtonView" alignment="0" min="-2" max="-2" attributes="0"/>
                                   <Component id="jButtonUpdate" alignment="0" min="-2" max="-2" attributes="0"/>
+                              </Group>
+                          </Group>
+                          <Group type="102" alignment="0" attributes="0">
+                              <EmptySpace min="-2" pref="43" max="-2" attributes="0"/>
+                              <Group type="103" groupAlignment="0" max="-2" attributes="0">
+                                  <Group type="102" alignment="0" attributes="0">
+                                      <Group type="103" groupAlignment="0" attributes="0">
+                                          <Component id="jLabelEmpName3" alignment="0" min="-2" max="-2" attributes="0"/>
+                                          <Component id="jLabelEmpName4" alignment="0" min="-2" max="-2" attributes="0"/>
+                                      </Group>
+                                      <EmptySpace type="separate" max="-2" attributes="0"/>
+                                      <Group type="103" groupAlignment="0" attributes="0">
+                                          <Component id="jComboBoxHospitalList" min="-2" max="-2" attributes="0"/>
+                                          <Component id="jTextFieldCustPincode" max="32767" attributes="0"/>
+                                      </Group>
+                                  </Group>
+                                  <Group type="102" alignment="0" attributes="0">
+                                      <Group type="103" groupAlignment="0" attributes="0">
+                                          <Component id="jLabelEmpName1" alignment="0" min="-2" max="-2" attributes="0"/>
+                                          <Component id="jLabelEmpName5" alignment="0" min="-2" max="-2" attributes="0"/>
+                                      </Group>
+                                      <EmptySpace type="separate" max="-2" attributes="0"/>
+                                      <Group type="103" groupAlignment="1" attributes="0">
+                                          <Component id="jRadioButtonMedTest" min="-2" max="-2" attributes="0"/>
+                                          <Component id="jDateChooserTestDate" min="-2" max="-2" attributes="0"/>
+                                      </Group>
+                                      <EmptySpace type="separate" max="-2" attributes="0"/>
+                                      <Component id="jRadioButtonConsultation" min="-2" max="-2" attributes="0"/>
+                                      <EmptySpace type="separate" max="-2" attributes="0"/>
+                                      <Component id="jRadioButtonMedEquipment" min="-2" max="-2" attributes="0"/>
+                                  </Group>
                               </Group>
                           </Group>
                       </Group>
@@ -441,6 +437,10 @@
       </Properties>
     </Component>
     <Component class="javax.swing.JTextField" name="jTextFieldCustPincode">
+      <Events>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jTextFieldCustPincodeActionPerformed"/>
+        <EventHandler event="keyPressed" listener="java.awt.event.KeyListener" parameters="java.awt.event.KeyEvent" handler="jTextFieldCustPincodeKeyPressed"/>
+      </Events>
     </Component>
     <Component class="javax.swing.JButton" name="jButtonSearchMedTest">
       <Properties>

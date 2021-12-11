@@ -109,22 +109,22 @@ public class MedTechnicalPatientTest extends javax.swing.JPanel {
 
         jTableTestDB.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
-                {null, null, null},
-                {null, null, null},
-                {null, null, null},
-                {null, null, null},
-                {null, null, null},
-                {null, null, null},
-                {null, null, null},
-                {null, null, null}
+                {null, null, null, null, null},
+                {null, null, null, null, null},
+                {null, null, null, null, null},
+                {null, null, null, null, null},
+                {null, null, null, null, null},
+                {null, null, null, null, null},
+                {null, null, null, null, null},
+                {null, null, null, null, null}
             },
             new String [] {
-                "Patient Name", "Test Name", "Test Date"
+                "Patient Name", "Test Name", "Test Date", "Case ID", ""
             }
         ));
         jScrollPane1.setViewportView(jTableTestDB);
 
-        add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 590, 460, 160));
+        add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 610, 460, 160));
 
         jButtonCreate.setText("CREATE");
         add(jButtonCreate, new org.netbeans.lib.awtextra.AbsoluteConstraints(640, 190, -1, -1));

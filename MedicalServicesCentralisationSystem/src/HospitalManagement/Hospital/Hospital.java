@@ -14,6 +14,7 @@ import HospitalManagement.Technician.TechnicianDirectory;
 
 import HospitalManagement.FrontDeskOperator.FrontDeskOperatorDirectory;
 import HospitalManagement.Accountant.AccountantDirectory;
+import HospitalManagement.PatientTest.LabTestDirectory;
 import java.util.HashMap;
 
 /**
@@ -33,7 +34,8 @@ public class Hospital {
     PathologistDirectory pathologistDirectory;
     TechnicianDirectory technicianDirectory;
     UserAccountDirectory UserAccountDirectory;
-    HashMap<String, String> labTests = new HashMap<>();
+//    HashMap<String, String> labTests = new HashMap<>();
+    LabTestDirectory labTestDirectory;
     
     //    UserAccount userAccount;
 
@@ -116,6 +118,15 @@ public class Hospital {
         this.technicianDirectory = technicianDirectory;
     }
 
+    public LabTestDirectory getLabTestDirectory() {
+        return labTestDirectory;
+    }
+
+    public void setLabTestDirectory(LabTestDirectory labTestDirectory) {
+        this.labTestDirectory = labTestDirectory;
+    }
+    
+    
     
 
 //    public UserAccountDirectory getUserAccountDirectory() {
@@ -137,19 +148,12 @@ public class Hospital {
     }
     
     
-    public HashMap<String, String> getLabTests() {
-        return labTests;
-    }
-
-    public void setLabTests(HashMap<String, String> labTests) {
-        this.labTests = labTests;
-    }
     
     
     
     @Override
     public String toString(){
-        return hospitalName;
+        return hospitalId;
     }
     
 }

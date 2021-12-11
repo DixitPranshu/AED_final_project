@@ -6,12 +6,16 @@
 package userInterface.HospitalManagement.MedTechnicalWorkArea;
 
 
+import HospitalManagement.Hospital.Hospital;
+import HospitalManagement.PatientTest.LabTest;
+import HospitalManagement.PatientTest.LabTestDirectory;
 import MainCentralisationSystem.MedicalServiceCentralisationEcoSystem;
 import MainCentralisationSystem.UserAccount;
 import MainCentralisationSystem.UserAccountDirectory;
 import userInterface.SystemAdminWorkArea.*;
 import java.awt.CardLayout;
 import java.util.ArrayList;
+import java.util.HashMap;
 import javax.swing.DefaultComboBoxModel;
 import javax.swing.JOptionPane;
 import javax.swing.JPanel;
@@ -31,14 +35,16 @@ public class MedTechnicalTestDatabase extends javax.swing.JPanel {
     UserAccount userAccount;
     UserAccountDirectory userAccountDirectory;
 //    PatientTestDirectory patientTestDirectory;
-    public MedTechnicalTestDatabase(JPanel userProcessContainer , MedicalServiceCentralisationEcoSystem hospitalManagementEcoSystem) {
+    LabTestDirectory labTestDirectory;
+    Hospital hospital;
+    public MedTechnicalTestDatabase(JPanel userProcessContainer , MedicalServiceCentralisationEcoSystem hospitalManagementEcoSystem, Hospital hospital) {
+        initComponents();
         this.userProcessContainer = userProcessContainer;
         this.hospitalManagementEcoSystem = hospitalManagementEcoSystem;
-//        this.ecosystem = dB4OUtil.retrieveSystem();
-//        if(hospitalManagementEcoSystem.getCustomerDirectory() == null)
-//           ecosystem.setCustomerDirectory(new CustomerDirectory());
-//        initComponents();
-//        populateTable();
+        this.hospital = hospital;
+        if(hospital.getLabTestDirectory()== null)
+           hospital.setLabTestDirectory(new LabTestDirectory());
+        addrecordstotable();
     }
 
     /**
@@ -59,10 +65,10 @@ public class MedTechnicalTestDatabase extends javax.swing.JPanel {
         jLabelPatientID = new javax.swing.JLabel();
         jTextFieldTestName = new javax.swing.JTextField();
         jLabelPatientName = new javax.swing.JLabel();
-        jScrollPane2 = new javax.swing.JScrollPane();
-        jTableTestDB1 = new javax.swing.JTable();
         jLabelTitle2 = new javax.swing.JLabel();
         jTextFieldTestPrice = new javax.swing.JTextField();
+        jScrollPane1 = new javax.swing.JScrollPane();
+        jTableTestDB = new javax.swing.JTable();
 
         setBackground(new java.awt.Color(0, 70, 169));
         setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
@@ -123,25 +129,6 @@ public class MedTechnicalTestDatabase extends javax.swing.JPanel {
         jLabelPatientName.setText("Test Price");
         add(jLabelPatientName, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 240, 100, -1));
 
-        jTableTestDB1.setModel(new javax.swing.table.DefaultTableModel(
-            new Object [][] {
-                {null, null},
-                {null, null},
-                {null, null},
-                {null, null},
-                {null, null},
-                {null, null},
-                {null, null},
-                {null, null}
-            },
-            new String [] {
-                "Test Name", "Test Price"
-            }
-        ));
-        jScrollPane2.setViewportView(jTableTestDB1);
-
-        add(jScrollPane2, new org.netbeans.lib.awtextra.AbsoluteConstraints(230, 450, 500, 160));
-
         jLabelTitle2.setFont(new java.awt.Font("Tahoma", 1, 48)); // NOI18N
         jLabelTitle2.setForeground(new java.awt.Color(255, 255, 255));
         jLabelTitle2.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
@@ -154,6 +141,29 @@ public class MedTechnicalTestDatabase extends javax.swing.JPanel {
             }
         });
         add(jTextFieldTestPrice, new org.netbeans.lib.awtextra.AbsoluteConstraints(310, 240, 270, -1));
+
+        jTableTestDB.setModel(new javax.swing.table.DefaultTableModel(
+            new Object [][] {
+                {null, null},
+                {null, null},
+                {null, null},
+                {null, null}
+            },
+            new String [] {
+                "Test Name", "Test Price"
+            }
+        ) {
+            boolean[] canEdit = new boolean [] {
+                false, true
+            };
+
+            public boolean isCellEditable(int rowIndex, int columnIndex) {
+                return canEdit [columnIndex];
+            }
+        });
+        jScrollPane1.setViewportView(jTableTestDB);
+
+        add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(260, 460, 430, 110));
     }// </editor-fold>//GEN-END:initComponents
 
     private void jButtonHomeActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonHomeActionPerformed
@@ -176,9 +186,18 @@ public class MedTechnicalTestDatabase extends javax.swing.JPanel {
 
     private void jButtonCreateActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonCreateActionPerformed
         // TODO add your handling code here:
+        DefaultTableModel model = (DefaultTableModel) jTableTestDB.getModel();
+        LabTestDirectory labTestDirectory = hospital.getLabTestDirectory();
+        LabTest labTest = new LabTest();
         String test_name = jTextFieldTestName.getText();
         String test_price = jTextFieldTestPrice.getText();
-        
+        labTest.setTest_name(test_name);
+        labTest.setTest_price(test_price);
+        labTestDirectory.addTest(labTest);
+        hospital.setLabTestDirectory(labTestDirectory);
+        JOptionPane.showMessageDialog(this, "New Test Information has been added.");
+        model.addRow(new Object[]{labTest,labTest.getTest_price()});
+        clearFields();
     }//GEN-LAST:event_jButtonCreateActionPerformed
     /*private Customer set_user_input_values(Customer customer, ArrayList<String> user_input){
         
@@ -228,27 +247,30 @@ public class MedTechnicalTestDatabase extends javax.swing.JPanel {
     private javax.swing.JLabel jLabelPatientName;
     private javax.swing.JLabel jLabelTitle;
     private javax.swing.JLabel jLabelTitle2;
-    private javax.swing.JScrollPane jScrollPane2;
-    private javax.swing.JTable jTableTestDB1;
+    private javax.swing.JScrollPane jScrollPane1;
+    private javax.swing.JTable jTableTestDB;
     private javax.swing.JTextField jTextFieldTestName;
     private javax.swing.JTextField jTextFieldTestPrice;
     // End of variables declaration//GEN-END:variables
 
-    /*private void populateTable() {
+    private void clearFields() {
+        jTextFieldTestName.setText("");
+        jTextFieldTestPrice.setText("");
+    }
+
+    private void addrecordstotable() {
         
-        customerDirectory = ecosystem.getCustomerDirectory();
-        ArrayList<Customer> customers = customerDirectory.getCustomerList();
-        DefaultTableModel model = (DefaultTableModel) customersTable.getModel();
+        labTestDirectory = hospital.getLabTestDirectory();
+        ArrayList<LabTest> labTestList = labTestDirectory.getLabTestList();
+        DefaultTableModel model = (DefaultTableModel) jTableTestDB.getModel();
         model.setRowCount(0);
 //        DefaultComboBoxModel dc = new DefaultComboBoxModel();
         
-        for(Customer c: customers)
+        for(LabTest labTest: labTestList)
         {
-            model.addRow(new Object[]{c,c.getUserAccount().getPassword(), c.getCustomerPhone()});
-//            dc.addElement(c.getCustomerName());
+            model.addRow(new Object[]{labTest, labTest.getTest_price()});
+
         }
-        customersTable.setModel(model);
-//        listCustomers.setModel(dc);
-        dB4OUtil.storeSystem(ecosystem);
-    }*/
+        jTableTestDB.setModel(model);
+    }
 }

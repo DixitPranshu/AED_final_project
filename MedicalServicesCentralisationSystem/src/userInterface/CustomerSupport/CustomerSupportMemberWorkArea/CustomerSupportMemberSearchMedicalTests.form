@@ -23,7 +23,7 @@
       <Group type="103" groupAlignment="0" attributes="0">
           <Group type="102" attributes="0">
               <Group type="103" groupAlignment="0" attributes="0">
-                  <Group type="102" alignment="0" attributes="0">
+                  <Group type="102" attributes="0">
                       <EmptySpace min="-2" pref="136" max="-2" attributes="0"/>
                       <Component id="jLabel1" min="-2" pref="706" max="-2" attributes="0"/>
                       <EmptySpace max="-2" attributes="0"/>
@@ -38,21 +38,23 @@
                                   <Group type="102" attributes="0">
                                       <Component id="jLabelEmpID" min="-2" pref="104" max="-2" attributes="0"/>
                                       <EmptySpace min="0" pref="0" max="-2" attributes="0"/>
-                                      <Component id="jTextFieldCustName" min="-2" pref="421" max="-2" attributes="0"/>
+                                      <Component id="jTextFieldTestName" min="-2" pref="421" max="-2" attributes="0"/>
                                   </Group>
                                   <Group type="102" attributes="0">
                                       <Component id="jLabelEmpID1" min="-2" pref="104" max="-2" attributes="0"/>
                                       <EmptySpace min="0" pref="0" max="-2" attributes="0"/>
-                                      <Component id="jTextFieldCustName1" min="-2" pref="421" max="-2" attributes="0"/>
+                                      <Component id="jTextFieldPincode" min="-2" pref="421" max="-2" attributes="0"/>
                                   </Group>
                               </Group>
                               <EmptySpace min="-2" pref="100" max="-2" attributes="0"/>
-                              <Component id="jButtonCreate" min="-2" max="-2" attributes="0"/>
+                              <Component id="jButtonSearch" min="-2" max="-2" attributes="0"/>
                           </Group>
                       </Group>
+                      <EmptySpace min="-2" pref="30" max="-2" attributes="0"/>
+                      <Component id="jButtonRefresh" min="-2" max="-2" attributes="0"/>
                   </Group>
               </Group>
-              <EmptySpace min="-2" pref="410" max="-2" attributes="0"/>
+              <EmptySpace pref="380" max="32767" attributes="0"/>
           </Group>
       </Group>
     </DimensionLayout>
@@ -68,25 +70,28 @@
               <Group type="103" groupAlignment="0" attributes="0">
                   <Component id="jLabelEmpID" alignment="0" min="-2" max="-2" attributes="0"/>
                   <Group type="102" alignment="0" attributes="0">
-                      <Component id="jTextFieldCustName" min="-2" max="-2" attributes="0"/>
+                      <Component id="jTextFieldTestName" min="-2" max="-2" attributes="0"/>
                       <Group type="103" groupAlignment="0" attributes="0">
                           <Group type="102" attributes="0">
                               <EmptySpace type="separate" max="-2" attributes="0"/>
                               <Group type="103" groupAlignment="0" attributes="0">
                                   <Component id="jLabelEmpID1" alignment="0" min="-2" max="-2" attributes="0"/>
-                                  <Component id="jTextFieldCustName1" alignment="0" min="-2" max="-2" attributes="0"/>
+                                  <Component id="jTextFieldPincode" alignment="0" min="-2" max="-2" attributes="0"/>
                               </Group>
                           </Group>
                           <Group type="102" alignment="0" attributes="0">
                               <EmptySpace min="-2" pref="26" max="-2" attributes="0"/>
-                              <Component id="jButtonCreate" min="-2" max="-2" attributes="0"/>
+                              <Group type="103" groupAlignment="3" attributes="0">
+                                  <Component id="jButtonSearch" alignment="3" min="-2" max="-2" attributes="0"/>
+                                  <Component id="jButtonRefresh" alignment="3" min="-2" max="-2" attributes="0"/>
+                              </Group>
                           </Group>
                       </Group>
                   </Group>
               </Group>
               <EmptySpace type="separate" max="-2" attributes="0"/>
-              <Component id="jScrollPane1" min="-2" pref="248" max="-2" attributes="0"/>
-              <EmptySpace pref="557" max="32767" attributes="0"/>
+              <Component id="jScrollPane1" min="-2" pref="122" max="-2" attributes="0"/>
+              <EmptySpace pref="683" max="32767" attributes="0"/>
           </Group>
       </Group>
     </DimensionLayout>
@@ -131,7 +136,7 @@
         <Component class="javax.swing.JTable" name="jTableRequests">
           <Properties>
             <Property name="model" type="javax.swing.table.TableModel" editor="org.netbeans.modules.form.editors2.TableModelEditor">
-              <Table columnCount="3" rowCount="4">
+              <Table columnCount="3" rowCount="8">
                 <Column editable="false" title="Test Name" type="java.lang.Object"/>
                 <Column editable="false" title="Pincode" type="java.lang.Object"/>
                 <Column editable="false" title="Hospital ID" type="java.lang.Object"/>
@@ -166,17 +171,17 @@
         </Component>
       </SubComponents>
     </Container>
-    <Component class="javax.swing.JButton" name="jButtonCreate">
+    <Component class="javax.swing.JButton" name="jButtonSearch">
       <Properties>
         <Property name="text" type="java.lang.String" value="SEARCH"/>
       </Properties>
       <Events>
-        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jButtonCreateActionPerformed"/>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jButtonSearchActionPerformed"/>
       </Events>
     </Component>
-    <Component class="javax.swing.JTextField" name="jTextFieldCustName">
+    <Component class="javax.swing.JTextField" name="jTextFieldTestName">
       <Events>
-        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jTextFieldCustNameActionPerformed"/>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jTextFieldTestNameActionPerformed"/>
       </Events>
     </Component>
     <Component class="javax.swing.JLabel" name="jLabelEmpID">
@@ -195,9 +200,17 @@
         <Property name="text" type="java.lang.String" value="Pincode"/>
       </Properties>
     </Component>
-    <Component class="javax.swing.JTextField" name="jTextFieldCustName1">
+    <Component class="javax.swing.JTextField" name="jTextFieldPincode">
       <Events>
-        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jTextFieldCustName1ActionPerformed"/>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jTextFieldPincodeActionPerformed"/>
+      </Events>
+    </Component>
+    <Component class="javax.swing.JButton" name="jButtonRefresh">
+      <Properties>
+        <Property name="text" type="java.lang.String" value="REFRESH"/>
+      </Properties>
+      <Events>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jButtonRefreshActionPerformed"/>
       </Events>
     </Component>
   </SubComponents>

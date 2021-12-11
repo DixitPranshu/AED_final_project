@@ -42,7 +42,7 @@ public class HospitalManagementMainJFrame extends javax.swing.JFrame {
      */
     private MedicalServiceCentralisationEcoSystem medicalServiceCentralisationEcoSystem;
     public HospitalManagementDB4OUtil dB4OUtil = HospitalManagementDB4OUtil.getInstance();
-    UserAccount userAccount;
+    UserAccount userAccountLogin;
 
     public HospitalManagementMainJFrame() {
         initComponents();
@@ -199,15 +199,15 @@ public class HospitalManagementMainJFrame extends javax.swing.JFrame {
         {
             ArrayList<UserAccount> usersList = userDirectory.getUserAccountList();
 
-            userAccount = userDirectory.authenticateUser(username, password);
+            userAccountLogin = userDirectory.authenticateUser(username, password);
             logoutJButton.setEnabled(true); 
             userNameJTextField.setEnabled(false);
             passwordField.setEnabled(false);
             loginJButton.setEnabled(false);
-//            System.out.println("userAccount.getEmployee().getRole().toString(): "+userAccount.getEmployee().getRole().toString());
-//            if(userAccount.getEmployee().getRole().toString().equals("HospitalManagement.Role.SystemAdminRole"))
-            System.out.println("userAccount.getRole().toString(): "+userAccount.getRole().toString());
-            if(userAccount.getRole().toString().equals("SystemAdmin"))
+//            System.out.println("userAccountLogin.getEmployee().getRole().toString(): "+userAccountLogin.getEmployee().getRole().toString());
+//            if(userAccountLogin.getEmployee().getRole().toString().equals("HospitalManagement.Role.SystemAdminRole"))
+            System.out.println("userAccount.getRole().toString(): "+userAccountLogin.getRole().toString());
+            if(userAccountLogin.getRole().toString().equals("SystemAdmin"))
             {
                 SystemAdminWorkAreaJPanel systemAdminWorkAreaJPanel = new SystemAdminWorkAreaJPanel(jPanelWorkArea, medicalServiceCentralisationEcoSystem);
                 jPanelWorkArea.add("Sysadmin",systemAdminWorkAreaJPanel);
@@ -215,23 +215,31 @@ public class HospitalManagementMainJFrame extends javax.swing.JFrame {
                 crdLyt.next(jPanelWorkArea);
             }
             
-            else if(userAccount.getRole().toString().equals("HospitalAdmin"))
+            else if(userAccountLogin.getRole().toString().equals("HospitalAdmin"))
             {
-                Hospital hospital = userAccount.getHospital();
+                Hospital hospital = userAccountLogin.getHospital();
                 HospitalAdminWorkAreaJPanel hospitalAdminWorkAreaJPanel = new HospitalAdminWorkAreaJPanel(jPanelWorkArea, medicalServiceCentralisationEcoSystem, hospital);
                 jPanelWorkArea.add("hospitalAdminWorkAreaJPanel",hospitalAdminWorkAreaJPanel);
                 CardLayout crdLyt = (CardLayout) jPanelWorkArea.getLayout();
                 crdLyt.next(jPanelWorkArea);
             }
-            else if(userAccount.getRole().toString().equals("CustomerSupportTeamAdmin"))
+            else if(userAccountLogin.getRole().toString().equals("Technician"))
             {
-                CustomerSupportTeam customerSupportTeam = userAccount.getCustomerSupportTeam();
-                CustomerSupportTeamAdminWorkAreaJPanel customerSupportTeamAdminWorkAreaJPanel = new CustomerSupportTeamAdminWorkAreaJPanel(jPanelWorkArea, medicalServiceCentralisationEcoSystem, customerSupportTeam);
+                Hospital hospital = userAccountLogin.getHospital();
+                MedTechnicalWorkAreaJPanel medTechnicalWorkAreaJPanel = new MedTechnicalWorkAreaJPanel(jPanelWorkArea, medicalServiceCentralisationEcoSystem, hospital);
+                jPanelWorkArea.add("hospitalAdminWorkAreaJPanel",medTechnicalWorkAreaJPanel);
+                CardLayout crdLyt = (CardLayout) jPanelWorkArea.getLayout();
+                crdLyt.next(jPanelWorkArea);
+            }
+            else if(userAccountLogin.getRole().toString().equals("CustomerSupportTeamAdmin"))
+            {
+                CustomerSupportTeam customerSupportTeam = userAccountLogin.getCustomerSupportTeam();
+                CustomerSupportTeamAdminWorkAreaJPanel customerSupportTeamAdminWorkAreaJPanel = new CustomerSupportTeamAdminWorkAreaJPanel(jPanelWorkArea, medicalServiceCentralisationEcoSystem, customerSupportTeam, userAccountLogin);
                 jPanelWorkArea.add("customerSupportTeamAdminWorkAreaJPanel",customerSupportTeamAdminWorkAreaJPanel);
                 CardLayout crdLyt = (CardLayout) jPanelWorkArea.getLayout();
                 crdLyt.next(jPanelWorkArea);
             }
-            else if(userAccount.getRole().toString().equals("CustomerSupportMember"))
+            else if(userAccountLogin.getRole().toString().equals("CustomerSupportMember"))
             {
                 CustomerSupportMemberWorkAreaJPanel customerSupportMemberWorkAreaJPanel = new CustomerSupportMemberWorkAreaJPanel(jPanelWorkArea, medicalServiceCentralisationEcoSystem);
                 jPanelWorkArea.add("customerSupportMemberWorkAreaJPanel",customerSupportMemberWorkAreaJPanel);

@@ -30,5 +30,8 @@ public class LabTest {
         this.test_price = test_price;
     }
     
-    
+    @Override
+    public String toString(){
+        return test_name;
+    }
 }
