@@ -223,7 +223,7 @@ public class SearchAccountsPage extends javax.swing.JPanel {
         ArrayList<String> user_input = check_empty_field();
         UserAccountDirectory usersList = hospitalManagementEcoSystem.getUserAccountDirectory();
         
-        if(hospitalManagementEcoSystem.checkIfUserIsUnique(user_input.get(0))){
+        if(usersList.checkIfUserIsUnique(user_input.get(0))){
             
             
             if(user_input.get(2) == "Doctor"){
@@ -288,7 +288,7 @@ public class SearchAccountsPage extends javax.swing.JPanel {
             jTextFieldEmpName.setText(doctor.getDoctorName());
         }
         
-        jTextFieldPassword.setText(select_user_account_details.getPassword());
+//        jTextFieldPassword.setText(select_user_account_details.getPassword());
         
     }//GEN-LAST:event_jTableEmployeeMouseClicked
     private UserAccount set_user_input_values(UserAccount userAccount, ArrayList<String> user_input) {
@@ -307,7 +307,7 @@ public class SearchAccountsPage extends javax.swing.JPanel {
         ArrayList<String> user_input = new ArrayList<>();
         String user_emp_id = jTextFieldEmpID.getText();
         String user_emp_name = jTextFieldEmpName.getText();
-        String user_password = jTextFieldPassword.getText();
+//        String user_password = jTextFieldPassword.getText();
         String user_role = (String) jComboBoxRole.getSelectedItem();
 
         
@@ -317,18 +317,18 @@ public class SearchAccountsPage extends javax.swing.JPanel {
         else if(user_emp_name.isEmpty()){
             JOptionPane.showMessageDialog(this, "User Name can't be left empty.");
         }
-        else if(user_password.isEmpty()){
-            JOptionPane.showMessageDialog(this, "Please enter a Password.");
-        }
-        else if(user_role.isEmpty()){
-            JOptionPane.showMessageDialog(this, "Please select a Role.");
-        }
-        
-        user_input.add(user_emp_id);
-        user_input.add(user_emp_name);
-        user_input.add(user_role);
-        user_input.add(user_password);
-        
+//        else if(user_password.isEmpty()){
+//            JOptionPane.showMessageDialog(this, "Please enter a Password.");
+//        }
+//        else if(user_role.isEmpty()){
+//            JOptionPane.showMessageDialog(this, "Please select a Role.");
+//        }
+//        
+//        user_input.add(user_emp_id);
+//        user_input.add(user_emp_name);
+//        user_input.add(user_role);
+//        user_input.add(user_password);
+//        
         return user_input;
         
     }

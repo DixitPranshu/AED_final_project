@@ -27,21 +27,21 @@ public class MedTechnicalEmployeeAttendance extends javax.swing.JPanel {
      */
     JPanel userProcessContainer;
     MedicalServiceCentralisationEcoSystem hospitalManagementEcoSystem;
-    CustomerDirectory customerDirectory;
-    RestaurantDirectory restaurantDirectory;
-    UserAccount userAccount;
-    Restaurant restaurant;
-    private DB4OUtil dB4OUtil = DB4OUtil.getInstance();
-    
-    public MedTechnicalEmployeeAttendance(JPanel userProcessContainer , MedicalServiceCentralisationEcoSystem hospitalManagementEcoSystem) {
-        this.userProcessContainer = userProcessContainer;
-        this.ecosystem = ecosystem;
-        initComponents();
-        if(ecosystem.getRestaurantDirectory() == null)
-           ecosystem.setRestaurantDirectory(new RestaurantDirectory());
-//        this.ecosystem = dB4OUtil.retrieveSystem();
-        addrecordstotable(2);
-    }
+//    CustomerDirectory customerDirectory;
+//    RestaurantDirectory restaurantDirectory;
+//    UserAccount userAccount;
+//    Restaurant restaurant;
+//    private DB4OUtil dB4OUtil = DB4OUtil.getInstance();
+//    
+//    public MedTechnicalEmployeeAttendance(JPanel userProcessContainer , MedicalServiceCentralisationEcoSystem hospitalManagementEcoSystem) {
+//        this.userProcessContainer = userProcessContainer;
+//        this.ecosystem = ecosystem;
+//        initComponents();
+//        if(ecosystem.getRestaurantDirectory() == null)
+//           ecosystem.setRestaurantDirectory(new RestaurantDirectory());
+////        this.ecosystem = dB4OUtil.retrieveSystem();
+//        addrecordstotable(2);
+//    }
 
     /**
      * This method is called from within the constructor to initialize the form.
@@ -179,7 +179,7 @@ public class MedTechnicalEmployeeAttendance extends javax.swing.JPanel {
     private void jButtonViewActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonViewActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_jButtonViewActionPerformed
-    private void clearFields(){
+    /*private void clearFields(){
         restaurantID.setText("");
         restaurantName.setText("");
         restaurantPincode.setText("");
@@ -228,7 +228,7 @@ public class MedTechnicalEmployeeAttendance extends javax.swing.JPanel {
         restaurant.setRest_pincode(user_input.get(2));
         restaurant.setContact_no(user_input.get(3));
         return restaurant;
-    }
+    }*/
     
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
@@ -247,7 +247,7 @@ public class MedTechnicalEmployeeAttendance extends javax.swing.JPanel {
     private javax.swing.JTextField jTextFieldEmpName;
     // End of variables declaration//GEN-END:variables
 
-    private void addrecordstotable(int par) {
+    /*private void addrecordstotable(int par) {
         restaurantDirectory = ecosystem.getRestaurantDirectory();
         DefaultTableModel model = (DefaultTableModel) RestaurantsTable.getModel();
 //        DefaultComboBo/xModel dc = new DefaultComboBoxModel();
@@ -259,5 +259,5 @@ public class MedTechnicalEmployeeAttendance extends javax.swing.JPanel {
         }
         RestaurantsTable.setModel(model);
         dB4OUtil.storeSystem(ecosystem);
-    }
+    }*/
 }

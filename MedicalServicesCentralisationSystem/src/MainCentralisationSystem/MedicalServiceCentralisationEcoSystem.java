@@ -7,6 +7,7 @@ package MainCentralisationSystem;
 
 import CustomerSupportTeam.CustomerSupportTeamDirectory;
 import HospitalManagement.Hospital.HospitalDirectory;
+import HospitalManagement.Requests.RequestDirectory;
 
 //
 //import HospitalManagement.Patient.PatientDirectory;
@@ -32,6 +33,7 @@ public class MedicalServiceCentralisationEcoSystem extends HospitalManagementEnt
     private static CustomerSupportTeamDirectory customerSupportTeamDirectory;
     
     private UserAccountDirectory userAccountDirectory;
+    private RequestDirectory requestDirectory;
 //    private CustomerSupportTeamDirectory CustomerSupportDirectory;
     
 //    public MedicalServiceCentralisationEcoSystem(HospitalDirectory hospitalDirectory){
@@ -59,6 +61,14 @@ public class MedicalServiceCentralisationEcoSystem extends HospitalManagementEnt
 
     public void setUserAccountDirectory(UserAccountDirectory userAccountDirectory) {
         this.userAccountDirectory = userAccountDirectory;
+    }
+
+    public RequestDirectory getRequestDirectory() {
+        return requestDirectory;
+    }
+
+    public void setRequestDirectory(RequestDirectory requestDirectory) {
+        this.requestDirectory = requestDirectory;
     }
     
     

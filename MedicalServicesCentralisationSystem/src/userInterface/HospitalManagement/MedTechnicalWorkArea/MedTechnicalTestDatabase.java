@@ -30,15 +30,15 @@ public class MedTechnicalTestDatabase extends javax.swing.JPanel {
     MedicalServiceCentralisationEcoSystem hospitalManagementEcoSystem;
     UserAccount userAccount;
     UserAccountDirectory userAccountDirectory;
-    PatientTestDirectory patientTestDirectory;
+//    PatientTestDirectory patientTestDirectory;
     public MedTechnicalTestDatabase(JPanel userProcessContainer , MedicalServiceCentralisationEcoSystem hospitalManagementEcoSystem) {
         this.userProcessContainer = userProcessContainer;
         this.hospitalManagementEcoSystem = hospitalManagementEcoSystem;
 //        this.ecosystem = dB4OUtil.retrieveSystem();
-        if(hospitalManagementEcoSystem.getCustomerDirectory() == null)
-           ecosystem.setCustomerDirectory(new CustomerDirectory());
-        initComponents();
-        populateTable();
+//        if(hospitalManagementEcoSystem.getCustomerDirectory() == null)
+//           ecosystem.setCustomerDirectory(new CustomerDirectory());
+//        initComponents();
+//        populateTable();
     }
 
     /**
@@ -180,7 +180,7 @@ public class MedTechnicalTestDatabase extends javax.swing.JPanel {
         String test_price = jTextFieldTestPrice.getText();
         
     }//GEN-LAST:event_jButtonCreateActionPerformed
-    private Customer set_user_input_values(Customer customer, ArrayList<String> user_input){
+    /*private Customer set_user_input_values(Customer customer, ArrayList<String> user_input){
         
         customer.getUserAccount().setPassword(user_input.get(1));
         customer.setCustomerPhone(user_input.get(2));
@@ -215,7 +215,7 @@ public class MedTechnicalTestDatabase extends javax.swing.JPanel {
         return user_input;
         
     }
-    
+    */
     
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
@@ -234,7 +234,7 @@ public class MedTechnicalTestDatabase extends javax.swing.JPanel {
     private javax.swing.JTextField jTextFieldTestPrice;
     // End of variables declaration//GEN-END:variables
 
-    private void populateTable() {
+    /*private void populateTable() {
         
         customerDirectory = ecosystem.getCustomerDirectory();
         ArrayList<Customer> customers = customerDirectory.getCustomerList();
@@ -250,5 +250,5 @@ public class MedTechnicalTestDatabase extends javax.swing.JPanel {
         customersTable.setModel(model);
 //        listCustomers.setModel(dc);
         dB4OUtil.storeSystem(ecosystem);
-    }
+    }*/
 }

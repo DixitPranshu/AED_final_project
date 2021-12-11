@@ -22,21 +22,21 @@ public class AdministrativeReceptionistManagePatient extends javax.swing.JPanel 
     /**
      * Creates new form AdministrativeAccountsPage
      */
-    JPanel userProcessContainer;
-    EcoSystem ecosystem;
-    DeliveryManDirectory deliveryManDirectory;
-    UserAccount userAccount;
-    DeliveryMan deliveryMan;
-    private DB4OUtil dB4OUtil = DB4OUtil.getInstance();
-    public AdministrativeReceptionistManagePatient(JPanel userProcessContainer , EcoSystem ecosystem) {
-        initComponents();
-        this.userProcessContainer = userProcessContainer;
-        this.ecosystem = ecosystem;
-        if(ecosystem.getDeliveryManDirectory() == null)
-           ecosystem.setDeliveryManDirectory(new DeliveryManDirectory());
-        populateTable();
-        
-    }
+//    JPanel userProcessContainer;
+//    EcoSystem ecosystem;
+//    DeliveryManDirectory deliveryManDirectory;
+//    UserAccount userAccount;
+//    DeliveryMan deliveryMan;
+//    private DB4OUtil dB4OUtil = DB4OUtil.getInstance();
+//    public AdministrativeReceptionistManagePatient(JPanel userProcessContainer , EcoSystem ecosystem) {
+//        initComponents();
+//        this.userProcessContainer = userProcessContainer;
+//        this.ecosystem = ecosystem;
+//        if(ecosystem.getDeliveryManDirectory() == null)
+//           ecosystem.setDeliveryManDirectory(new DeliveryManDirectory());
+//        populateTable();
+//        
+//    }
 
     /**
      * This method is called from within the constructor to initialize the form.
@@ -266,9 +266,9 @@ public class AdministrativeReceptionistManagePatient extends javax.swing.JPanel 
     }// </editor-fold>//GEN-END:initComponents
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
-        // TODO add your handling code here:
-        CardLayout crdLyt = (CardLayout) userProcessContainer.getLayout();
-            crdLyt.show(userProcessContainer,"Sysadmin");
+//        // TODO add your handling code here:
+//        CardLayout crdLyt = (CardLayout) userProcessContainer.getLayout();
+//            crdLyt.show(userProcessContainer,"Sysadmin");
     }//GEN-LAST:event_jButton1ActionPerformed
 
     private void jTextFieldPatientNameActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextFieldPatientNameActionPerformed
@@ -297,48 +297,48 @@ public class AdministrativeReceptionistManagePatient extends javax.swing.JPanel 
     
     public ArrayList<String> check_empty_field(){
         ArrayList<String> user_input = new ArrayList<>();
-        String user_deliveryName = DeliveryName.getText();
-        String user_deliveryPass = DeliveryPasswd.getText();
-        String user_deliverycontact = DeliveryContactNo.getText();
-        String user_deliveryUsername = DeliveryUName.getText();
+//        String user_deliveryName = DeliveryName.getText();
+//        String user_deliveryPass = DeliveryPasswd.getText();
+//        String user_deliverycontact = DeliveryContactNo.getText();
+//        String user_deliveryUsername = DeliveryUName.getText();
  
-        if(user_deliveryName.isEmpty()){
-            JOptionPane.showMessageDialog(this, "Name can't be left empty");
-        }
-        else if(user_deliveryPass.isEmpty()){
-            JOptionPane.showMessageDialog(this, "Please enter password");
-        }
-        
-        else if(user_deliverycontact.isEmpty()){
-            JOptionPane.showMessageDialog(this, "Contact No can't be left empty.");
-        }
-        else if(user_deliveryUsername.isEmpty()){
-            JOptionPane.showMessageDialog(this, "Username can't be left empty.");
-        }
-        user_input.add(user_deliveryUsername);
-        user_input.add(user_deliveryName);
-        user_input.add(user_deliveryPass);
-        user_input.add(user_deliverycontact);
-        
+//        if(user_deliveryName.isEmpty()){
+//            JOptionPane.showMessageDialog(this, "Name can't be left empty");
+//        }
+//        else if(user_deliveryPass.isEmpty()){
+//            JOptionPane.showMessageDialog(this, "Please enter password");
+//        }
+//        
+//        else if(user_deliverycontact.isEmpty()){
+//            JOptionPane.showMessageDialog(this, "Contact No can't be left empty.");
+//        }
+//        else if(user_deliveryUsername.isEmpty()){
+//            JOptionPane.showMessageDialog(this, "Username can't be left empty.");
+//        }
+//        user_input.add(user_deliveryUsername);
+//        user_input.add(user_deliveryName);
+//        user_input.add(user_deliveryPass);
+//        user_input.add(user_deliverycontact);
+//        
         return user_input;
         
     }
     
-    private void clearFields(){
-        DeliveryName.setText("");
-        DeliveryPasswd.setText("");
-        DeliveryContactNo.setText("");
-        DeliveryUName.setText("");
-
-    }
-        private DeliveryMan set_user_input_values(DeliveryMan deliveryMan, ArrayList<String> user_input){
-        
-        deliveryMan.getUserAccount().setUsername(user_input.get(0));
-        deliveryMan.setName(user_input.get(1));
-        deliveryMan.getUserAccount().setPassword(user_input.get(2));
-        deliveryMan.setContact_no(user_input.get(3));
-        return deliveryMan;
-    }
+//    private void clearFields(){
+//        DeliveryName.setText("");
+//        DeliveryPasswd.setText("");
+//        DeliveryContactNo.setText("");
+//        DeliveryUName.setText("");
+//
+//    }
+//        private DeliveryMan set_user_input_values(DeliveryMan deliveryMan, ArrayList<String> user_input){
+//        
+//        deliveryMan.getUserAccount().setUsername(user_input.get(0));
+//        deliveryMan.setName(user_input.get(1));
+//        deliveryMan.getUserAccount().setPassword(user_input.get(2));
+//        deliveryMan.setContact_no(user_input.get(3));
+//        return deliveryMan;
+//    }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton jButton1;
@@ -384,16 +384,16 @@ public class AdministrativeReceptionistManagePatient extends javax.swing.JPanel 
     private javax.swing.JTextField jTextFieldZipcode;
     // End of variables declaration//GEN-END:variables
 
-    private void populateTable() {
-        deliveryManDirectory = ecosystem.getDeliveryManDirectory();
-        ArrayList<DeliveryMan> deliveryMen = deliveryManDirectory.getDeliveryManList();
-        DefaultTableModel model = (DefaultTableModel) deliveryManTable.getModel();
-        model.setRowCount(0);
-        for(DeliveryMan deliveryMan: deliveryMen)
-        {
-            model.addRow(new Object[]{deliveryMan,deliveryMan.getUserAccount().getUsername(),deliveryMan.getUserAccount().getPassword(),deliveryMan.getContact_no()});
-        }
-        deliveryManTable.setModel(model);
-        dB4OUtil.storeSystem(ecosystem);
-    }
+//    private void populateTable() {
+//        deliveryManDirectory = ecosystem.getDeliveryManDirectory();
+//        ArrayList<DeliveryMan> deliveryMen = deliveryManDirectory.getDeliveryManList();
+//        DefaultTableModel model = (DefaultTableModel) deliveryManTable.getModel();
+//        model.setRowCount(0);
+//        for(DeliveryMan deliveryMan: deliveryMen)
+//        {
+//            model.addRow(new Object[]{deliveryMan,deliveryMan.getUserAccount().getUsername(),deliveryMan.getUserAccount().getPassword(),deliveryMan.getContact_no()});
+//        }
+//        deliveryManTable.setModel(model);
+//        dB4OUtil.storeSystem(ecosystem);
+//    }
 }

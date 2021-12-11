@@ -23,7 +23,7 @@ public class AdminstrativeReceptionistAppointment extends javax.swing.JPanel {
     /**
      * Creates new form OperationalAccountsPage
      */
-    JPanel userProcessContainer;
+    /*JPanel userProcessContainer;
     EcoSystem ecosystem;
     CustomerDirectory customerDirectory;
     UserAccount userAccount;
@@ -38,7 +38,7 @@ public class AdminstrativeReceptionistAppointment extends javax.swing.JPanel {
         initComponents();
         populateTable();
     }
-
+*/
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -162,8 +162,8 @@ public class AdminstrativeReceptionistAppointment extends javax.swing.JPanel {
 
     private void jButtonHomeActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonHomeActionPerformed
         // TODO add your handling code here:
-        CardLayout crdLyt = (CardLayout) userProcessContainer.getLayout();
-            crdLyt.show(userProcessContainer,"Sysadmin");
+//        CardLayout crdLyt = (CardLayout) userProcessContainer.getLayout();
+//            crdLyt.show(userProcessContainer,"Sysadmin");
     }//GEN-LAST:event_jButtonHomeActionPerformed
 
     private void jTextFieldPatientIDActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextFieldPatientIDActionPerformed
@@ -173,7 +173,7 @@ public class AdminstrativeReceptionistAppointment extends javax.swing.JPanel {
     private void jTextFieldDoctorNameActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextFieldDoctorNameActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_jTextFieldDoctorNameActionPerformed
-    private Customer set_user_input_values(Customer customer, ArrayList<String> user_input){
+    /*private Customer set_user_input_values(Customer customer, ArrayList<String> user_input){
         
         customer.getUserAccount().setPassword(user_input.get(1));
         customer.setCustomerPhone(user_input.get(2));
@@ -209,7 +209,7 @@ public class AdminstrativeReceptionistAppointment extends javax.swing.JPanel {
         
     }
     
-    
+    */
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton jButtonCreate;
@@ -231,7 +231,7 @@ public class AdminstrativeReceptionistAppointment extends javax.swing.JPanel {
     private javax.swing.JTextField jTextFieldPatientID;
     private javax.swing.JTextField jTextFieldPatientName;
     // End of variables declaration//GEN-END:variables
-
+/*
     private void populateTable() {
         
         customerDirectory = ecosystem.getCustomerDirectory();
@@ -248,5 +248,5 @@ public class AdminstrativeReceptionistAppointment extends javax.swing.JPanel {
         customersTable.setModel(model);
 //        listCustomers.setModel(dc);
         dB4OUtil.storeSystem(ecosystem);
-    }
+    }*/
 }

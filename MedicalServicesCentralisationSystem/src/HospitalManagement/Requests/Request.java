@@ -19,11 +19,13 @@ public class Request {
     String customer_name;
     String customer_phone;
     String customer_pincode;
+    String customer_email;
     String hospital_id;
     String request_category;
     String request_date;
     String request_status;
     String request_description;
+    String modified_time;
     
     public String getCase_id() {
         return case_id;
@@ -33,8 +35,24 @@ public class Request {
         this.case_id = case_id;
     }
 
+    public String getCustomer_email() {
+        return customer_email;
+    }
+
+    public void setCustomer_email(String customer_email) {
+        this.customer_email = customer_email;
+    }
+
     public String getCustomer_name() {
         return customer_name;
+    }
+
+    public String getModified_time() {
+        return modified_time;
+    }
+
+    public void setModified_time(String modified_time) {
+        this.modified_time = modified_time;
     }
 
     public void setCustomer_name(String customer_name) {

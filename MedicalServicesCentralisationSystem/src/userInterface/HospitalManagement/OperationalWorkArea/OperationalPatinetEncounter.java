@@ -24,7 +24,7 @@ public class OperationalPatinetEncounter extends javax.swing.JPanel {
      * Creates new form OperationalAccountsPage
      */
     JPanel userProcessContainer;
-    EcoSystem ecosystem;
+    /*EcoSystem ecosystem;
     CustomerDirectory customerDirectory;
     UserAccount userAccount;
     Customer customer;
@@ -38,7 +38,7 @@ public class OperationalPatinetEncounter extends javax.swing.JPanel {
         initComponents();
         populateTable();
     }
-
+*/
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -290,7 +290,7 @@ public class OperationalPatinetEncounter extends javax.swing.JPanel {
     private void jButtonDownloadPrescription1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonDownloadPrescription1ActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_jButtonDownloadPrescription1ActionPerformed
-    private Customer set_user_input_values(Customer customer, ArrayList<String> user_input){
+    /*private Customer set_user_input_values(Customer customer, ArrayList<String> user_input){
         
         customer.getUserAccount().setPassword(user_input.get(1));
         customer.setCustomerPhone(user_input.get(2));
@@ -325,7 +325,7 @@ public class OperationalPatinetEncounter extends javax.swing.JPanel {
         return user_input;
         
     }
-    
+    */
     
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
@@ -367,7 +367,7 @@ public class OperationalPatinetEncounter extends javax.swing.JPanel {
     private javax.swing.JTextField jTextFieldTemparature;
     private javax.swing.JTextField jTextFieldWeight;
     // End of variables declaration//GEN-END:variables
-
+/*
     private void populateTable() {
         
         customerDirectory = ecosystem.getCustomerDirectory();
@@ -384,5 +384,5 @@ public class OperationalPatinetEncounter extends javax.swing.JPanel {
         customersTable.setModel(model);
 //        listCustomers.setModel(dc);
         dB4OUtil.storeSystem(ecosystem);
-    }
+    }*/
 }

@@ -230,10 +230,10 @@ public class MedTechnicalAccountsPage extends javax.swing.JPanel {
         // TODO add your handling code here:
         DefaultTableModel model = (DefaultTableModel) jTableEmployee.getModel();
         ArrayList<String> user_input = check_empty_field();
-        
-        if(hospitalManagementEcoSystem.checkIfUserIsUnique(user_input.get(0))){
+        UserAccountDirectory usersList = hospitalManagementEcoSystem.getUserAccountDirectory();
+        if(usersList.checkIfUserIsUnique(user_input.get(0))){
             
-            UserAccountDirectory usersList = hospitalManagementEcoSystem.getUserAccountDirectory();
+            
             if(user_input.get(2) == "Pathologist"){
 
                 userAccount = new UserAccount(user_input.get(0), user_input.get(3), new PathologistRole());

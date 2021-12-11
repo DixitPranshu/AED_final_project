@@ -253,10 +253,10 @@ public class CustomerSupportMemberSearchMedicalTests extends javax.swing.JPanel 
             accountantDirectory = customerSupportTeam.getCustomerSupportMemberDirectory();
             HashMap<String, CustomerSupportMember> accountantList = accountantDirectory.getCustomerSupportMemberList();
             CustomerSupportMember accountant = accountantList.get(select_user_account_details.getUsername());
-            jTextFieldCustPhone.setText(accountant.getCustomerSupportMemberName());
+//            jTextFieldCustPhone.setText(accountant.getCustomerSupportMemberName());
         }
         
-        jTextFieldPassword.setText(select_user_account_details.getPassword());
+//        jTextFieldPassword.setText(select_user_account_details.getPassword());
         
     }//GEN-LAST:event_jTableRequestsMouseClicked
 
@@ -271,32 +271,32 @@ public class CustomerSupportMemberSearchMedicalTests extends javax.swing.JPanel 
     }
     private void clearFields(){
         jTextFieldCustName.setText("");
-        jTextFieldCustPhone.setText("");
-        jTextFieldPassword.setText("");
+//        jTextFieldCustPhone.setText("");
+//        jTextFieldPassword.setText("");
     }
     
     public ArrayList<String> check_empty_field(){
         ArrayList<String> user_input = new ArrayList<>();
         String user_emp_id = jTextFieldCustName.getText();
-        String user_emp_name = jTextFieldCustPhone.getText();
-        String user_password = jTextFieldPassword.getText();
+//        String user_emp_name = jTextFieldCustPhone.getText();
+//        String user_password = jTextFieldPassword.getText();
 
         
         if(user_emp_id.isEmpty()){
             JOptionPane.showMessageDialog(this, "User ID can't be left empty.");
         }
-        else if(user_emp_name.isEmpty()){
-            JOptionPane.showMessageDialog(this, "User Name can't be left empty.");
-        }
-        else if(user_password.isEmpty()){
-            JOptionPane.showMessageDialog(this, "Please enter a Password.");
-        }
+//        else if(user_emp_name.isEmpty()){
+//            JOptionPane.showMessageDialog(this, "User Name can't be left empty.");
+//        }
+//        else if(user_password.isEmpty()){
+//            JOptionPane.showMessageDialog(this, "Please enter a Password.");
+//        }
         
         
         user_input.add(user_emp_id);
-        user_input.add(user_emp_name);
-        user_input.add(user_password);
-        
+//        user_input.add(user_emp_name);
+//        user_input.add(user_password);
+//        
         return user_input;
         
     }

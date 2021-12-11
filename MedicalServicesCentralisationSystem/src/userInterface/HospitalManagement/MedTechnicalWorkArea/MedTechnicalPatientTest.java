@@ -24,7 +24,7 @@ public class MedTechnicalPatientTest extends javax.swing.JPanel {
     /**
      * Creates new form OperationalAccountsPage
      */
-    JPanel userProcessContainer;
+    /*JPanel userProcessContainer;
     MedicalServiceCentralisationEcoSystem hospitalManagementEcoSystem;
     CustomerDirectory customerDirectory;
     UserAccount userAccount;
@@ -39,7 +39,7 @@ public class MedTechnicalPatientTest extends javax.swing.JPanel {
         initComponents();
         populateTable();
     }
-
+*/
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -270,8 +270,8 @@ public class MedTechnicalPatientTest extends javax.swing.JPanel {
 
     private void jButtonHomeActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonHomeActionPerformed
         // TODO add your handling code here:
-        CardLayout crdLyt = (CardLayout) userProcessContainer.getLayout();
-            crdLyt.show(userProcessContainer,"Sysadmin");
+//        CardLayout crdLyt = (CardLayout) userProcessContainer.getLayout();
+//            crdLyt.show(userProcessContainer,"Sysadmin");
     }//GEN-LAST:event_jButtonHomeActionPerformed
 
     private void jTextFieldEmpNameActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextFieldEmpNameActionPerformed
@@ -305,13 +305,13 @@ public class MedTechnicalPatientTest extends javax.swing.JPanel {
     private void jButtonDownloadReportActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonDownloadReportActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_jButtonDownloadReportActionPerformed
-    private Customer set_user_input_values(Customer customer, ArrayList<String> user_input){
-        
-        customer.getUserAccount().setPassword(user_input.get(1));
-        customer.setCustomerPhone(user_input.get(2));
-        return customer;
-    }
-        private void clearFields(){
+//    private Customer set_user_input_values(Customer customer, ArrayList<String> user_input){
+//        
+//        customer.getUserAccount().setPassword(user_input.get(1));
+//        customer.setCustomerPhone(user_input.get(2));
+//        return customer;
+//    }
+        /*private void clearFields(){
         custUsername.setText("");
         custPassword.setText("");
         custContact.setText("");
@@ -340,7 +340,7 @@ public class MedTechnicalPatientTest extends javax.swing.JPanel {
         return user_input;
         
     }
-    
+    */
     
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
@@ -376,7 +376,7 @@ public class MedTechnicalPatientTest extends javax.swing.JPanel {
     private javax.swing.JTextField jTextFieldTestDate;
     private javax.swing.JTextField jTextFieldTestID;
     // End of variables declaration//GEN-END:variables
-
+/*
     private void populateTable() {
         
         customerDirectory = ecosystem.getCustomerDirectory();
@@ -393,5 +393,5 @@ public class MedTechnicalPatientTest extends javax.swing.JPanel {
         customersTable.setModel(model);
 //        listCustomers.setModel(dc);
         dB4OUtil.storeSystem(ecosystem);
-    }
+    }*/
 }

@@ -137,10 +137,10 @@ public class MedTechnicalWorkAreaJPanel extends javax.swing.JPanel {
     }// </editor-fold>//GEN-END:initComponents
 
     private void jButtonEmployeeAttendanceActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonEmployeeAttendanceActionPerformed
-        MedTechnicalEmployeeAttendance medTechnicalEmployeeAttendance = new MedTechnicalEmployeeAttendance(userProcessContainer,hospitalManagementEcoSystem);
-        userProcessContainer.add("medTechnicalEmployeeAttendance",medTechnicalEmployeeAttendance);
-        CardLayout cardLayout = (CardLayout) userProcessContainer.getLayout();
-        cardLayout.show(userProcessContainer,"medTechnicalEmployeeAttendance");
+//        MedTechnicalEmployeeAttendance medTechnicalEmployeeAttendance = new MedTechnicalEmployeeAttendance(userProcessContainer,hospitalManagementEcoSystem);
+//        userProcessContainer.add("medTechnicalEmployeeAttendance",medTechnicalEmployeeAttendance);
+//        CardLayout cardLayout = (CardLayout) userProcessContainer.getLayout();
+//        cardLayout.show(userProcessContainer,"medTechnicalEmployeeAttendance");
     }//GEN-LAST:event_jButtonEmployeeAttendanceActionPerformed
 
     private void jButtonTestDatabaseActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonTestDatabaseActionPerformed
@@ -153,10 +153,10 @@ public class MedTechnicalWorkAreaJPanel extends javax.swing.JPanel {
 
     private void jButtonPatientTestActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonPatientTestActionPerformed
         // TODO add your handling code here:
-        MedTechnicalPatientTest medTechnicalPatientTest = new MedTechnicalPatientTest(userProcessContainer,hospitalManagementEcoSystem);
-        userProcessContainer.add("medTechnicalPatientTest",medTechnicalPatientTest);
-        CardLayout cardLayout = (CardLayout) userProcessContainer.getLayout();
-        cardLayout.show(userProcessContainer,"medTechnicalPatientTest");
+//        MedTechnicalPatientTest medTechnicalPatientTest = new MedTechnicalPatientTest(userProcessContainer,hospitalManagementEcoSystem);
+//        userProcessContainer.add("medTechnicalPatientTest",medTechnicalPatientTest);
+//        CardLayout cardLayout = (CardLayout) userProcessContainer.getLayout();
+//        cardLayout.show(userProcessContainer,"medTechnicalPatientTest");
     }//GEN-LAST:event_jButtonPatientTestActionPerformed
 
 
