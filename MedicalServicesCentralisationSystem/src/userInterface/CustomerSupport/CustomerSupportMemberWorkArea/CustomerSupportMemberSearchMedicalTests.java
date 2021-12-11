@@ -25,6 +25,7 @@ import MainCentralisationSystem.Role.Role;
 import MainCentralisationSystem.UserAccount;
 import MainCentralisationSystem.UserAccountDirectory;
 import java.awt.CardLayout;
+import java.awt.event.KeyEvent;
 import java.util.ArrayList;
 import java.util.HashMap;
 import javax.swing.DefaultComboBoxModel;
@@ -49,13 +50,14 @@ public class CustomerSupportMemberSearchMedicalTests extends javax.swing.JPanel 
     UserAccountDirectory UserAccountDirectory;
     CustomerSupportTeam customerSupportTeam;
     ArrayList<LabTest> finallabTestList = new ArrayList<>();
-    public CustomerSupportMemberSearchMedicalTests(JPanel userProcessContainer , MedicalServiceCentralisationEcoSystem medicalServiceCentralisationEcoSystem) {
+    String cust_pincode;
+    public CustomerSupportMemberSearchMedicalTests(JPanel userProcessContainer , MedicalServiceCentralisationEcoSystem medicalServiceCentralisationEcoSystem, String pincode) {
         
         this.userProcessContainer = userProcessContainer;
         this.medicalServiceCentralisationEcoSystem = medicalServiceCentralisationEcoSystem;
-        
+        this.cust_pincode = pincode;
         initComponents();
-        
+        populateHospitals(pincode);
 //        addrecordstotable();
     }
 
@@ -78,6 +80,15 @@ public class CustomerSupportMemberSearchMedicalTests extends javax.swing.JPanel 
         jLabelEmpID1 = new javax.swing.JLabel();
         jTextFieldPincode = new javax.swing.JTextField();
         jButtonRefresh = new javax.swing.JButton();
+        jComboBoxHospitalList = new javax.swing.JComboBox<>();
+        jLabelEmpName6 = new javax.swing.JLabel();
+        jButtonSearch1 = new javax.swing.JButton();
+        jScrollPane3 = new javax.swing.JScrollPane();
+        jTableRequests2 = new javax.swing.JTable();
+        jButtonSearch2 = new javax.swing.JButton();
+        jButtonSearch3 = new javax.swing.JButton();
+        jLabelEmpName7 = new javax.swing.JLabel();
+        jLabelEmpName8 = new javax.swing.JLabel();
 
         setBackground(new java.awt.Color(0, 70, 169));
 
@@ -112,7 +123,7 @@ public class CustomerSupportMemberSearchMedicalTests extends javax.swing.JPanel 
             }
         ) {
             boolean[] canEdit = new boolean [] {
-                false, false, false
+                false, false, true
             };
 
             public boolean isCellEditable(int rowIndex, int columnIndex) {
@@ -150,6 +161,11 @@ public class CustomerSupportMemberSearchMedicalTests extends javax.swing.JPanel 
                 jTextFieldPincodeActionPerformed(evt);
             }
         });
+        jTextFieldPincode.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyPressed(java.awt.event.KeyEvent evt) {
+                jTextFieldPincodeKeyPressed(evt);
+            }
+        });
 
         jButtonRefresh.setText("REFRESH");
         jButtonRefresh.addActionListener(new java.awt.event.ActionListener() {
@@ -158,36 +174,121 @@ public class CustomerSupportMemberSearchMedicalTests extends javax.swing.JPanel 
             }
         });
 
+        jComboBoxHospitalList.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
+
+        jLabelEmpName6.setForeground(new java.awt.Color(255, 255, 255));
+        jLabelEmpName6.setText("Hospital");
+
+        jButtonSearch1.setText("ADD TO CART");
+        jButtonSearch1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButtonSearch1ActionPerformed(evt);
+            }
+        });
+
+        jTableRequests2.setModel(new javax.swing.table.DefaultTableModel(
+            new Object [][] {
+                {null},
+                {null},
+                {null},
+                {null},
+                {null},
+                {null},
+                {null},
+                {null}
+            },
+            new String [] {
+                "Test Name"
+            }
+        ) {
+            boolean[] canEdit = new boolean [] {
+                false
+            };
+
+            public boolean isCellEditable(int rowIndex, int columnIndex) {
+                return canEdit [columnIndex];
+            }
+        });
+        jTableRequests2.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jTableRequests2MouseClicked(evt);
+            }
+        });
+        jScrollPane3.setViewportView(jTableRequests2);
+
+        jButtonSearch2.setText("DELETE");
+        jButtonSearch2.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButtonSearch2ActionPerformed(evt);
+            }
+        });
+
+        jButtonSearch3.setText("SUBMIT");
+        jButtonSearch3.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButtonSearch3ActionPerformed(evt);
+            }
+        });
+
+        jLabelEmpName7.setForeground(new java.awt.Color(255, 255, 255));
+        jLabelEmpName7.setText("CART");
+
+        jLabelEmpName8.setForeground(new java.awt.Color(255, 255, 255));
+        jLabelEmpName8.setText("TEST SEARCH RESULTS");
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
         this.setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addGap(136, 136, 136)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                     .addGroup(layout.createSequentialGroup()
-                        .addGap(136, 136, 136)
                         .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 706, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(jButton2))
                     .addGroup(layout.createSequentialGroup()
-                        .addGap(119, 119, 119)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                            .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 747, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addGroup(layout.createSequentialGroup()
-                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                                    .addGroup(layout.createSequentialGroup()
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                                        .addGap(0, 0, Short.MAX_VALUE)
                                         .addComponent(jLabelEmpID, javax.swing.GroupLayout.PREFERRED_SIZE, 104, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                        .addGap(0, 0, 0)
+                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                                         .addComponent(jTextFieldTestName, javax.swing.GroupLayout.PREFERRED_SIZE, 421, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                    .addGroup(layout.createSequentialGroup()
-                                        .addComponent(jLabelEmpID1, javax.swing.GroupLayout.PREFERRED_SIZE, 104, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                        .addGap(0, 0, 0)
-                                        .addComponent(jTextFieldPincode, javax.swing.GroupLayout.PREFERRED_SIZE, 421, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                                .addGap(100, 100, 100)
-                                .addComponent(jButtonSearch)))
-                        .addGap(30, 30, 30)
-                        .addComponent(jButtonRefresh)))
-                .addContainerGap(380, Short.MAX_VALUE))
+                                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 187, Short.MAX_VALUE)
+                                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                            .addComponent(jLabelEmpID1, javax.swing.GroupLayout.PREFERRED_SIZE, 104, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                            .addComponent(jLabelEmpName6))
+                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                            .addComponent(jComboBoxHospitalList, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                            .addComponent(jTextFieldPincode, javax.swing.GroupLayout.PREFERRED_SIZE, 421, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                                .addGap(186, 186, 186))
+                            .addGroup(layout.createSequentialGroup()
+                                .addGap(105, 105, 105)
+                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(jLabelEmpName8)
+                                    .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 331, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(jButtonSearch1))
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 133, Short.MAX_VALUE)
+                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(jScrollPane3, javax.swing.GroupLayout.PREFERRED_SIZE, 291, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(jLabelEmpName7))
+                                .addGap(48, 48, 48)))
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(layout.createSequentialGroup()
+                                .addComponent(jButtonSearch)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 35, Short.MAX_VALUE)
+                                .addComponent(jButtonRefresh))
+                            .addGroup(layout.createSequentialGroup()
+                                .addGap(52, 52, 52)
+                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(jButtonSearch3)
+                                    .addComponent(jButtonSearch2))
+                                .addGap(0, 0, Short.MAX_VALUE)))))
+                .addContainerGap(124, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -196,25 +297,40 @@ public class CustomerSupportMemberSearchMedicalTests extends javax.swing.JPanel 
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel1)
                     .addComponent(jButton2))
-                .addGap(97, 97, 97)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jLabelEmpID)
-                    .addGroup(layout.createSequentialGroup()
-                        .addComponent(jTextFieldTestName, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(layout.createSequentialGroup()
-                                .addGap(18, 18, 18)
-                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(jLabelEmpID1)
-                                    .addComponent(jTextFieldPincode, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                            .addGroup(layout.createSequentialGroup()
-                                .addGap(26, 26, 26)
-                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                                    .addComponent(jButtonSearch)
-                                    .addComponent(jButtonRefresh))))))
+                .addGap(40, 40, 40)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addComponent(jTextFieldTestName, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jLabelEmpID))
+                .addGap(33, 33, 33)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jTextFieldPincode, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jLabelEmpID1)
+                    .addComponent(jButtonSearch)
+                    .addComponent(jButtonRefresh))
                 .addGap(18, 18, 18)
-                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 122, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(683, Short.MAX_VALUE))
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabelEmpName6)
+                    .addComponent(jComboBoxHospitalList, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(12, 12, 12)
+                        .addComponent(jLabelEmpName7))
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(18, 18, 18)
+                        .addComponent(jLabelEmpName8)))
+                .addGap(18, 18, 18)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(15, 15, 15)
+                        .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 122, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(jScrollPane3, javax.swing.GroupLayout.PREFERRED_SIZE, 158, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addGroup(layout.createSequentialGroup()
+                        .addComponent(jButtonSearch2)
+                        .addGap(18, 18, 18)
+                        .addComponent(jButtonSearch3)))
+                .addGap(19, 19, 19)
+                .addComponent(jButtonSearch1)
+                .addContainerGap(585, Short.MAX_VALUE))
         );
     }// </editor-fold>//GEN-END:initComponents
 
@@ -248,7 +364,6 @@ public class CustomerSupportMemberSearchMedicalTests extends javax.swing.JPanel 
                         
                     }
                 }
-                
             }
         }
         
@@ -272,6 +387,32 @@ public class CustomerSupportMemberSearchMedicalTests extends javax.swing.JPanel 
         jTextFieldTestName.setText("");
         finallabTestList.clear();
     }//GEN-LAST:event_jButtonRefreshActionPerformed
+
+    private void jButtonSearch1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonSearch1ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jButtonSearch1ActionPerformed
+
+    private void jTableRequests2MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jTableRequests2MouseClicked
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jTableRequests2MouseClicked
+
+    private void jButtonSearch2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonSearch2ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jButtonSearch2ActionPerformed
+
+    private void jButtonSearch3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonSearch3ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jButtonSearch3ActionPerformed
+
+    private void jTextFieldPincodeKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_jTextFieldPincodeKeyPressed
+        // TODO add your handling code here:
+        jComboBoxHospitalList.removeAllItems();
+        if(evt.getKeyCode() == KeyEvent.VK_ENTER){
+            
+            populateHospitals(jTextFieldPincode.getText());
+        }
+        
+    }//GEN-LAST:event_jTextFieldPincodeKeyPressed
     
     
     public ArrayList<String> check_empty_field(){
@@ -299,11 +440,20 @@ public class CustomerSupportMemberSearchMedicalTests extends javax.swing.JPanel 
     private javax.swing.JButton jButton2;
     private javax.swing.JButton jButtonRefresh;
     private javax.swing.JButton jButtonSearch;
+    private javax.swing.JButton jButtonSearch1;
+    private javax.swing.JButton jButtonSearch2;
+    private javax.swing.JButton jButtonSearch3;
+    private javax.swing.JComboBox<String> jComboBoxHospitalList;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabelEmpID;
     private javax.swing.JLabel jLabelEmpID1;
+    private javax.swing.JLabel jLabelEmpName6;
+    private javax.swing.JLabel jLabelEmpName7;
+    private javax.swing.JLabel jLabelEmpName8;
     private javax.swing.JScrollPane jScrollPane1;
+    private javax.swing.JScrollPane jScrollPane3;
     private javax.swing.JTable jTableRequests;
+    private javax.swing.JTable jTableRequests2;
     private javax.swing.JTextField jTextFieldPincode;
     private javax.swing.JTextField jTextFieldTestName;
     // End of variables declaration//GEN-END:variables
@@ -340,6 +490,19 @@ public class CustomerSupportMemberSearchMedicalTests extends javax.swing.JPanel 
 
         jTableRequests.setModel(model);
     }
+
+    private void populateHospitals(String pincode) {
+        jTextFieldPincode.setText(pincode);
+        jComboBoxHospitalList.removeAllItems();
+        HospitalDirectory hospitalDirectory = medicalServiceCentralisationEcoSystem.getHospitalDirectory();
+            ArrayList<Hospital> hospitalList = hospitalDirectory.getHospitalList();
+
+            for(Hospital hospital: hospitalList){
+                if(hospital.getHospitalpincode().equals(pincode)){
+                    jComboBoxHospitalList.addItem(hospital.getHospitalId());
+
+                }
+    }
     
-    
+    }
 }

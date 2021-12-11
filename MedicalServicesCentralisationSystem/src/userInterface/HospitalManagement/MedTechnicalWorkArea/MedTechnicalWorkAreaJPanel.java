@@ -156,10 +156,10 @@ public class MedTechnicalWorkAreaJPanel extends javax.swing.JPanel {
 
     private void jButtonPatientTestActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonPatientTestActionPerformed
         // TODO add your handling code here:
-//        MedTechnicalPatientTest medTechnicalPatientTest = new MedTechnicalPatientTest(userProcessContainer,hospitalManagementEcoSystem);
-//        userProcessContainer.add("medTechnicalPatientTest",medTechnicalPatientTest);
-//        CardLayout cardLayout = (CardLayout) userProcessContainer.getLayout();
-//        cardLayout.show(userProcessContainer,"medTechnicalPatientTest");
+        MedTechnicalPatientTest medTechnicalPatientTest = new MedTechnicalPatientTest(userProcessContainer,hospitalManagementEcoSystem, hospital);
+        userProcessContainer.add("medTechnicalPatientTest",medTechnicalPatientTest);
+        CardLayout cardLayout = (CardLayout) userProcessContainer.getLayout();
+        cardLayout.show(userProcessContainer,"medTechnicalPatientTest");
     }//GEN-LAST:event_jButtonPatientTestActionPerformed
 
 
