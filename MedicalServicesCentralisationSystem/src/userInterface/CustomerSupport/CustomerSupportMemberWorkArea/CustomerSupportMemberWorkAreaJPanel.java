@@ -645,14 +645,17 @@ public class CustomerSupportMemberWorkAreaJPanel extends javax.swing.JPanel {
         DefaultTableModel model = (DefaultTableModel) jTableRequests.getModel();
         model.setRowCount(0);
         RequestDirectory requestDirectory = medicalServiceCentralisationEcoSystem.getRequestDirectory();
-        ArrayList<Request> requestList = requestDirectory.getRequestList();
-        for(Request request: requestList)
-        {   
-            model.addRow(new Object[]{request,request.getCustomer_name(),request.getCustomer_phone(),request.getCustomer_email(),request.getHospital_id(),request.getCustomer_pincode(),request.getRequest_date(),request.getRequest_category(),request.getRequest_description()});
-            
-        }
+        if(requestDirectory!=null){
+            ArrayList<Request> requestList = requestDirectory.getRequestList();
+            for(Request request: requestList)
+            {   
+                model.addRow(new Object[]{request,request.getCustomer_name(),request.getCustomer_phone(),request.getCustomer_email(),request.getHospital_id(),request.getCustomer_pincode(),request.getRequest_date(),request.getRequest_category(),request.getRequest_description()});
 
-        jTableRequests.setModel(model);
+            }
+
+            jTableRequests.setModel(model);
+        }
+        
     }
     
     

@@ -31,6 +31,7 @@ import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 import javax.swing.JTextArea;
 import javax.swing.JTextField;
+import userInterface.CustomerSupport.CustomerSupportMemberWorkArea.CustomerSupportMemberWorkAreaJPanel;
 import userInterface.HospitalManagement.MedTechnicalWorkArea.MedTechnicalWorkAreaJPanel;
 import userInterface.SystemAdminWorkArea.SystemAdminWorkAreaJPanel;
 
@@ -46,10 +47,6 @@ public class HospitalManagementMainJFrame extends javax.swing.JFrame {
     public HospitalManagementMainJFrame() {
         initComponents();
         medicalServiceCentralisationEcoSystem = dB4OUtil.retrieveSystem();
-//        if(medicalServiceCentralisationEcoSystem == null)
-//        {
-//            medicalServiceCentralisationEcoSystem = new MedicalServiceCentralisationEcoSystem(new HospitalDirectory());
-//        }
     }
 
     /**
@@ -231,6 +228,13 @@ public class HospitalManagementMainJFrame extends javax.swing.JFrame {
                 CustomerSupportTeam customerSupportTeam = userAccount.getCustomerSupportTeam();
                 CustomerSupportTeamAdminWorkAreaJPanel customerSupportTeamAdminWorkAreaJPanel = new CustomerSupportTeamAdminWorkAreaJPanel(jPanelWorkArea, medicalServiceCentralisationEcoSystem, customerSupportTeam);
                 jPanelWorkArea.add("customerSupportTeamAdminWorkAreaJPanel",customerSupportTeamAdminWorkAreaJPanel);
+                CardLayout crdLyt = (CardLayout) jPanelWorkArea.getLayout();
+                crdLyt.next(jPanelWorkArea);
+            }
+            else if(userAccount.getRole().toString().equals("CustomerSupportMember"))
+            {
+                CustomerSupportMemberWorkAreaJPanel customerSupportMemberWorkAreaJPanel = new CustomerSupportMemberWorkAreaJPanel(jPanelWorkArea, medicalServiceCentralisationEcoSystem);
+                jPanelWorkArea.add("customerSupportMemberWorkAreaJPanel",customerSupportMemberWorkAreaJPanel);
                 CardLayout crdLyt = (CardLayout) jPanelWorkArea.getLayout();
                 crdLyt.next(jPanelWorkArea);
             }
