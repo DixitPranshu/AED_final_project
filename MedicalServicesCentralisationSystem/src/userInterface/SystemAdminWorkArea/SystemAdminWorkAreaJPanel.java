@@ -74,7 +74,7 @@ public class SystemAdminWorkAreaJPanel extends javax.swing.JPanel {
                 jButtonCreateHospitalActionPerformed(evt);
             }
         });
-        jPanel2.add(jButtonCreateHospital, new org.netbeans.lib.awtextra.AbsoluteConstraints(610, 730, 401, -1));
+        jPanel2.add(jButtonCreateHospital, new org.netbeans.lib.awtextra.AbsoluteConstraints(440, 340, 401, -1));
 
         jButtonCreateCustomerSupport.setBackground(new java.awt.Color(204, 204, 204));
         jButtonCreateCustomerSupport.setFont(new java.awt.Font("Tahoma", 1, 24)); // NOI18N
@@ -85,7 +85,7 @@ public class SystemAdminWorkAreaJPanel extends javax.swing.JPanel {
                 jButtonCreateCustomerSupportActionPerformed(evt);
             }
         });
-        jPanel2.add(jButtonCreateCustomerSupport, new org.netbeans.lib.awtextra.AbsoluteConstraints(610, 790, 401, -1));
+        jPanel2.add(jButtonCreateCustomerSupport, new org.netbeans.lib.awtextra.AbsoluteConstraints(440, 420, 401, -1));
 
         bgdimg.setIcon(new javax.swing.ImageIcon(getClass().getResource("/userInterface/Images/SystemAdminWorkAreaJPanel.jpg"))); // NOI18N
         jPanel2.add(bgdimg, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 1740, 1080));
