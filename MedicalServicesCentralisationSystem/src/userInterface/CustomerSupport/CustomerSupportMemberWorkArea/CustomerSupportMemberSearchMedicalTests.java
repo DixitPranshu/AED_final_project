@@ -15,7 +15,7 @@ import CustomerSupportTeam.CustomerSupportMember.CustomerSupportMember;
 import CustomerSupportTeam.CustomerSupportTeam;
 import HospitalManagement.Hospital.Hospital;
 import HospitalManagement.Hospital.HospitalDirectory;
-import HospitalManagement.PatientTest.LabTest;
+import HospitalManagement.LabTest.LabTest;
 
 
 import MainCentralisationSystem.Role.CustomerSupportMemberRole;

@@ -22,12 +22,12 @@ public class MedTechnicalWorkAreaJPanel extends javax.swing.JPanel {
      * Creates new form SystemAdminWorkAreaJPanel
      */
     JPanel userProcessContainer;
-    MedicalServiceCentralisationEcoSystem hospitalManagementEcoSystem;
+    MedicalServiceCentralisationEcoSystem medicalServiceCentralisationEcoSystem;
     Hospital hospital;
-    public MedTechnicalWorkAreaJPanel(JPanel userProcessContainer,MedicalServiceCentralisationEcoSystem hospitalManagementEcoSystem, Hospital hospital) {
+    public MedTechnicalWorkAreaJPanel(JPanel userProcessContainer,MedicalServiceCentralisationEcoSystem medicalServiceCentralisationEcoSystem, Hospital hospital) {
         initComponents();
         this.userProcessContainer = userProcessContainer;
-        this.hospitalManagementEcoSystem = hospitalManagementEcoSystem;
+        this.medicalServiceCentralisationEcoSystem = medicalServiceCentralisationEcoSystem;
         this.hospital = hospital;
         jPanel1.setVisible(false);
         //jSplitPane.setVisible(false);
@@ -140,7 +140,7 @@ public class MedTechnicalWorkAreaJPanel extends javax.swing.JPanel {
     }// </editor-fold>//GEN-END:initComponents
 
     private void jButtonEmployeeAttendanceActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonEmployeeAttendanceActionPerformed
-//        MedTechnicalEmployeeAttendance medTechnicalEmployeeAttendance = new MedTechnicalEmployeeAttendance(userProcessContainer,hospitalManagementEcoSystem);
+//        MedTechnicalEmployeeAttendance medTechnicalEmployeeAttendance = new MedTechnicalEmployeeAttendance(userProcessContainer,medicalServiceCentralisationEcoSystem);
 //        userProcessContainer.add("medTechnicalEmployeeAttendance",medTechnicalEmployeeAttendance);
 //        CardLayout cardLayout = (CardLayout) userProcessContainer.getLayout();
 //        cardLayout.show(userProcessContainer,"medTechnicalEmployeeAttendance");
@@ -148,7 +148,7 @@ public class MedTechnicalWorkAreaJPanel extends javax.swing.JPanel {
 
     private void jButtonTestDatabaseActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonTestDatabaseActionPerformed
 
-        MedTechnicalTestDatabase medTechnicalTestDatabase = new MedTechnicalTestDatabase(userProcessContainer,hospitalManagementEcoSystem, hospital);
+        MedTechnicalTestDatabase medTechnicalTestDatabase = new MedTechnicalTestDatabase(userProcessContainer,medicalServiceCentralisationEcoSystem, hospital);
         userProcessContainer.add("medTechnicalTestDatabase",medTechnicalTestDatabase);
         CardLayout cardLayout = (CardLayout) userProcessContainer.getLayout();
         cardLayout.show(userProcessContainer,"medTechnicalTestDatabase");
@@ -156,7 +156,7 @@ public class MedTechnicalWorkAreaJPanel extends javax.swing.JPanel {
 
     private void jButtonPatientTestActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonPatientTestActionPerformed
         // TODO add your handling code here:
-        MedTechnicalPatientTest medTechnicalPatientTest = new MedTechnicalPatientTest(userProcessContainer,hospitalManagementEcoSystem, hospital);
+        MedTechnicalPatientTest medTechnicalPatientTest = new MedTechnicalPatientTest(userProcessContainer,medicalServiceCentralisationEcoSystem, hospital);
         userProcessContainer.add("medTechnicalPatientTest",medTechnicalPatientTest);
         CardLayout cardLayout = (CardLayout) userProcessContainer.getLayout();
         cardLayout.show(userProcessContainer,"medTechnicalPatientTest");
