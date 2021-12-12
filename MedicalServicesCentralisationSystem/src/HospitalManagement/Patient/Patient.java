@@ -20,6 +20,7 @@ public class Patient {
     String patient_name;
     String patient_phone_number;
     String patient_email;
+    
     ArrayList<PatientTest> patientTestList = new ArrayList<>();
     
     public String getPatient_id() {
