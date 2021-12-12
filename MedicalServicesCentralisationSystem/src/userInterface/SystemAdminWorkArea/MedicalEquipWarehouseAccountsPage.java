@@ -10,11 +10,11 @@ package userInterface.SystemAdminWorkArea;
 import MainCentralisationSystem.MedicalServiceCentralisationEcoSystem;
 
 
-import MainCentralisationSystem.Role.CustomerSupportTeamAdminRole;
+import MainCentralisationSystem.Role.MedSupWarehouseAdminRole;
 import MainCentralisationSystem.Role.Role;
 
-import CustomerSupportTeam.CustomerSupportTeam;
-import CustomerSupportTeam.CustomerSupportTeamDirectory;
+import MedicalEquipmentWarehouse.MedSupWarehouse;
+import MedicalEquipmentWarehouse.MedSupWarehouseDirectory;
 import MainCentralisationSystem.UserAccount;
 import MainCentralisationSystem.UserAccountDirectory;
 import java.awt.CardLayout;
@@ -34,7 +34,7 @@ public class MedicalEquipWarehouseAccountsPage extends javax.swing.JPanel {
      */
     JPanel userProcessContainer;
     MedicalServiceCentralisationEcoSystem medicalServiceCentralisationEcoSystem;
-    CustomerSupportTeamDirectory customerSupportTeamDirectory;
+    MedSupWarehouseDirectory medSupWarehouseDirectory;
 //    FrontDeskOperatorDirectory frontDeskOperatorDirectory;
     UserAccount userAccount;
     UserAccountDirectory UserAccountDirectory;
@@ -44,8 +44,8 @@ public class MedicalEquipWarehouseAccountsPage extends javax.swing.JPanel {
         this.userProcessContainer = userProcessContainer;
         this.medicalServiceCentralisationEcoSystem = medicalServiceCentralisationEcoSystem;
         initComponents();
-        if(medicalServiceCentralisationEcoSystem.getCustomerSupportTeamDirectory()== null)
-           medicalServiceCentralisationEcoSystem.setCustomerSupportTeamDirectory(new CustomerSupportTeamDirectory());
+        if(medicalServiceCentralisationEcoSystem.getMedSupWarehouseDirectory()== null)
+           medicalServiceCentralisationEcoSystem.setMedSupWarehouseDirectory(new MedSupWarehouseDirectory());
         
 //        addRolesComboBox();
         addDefaultvalues();
@@ -254,22 +254,22 @@ public class MedicalEquipWarehouseAccountsPage extends javax.swing.JPanel {
         // TODO add your handling code here:
         DefaultTableModel model = (DefaultTableModel) jTableEmployee.getModel();
         ArrayList<String> user_input = check_empty_field();
-        customerSupportTeamDirectory = medicalServiceCentralisationEcoSystem.getCustomerSupportTeamDirectory();
+        medSupWarehouseDirectory = medicalServiceCentralisationEcoSystem.getMedSupWarehouseDirectory();
         UserAccountDirectory usersList = medicalServiceCentralisationEcoSystem.getUserAccountDirectory();
         if(usersList.checkIfUserIsUnique(user_input.get(0))){
             
-//            Employee employee = new Employee(user_input.get(0),user_input.get(1),new CustomerSupportTeamAdminRole());
+//            Employee employee = new Employee(user_input.get(0),user_input.get(1),new MedSupWarehouseAdminRole());
             
             
-            userAccount = new UserAccount(user_input.get(0), user_input.get(2), new CustomerSupportTeamAdminRole());
+            userAccount = new UserAccount(user_input.get(0), user_input.get(2), new MedSupWarehouseAdminRole());
             
-            CustomerSupportTeam customerSupportTeam = new CustomerSupportTeam(user_input.get(0), user_input.get(1));
-            userAccount.setCustomerSupportTeam(customerSupportTeam);
-            customerSupportTeamDirectory.addCustomerSupportTeam(customerSupportTeam);
+            MedSupWarehouse medSupWarehouse = new MedSupWarehouse(user_input.get(0), user_input.get(1));
+            userAccount.setMedSupWarehouse(medSupWarehouse);
+            medSupWarehouseDirectory.addMedSupWarehouse(medSupWarehouse);
             
             usersList.addUserAccount(userAccount);
             
-            JOptionPane.showMessageDialog(this, "New CustomerSupportTeam Information has been added.");
+            JOptionPane.showMessageDialog(this, "New MedSupWarehouse Information has been added.");
             model.addRow(new Object[]{userAccount,user_input.get(1),user_input.get(2)});
             clearFields();
         }
@@ -289,18 +289,18 @@ public class MedicalEquipWarehouseAccountsPage extends javax.swing.JPanel {
         DefaultTableModel model = (DefaultTableModel) jTableEmployee.getModel();
         UserAccount select_account_details = (UserAccount)model.getValueAt(selected_row_ix, 0);        
         UserAccountDirectory = medicalServiceCentralisationEcoSystem.getUserAccountDirectory();
-        customerSupportTeamDirectory = medicalServiceCentralisationEcoSystem.getCustomerSupportTeamDirectory();
+        medSupWarehouseDirectory = medicalServiceCentralisationEcoSystem.getMedSupWarehouseDirectory();
         ArrayList<UserAccount> userAccountList = UserAccountDirectory.getUserAccountList();
         for(UserAccount userAccount: userAccountList)
         {
             if(userAccount.getUsername().equals(select_account_details.getUsername()))
             {
-                CustomerSupportTeam customerSupportTeam = userAccount.getCustomerSupportTeam();
+                MedSupWarehouse medSupWarehouse = userAccount.getMedSupWarehouse();
                 ArrayList<String> user_input = check_empty_field();
 //                model.setValueAt(user_input.get(1), selected_row_ix, 0);
                 model.setValueAt(user_input.get(1), selected_row_ix, 1);
                 model.setValueAt(user_input.get(2), selected_row_ix, 2);
-                customerSupportTeamDirectory.updateCustomerSupportTeam(user_input, customerSupportTeam);
+                medSupWarehouseDirectory.updateMedSupWarehouse(user_input, medSupWarehouse);
                 UserAccountDirectory.updateAccount(set_user_input_values(userAccount, user_input));
                 break;
             }
@@ -322,8 +322,8 @@ public class MedicalEquipWarehouseAccountsPage extends javax.swing.JPanel {
         DefaultTableModel model = (DefaultTableModel) jTableEmployee.getModel();
         UserAccount select_user_account_details = (UserAccount)model.getValueAt(selected_row_ix, 0);
         UserAccountDirectory = medicalServiceCentralisationEcoSystem.getUserAccountDirectory();
-        CustomerSupportTeam customerSupportTeam = select_user_account_details.getCustomerSupportTeam();
-        customerSupportTeamDirectory.deleteCustomerSupportTeam(customerSupportTeam);
+        MedSupWarehouse medSupWarehouse = select_user_account_details.getMedSupWarehouse();
+        medSupWarehouseDirectory.deleteMedSupWarehouse(medSupWarehouse);
         UserAccountDirectory.deleteAccount(select_user_account_details);
 //        ecosystem.setRestaurantDirectory(restaurantDirectory);
         model.removeRow(selected_row_ix);
@@ -339,13 +339,13 @@ public class MedicalEquipWarehouseAccountsPage extends javax.swing.JPanel {
         UserAccount select_user_account_details = (UserAccount)model.getValueAt(selected_row_ix, 0);
         jTextFieldTeamID.setEditable(false);
         jTextFieldTeamID.setText(select_user_account_details.getUsername());
-        jTextFieldTeamName.setText(select_user_account_details.getCustomerSupportTeam().getCustomerSupportTeamName());
+        jTextFieldTeamName.setText(select_user_account_details.getMedSupWarehouse().getMedSupWarehouseName());
         jTextFieldTeamPassword.setText(select_user_account_details.getPassword());
         
     }//GEN-LAST:event_jTableEmployeeMouseClicked
     private UserAccount set_user_input_values(UserAccount userAccount, ArrayList<String> user_input) {
 //        userAccount.getEmployee().setEmployee_id(user_input.get(0));
-        userAccount.getCustomerSupportTeam().setCustomerSupportTeamName(user_input.get(1));
+        userAccount.getMedSupWarehouse().setMedSupWarehouseName(user_input.get(1));
         userAccount.setPassword(user_input.get(2));
         return userAccount;
     }
@@ -404,15 +404,15 @@ public class MedicalEquipWarehouseAccountsPage extends javax.swing.JPanel {
     private void addrecordstotable() {
         UserAccountDirectory userAccountDirectory = medicalServiceCentralisationEcoSystem.getUserAccountDirectory();
         ArrayList<UserAccount> usersList = userAccountDirectory.getUserAccountList();
-//        customerSupportTeamDirectory = medicalServiceCentralisationEcoSystem.getCustomerSupportTeamDirectory();
+//        medSupWarehouseDirectory = medicalServiceCentralisationEcoSystem.getMedSupWarehouseDirectory();
     
         DefaultTableModel model = (DefaultTableModel) jTableEmployee.getModel();
         model.setRowCount(0);
-//        ArrayList<CustomerSupportTeam> customerSupportTeamList = customerSupportTeamDirectory.getCustomerSupportTeamList();
+//        ArrayList<MedSupWarehouse> medSupWarehouseList = medSupWarehouseDirectory.getMedSupWarehouseList();
         for(UserAccount userAccount: usersList)
         {   
-            if(userAccount.getRole().toString() == "CustomerSupportTeamAdmin"){
-                model.addRow(new Object[]{userAccount,userAccount.getCustomerSupportTeam().getCustomerSupportTeamName(),userAccount.getPassword()});
+            if(userAccount.getRole().toString() == "MedSupWarehouseAdmin"){
+                model.addRow(new Object[]{userAccount,userAccount.getMedSupWarehouse().getMedSupWarehouseName(),userAccount.getPassword()});
             }
             
         }
@@ -423,17 +423,17 @@ public class MedicalEquipWarehouseAccountsPage extends javax.swing.JPanel {
     private void addDefaultvalues() {
         
         UserAccountDirectory usersList = medicalServiceCentralisationEcoSystem.getUserAccountDirectory();
-        userAccount = new UserAccount("custsupp121", "pass",new CustomerSupportTeamAdminRole());
-        CustomerSupportTeam customerSupportTeam = new CustomerSupportTeam("custsupp121","custteam1");
-        userAccount.setCustomerSupportTeam(customerSupportTeam);
-        if(usersList.checkIfUserIsUnique("custsupp121")){
+        userAccount = new UserAccount("warehouse121", "pass",new MedSupWarehouseAdminRole());
+        MedSupWarehouse medSupWarehouse = new MedSupWarehouse("warehouse121","warehouse1");
+        userAccount.setMedSupWarehouse(medSupWarehouse);
+        if(usersList.checkIfUserIsUnique("warehouse121")){
             usersList.addUserAccount(userAccount);
         }
         
-        userAccount = new UserAccount("custsupp122", "pass",new CustomerSupportTeamAdminRole());
-        customerSupportTeam = new CustomerSupportTeam("custsupp122","custteam2");
-        userAccount.setCustomerSupportTeam(customerSupportTeam);
-        if(usersList.checkIfUserIsUnique("custsupp122")){
+        userAccount = new UserAccount("warehouse122", "pass",new MedSupWarehouseAdminRole());
+        medSupWarehouse = new MedSupWarehouse("warehouse122","warehouse2");
+        userAccount.setMedSupWarehouse(medSupWarehouse);
+        if(usersList.checkIfUserIsUnique("warehouse122")){
             usersList.addUserAccount(userAccount);
         }    
     }
