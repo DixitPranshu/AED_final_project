@@ -259,70 +259,69 @@ public class CustomerSupportMemberWorkAreaJPanel extends javax.swing.JPanel {
                         .addGap(136, 136, 136)
                         .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 706, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(jButton2))
+                        .addComponent(jButton2)
+                        .addGap(0, 0, Short.MAX_VALUE))
                     .addGroup(layout.createSequentialGroup()
                         .addGap(96, 96, 96)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                             .addGroup(layout.createSequentialGroup()
+                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                                        .addComponent(jButtonSearchMedTest)
+                                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                            .addComponent(jLabelEmpID, javax.swing.GroupLayout.PREFERRED_SIZE, 104, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                            .addComponent(jLabelEmpName2)))
+                                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                                        .addComponent(jLabelEmpName)
+                                        .addGap(35, 35, 35)))
                                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                                    .addComponent(jTextFieldCustName)
+                                    .addComponent(jTextFieldCustPhone)
+                                    .addComponent(jTextFieldCustEmail, javax.swing.GroupLayout.PREFERRED_SIZE, 421, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addGroup(layout.createSequentialGroup()
+                                        .addGap(52, 52, 52)
+                                        .addComponent(jButtonSearchConsultation)
+                                        .addGap(18, 18, 18)
+                                        .addComponent(jButtonSearchMedEquip))))
+                            .addGroup(layout.createSequentialGroup()
+                                .addGap(23, 23, 23)
+                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addGroup(layout.createSequentialGroup()
+                                        .addComponent(jLabelEmpName3)
+                                        .addGap(18, 18, 18)
+                                        .addComponent(jTextFieldCustPincode))
                                     .addGroup(layout.createSequentialGroup()
                                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                                                .addComponent(jButtonSearchMedTest)
-                                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                                    .addComponent(jLabelEmpID, javax.swing.GroupLayout.PREFERRED_SIZE, 104, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                                    .addComponent(jLabelEmpName2)))
-                                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                                                .addComponent(jLabelEmpName)
-                                                .addGap(35, 35, 35)))
-                                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                                            .addComponent(jTextFieldCustName)
-                                            .addComponent(jTextFieldCustPhone)
-                                            .addComponent(jTextFieldCustEmail, javax.swing.GroupLayout.PREFERRED_SIZE, 421, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                            .addGroup(layout.createSequentialGroup()
-                                                .addGap(52, 52, 52)
-                                                .addComponent(jButtonSearchConsultation)
-                                                .addGap(18, 18, 18)
-                                                .addComponent(jButtonSearchMedEquip))))
-                                    .addGroup(layout.createSequentialGroup()
-                                        .addGap(23, 23, 23)
-                                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                            .addGroup(layout.createSequentialGroup()
-                                                .addComponent(jLabelEmpName3)
-                                                .addGap(18, 18, 18)
-                                                .addComponent(jTextFieldCustPincode))
                                             .addGroup(layout.createSequentialGroup()
                                                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                                    .addComponent(jLabelEmpName1)
+                                                    .addComponent(jLabelEmpName5))
+                                                .addGap(18, 18, 18)
+                                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                                    .addComponent(jDateChooserTestDate, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                                                     .addGroup(layout.createSequentialGroup()
-                                                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                                            .addComponent(jLabelEmpName1)
-                                                            .addComponent(jLabelEmpName5))
+                                                        .addComponent(jRadioButtonMedTest)
                                                         .addGap(18, 18, 18)
-                                                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                                            .addComponent(jDateChooserTestDate, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                                            .addGroup(layout.createSequentialGroup()
-                                                                .addComponent(jRadioButtonMedTest)
-                                                                .addGap(18, 18, 18)
-                                                                .addComponent(jRadioButtonConsultation)
-                                                                .addGap(18, 18, 18)
-                                                                .addComponent(jRadioButtonMedEquipment))))
-                                                    .addGroup(layout.createSequentialGroup()
-                                                        .addComponent(jLabelPassword, javax.swing.GroupLayout.PREFERRED_SIZE, 88, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                                        .addComponent(jRadioButtonConsultation)
                                                         .addGap(18, 18, 18)
-                                                        .addComponent(jTextFieldNotes, javax.swing.GroupLayout.PREFERRED_SIZE, 403, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                                                .addGap(0, 0, Short.MAX_VALUE)))))
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(jButtonCreate)
-                                    .addComponent(jButtonDelete))
-                                .addGap(178, 178, 178)
-                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(jButtonView)
-                                    .addComponent(jButtonUpdate)))
-                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                                .addGap(0, 0, Short.MAX_VALUE)
-                                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 1007, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addGap(12, 12, 12)))))
+                                                        .addComponent(jRadioButtonMedEquipment))))
+                                            .addGroup(layout.createSequentialGroup()
+                                                .addComponent(jLabelPassword, javax.swing.GroupLayout.PREFERRED_SIZE, 88, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                                .addGap(18, 18, 18)
+                                                .addComponent(jTextFieldNotes, javax.swing.GroupLayout.PREFERRED_SIZE, 403, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                                        .addGap(0, 0, Short.MAX_VALUE)))))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(jButtonCreate)
+                            .addComponent(jButtonDelete))
+                        .addGap(178, 178, 178)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(jButtonView)
+                            .addComponent(jButtonUpdate)))
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                        .addContainerGap(96, Short.MAX_VALUE)
+                        .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 1007, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(12, 12, 12)))
                 .addGap(238, 238, 238))
         );
         layout.setVerticalGroup(
@@ -384,9 +383,9 @@ public class CustomerSupportMemberWorkAreaJPanel extends javax.swing.JPanel {
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jTextFieldNotes, javax.swing.GroupLayout.PREFERRED_SIZE, 65, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jLabelPassword))
-                .addGap(113, 113, 113)
-                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 89, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(343, Short.MAX_VALUE))
+                .addGap(55, 55, 55)
+                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 180, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(310, Short.MAX_VALUE))
         );
     }// </editor-fold>//GEN-END:initComponents
 
@@ -414,8 +413,12 @@ public class CustomerSupportMemberWorkAreaJPanel extends javax.swing.JPanel {
 //        userAccount = new UserAccount(user_input.get(0), user_input.get(2),new CustomerSupportMemberRole());
         request = new Request();
         String current_timeStamp = new SimpleDateFormat("yyyy.MM.dd.HH.mm.ss").format(new Date());
+        String last_case_id = requestList.getLast_case_id();
+        int last_case_id_int = Integer.parseInt(last_case_id.replaceAll("[\\D]", ""));
+        last_case_id_int++;
+        
 
-        request.setCase_id(requestList.getLast_case_id());
+        request.setCase_id(last_case_id);
         request.setCustomer_name(user_input.get(0));
         request.setCustomer_phone(user_input.get(1));
         request.setCustomer_email(user_input.get(2));
@@ -427,6 +430,8 @@ public class CustomerSupportMemberWorkAreaJPanel extends javax.swing.JPanel {
         request.setModified_time(current_timeStamp);
         request.setRequest_status("new");
         requestList.addRequest(request);
+        String last_case_id_new = "REQUEST" + String.format("%03d", last_case_id_int);
+        requestList.setLast_case_id(last_case_id_new);
         
             
         JOptionPane.showMessageDialog(this, "New Employee Information has been added.");
@@ -574,14 +579,16 @@ public class CustomerSupportMemberWorkAreaJPanel extends javax.swing.JPanel {
         jTextFieldCustPhone.setText("");
         jTextFieldNotes.setText("");
     }
-        public ArrayList<String> check_empty_field(){
+    public ArrayList<String> check_empty_field(){
         ArrayList<String> user_input = new ArrayList<>();
         String user_cust_name = jTextFieldCustName.getText();
         String user_cust_phone = jTextFieldCustPhone.getText();
         String user_cust_email = jTextFieldCustEmail.getText();
 //        String user_hospital_id = (String) jComboBoxHospitalList.getSelectedItem();
         String user_pincode = jTextFieldCustPincode.getText();
-        String user_request_date = jDateChooserTestDate.getDateFormatString();
+        Date date = jDateChooserTestDate.getDate();
+        String user_request_date = new SimpleDateFormat("MM.dd.yyyy").format(date);
+//        String user_request_date = jDateChooserTestDate.getDateFormatString();
         String user_cust_notes = jTextFieldNotes.getText();
         
         
@@ -594,9 +601,7 @@ public class CustomerSupportMemberWorkAreaJPanel extends javax.swing.JPanel {
         else if(user_cust_email.isEmpty()){
             JOptionPane.showMessageDialog(this, "Please enter an email.");
         }
-//        else if(user_hospital_id.isEmpty()){
-//            JOptionPane.showMessageDialog(this, "Please select a Hospital");
-//        }
+
         else if(user_pincode.isEmpty()){
             JOptionPane.showMessageDialog(this, "Please enter the user pincode");
         }

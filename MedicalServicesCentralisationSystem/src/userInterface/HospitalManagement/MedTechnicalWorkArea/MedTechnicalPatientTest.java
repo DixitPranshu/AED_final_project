@@ -7,6 +7,9 @@ package userInterface.HospitalManagement.MedTechnicalWorkArea;
 
 
 import HospitalManagement.Hospital.Hospital;
+import HospitalManagement.Patient.Patient;
+import HospitalManagement.Patient.PatientDirectory;
+import HospitalManagement.Patient.PatientTest;
 import HospitalManagement.PatientTest.LabTest;
 import HospitalManagement.PatientTest.LabTestDirectory;
 import HospitalManagement.Requests.Request;
@@ -14,7 +17,10 @@ import HospitalManagement.Requests.RequestDirectory;
 import MainCentralisationSystem.MedicalServiceCentralisationEcoSystem;
 import userInterface.SystemAdminWorkArea.*;
 import java.awt.CardLayout;
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
+import java.util.Date;
+import java.util.HashMap;
 import javax.swing.DefaultComboBoxModel;
 import javax.swing.JOptionPane;
 import javax.swing.JPanel;
@@ -32,13 +38,19 @@ public class MedTechnicalPatientTest extends javax.swing.JPanel {
     JPanel userProcessContainer;
     MedicalServiceCentralisationEcoSystem medicalServiceCentralisationEcoSystem;
     Hospital hospital;
+    String report_avalibility;
+    Patient patient;
+    SendMessageTwilio sendMessageTwilio;
     public MedTechnicalPatientTest(JPanel userProcessContainer , MedicalServiceCentralisationEcoSystem medicalServiceCentralisationEcoSystem, Hospital hospital) {
+        initComponents();
         this.userProcessContainer = userProcessContainer;
         this.medicalServiceCentralisationEcoSystem = medicalServiceCentralisationEcoSystem;
         this.hospital = hospital;
-        initComponents();
+        if(hospital.getPatientDirectory()== null)
+           hospital.setPatientDirectory(new PatientDirectory());
         populateNewRequestsTable();
         populateTestNameComboBox();
+        
     }
 
     /**
@@ -131,6 +143,11 @@ public class MedTechnicalPatientTest extends javax.swing.JPanel {
         add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 610, 460, 160));
 
         jButtonCreate.setText("CREATE");
+        jButtonCreate.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButtonCreateActionPerformed(evt);
+            }
+        });
         add(jButtonCreate, new org.netbeans.lib.awtextra.AbsoluteConstraints(640, 190, -1, -1));
 
         jButtonUpdate.setText("UPDATE");
@@ -210,12 +227,20 @@ public class MedTechnicalPatientTest extends javax.swing.JPanel {
                 {null, null, null, null, null, null, null}
             },
             new String [] {
-                "Patient ID", "Patient Name", "Test ID", "Test Name", "Doctor Reffered", "Test Date", "Technician"
+                "Patient ID", "Patient Name", "Test ID", "Test Name", "Test Date", "Report Available", "Available At"
             }
-        ));
+        ) {
+            boolean[] canEdit = new boolean [] {
+                false, false, false, true, false, false, false
+            };
+
+            public boolean isCellEditable(int rowIndex, int columnIndex) {
+                return canEdit [columnIndex];
+            }
+        });
         jScrollPane2.setViewportView(jTableAllTests);
 
-        add(jScrollPane2, new org.netbeans.lib.awtextra.AbsoluteConstraints(680, 600, 500, 160));
+        add(jScrollPane2, new org.netbeans.lib.awtextra.AbsoluteConstraints(640, 600, 540, 160));
 
         jLabelTitle3.setFont(new java.awt.Font("Tahoma", 1, 48)); // NOI18N
         jLabelTitle3.setForeground(new java.awt.Color(255, 255, 255));
@@ -240,10 +265,20 @@ public class MedTechnicalPatientTest extends javax.swing.JPanel {
 
         jRadioButtonYes.setText("Yes");
         jRadioButtonYes.setBorder(new javax.swing.border.SoftBevelBorder(javax.swing.border.BevelBorder.LOWERED, java.awt.Color.white, java.awt.Color.white, java.awt.Color.white, java.awt.Color.white));
+        jRadioButtonYes.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jRadioButtonYesActionPerformed(evt);
+            }
+        });
         add(jRadioButtonYes, new org.netbeans.lib.awtextra.AbsoluteConstraints(300, 420, 50, 30));
 
         jRadioButtonNo.setText("No");
         jRadioButtonNo.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.LOWERED, java.awt.Color.white, java.awt.Color.white, java.awt.Color.white, java.awt.Color.white));
+        jRadioButtonNo.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jRadioButtonNoActionPerformed(evt);
+            }
+        });
         add(jRadioButtonNo, new org.netbeans.lib.awtextra.AbsoluteConstraints(440, 420, 50, 30));
 
         jLabelReportAvailability1.setForeground(new java.awt.Color(255, 255, 255));
@@ -302,7 +337,66 @@ public class MedTechnicalPatientTest extends javax.swing.JPanel {
         jTextFieldPatientId.setText(model.getValueAt(selected_row_ix, 1).toString());
         jTextFieldPatientName.setText(model.getValueAt(selected_row_ix, 0).toString());
         jTextFieldTestDate.setText(model.getValueAt(selected_row_ix, 2).toString());
+        jRadioButtonNo.setSelected(true);
+        report_avalibility = "No";
+        changeRequestStatus(model.getValueAt(selected_row_ix, 3).toString());
     }//GEN-LAST:event_jTableNewTestsMouseClicked
+    
+    private void jButtonCreateActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonCreateActionPerformed
+        // TODO add your handling code here:
+        DefaultTableModel model = (DefaultTableModel) jTableAllTests.getModel();
+        model.setRowCount(0);
+        ArrayList<String> user_input = check_empty_field();
+        PatientDirectory patientDirectory = hospital.getPatientDirectory();
+        ArrayList<Patient> patientList = patientDirectory.getPatientList();
+        LabTestDirectory labTestDirectory = hospital.getLabTestDirectory();
+        Patient newPatient = new Patient();
+        for(Patient patient: patientList){
+            if(patient.getPatient_id().equals(user_input.get(0))){
+                newPatient = patient;
+                break;
+            }
+        }
+//        String current_timeStamp = new SimpleDateFormat("yyyy.MM.dd.HH.mm.ss").format(new Date());
+
+        newPatient.setPatient_id(user_input.get(0));
+        newPatient.setPatient_name(user_input.get(1));
+        
+        PatientTest patientTest = new PatientTest();
+        patientTest.setTest_date(user_input.get(4));
+        patientTest.setReport_avalaible(report_avalibility);
+        ArrayList<PatientTest> patientTestList = newPatient.getPatientTestList();
+        HashMap<String, LabTest> patientLabTest = patientTest.getPatient_test_list();
+        
+        patientLabTest.put(user_input.get(2), labTestDirectory.findLabTestByName(user_input.get(3)));
+        patientTestList.add(patientTest);
+        newPatient.setPatientTestList(patientTestList);
+        patientList.add(newPatient);
+        patientDirectory.setPatientList(patientList);
+        hospital.setPatientDirectory(patientDirectory);
+        String message = "\n\nHi " + user_input.get(1) +" your " + user_input.get(3) +" test for date " +user_input.get(4) + " in " + hospital.getHospitalName() +" has been booked";
+        System.out.println("message: "+message);
+        sendMessageTwilio = new SendMessageTwilio();
+//        sendMessageTwilio.sendMessage(message, user_input.get(0));
+        model.addRow(new Object[]{newPatient,newPatient.getPatient_name(),user_input.get(2), labTestDirectory.findLabTestByName(user_input.get(3)),patientTest.getTest_date(),patientTest.getReport_avalaible()});
+        
+    }//GEN-LAST:event_jButtonCreateActionPerformed
+
+    private void jRadioButtonYesActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jRadioButtonYesActionPerformed
+        // TODO add your handling code here:
+        if(jRadioButtonYes.isSelected()){
+            jRadioButtonNo.setSelected(false);
+            report_avalibility = "Yes";
+        }
+    }//GEN-LAST:event_jRadioButtonYesActionPerformed
+
+    private void jRadioButtonNoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jRadioButtonNoActionPerformed
+        // TODO add your handling code here:
+        if(jRadioButtonNo.isSelected()){
+            jRadioButtonYes.setSelected(false);
+            report_avalibility = "No";
+        }
+    }//GEN-LAST:event_jRadioButtonNoActionPerformed
 //    private Customer set_user_input_values(Customer customer, ArrayList<String> user_input){
 //        
 //        customer.getUserAccount().setPassword(user_input.get(1));
@@ -372,7 +466,16 @@ public class MedTechnicalPatientTest extends javax.swing.JPanel {
     private javax.swing.JTextField jTextFieldTestDate;
     private javax.swing.JTextField jTextFieldTestID;
     // End of variables declaration//GEN-END:variables
-
+    private void changeRequestStatus(String request_id){
+        RequestDirectory requestDirectory = medicalServiceCentralisationEcoSystem.getRequestDirectory();
+        ArrayList<Request> requestList = requestDirectory.getRequestList();
+        for(Request request: requestList){
+            if(request.getRequest_status().equals("new") && request.getCustomer_pincode().equals(hospital.getHospitalpincode()) && request.getCase_id().equals(request_id)){
+                request.setRequest_status("Completed");
+            }
+        }
+        requestDirectory.setRequestList(requestList);
+    }
     private void populateNewRequestsTable() {
         
         DefaultTableModel model = (DefaultTableModel) jTableNewTests.getModel();
@@ -389,10 +492,47 @@ public class MedTechnicalPatientTest extends javax.swing.JPanel {
 
     private void populateTestNameComboBox() {
         LabTestDirectory labTestDirectory = hospital.getLabTestDirectory();
-        ArrayList<LabTest> labTestList = new ArrayList<>();
+        ArrayList<LabTest> labTestList = labTestDirectory.getLabTestList();
         jComboBoxTestName.removeAllItems();
         for(LabTest labTest: labTestList){
             jComboBoxTestName.addItem(labTest.getTest_name());
         }
+    }
+
+    private ArrayList<String> check_empty_field() {
+        ArrayList<String> user_input = new ArrayList<>();
+        String user_patient_id = jTextFieldPatientId.getText();
+        String user_patient_name = jTextFieldPatientName.getText();
+        String user_test_id = jTextFieldTestID.getText();
+        String user_test_name = (String) jComboBoxTestName.getSelectedItem();
+        String user_test_date = jTextFieldTestDate.getText();
+        
+        
+        if(user_patient_id.isEmpty()){
+            JOptionPane.showMessageDialog(this, "Patient ID can't be left empty.");
+        }
+        else if(user_patient_name.isEmpty()){
+            JOptionPane.showMessageDialog(this, "Patient Name can't be left empty.");
+        }
+        else if(user_test_id.isEmpty()){
+            JOptionPane.showMessageDialog(this, "Test ID cant be left empty");
+        }
+
+        else if(user_test_name.isEmpty()){
+            JOptionPane.showMessageDialog(this, "Please choose a test.");
+        }
+        else if(user_test_date.isEmpty()){
+            JOptionPane.showMessageDialog(this, "Please enter a test date.");
+        }
+        
+        
+        user_input.add(user_patient_id);
+        user_input.add(user_patient_name);
+        user_input.add(user_test_id);
+        user_input.add(user_test_name);
+        user_input.add(user_test_date);
+        
+        
+        return user_input;
     }
 }

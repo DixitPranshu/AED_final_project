@@ -15,7 +15,6 @@ import java.util.HashMap;
 public class LabTestDirectory {
     
     ArrayList<LabTest> labTestList = new ArrayList<>();
-    ArrayList<LabTest> cartlabTestList = new ArrayList<>();
 
     public ArrayList<LabTest> getLabTestList() {
         return labTestList;
@@ -28,13 +27,13 @@ public class LabTestDirectory {
     public void addTest(LabTest labTest){
         labTestList.add(labTest);
     }
-
-    public ArrayList<LabTest> getCartlabTestList() {
-        return cartlabTestList;
-    }
-
-    public void setCartlabTestList(ArrayList<LabTest> cartlabTestList) {
-        this.cartlabTestList = cartlabTestList;
+    
+    public LabTest findLabTestByName(String test_name){
+        for(LabTest labTest: labTestList){
+            if(labTest.test_name.equals(test_name))
+                return labTest;
+        }
+        return null;
     }
     
     

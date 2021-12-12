@@ -5,14 +5,27 @@
  */
 package HospitalManagement.Patient;
 
+import java.util.ArrayList;
+
 /**
  *
  * @author prans
  */
 public class PatientDirectory {
 
-    public PatientDirectory() {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    ArrayList<Patient> patientList = new ArrayList<>();
+
+    public ArrayList<Patient> getPatientList() {
+        return patientList;
     }
+
+    public void setPatientList(ArrayList<Patient> patientList) {
+        this.patientList = patientList;
+    }
+    
+    public void addTest(Patient patient){
+        patientList.add(patient);
+    }
+
     
 }
