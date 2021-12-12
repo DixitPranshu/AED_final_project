@@ -9,7 +9,7 @@ import MainCentralisationSystem.MedicalServiceCentralisationEcoSystem;
 
 import userInterface.HospitalManagement.HospitalAdminWorkArea.HospitalAdminWorkAreaJPanel;
 import userInterface.CustomerSupport.CustomerSupportAdminWorkArea.CustomerSupportTeamAdminWorkAreaJPanel;
-
+import userInterface.MedSupWarehouseAdminWorkArea.MedSupWarehouseDatabase;
 import HospitalManagement.Hospital.Hospital;
 
 
@@ -18,6 +18,7 @@ import MainCentralisationSystem.UserAccountDirectory;
 
 import HospitalManagement.DB4OUtil.HospitalManagementDB4OUtil;
 import HospitalManagement.Hospital.HospitalDirectory;
+import MedicalEquipmentWarehouse.MedSupWarehouse;
 
 import java.awt.CardLayout;
 import java.awt.event.ActionEvent;
@@ -245,6 +246,14 @@ public class HospitalManagementMainJFrame extends javax.swing.JFrame {
             {
                 CustomerSupportMemberWorkAreaJPanel customerSupportMemberWorkAreaJPanel = new CustomerSupportMemberWorkAreaJPanel(jPanelWorkArea, medicalServiceCentralisationEcoSystem);
                 jPanelWorkArea.add("customerSupportMemberWorkAreaJPanel",customerSupportMemberWorkAreaJPanel);
+                CardLayout crdLyt = (CardLayout) jPanelWorkArea.getLayout();
+                crdLyt.next(jPanelWorkArea);
+            }
+            else if(userAccountLogin.getRole().toString().equals("MedSupWarehouseAdmin"))
+            {
+                MedSupWarehouse medSupWarehouse = userAccountLogin.getMedSupWarehouse();
+                MedSupWarehouseDatabase medSupWarehouseDatabase = new MedSupWarehouseDatabase(jPanelWorkArea, medicalServiceCentralisationEcoSystem, medSupWarehouse);
+                jPanelWorkArea.add("medSupWarehouseDatabase",medSupWarehouseDatabase);
                 CardLayout crdLyt = (CardLayout) jPanelWorkArea.getLayout();
                 crdLyt.next(jPanelWorkArea);
             }
