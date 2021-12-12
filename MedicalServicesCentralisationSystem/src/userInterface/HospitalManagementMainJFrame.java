@@ -22,7 +22,9 @@ import HospitalManagement.Hospital.HospitalDirectory;
 import java.awt.CardLayout;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
+import java.util.Date;
 import java.util.concurrent.TimeUnit;
 import java.util.logging.Level;
 import java.util.logging.Logger;
@@ -278,6 +280,7 @@ public class HospitalManagementMainJFrame extends javax.swing.JFrame {
 
     private void loginJOpenChatWindowActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_loginJOpenChatWindowActionPerformed
         // TODO add your handling code here:
+        ArrayList<String> user_input = new ArrayList<String>();
         JTextArea chatarea = new JTextArea();
         JTextField chatbox = new JTextField();
         JFrame jframe = new JFrame();
@@ -305,29 +308,37 @@ public class HospitalManagementMainJFrame extends javax.swing.JFrame {
                 String gtext = chatbox.getText().toLowerCase();
                 chatarea.append("YOU -> "+gtext+"\n");
                 chatbox.setText("");
+                
                 if(gtext.contains("hi")){
-                    bot("hi how can I help you?",chatarea);
-                }
-                else if(gtext.contains("i want to order food.")){
-                    bot("Please enter your zipcode.",chatarea);
-                }
-                else if(gtext.contains("02215")){
-                    bot("Showing you restaurants.....",chatarea);
-                    try {
-//                        UserAccountDirectory userDirectory = ecosystem.getUserAccountDirectory();
-//                        ua = userDirectory.authenticateUser("custuser", "pass");
-//                        CustomerRestaurantOrder ca = new CustomerRestaurantOrder(jPanelWorkArea, ua,ecosystem,"02215");
-//                        jPanelWorkArea.add("Customer",ca);
-                        CardLayout crdLyt = (CardLayout) jPanelWorkArea.getLayout();
-                        TimeUnit.SECONDS.sleep(3);
-                        crdLyt.next(jPanelWorkArea);
-                    } catch (InterruptedException ex) {
-                        Logger.getLogger(HospitalManagementMainJFrame.class.getName()).log(Level.SEVERE, null, ex);
-                    }
-                    
+                    bot("Hi please help me with your name, phone number, email and pincode",chatarea);
                 }
                 
-                
+                if(gtext.contains("02215")){
+                    String[] splitStr = gtext.split("\\s+");
+                    user_input.add(splitStr[0]);
+                    user_input.add(splitStr[1]);
+                    user_input.add(splitStr[2]);
+                    user_input.add(splitStr[3]);
+                    bot("So how can I help you?",chatarea);
+                }
+                else if(gtext.contains("book") && gtext.contains("test")){
+                    bot("Okay. Please tell me the test date.",chatarea);
+                }
+                else if(gtext.contains("2021")){
+//                    SimpleDateFormat formatter = new SimpleDateFormat("MM.dd.yyyy", Locale.ENGLISH);
+//                    Date date = formatter.parse(gtext);
+                    user_input.add(gtext);
+                    bot("Okay. What test do you want to do?",chatarea);
+                }
+                else if(gtext.contains("blood")){
+//                    SimpleDateFormat formatter = new SimpleDateFormat("MM.dd.yyyy", Locale.ENGLISH);
+//                    Date date = formatter.parse(gtext);
+                    user_input.add("MedicalTest");
+                    user_input.add(gtext);
+                    bot("A request has been raised. You'll receive an update shortly from the hospital.",chatarea);
+                    CustomerSupportMemberWorkAreaJPanel customerSupportMemberWorkAreaJPanel = new CustomerSupportMemberWorkAreaJPanel(jPanelWorkArea, medicalServiceCentralisationEcoSystem);
+                    customerSupportMemberWorkAreaJPanel.raise_request(user_input);
+                }  
             }
    
         });

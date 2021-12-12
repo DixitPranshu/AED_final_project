@@ -402,11 +402,10 @@ public class CustomerSupportMemberWorkAreaJPanel extends javax.swing.JPanel {
     private void jTextFieldCustNameActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextFieldCustNameActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_jTextFieldCustNameActionPerformed
-    
-    private void jButtonCreateActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonCreateActionPerformed
-        // TODO add your handling code here:
+    public void raise_request(ArrayList<String> user_input){
+        
         DefaultTableModel model = (DefaultTableModel) jTableRequests.getModel();
-        ArrayList<String> user_input = check_empty_field();
+        
 //        UserAccountDirectory usersList = medicalServiceCentralisationEcoSystem.getUserAccountDirectory();
         RequestDirectory requestList = medicalServiceCentralisationEcoSystem.getRequestDirectory();
         System.out.println(requestList.getLast_case_id());
@@ -434,10 +433,16 @@ public class CustomerSupportMemberWorkAreaJPanel extends javax.swing.JPanel {
         requestList.setLast_case_id(last_case_id_new);
         
             
-        JOptionPane.showMessageDialog(this, "New Employee Information has been added.");
+        JOptionPane.showMessageDialog(this, "New Request Information has been added.");
         model.addRow(new Object[]{request,request.getCustomer_name(),request.getCustomer_phone(),request.getCustomer_email(),request.getCustomer_pincode(),request.getRequest_date(),request.getRequest_category(),request.getRequest_description(),current_timeStamp});
         clearFields();
-
+        
+    }
+    private void jButtonCreateActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonCreateActionPerformed
+        // TODO add your handling code here:
+        
+        ArrayList<String> user_input = check_empty_field();
+        raise_request(user_input);
         
     }//GEN-LAST:event_jButtonCreateActionPerformed
 
