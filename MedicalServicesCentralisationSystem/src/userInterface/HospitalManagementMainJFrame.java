@@ -5,6 +5,7 @@
 package userInterface;
 
 import CustomerSupportTeam.CustomerSupportTeam;
+import DeliveryAgency.DeliveryAgency;
 import MainCentralisationSystem.MedicalServiceCentralisationEcoSystem;
 
 import userInterface.HospitalManagement.HospitalAdminWorkArea.HospitalAdminWorkAreaJPanel;
@@ -35,6 +36,7 @@ import javax.swing.JPanel;
 import javax.swing.JTextArea;
 import javax.swing.JTextField;
 import userInterface.CustomerSupport.CustomerSupportMemberWorkArea.CustomerSupportMemberWorkAreaJPanel;
+import userInterface.DeliveryAgency.DeliveryAgencyOrderDatabase;
 import userInterface.HospitalManagement.MedTechnicalWorkArea.MedTechnicalWorkAreaJPanel;
 import userInterface.HospitalManagement.MedicalSuppliesWorkArea.MedSupAdminWorkAreaJPanel;
 import userInterface.MedSupWarehouseAdminWorkArea.MedSupWarehouseAdminWorkAreaJPanel;
@@ -264,6 +266,14 @@ public class HospitalManagementMainJFrame extends javax.swing.JFrame {
                 Hospital hospital = userAccountLogin.getHospital();
                 MedSupAdminWorkAreaJPanel medSupAdminWorkAreaJPanel = new MedSupAdminWorkAreaJPanel(jPanelWorkArea, medicalServiceCentralisationEcoSystem, hospital);
                 jPanelWorkArea.add("medSupAdminWorkAreaJPanel",medSupAdminWorkAreaJPanel);
+                CardLayout crdLyt = (CardLayout) jPanelWorkArea.getLayout();
+                crdLyt.next(jPanelWorkArea);
+            }
+            else if(userAccountLogin.getRole().toString().equals("DeliveryAgencyAdmin"))
+            {
+                DeliveryAgency deliveryAgency = userAccountLogin.getDeliveryAgency();
+                DeliveryAgencyOrderDatabase deliveryAgencyOrderDatabase = new DeliveryAgencyOrderDatabase(jPanelWorkArea, medicalServiceCentralisationEcoSystem, deliveryAgency);
+                jPanelWorkArea.add("DeliveryAgencyOrderDatabase",deliveryAgencyOrderDatabase);
                 CardLayout crdLyt = (CardLayout) jPanelWorkArea.getLayout();
                 crdLyt.next(jPanelWorkArea);
             }

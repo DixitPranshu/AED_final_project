@@ -6,6 +6,8 @@
 package userInterface.MedSupWarehouseAdminWorkArea;
 
 
+import DeliveryAgency.DeliveryAgency;
+import DeliveryAgency.DeliveryAgencyDirectory;
 import userInterface.HospitalManagement.MedTechnicalWorkArea.*;
 import HospitalManagement.Hospital.Hospital;
 import MedicalEquipmentWarehouse.MedSupEquip.MedSupEquip;
@@ -50,6 +52,7 @@ public class MedSupWarehouseOrderDatabase extends javax.swing.JPanel {
         this.medSupWarehouseCurrent = medSupWarehouse;
         
         addneworderstotable();
+        populateDeliveryAgency();
     }
 
     /**
@@ -216,43 +219,9 @@ public class MedSupWarehouseOrderDatabase extends javax.swing.JPanel {
         Order order = (Order) model.getValueAt(selected_row_ix, 0);
         String delivery_agency_id = (String) jComboBoxDeliveryAgency.getSelectedItem();
         order.setDelivery_agency_id(delivery_agency_id);
+        
     }//GEN-LAST:event_jButtonAssignDeliveryAgencyActionPerformed
-    /*private Customer set_user_input_values(Customer customer, ArrayList<String> user_input){
-        
-        customer.getUserAccount().setPassword(user_input.get(1));
-        customer.setCustomerPhone(user_input.get(2));
-        return customer;
-    }
-        private void clearFields(){
-        custUsername.setText("");
-        custPassword.setText("");
-        custContact.setText("");
-
-    }
-    public ArrayList<String> check_empty_field(){
-        ArrayList<String> user_input = new ArrayList<>();
-        String user_custName = custUsername.getText();
-        String user_custPass = custPassword.getText();
-        String user_contact = custContact.getText();
- 
-        if(user_custName.isEmpty()){
-            JOptionPane.showMessageDialog(this, "Customer Name can't be left empty");
-        }
-        else if(user_custPass.isEmpty()){
-            JOptionPane.showMessageDialog(this, "Please enter password");
-        }
-        
-        else if(user_contact.isEmpty()){
-            JOptionPane.showMessageDialog(this, "Customer Contact No can't be left empty.");
-        }
-        user_input.add(user_custName);
-        user_input.add(user_custPass);
-        user_input.add(user_contact);
-        
-        return user_input;
-        
-    }
-    */
+    
     
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
@@ -294,5 +263,13 @@ public class MedSupWarehouseOrderDatabase extends javax.swing.JPanel {
             }
         }
         jTableNewOrders.setModel(model);
+    }
+
+    private void populateDeliveryAgency() {
+        DeliveryAgencyDirectory deliveryAgencyDirectory = medicalServiceCentralisationEcoSystem.getDeliveryAgencyDirectory();
+        ArrayList<DeliveryAgency> deliveryAgencyList = deliveryAgencyDirectory.getDeliveryAgencyList();
+        for(DeliveryAgency deliveryAgency: deliveryAgencyList){
+            jComboBoxDeliveryAgency.addItem(deliveryAgency.getDeliveryAgencyId());
+        }
     }
 }

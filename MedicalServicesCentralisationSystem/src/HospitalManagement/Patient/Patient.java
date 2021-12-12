@@ -20,10 +20,7 @@ public class Patient {
     String patient_name;
     String patient_phone_number;
     String patient_email;
-<<<<<<< HEAD
-    
-=======
->>>>>>> 8e18ca0ad992a3e756b1f662e2af29ca9e8d782a
+
     ArrayList<PatientTest> patientTestList = new ArrayList<>();
     
     public String getPatient_id() {
