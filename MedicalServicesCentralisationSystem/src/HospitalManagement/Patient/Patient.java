@@ -6,6 +6,7 @@
 package HospitalManagement.Patient;
 
 import HospitalManagement.PatientTest.LabTest;
+import java.util.ArrayList;
 import java.util.HashMap;
 
 /**
@@ -18,8 +19,8 @@ public class Patient {
     String patient_id;
     String patient_name;
     String patient_phone_number;
-    HashMap<String, LabTest> patient_test = new HashMap<>();
-
+    ArrayList<PatientTest> patientTestList = new ArrayList<>();
+    
     public String getPatient_id() {
         return patient_id;
     }
@@ -44,12 +45,18 @@ public class Patient {
         this.patient_phone_number = patient_phone_number;
     }
 
-    public HashMap<String, LabTest> getPatient_test() {
-        return patient_test;
+    public ArrayList<PatientTest> getPatientTestList() {
+        return patientTestList;
     }
 
-    public void setPatient_test(HashMap<String, LabTest> patient_test) {
-        this.patient_test = patient_test;
+    public void setPatientTestList(ArrayList<PatientTest> patientTestList) {
+        this.patientTestList = patientTestList;
     }
+    
+    @Override
+    public String toString(){
+        return patient_id;
+    }
+
     
 }
