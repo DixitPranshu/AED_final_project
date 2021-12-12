@@ -75,10 +75,10 @@ public class HospitalManagementMainJFrame extends javax.swing.JFrame {
 
         jSplitPane1.setPreferredSize(new java.awt.Dimension(1381, 1080));
 
-        jPanelLogin.setBackground(new java.awt.Color(0, 70, 169));
+        jPanelLogin.setBackground(new java.awt.Color(116, 178, 189));
         jPanelLogin.setPreferredSize(new java.awt.Dimension(200, 1080));
 
-        loginJButton.setBackground(new java.awt.Color(0, 70, 169));
+        loginJButton.setBackground(new java.awt.Color(33, 72, 77));
         loginJButton.setFont(new java.awt.Font("Tahoma", 1, 24)); // NOI18N
         loginJButton.setForeground(new java.awt.Color(255, 255, 255));
         loginJButton.setText("Login");
@@ -88,15 +88,15 @@ public class HospitalManagementMainJFrame extends javax.swing.JFrame {
             }
         });
 
-        jLabel1.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
+        jLabel1.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
         jLabel1.setForeground(new java.awt.Color(255, 255, 255));
         jLabel1.setText("User Name");
 
-        jLabel2.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
+        jLabel2.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
         jLabel2.setForeground(new java.awt.Color(255, 255, 255));
         jLabel2.setText("Password");
 
-        logoutJButton.setBackground(new java.awt.Color(0, 70, 169));
+        logoutJButton.setBackground(new java.awt.Color(33, 72, 77));
         logoutJButton.setFont(new java.awt.Font("Tahoma", 1, 24)); // NOI18N
         logoutJButton.setForeground(new java.awt.Color(255, 255, 255));
         logoutJButton.setText("Logout");
@@ -107,7 +107,7 @@ public class HospitalManagementMainJFrame extends javax.swing.JFrame {
             }
         });
 
-        loginJOpenChatWindow.setBackground(new java.awt.Color(0, 70, 169));
+        loginJOpenChatWindow.setBackground(new java.awt.Color(33, 72, 77));
         loginJOpenChatWindow.setFont(new java.awt.Font("Tahoma", 1, 24)); // NOI18N
         loginJOpenChatWindow.setForeground(new java.awt.Color(255, 255, 255));
         loginJOpenChatWindow.setText("Chat with us");
@@ -171,7 +171,7 @@ public class HospitalManagementMainJFrame extends javax.swing.JFrame {
                 .addComponent(loginJButton)
                 .addGap(253, 253, 253)
                 .addComponent(loginJOpenChatWindow)
-                .addContainerGap(494, Short.MAX_VALUE))
+                .addContainerGap(490, Short.MAX_VALUE))
         );
 
         jSplitPane1.setLeftComponent(jPanelLogin);
@@ -179,7 +179,7 @@ public class HospitalManagementMainJFrame extends javax.swing.JFrame {
         jPanelWorkArea.setPreferredSize(new java.awt.Dimension(1181, 1080));
         jPanelWorkArea.setLayout(new java.awt.CardLayout());
 
-        jLabel3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/userinterface/Images/MainJFrameWallpaper.png"))); // NOI18N
+        jLabel3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/userInterface/Images/HospitalMainJFrame.jpg"))); // NOI18N
         jLabel3.setPreferredSize(new java.awt.Dimension(1181, 1080));
         jPanelWorkArea.add(jLabel3, "card2");
 
