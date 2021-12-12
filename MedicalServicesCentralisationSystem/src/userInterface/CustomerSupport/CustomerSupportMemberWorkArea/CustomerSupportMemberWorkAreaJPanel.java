@@ -116,17 +116,17 @@ public class CustomerSupportMemberWorkAreaJPanel extends javax.swing.JPanel {
 
         jTableRequests.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
-                {null, null, null, null, null, null, null, null, null, null},
-                {null, null, null, null, null, null, null, null, null, null},
-                {null, null, null, null, null, null, null, null, null, null},
-                {null, null, null, null, null, null, null, null, null, null}
+                {null, null, null, null, null, null, null, null, null},
+                {null, null, null, null, null, null, null, null, null},
+                {null, null, null, null, null, null, null, null, null},
+                {null, null, null, null, null, null, null, null, null}
             },
             new String [] {
-                "CaseId", "Customer Name", "CustomerPhone", "CustomerEmail", "Hospital ID", "CustomerPincode", "Request Date", "RequestCategory", "CaseDescription", "Timestamp"
+                "CaseId", "Customer Name", "CustomerPhone", "CustomerEmail", "CustomerPincode", "Request Date", "RequestCategory", "CaseDescription", "Timestamp"
             }
         ) {
             boolean[] canEdit = new boolean [] {
-                false, false, false, false, false, false, true, false, false, false
+                false, false, false, false, false, false, false, false, false
             };
 
             public boolean isCellEditable(int rowIndex, int columnIndex) {
@@ -435,7 +435,7 @@ public class CustomerSupportMemberWorkAreaJPanel extends javax.swing.JPanel {
         
             
         JOptionPane.showMessageDialog(this, "New Employee Information has been added.");
-        model.addRow(new Object[]{request,request.getCustomer_name(),request.getCustomer_phone(),request.getCustomer_email(),request.getHospital_id(),request.getCustomer_pincode(),request.getRequest_date(),request.getRequest_category(),request.getRequest_description(),current_timeStamp});
+        model.addRow(new Object[]{request,request.getCustomer_name(),request.getCustomer_phone(),request.getCustomer_email(),request.getCustomer_pincode(),request.getRequest_date(),request.getRequest_category(),request.getRequest_description(),current_timeStamp});
         clearFields();
 
         
@@ -671,7 +671,7 @@ public class CustomerSupportMemberWorkAreaJPanel extends javax.swing.JPanel {
             ArrayList<Request> requestList = requestDirectory.getRequestList();
             for(Request request: requestList)
             {   
-                model.addRow(new Object[]{request,request.getCustomer_name(),request.getCustomer_phone(),request.getCustomer_email(),request.getHospital_id(),request.getCustomer_pincode(),request.getRequest_date(),request.getRequest_category(),request.getRequest_description()});
+                model.addRow(new Object[]{request,request.getCustomer_name(),request.getCustomer_phone(),request.getCustomer_email(),request.getCustomer_pincode(),request.getRequest_date(),request.getRequest_category(),request.getRequest_description(), request.getModified_time()});
 
             }
 

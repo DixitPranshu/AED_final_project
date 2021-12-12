@@ -27,5 +27,13 @@ public class PatientDirectory {
         patientList.add(patient);
     }
 
-    
+    public void updatePatient(String patient_id){
+        
+        for(Patient patient: patientList){
+            if(patient.getPatient_id().equals(patient_id)){
+                int ix = patientList.indexOf(patient);
+                patientList.set(ix, patient);
+            }
+        }
+    }
 }

@@ -57,6 +57,16 @@ public class Patient {
     public String toString(){
         return patient_id;
     }
-
+    
+    public void updateReportStatus(String test_id){
+        for(PatientTest patientTest: patientTestList){
+                if(patientTest.getTest_id().equals(test_id)){
+                    patientTest.setReport_avalaible("yes");
+                    int ix = patientTestList.indexOf(patientTest);
+                    patientTestList.set(ix, patientTest);
+                    
+                }
+            }
+    }
     
 }
