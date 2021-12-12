@@ -17,11 +17,13 @@ import HospitalManagement.Requests.RequestDirectory;
 import MainCentralisationSystem.MedicalServiceCentralisationEcoSystem;
 import userInterface.SystemAdminWorkArea.*;
 import java.awt.CardLayout;
+import java.io.File;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.HashMap;
 import javax.swing.DefaultComboBoxModel;
+import javax.swing.JFileChooser;
 import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 import javax.swing.table.DefaultTableModel;
@@ -50,7 +52,7 @@ public class MedTechnicalPatientTest extends javax.swing.JPanel {
            hospital.setPatientDirectory(new PatientDirectory());
         populateNewRequestsTable();
         populateTestNameComboBox();
-        
+        populateAllTestsTable();
     }
 
     /**
@@ -89,8 +91,9 @@ public class MedTechnicalPatientTest extends javax.swing.JPanel {
         jRadioButtonYes = new javax.swing.JRadioButton();
         jRadioButtonNo = new javax.swing.JRadioButton();
         jLabelReportAvailability1 = new javax.swing.JLabel();
-        jTextFieldAvailbility = new javax.swing.JTextField();
+        jTextFieldAvailableAt = new javax.swing.JTextField();
         jButtonDownloadReport = new javax.swing.JButton();
+        jButtonDownloadReport1 = new javax.swing.JButton();
 
         setBackground(new java.awt.Color(0, 70, 169));
         setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
@@ -151,6 +154,11 @@ public class MedTechnicalPatientTest extends javax.swing.JPanel {
         add(jButtonCreate, new org.netbeans.lib.awtextra.AbsoluteConstraints(640, 190, -1, -1));
 
         jButtonUpdate.setText("UPDATE");
+        jButtonUpdate.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButtonUpdateActionPerformed(evt);
+            }
+        });
         add(jButtonUpdate, new org.netbeans.lib.awtextra.AbsoluteConstraints(820, 190, -1, -1));
 
         jButtonView.setText("VIEW");
@@ -238,6 +246,16 @@ public class MedTechnicalPatientTest extends javax.swing.JPanel {
                 return canEdit [columnIndex];
             }
         });
+        jTableAllTests.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jTableAllTestsMouseClicked(evt);
+            }
+        });
+        jTableAllTests.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyPressed(java.awt.event.KeyEvent evt) {
+                jTableAllTestsKeyPressed(evt);
+            }
+        });
         jScrollPane2.setViewportView(jTableAllTests);
 
         add(jScrollPane2, new org.netbeans.lib.awtextra.AbsoluteConstraints(640, 600, 540, 160));
@@ -284,15 +302,23 @@ public class MedTechnicalPatientTest extends javax.swing.JPanel {
         jLabelReportAvailability1.setForeground(new java.awt.Color(255, 255, 255));
         jLabelReportAvailability1.setText("Report Availabilty :");
         add(jLabelReportAvailability1, new org.netbeans.lib.awtextra.AbsoluteConstraints(150, 430, 104, -1));
-        add(jTextFieldAvailbility, new org.netbeans.lib.awtextra.AbsoluteConstraints(300, 470, 260, -1));
+        add(jTextFieldAvailableAt, new org.netbeans.lib.awtextra.AbsoluteConstraints(300, 470, 260, -1));
 
-        jButtonDownloadReport.setText("Download Report");
+        jButtonDownloadReport.setText(" Email Report");
         jButtonDownloadReport.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jButtonDownloadReportActionPerformed(evt);
             }
         });
-        add(jButtonDownloadReport, new org.netbeans.lib.awtextra.AbsoluteConstraints(610, 460, 220, 40));
+        add(jButtonDownloadReport, new org.netbeans.lib.awtextra.AbsoluteConstraints(850, 460, 220, 40));
+
+        jButtonDownloadReport1.setText("Upload Report");
+        jButtonDownloadReport1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButtonDownloadReport1ActionPerformed(evt);
+            }
+        });
+        add(jButtonDownloadReport1, new org.netbeans.lib.awtextra.AbsoluteConstraints(610, 460, 220, 40));
     }// </editor-fold>//GEN-END:initComponents
 
     private void jButtonHomeActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonHomeActionPerformed
@@ -327,6 +353,7 @@ public class MedTechnicalPatientTest extends javax.swing.JPanel {
 
     private void jButtonDownloadReportActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonDownloadReportActionPerformed
         // TODO add your handling code here:
+        
     }//GEN-LAST:event_jButtonDownloadReportActionPerformed
 
     private void jTableNewTestsMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jTableNewTestsMouseClicked
@@ -365,10 +392,13 @@ public class MedTechnicalPatientTest extends javax.swing.JPanel {
         PatientTest patientTest = new PatientTest();
         patientTest.setTest_date(user_input.get(4));
         patientTest.setReport_avalaible(report_avalibility);
-        ArrayList<PatientTest> patientTestList = newPatient.getPatientTestList();
-        HashMap<String, LabTest> patientLabTest = patientTest.getPatient_test_list();
+        patientTest.setTest_id(user_input.get(2));
+        patientTest.setLabTest(labTestDirectory.findLabTestByName(user_input.get(3)));
         
-        patientLabTest.put(user_input.get(2), labTestDirectory.findLabTestByName(user_input.get(3)));
+        ArrayList<PatientTest> patientTestList = newPatient.getPatientTestList();
+//        HashMap<String, LabTest> patientLabTest = patientTest.getPatient_test_list();
+//        
+//        patientLabTest.put(user_input.get(2), labTestDirectory.findLabTestByName(user_input.get(3)));
         patientTestList.add(patientTest);
         newPatient.setPatientTestList(patientTestList);
         patientList.add(newPatient);
@@ -378,15 +408,17 @@ public class MedTechnicalPatientTest extends javax.swing.JPanel {
         System.out.println("message: "+message);
         sendMessageTwilio = new SendMessageTwilio();
 //        sendMessageTwilio.sendMessage(message, user_input.get(0));
-        model.addRow(new Object[]{newPatient,newPatient.getPatient_name(),user_input.get(2), labTestDirectory.findLabTestByName(user_input.get(3)),patientTest.getTest_date(),patientTest.getReport_avalaible()});
-        
+        model.addRow(new Object[]{newPatient,newPatient.getPatient_name(),patientTest.getTest_id(), patientTest.getLabTest().getTest_name(),patientTest.getTest_date(),patientTest.getReport_avalaible()});
+        populateNewRequestsTable();
+        populateAllTestsTable();
+        clearFields();
     }//GEN-LAST:event_jButtonCreateActionPerformed
 
     private void jRadioButtonYesActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jRadioButtonYesActionPerformed
         // TODO add your handling code here:
         if(jRadioButtonYes.isSelected()){
             jRadioButtonNo.setSelected(false);
-            report_avalibility = "Yes";
+            report_avalibility = "yes";
         }
     }//GEN-LAST:event_jRadioButtonYesActionPerformed
 
@@ -394,51 +426,96 @@ public class MedTechnicalPatientTest extends javax.swing.JPanel {
         // TODO add your handling code here:
         if(jRadioButtonNo.isSelected()){
             jRadioButtonYes.setSelected(false);
-            report_avalibility = "No";
+            report_avalibility = "no";
         }
     }//GEN-LAST:event_jRadioButtonNoActionPerformed
-//    private Customer set_user_input_values(Customer customer, ArrayList<String> user_input){
-//        
-//        customer.getUserAccount().setPassword(user_input.get(1));
-//        customer.setCustomerPhone(user_input.get(2));
-//        return customer;
-//    }
-        /*private void clearFields(){
-        custUsername.setText("");
-        custPassword.setText("");
-        custContact.setText("");
 
-    }
-    public ArrayList<String> check_empty_field(){
-        ArrayList<String> user_input = new ArrayList<>();
-        String user_custName = custUsername.getText();
-        String user_custPass = custPassword.getText();
-        String user_contact = custContact.getText();
- 
-        if(user_custName.isEmpty()){
-            JOptionPane.showMessageDialog(this, "Customer Name can't be left empty");
-        }
-        else if(user_custPass.isEmpty()){
-            JOptionPane.showMessageDialog(this, "Please enter password");
-        }
+    private void jTableAllTestsKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_jTableAllTestsKeyPressed
+        // TODO add your handling code here:
         
-        else if(user_contact.isEmpty()){
-            JOptionPane.showMessageDialog(this, "Customer Contact No can't be left empty.");
+    }//GEN-LAST:event_jTableAllTestsKeyPressed
+
+    private void jTableAllTestsMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jTableAllTestsMouseClicked
+        // TODO add your handling code here:
+        jButtonCreate.setEnabled(false);
+        int selected_row_ix = jTableAllTests.getSelectedRow();
+        DefaultTableModel model = (DefaultTableModel) jTableAllTests.getModel();
+        Patient select_patient_details = (Patient) model.getValueAt(selected_row_ix, 0);
+        jTextFieldPatientId.setText(select_patient_details.getPatient_id());
+        jTextFieldPatientName.setText(select_patient_details.getPatient_name());
+        
+        jTextFieldAvailableAt.setText("");  
+            
+        String test_id = model.getValueAt(selected_row_ix, 2).toString();
+        ArrayList<PatientTest> patientTestList = select_patient_details.getPatientTestList();
+        for(PatientTest patientTest: patientTestList){
+            if(patientTest.getTest_id().equals(test_id)){
+                jTextFieldTestDate.setText(patientTest.getTest_date());
+                jTextFieldTestID.setText(patientTest.getTest_id());
+                jComboBoxTestName.setSelectedItem(patientTest.getLabTest().getTest_name());
+                if(patientTest.getReport_avalaible().toLowerCase().equals("no")){
+                    jRadioButtonYes.setSelected(false);
+                    jRadioButtonNo.setSelected(true);
+                }
+                else{
+                    jRadioButtonYes.setSelected(true);
+                    jRadioButtonNo.setSelected(false);
+                }
+                jTextFieldAvailableAt.setText(patientTest.getReport_availibility_time());
+            
+            }   
         }
-        user_input.add(user_custName);
-        user_input.add(user_custPass);
-        user_input.add(user_contact);
+    }//GEN-LAST:event_jTableAllTestsMouseClicked
+
+    private void jButtonUpdateActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonUpdateActionPerformed
+        // TODO add your handling code here:
         
-        return user_input;
+        int selected_row_ix = jTableAllTests.getSelectedRow();
+        DefaultTableModel model = (DefaultTableModel) jTableAllTests.getModel();
+        Patient select_patient_details = (Patient) model.getValueAt(selected_row_ix, 0);
+        PatientDirectory patientDirectory = hospital.getPatientDirectory();
+//        ArrayList<Patient> patientList = patientDirectory.getPatientList();
         
-    }
-    */
-    
+        if(jRadioButtonYes.isSelected()){
+            String test_id = model.getValueAt(selected_row_ix, 2).toString();
+            ArrayList<PatientTest> patientTestList = select_patient_details.getPatientTestList();
+            select_patient_details.updateReportStatus(test_id);
+        }
+        patientDirectory.updatePatient(select_patient_details.getPatient_id());
+        hospital.setPatientDirectory(patientDirectory);
+        populateAllTestsTable();
+    }//GEN-LAST:event_jButtonUpdateActionPerformed
+
+    private void jButtonDownloadReport1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonDownloadReport1ActionPerformed
+        // TODO add your handling code here:
+        
+            JFileChooser fileChooser = new JFileChooser();
+			
+            fileChooser.setCurrentDirectory(new File(".")); //sets current directory
+
+            int response = fileChooser.showOpenDialog(null); //select file to open
+            //int response = fileChooser.showSaveDialog(null); //select file to save
+
+            if(response == JFileChooser.APPROVE_OPTION) {
+                    File file = new File(fileChooser.getSelectedFile().getAbsolutePath());
+                    System.out.println(file);
+            }
+    }//GEN-LAST:event_jButtonDownloadReport1ActionPerformed
+
+        private void clearFields(){
+            jTextFieldPatientId.setText("");
+            jTextFieldPatientName.setText("");
+            jTextFieldTestDate.setText("");
+            jTextFieldTestID.setText("");
+            jTextFieldAvailableAt.setText("");            
+        }
+       
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton jButtonCreate;
     private javax.swing.JButton jButtonDelete;
     private javax.swing.JButton jButtonDownloadReport;
+    private javax.swing.JButton jButtonDownloadReport1;
     private javax.swing.JButton jButtonHome;
     private javax.swing.JButton jButtonSearch;
     private javax.swing.JButton jButtonUpdate;
@@ -460,7 +537,7 @@ public class MedTechnicalPatientTest extends javax.swing.JPanel {
     private javax.swing.JScrollPane jScrollPane2;
     private javax.swing.JTable jTableAllTests;
     private javax.swing.JTable jTableNewTests;
-    private javax.swing.JTextField jTextFieldAvailbility;
+    private javax.swing.JTextField jTextFieldAvailableAt;
     private javax.swing.JTextField jTextFieldPatientId;
     private javax.swing.JTextField jTextFieldPatientName;
     private javax.swing.JTextField jTextFieldTestDate;
@@ -534,5 +611,19 @@ public class MedTechnicalPatientTest extends javax.swing.JPanel {
         
         
         return user_input;
+    }
+
+    private void populateAllTestsTable() {
+        DefaultTableModel model = (DefaultTableModel) jTableAllTests.getModel();
+        model.setRowCount(0);
+        PatientDirectory patientDirectory = hospital.getPatientDirectory();
+        ArrayList<Patient> patientList = patientDirectory.getPatientList();
+        for(Patient patient: patientList){
+            ArrayList<PatientTest> patientTestList = patient.getPatientTestList();
+            for(PatientTest patientTest: patientTestList){
+                model.addRow(new Object[]{patient,patient.getPatient_name(),patientTest.getTest_id(), patientTest.getLabTest().getTest_name(),patientTest.getTest_date(),patientTest.getReport_avalaible()});
+            }   
+        }
+        jTableAllTests.setModel(model);
     }
 }

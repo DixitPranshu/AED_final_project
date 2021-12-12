@@ -16,6 +16,9 @@ public class PatientTest {
     
     String test_date;
     String report_avalaible;
+    String report_availibility_time;
+    String test_id;
+    LabTest labTest;
     HashMap<String, LabTest> patient_test_list = new HashMap<>();
 
     public String getTest_date() {
@@ -40,6 +43,30 @@ public class PatientTest {
 
     public void setReport_avalaible(String report_avalaible) {
         this.report_avalaible = report_avalaible;
+    }
+
+    public String getTest_id() {
+        return test_id;
+    }
+
+    public void setTest_id(String test_id) {
+        this.test_id = test_id;
+    }
+
+    public LabTest getLabTest() {
+        return labTest;
+    }
+
+    public void setLabTest(LabTest labTest) {
+        this.labTest = labTest;
+    }
+
+    public String getReport_availibility_time() {
+        return report_availibility_time;
+    }
+
+    public void setReport_availibility_time(String report_availibility_time) {
+        this.report_availibility_time = report_availibility_time;
     }
     
     
