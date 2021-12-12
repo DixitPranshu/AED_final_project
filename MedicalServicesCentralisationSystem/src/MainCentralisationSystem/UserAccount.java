@@ -9,6 +9,7 @@ import CustomerSupportTeam.CustomerSupportTeam;
 import HospitalManagement.Employee.Employee;
 import HospitalManagement.Hospital.Hospital;
 import MainCentralisationSystem.Role.Role;
+import MedicalEquipmentWarehouse.MedSupWarehouse;
 
 /**
  *
@@ -21,6 +22,7 @@ public class UserAccount {
 //    private Employee employee;
     private Hospital hospital;
     private CustomerSupportTeam CustomerSupportTeam;
+    private MedSupWarehouse medSupWarehouse;
     private Role role;
 //    private WorkQueue workQueue;
 
@@ -78,6 +80,14 @@ public class UserAccount {
 
     public void setCustomerSupportTeam(CustomerSupportTeam CustomerSupportTeam) {
         this.CustomerSupportTeam = CustomerSupportTeam;
+    }
+
+    public MedSupWarehouse getMedSupWarehouse() {
+        return medSupWarehouse;
+    }
+
+    public void setMedSupWarehouse(MedSupWarehouse medSupWarehouse) {
+        this.medSupWarehouse = medSupWarehouse;
     }
     
     
