@@ -3,9 +3,10 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package userInterface.HospitalManagement.MedTechnicalWorkArea;
+package userInterface.HospitalManagement.MedicalSuppliesWorkArea;
 
 
+import userInterface.HospitalManagement.MedTechnicalWorkArea.*;
 import HospitalManagement.Hospital.Hospital;
 import HospitalManagement.LabTest.LabTest;
 import HospitalManagement.LabTest.LabTestDirectory;
@@ -25,22 +26,22 @@ import javax.swing.table.DefaultTableModel;
  *
  * @author Shreya
  */
-public class MedTechnicalTestDatabase extends javax.swing.JPanel {
+public class MedSuppliesDatabase extends javax.swing.JPanel {
 
     /**
      * Creates new form OperationalAccountsPage
      */
     JPanel userProcessContainer;
-    MedicalServiceCentralisationEcoSystem medicalServiceCentralisationEcoSystem;
+    MedicalServiceCentralisationEcoSystem hospitalManagementEcoSystem;
     UserAccount userAccount;
     UserAccountDirectory userAccountDirectory;
 //    PatientTestDirectory patientTestDirectory;
     LabTestDirectory labTestDirectory;
     Hospital hospital;
-    public MedTechnicalTestDatabase(JPanel userProcessContainer , MedicalServiceCentralisationEcoSystem medicalServiceCentralisationEcoSystem, Hospital hospital) {
+    public MedSuppliesDatabase(JPanel userProcessContainer , MedicalServiceCentralisationEcoSystem hospitalManagementEcoSystem, Hospital hospital) {
         initComponents();
         this.userProcessContainer = userProcessContainer;
-        this.medicalServiceCentralisationEcoSystem = medicalServiceCentralisationEcoSystem;
+        this.hospitalManagementEcoSystem = hospitalManagementEcoSystem;
         this.hospital = hospital;
         if(hospital.getLabTestDirectory()== null)
            hospital.setLabTestDirectory(new LabTestDirectory());

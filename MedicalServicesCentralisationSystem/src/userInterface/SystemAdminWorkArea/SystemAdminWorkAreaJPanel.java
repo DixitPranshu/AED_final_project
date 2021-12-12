@@ -54,6 +54,7 @@ public class SystemAdminWorkAreaJPanel extends javax.swing.JPanel {
         jButtonCreateHospital = new javax.swing.JButton();
         jButtonCreateCustomerSupport = new javax.swing.JButton();
         jButtonCreateWarehouse = new javax.swing.JButton();
+        jButtonCreateCustomerSupport1 = new javax.swing.JButton();
         bgdimg = new javax.swing.JLabel();
         jPanel1 = new javax.swing.JPanel();
 
@@ -84,7 +85,7 @@ public class SystemAdminWorkAreaJPanel extends javax.swing.JPanel {
                 jButtonCreateCustomerSupportActionPerformed(evt);
             }
         });
-        jPanel2.add(jButtonCreateCustomerSupport, new org.netbeans.lib.awtextra.AbsoluteConstraints(440, 420, 401, -1));
+        jPanel2.add(jButtonCreateCustomerSupport, new org.netbeans.lib.awtextra.AbsoluteConstraints(440, 470, 401, -1));
 
         jButtonCreateWarehouse.setBackground(new java.awt.Color(204, 204, 204));
         jButtonCreateWarehouse.setFont(new java.awt.Font("Tahoma", 1, 24)); // NOI18N
@@ -95,6 +96,16 @@ public class SystemAdminWorkAreaJPanel extends javax.swing.JPanel {
             }
         });
         jPanel2.add(jButtonCreateWarehouse, new org.netbeans.lib.awtextra.AbsoluteConstraints(440, 350, 401, -1));
+
+        jButtonCreateCustomerSupport1.setBackground(new java.awt.Color(204, 204, 204));
+        jButtonCreateCustomerSupport1.setFont(new java.awt.Font("Tahoma", 1, 24)); // NOI18N
+        jButtonCreateCustomerSupport1.setText("Manage Delivery Agency");
+        jButtonCreateCustomerSupport1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButtonCreateCustomerSupport1ActionPerformed(evt);
+            }
+        });
+        jPanel2.add(jButtonCreateCustomerSupport1, new org.netbeans.lib.awtextra.AbsoluteConstraints(440, 560, 401, -1));
 
         bgdimg.setIcon(new javax.swing.ImageIcon(getClass().getResource("/userInterface/Images/SystemAdminWorkAreaJPanel.jpg"))); // NOI18N
         jPanel2.add(bgdimg, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 1740, 1080));
@@ -143,10 +154,20 @@ public class SystemAdminWorkAreaJPanel extends javax.swing.JPanel {
         cardLayout.show(userProcessContainer,"MedicalEquipWarehouseAccountsPage");
     }//GEN-LAST:event_jButtonCreateWarehouseActionPerformed
 
+    private void jButtonCreateCustomerSupport1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonCreateCustomerSupport1ActionPerformed
+        // TODO add your handling code here:
+        DeliveryAgencyAccountsPage deliveryAgencyAccountsPage = new DeliveryAgencyAccountsPage(userProcessContainer,medicalServiceCentralisationEcoSystem);
+        userProcessContainer.add("DeliveryAgencyAccountsPage",deliveryAgencyAccountsPage);
+        CardLayout cardLayout = (CardLayout) userProcessContainer.getLayout();
+        cardLayout.show(userProcessContainer,"DeliveryAgencyAccountsPage");
+        
+    }//GEN-LAST:event_jButtonCreateCustomerSupport1ActionPerformed
+
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JLabel bgdimg;
     private javax.swing.JButton jButtonCreateCustomerSupport;
+    private javax.swing.JButton jButtonCreateCustomerSupport1;
     private javax.swing.JButton jButtonCreateHospital;
     private javax.swing.JButton jButtonCreateWarehouse;
     private javax.swing.JPanel jPanel1;

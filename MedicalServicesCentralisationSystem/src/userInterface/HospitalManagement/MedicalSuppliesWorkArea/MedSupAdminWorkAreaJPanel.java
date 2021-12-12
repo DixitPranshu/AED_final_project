@@ -3,8 +3,10 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package userInterface.HospitalManagement.AdministrativeWorkArea;
+package userInterface.HospitalManagement.MedicalSuppliesWorkArea;
 
+import userInterface.HospitalManagement.MedTechnicalWorkArea.*;
+import HospitalManagement.Hospital.Hospital;
 import userInterface.SystemAdminWorkArea.*;
 import MainCentralisationSystem.MedicalServiceCentralisationEcoSystem;
 import MainCentralisationSystem.HospitalManagementEnterprise;
@@ -15,17 +17,19 @@ import javax.swing.tree.DefaultMutableTreeNode;
 import javax.swing.tree.DefaultTreeModel;
 //import userinterface.createNewUser.createLogin;
 
-public class AdministrativeReceptionistWorkAreaJPanel extends javax.swing.JPanel {
+public class MedSupAdminWorkAreaJPanel extends javax.swing.JPanel {
 
     /**
      * Creates new form SystemAdminWorkAreaJPanel
      */
     JPanel userProcessContainer;
-    MedicalServiceCentralisationEcoSystem hospitalManagementEcoSystem;
-    public AdministrativeReceptionistWorkAreaJPanel(JPanel userProcessContainer,MedicalServiceCentralisationEcoSystem hospitalManagementEcoSystem) {
+    MedicalServiceCentralisationEcoSystem medicalServiceCentralisationEcoSystem;
+    Hospital hospital;
+    public MedSupAdminWorkAreaJPanel(JPanel userProcessContainer,MedicalServiceCentralisationEcoSystem medicalServiceCentralisationEcoSystem, Hospital hospital) {
         initComponents();
         this.userProcessContainer = userProcessContainer;
-        this.hospitalManagementEcoSystem = hospitalManagementEcoSystem;
+        this.medicalServiceCentralisationEcoSystem = medicalServiceCentralisationEcoSystem;
+        this.hospital = hospital;
         jPanel1.setVisible(false);
         //jSplitPane.setVisible(false);
         //jPanel2.setVisible(true);
@@ -50,8 +54,8 @@ public class AdministrativeReceptionistWorkAreaJPanel extends javax.swing.JPanel
         jSplitPane = new javax.swing.JSplitPane();
         jPanel1 = new javax.swing.JPanel();
         jPanel2 = new javax.swing.JPanel();
-        jButtonPatientManagement = new javax.swing.JButton();
-        jButtonAppointmentManagement = new javax.swing.JButton();
+        jButtonTestDatabase = new javax.swing.JButton();
+        jButtonPlaceOrder = new javax.swing.JButton();
 
         setPreferredSize(new java.awt.Dimension(1720, 1080));
         setLayout(new java.awt.BorderLayout());
@@ -76,23 +80,23 @@ public class AdministrativeReceptionistWorkAreaJPanel extends javax.swing.JPanel
         jPanel2.setBackground(new java.awt.Color(0, 70, 169));
         jPanel2.setPreferredSize(new java.awt.Dimension(1720, 1080));
 
-        jButtonPatientManagement.setBackground(new java.awt.Color(0, 70, 169));
-        jButtonPatientManagement.setFont(new java.awt.Font("Tahoma", 1, 24)); // NOI18N
-        jButtonPatientManagement.setForeground(new java.awt.Color(255, 255, 255));
-        jButtonPatientManagement.setText("Patient Management");
-        jButtonPatientManagement.addActionListener(new java.awt.event.ActionListener() {
+        jButtonTestDatabase.setBackground(new java.awt.Color(0, 70, 169));
+        jButtonTestDatabase.setFont(new java.awt.Font("Tahoma", 1, 24)); // NOI18N
+        jButtonTestDatabase.setForeground(new java.awt.Color(255, 255, 255));
+        jButtonTestDatabase.setText("Medical Supplies Database");
+        jButtonTestDatabase.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButtonPatientManagementActionPerformed(evt);
+                jButtonTestDatabaseActionPerformed(evt);
             }
         });
 
-        jButtonAppointmentManagement.setBackground(new java.awt.Color(0, 70, 169));
-        jButtonAppointmentManagement.setFont(new java.awt.Font("Tahoma", 1, 24)); // NOI18N
-        jButtonAppointmentManagement.setForeground(new java.awt.Color(255, 255, 255));
-        jButtonAppointmentManagement.setText("Appointment Management");
-        jButtonAppointmentManagement.addActionListener(new java.awt.event.ActionListener() {
+        jButtonPlaceOrder.setBackground(new java.awt.Color(0, 70, 169));
+        jButtonPlaceOrder.setFont(new java.awt.Font("Tahoma", 1, 24)); // NOI18N
+        jButtonPlaceOrder.setForeground(new java.awt.Color(255, 255, 255));
+        jButtonPlaceOrder.setText("Place Order");
+        jButtonPlaceOrder.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButtonAppointmentManagementActionPerformed(evt);
+                jButtonPlaceOrderActionPerformed(evt);
             }
         });
 
@@ -103,17 +107,17 @@ public class AdministrativeReceptionistWorkAreaJPanel extends javax.swing.JPanel
             .addGroup(jPanel2Layout.createSequentialGroup()
                 .addGap(420, 420, 420)
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addComponent(jButtonPatientManagement, javax.swing.GroupLayout.DEFAULT_SIZE, 401, Short.MAX_VALUE)
-                    .addComponent(jButtonAppointmentManagement, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                    .addComponent(jButtonTestDatabase, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(jButtonPlaceOrder, javax.swing.GroupLayout.DEFAULT_SIZE, 401, Short.MAX_VALUE))
                 .addContainerGap(1005, Short.MAX_VALUE))
         );
         jPanel2Layout.setVerticalGroup(
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel2Layout.createSequentialGroup()
                 .addGap(280, 280, 280)
-                .addComponent(jButtonPatientManagement)
+                .addComponent(jButtonTestDatabase)
                 .addGap(50, 50, 50)
-                .addComponent(jButtonAppointmentManagement)
+                .addComponent(jButtonPlaceOrder)
                 .addContainerGap(696, Short.MAX_VALUE))
         );
 
@@ -122,25 +126,25 @@ public class AdministrativeReceptionistWorkAreaJPanel extends javax.swing.JPanel
         add(jSplitPane, java.awt.BorderLayout.CENTER);
     }// </editor-fold>//GEN-END:initComponents
 
-    private void jButtonAppointmentManagementActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonAppointmentManagementActionPerformed
-//        ManageRestaurantsWorkArena manageRestaurantsWorkArena = new ManageRestaurantsWorkArena(userProcessContainer,hospitalManagementEcoSystem);
-//        userProcessContainer.add("ManageRestaurantsWorkArena",manageRestaurantsWorkArena);
-//        CardLayout cardLayout = (CardLayout) userProcessContainer.getLayout();
-//        cardLayout.show(userProcessContainer,"ManageRestaurantsWorkArena");
-    }//GEN-LAST:event_jButtonAppointmentManagementActionPerformed
+    private void jButtonPlaceOrderActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonPlaceOrderActionPerformed
+        MedSuppliesOrder medSuppliesOrder = new MedSuppliesOrder(userProcessContainer,medicalServiceCentralisationEcoSystem, hospital);
+        userProcessContainer.add("medSuppliesOrder",medSuppliesOrder);
+        CardLayout cardLayout = (CardLayout) userProcessContainer.getLayout();
+        cardLayout.show(userProcessContainer,"medSuppliesOrder");
+    }//GEN-LAST:event_jButtonPlaceOrderActionPerformed
 
-    private void jButtonPatientManagementActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonPatientManagementActionPerformed
+    private void jButtonTestDatabaseActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonTestDatabaseActionPerformed
 
-//        ManageCustomersWorkArena mc = new ManageCustomersWorkArena(userProcessContainer,hospitalManagementEcoSystem);
-//        userProcessContainer.add("manageCustomers",mc);
-//        CardLayout cardLayout = (CardLayout) userProcessContainer.getLayout();
-//        cardLayout.show(userProcessContainer,"manageCustomers");
-    }//GEN-LAST:event_jButtonPatientManagementActionPerformed
+        MedSuppliesDatabase medSuppliesDatabase = new MedSuppliesDatabase(userProcessContainer,medicalServiceCentralisationEcoSystem, hospital);
+        userProcessContainer.add("medSuppliesDatabase",medSuppliesDatabase);
+        CardLayout cardLayout = (CardLayout) userProcessContainer.getLayout();
+        cardLayout.show(userProcessContainer,"medSuppliesDatabase");
+    }//GEN-LAST:event_jButtonTestDatabaseActionPerformed
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton jButtonAppointmentManagement;
-    private javax.swing.JButton jButtonPatientManagement;
+    private javax.swing.JButton jButtonPlaceOrder;
+    private javax.swing.JButton jButtonTestDatabase;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
     private javax.swing.JSplitPane jSplitPane;

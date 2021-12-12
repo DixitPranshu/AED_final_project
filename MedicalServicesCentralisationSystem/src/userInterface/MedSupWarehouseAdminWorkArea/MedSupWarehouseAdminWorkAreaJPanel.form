@@ -81,8 +81,8 @@
                   <Group type="102" alignment="0" attributes="0">
                       <EmptySpace min="-2" pref="420" max="-2" attributes="0"/>
                       <Group type="103" groupAlignment="0" max="-2" attributes="0">
-                          <Component id="jButtonPatientManagement" pref="401" max="32767" attributes="0"/>
-                          <Component id="jButtonAppointmentManagement" max="32767" attributes="0"/>
+                          <Component id="jButtonMedSupDatabase" max="32767" attributes="0"/>
+                          <Component id="jButtonPlaceOrder" pref="401" max="32767" attributes="0"/>
                       </Group>
                       <EmptySpace pref="1005" max="32767" attributes="0"/>
                   </Group>
@@ -92,16 +92,16 @@
               <Group type="103" groupAlignment="0" attributes="0">
                   <Group type="102" alignment="0" attributes="0">
                       <EmptySpace min="-2" pref="280" max="-2" attributes="0"/>
-                      <Component id="jButtonPatientManagement" min="-2" max="-2" attributes="0"/>
+                      <Component id="jButtonMedSupDatabase" min="-2" max="-2" attributes="0"/>
                       <EmptySpace min="-2" pref="50" max="-2" attributes="0"/>
-                      <Component id="jButtonAppointmentManagement" min="-2" max="-2" attributes="0"/>
+                      <Component id="jButtonPlaceOrder" min="-2" max="-2" attributes="0"/>
                       <EmptySpace pref="696" max="32767" attributes="0"/>
                   </Group>
               </Group>
             </DimensionLayout>
           </Layout>
           <SubComponents>
-            <Component class="javax.swing.JButton" name="jButtonPatientManagement">
+            <Component class="javax.swing.JButton" name="jButtonMedSupDatabase">
               <Properties>
                 <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
                   <Color blue="a9" green="46" red="0" type="rgb"/>
@@ -112,13 +112,13 @@
                 <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
                   <Color blue="ff" green="ff" red="ff" type="rgb"/>
                 </Property>
-                <Property name="text" type="java.lang.String" value="Patient Management"/>
+                <Property name="text" type="java.lang.String" value="Medical Supplies Database"/>
               </Properties>
               <Events>
-                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jButtonPatientManagementActionPerformed"/>
+                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jButtonMedSupDatabaseActionPerformed"/>
               </Events>
             </Component>
-            <Component class="javax.swing.JButton" name="jButtonAppointmentManagement">
+            <Component class="javax.swing.JButton" name="jButtonPlaceOrder">
               <Properties>
                 <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
                   <Color blue="a9" green="46" red="0" type="rgb"/>
@@ -129,10 +129,10 @@
                 <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
                   <Color blue="ff" green="ff" red="ff" type="rgb"/>
                 </Property>
-                <Property name="text" type="java.lang.String" value="Appointment Management"/>
+                <Property name="text" type="java.lang.String" value="Manage Orders"/>
               </Properties>
               <Events>
-                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jButtonAppointmentManagementActionPerformed"/>
+                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jButtonPlaceOrderActionPerformed"/>
               </Events>
             </Component>
           </SubComponents>
