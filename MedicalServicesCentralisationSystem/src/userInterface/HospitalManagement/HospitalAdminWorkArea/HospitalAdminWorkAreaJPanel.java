@@ -165,6 +165,11 @@ public class HospitalAdminWorkAreaJPanel extends javax.swing.JPanel {
 
     private void jButtonMedTechnicalAccountsPage1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonMedTechnicalAccountsPage1ActionPerformed
         // TODO add your handling code here:
+        MedSupAdminAccountsPage medSupAdminAccountsPage = new MedSupAdminAccountsPage(userProcessContainer,hospitalManagementEcoSystem, hospital);
+        userProcessContainer.add("MedSupAdminAccountsPage",medSupAdminAccountsPage);
+        CardLayout cardLayout = (CardLayout) userProcessContainer.getLayout();
+        cardLayout.show(userProcessContainer,"MedSupAdminAccountsPage");
+        
     }//GEN-LAST:event_jButtonMedTechnicalAccountsPage1ActionPerformed
 
 

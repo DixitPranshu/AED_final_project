@@ -36,6 +36,8 @@ import javax.swing.JTextArea;
 import javax.swing.JTextField;
 import userInterface.CustomerSupport.CustomerSupportMemberWorkArea.CustomerSupportMemberWorkAreaJPanel;
 import userInterface.HospitalManagement.MedTechnicalWorkArea.MedTechnicalWorkAreaJPanel;
+import userInterface.HospitalManagement.MedicalSuppliesWorkArea.MedSupAdminWorkAreaJPanel;
+import userInterface.MedSupWarehouseAdminWorkArea.MedSupWarehouseAdminWorkAreaJPanel;
 import userInterface.SystemAdminWorkArea.SystemAdminWorkAreaJPanel;
 
 public class HospitalManagementMainJFrame extends javax.swing.JFrame {
@@ -252,8 +254,16 @@ public class HospitalManagementMainJFrame extends javax.swing.JFrame {
             else if(userAccountLogin.getRole().toString().equals("MedSupWarehouseAdmin"))
             {
                 MedSupWarehouse medSupWarehouse = userAccountLogin.getMedSupWarehouse();
-                MedSupWarehouseDatabase medSupWarehouseDatabase = new MedSupWarehouseDatabase(jPanelWorkArea, medicalServiceCentralisationEcoSystem, medSupWarehouse);
-                jPanelWorkArea.add("medSupWarehouseDatabase",medSupWarehouseDatabase);
+                MedSupWarehouseAdminWorkAreaJPanel medSupWarehouseAdminWorkAreaJPanel = new MedSupWarehouseAdminWorkAreaJPanel(jPanelWorkArea, medicalServiceCentralisationEcoSystem, medSupWarehouse);
+                jPanelWorkArea.add("medSupWarehouseAdminWorkAreaJPanel",medSupWarehouseAdminWorkAreaJPanel);
+                CardLayout crdLyt = (CardLayout) jPanelWorkArea.getLayout();
+                crdLyt.next(jPanelWorkArea);
+            }
+            else if(userAccountLogin.getRole().toString().equals("MedSupEquipAdmin"))
+            {
+                Hospital hospital = userAccountLogin.getHospital();
+                MedSupAdminWorkAreaJPanel medSupAdminWorkAreaJPanel = new MedSupAdminWorkAreaJPanel(jPanelWorkArea, medicalServiceCentralisationEcoSystem, hospital);
+                jPanelWorkArea.add("medSupAdminWorkAreaJPanel",medSupAdminWorkAreaJPanel);
                 CardLayout crdLyt = (CardLayout) jPanelWorkArea.getLayout();
                 crdLyt.next(jPanelWorkArea);
             }

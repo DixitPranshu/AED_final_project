@@ -31,16 +31,16 @@ public class MedTechnicalTestDatabase extends javax.swing.JPanel {
      * Creates new form OperationalAccountsPage
      */
     JPanel userProcessContainer;
-    MedicalServiceCentralisationEcoSystem hospitalManagementEcoSystem;
+    MedicalServiceCentralisationEcoSystem medicalServiceCentralisationEcoSystem;
     UserAccount userAccount;
     UserAccountDirectory userAccountDirectory;
 //    PatientTestDirectory patientTestDirectory;
     LabTestDirectory labTestDirectory;
     Hospital hospital;
-    public MedTechnicalTestDatabase(JPanel userProcessContainer , MedicalServiceCentralisationEcoSystem hospitalManagementEcoSystem, Hospital hospital) {
+    public MedTechnicalTestDatabase(JPanel userProcessContainer , MedicalServiceCentralisationEcoSystem medicalServiceCentralisationEcoSystem, Hospital hospital) {
         initComponents();
         this.userProcessContainer = userProcessContainer;
-        this.hospitalManagementEcoSystem = hospitalManagementEcoSystem;
+        this.medicalServiceCentralisationEcoSystem = medicalServiceCentralisationEcoSystem;
         this.hospital = hospital;
         if(hospital.getLabTestDirectory()== null)
            hospital.setLabTestDirectory(new LabTestDirectory());

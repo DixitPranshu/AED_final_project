@@ -10,11 +10,11 @@ package userInterface.SystemAdminWorkArea;
 import MainCentralisationSystem.MedicalServiceCentralisationEcoSystem;
 
 
-import MainCentralisationSystem.Role.MedSupWarehouseAdminRole;
+import MainCentralisationSystem.Role.DeliveryAgencyAdminRole;
 import MainCentralisationSystem.Role.Role;
 
-import MedicalEquipmentWarehouse.MedSupWarehouse;
-import MedicalEquipmentWarehouse.MedSupWarehouseDirectory;
+import DeliveryAgency.DeliveryAgency;
+import DeliveryAgency.DeliveryAgencyDirectory;
 import MainCentralisationSystem.UserAccount;
 import MainCentralisationSystem.UserAccountDirectory;
 import java.awt.CardLayout;
@@ -27,30 +27,29 @@ import javax.swing.table.DefaultTableModel;
  *
  * @author Shreya
  */
-public class MedicalEquipWarehouseAccountsPage extends javax.swing.JPanel {
+public class DeliveryAgencyAccountsPage extends javax.swing.JPanel {
 
     /**
      * Creates new form OperationalAccountsPage
      */
     JPanel userProcessContainer;
     MedicalServiceCentralisationEcoSystem medicalServiceCentralisationEcoSystem;
-    MedSupWarehouseDirectory medSupWarehouseDirectory;
+    DeliveryAgencyDirectory deliveryAgencyDirectory;
 //    FrontDeskOperatorDirectory frontDeskOperatorDirectory;
     UserAccount userAccount;
     UserAccountDirectory UserAccountDirectory;
 
-    public MedicalEquipWarehouseAccountsPage(JPanel userProcessContainer , MedicalServiceCentralisationEcoSystem medicalServiceCentralisationEcoSystem) {
+    public DeliveryAgencyAccountsPage(JPanel userProcessContainer , MedicalServiceCentralisationEcoSystem medicalServiceCentralisationEcoSystem) {
         
         this.userProcessContainer = userProcessContainer;
         this.medicalServiceCentralisationEcoSystem = medicalServiceCentralisationEcoSystem;
         initComponents();
-        if(medicalServiceCentralisationEcoSystem.getMedSupWarehouseDirectory()== null)
-           medicalServiceCentralisationEcoSystem.setMedSupWarehouseDirectory(new MedSupWarehouseDirectory());
+        if(medicalServiceCentralisationEcoSystem.getDeliveryAgencyDirectory()== null)
+           medicalServiceCentralisationEcoSystem.setDeliveryAgencyDirectory(new DeliveryAgencyDirectory());
         
 //        addRolesComboBox();
         addDefaultvalues();
         addrecordstotable();
-        
     }
 
     /**
@@ -102,7 +101,7 @@ public class MedicalEquipWarehouseAccountsPage extends javax.swing.JPanel {
                 {null, null, null}
             },
             new String [] {
-                "Warehouse ID", "Warehouse Name", "Password"
+                "Delivery ID", "Delivery Name", "Password"
             }
         ) {
             boolean[] canEdit = new boolean [] {
@@ -152,7 +151,7 @@ public class MedicalEquipWarehouseAccountsPage extends javax.swing.JPanel {
         });
 
         jLabelEmpID.setForeground(new java.awt.Color(255, 255, 255));
-        jLabelEmpID.setText("Warehouse ID");
+        jLabelEmpID.setText("Delivery ID");
 
         jButtonDelete.setText("DELETE");
         jButtonDelete.addActionListener(new java.awt.event.ActionListener() {
@@ -162,7 +161,7 @@ public class MedicalEquipWarehouseAccountsPage extends javax.swing.JPanel {
         });
 
         jLabelEmpName.setForeground(new java.awt.Color(255, 255, 255));
-        jLabelEmpName.setText("Warehouse Name:");
+        jLabelEmpName.setText("Delivery Name:");
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
         this.setLayout(layout);
@@ -254,22 +253,22 @@ public class MedicalEquipWarehouseAccountsPage extends javax.swing.JPanel {
         // TODO add your handling code here:
         DefaultTableModel model = (DefaultTableModel) jTableEmployee.getModel();
         ArrayList<String> user_input = check_empty_field();
-        medSupWarehouseDirectory = medicalServiceCentralisationEcoSystem.getMedSupWarehouseDirectory();
+        deliveryAgencyDirectory = medicalServiceCentralisationEcoSystem.getDeliveryAgencyDirectory();
         UserAccountDirectory usersList = medicalServiceCentralisationEcoSystem.getUserAccountDirectory();
         if(usersList.checkIfUserIsUnique(user_input.get(0))){
             
-//            Employee employee = new Employee(user_input.get(0),user_input.get(1),new MedSupWarehouseAdminRole());
+//            Employee employee = new Employee(user_input.get(0),user_input.get(1),new DeliveryAgencyAdminRole());
             
             
-            userAccount = new UserAccount(user_input.get(0), user_input.get(2), new MedSupWarehouseAdminRole());
+            userAccount = new UserAccount(user_input.get(0), user_input.get(2), new DeliveryAgencyAdminRole());
             
-            MedSupWarehouse medSupWarehouse = new MedSupWarehouse(user_input.get(0), user_input.get(1));
-            userAccount.setMedSupWarehouse(medSupWarehouse);
-            medSupWarehouseDirectory.addMedSupWarehouse(medSupWarehouse);
+            DeliveryAgency deliveryAgency = new DeliveryAgency(user_input.get(0), user_input.get(1));
+            userAccount.setDeliveryAgency(deliveryAgency);
+            deliveryAgencyDirectory.addDeliveryAgency(deliveryAgency);
             
             usersList.addUserAccount(userAccount);
             
-            JOptionPane.showMessageDialog(this, "New MedSupWarehouse Information has been added.");
+            JOptionPane.showMessageDialog(this, "New DeliveryAgency Information has been added.");
             model.addRow(new Object[]{userAccount,user_input.get(1),user_input.get(2)});
             clearFields();
         }
@@ -289,18 +288,18 @@ public class MedicalEquipWarehouseAccountsPage extends javax.swing.JPanel {
         DefaultTableModel model = (DefaultTableModel) jTableEmployee.getModel();
         UserAccount select_account_details = (UserAccount)model.getValueAt(selected_row_ix, 0);        
         UserAccountDirectory = medicalServiceCentralisationEcoSystem.getUserAccountDirectory();
-        medSupWarehouseDirectory = medicalServiceCentralisationEcoSystem.getMedSupWarehouseDirectory();
+        deliveryAgencyDirectory = medicalServiceCentralisationEcoSystem.getDeliveryAgencyDirectory();
         ArrayList<UserAccount> userAccountList = UserAccountDirectory.getUserAccountList();
         for(UserAccount userAccount: userAccountList)
         {
             if(userAccount.getUsername().equals(select_account_details.getUsername()))
             {
-                MedSupWarehouse medSupWarehouse = userAccount.getMedSupWarehouse();
+                DeliveryAgency deliveryAgency = userAccount.getDeliveryAgency();
                 ArrayList<String> user_input = check_empty_field();
 //                model.setValueAt(user_input.get(1), selected_row_ix, 0);
                 model.setValueAt(user_input.get(1), selected_row_ix, 1);
                 model.setValueAt(user_input.get(2), selected_row_ix, 2);
-                medSupWarehouseDirectory.updateMedSupWarehouse(user_input, medSupWarehouse);
+                deliveryAgencyDirectory.updateDeliveryAgency(user_input, deliveryAgency);
                 UserAccountDirectory.updateAccount(set_user_input_values(userAccount, user_input));
                 break;
             }
@@ -322,8 +321,8 @@ public class MedicalEquipWarehouseAccountsPage extends javax.swing.JPanel {
         DefaultTableModel model = (DefaultTableModel) jTableEmployee.getModel();
         UserAccount select_user_account_details = (UserAccount)model.getValueAt(selected_row_ix, 0);
         UserAccountDirectory = medicalServiceCentralisationEcoSystem.getUserAccountDirectory();
-        MedSupWarehouse medSupWarehouse = select_user_account_details.getMedSupWarehouse();
-        medSupWarehouseDirectory.deleteMedSupWarehouse(medSupWarehouse);
+        DeliveryAgency deliveryAgency = select_user_account_details.getDeliveryAgency();
+        deliveryAgencyDirectory.deleteDeliveryAgency(deliveryAgency);
         UserAccountDirectory.deleteAccount(select_user_account_details);
 //        ecosystem.setRestaurantDirectory(restaurantDirectory);
         model.removeRow(selected_row_ix);
@@ -339,13 +338,13 @@ public class MedicalEquipWarehouseAccountsPage extends javax.swing.JPanel {
         UserAccount select_user_account_details = (UserAccount)model.getValueAt(selected_row_ix, 0);
         jTextFieldTeamID.setEditable(false);
         jTextFieldTeamID.setText(select_user_account_details.getUsername());
-        jTextFieldTeamName.setText(select_user_account_details.getMedSupWarehouse().getMedSupWarehouseName());
+        jTextFieldTeamName.setText(select_user_account_details.getDeliveryAgency().getDeliveryAgencyName());
         jTextFieldTeamPassword.setText(select_user_account_details.getPassword());
         
     }//GEN-LAST:event_jTableEmployeeMouseClicked
     private UserAccount set_user_input_values(UserAccount userAccount, ArrayList<String> user_input) {
 //        userAccount.getEmployee().setEmployee_id(user_input.get(0));
-        userAccount.getMedSupWarehouse().setMedSupWarehouseName(user_input.get(1));
+        userAccount.getDeliveryAgency().setDeliveryAgencyName(user_input.get(1));
         userAccount.setPassword(user_input.get(2));
         return userAccount;
     }
@@ -404,15 +403,15 @@ public class MedicalEquipWarehouseAccountsPage extends javax.swing.JPanel {
     private void addrecordstotable() {
         UserAccountDirectory userAccountDirectory = medicalServiceCentralisationEcoSystem.getUserAccountDirectory();
         ArrayList<UserAccount> usersList = userAccountDirectory.getUserAccountList();
-//        medSupWarehouseDirectory = medicalServiceCentralisationEcoSystem.getMedSupWarehouseDirectory();
+//        deliveryAgencyDirectory = medicalServiceCentralisationEcoSystem.getDeliveryAgencyDirectory();
     
         DefaultTableModel model = (DefaultTableModel) jTableEmployee.getModel();
         model.setRowCount(0);
-//        ArrayList<MedSupWarehouse> medSupWarehouseList = medSupWarehouseDirectory.getMedSupWarehouseList();
+//        ArrayList<DeliveryAgency> deliveryAgencyList = deliveryAgencyDirectory.getDeliveryAgencyList();
         for(UserAccount userAccount: usersList)
         {   
-            if(userAccount.getRole().toString() == "MedSupWarehouseAdmin"){
-                model.addRow(new Object[]{userAccount,userAccount.getMedSupWarehouse().getMedSupWarehouseName(),userAccount.getPassword()});
+            if(userAccount.getRole().toString() == "DeliveryAgencyAdmin"){
+                model.addRow(new Object[]{userAccount,userAccount.getDeliveryAgency().getDeliveryAgencyName(),userAccount.getPassword()});
             }
             
         }
@@ -423,20 +422,20 @@ public class MedicalEquipWarehouseAccountsPage extends javax.swing.JPanel {
     private void addDefaultvalues() {
         
         UserAccountDirectory usersList = medicalServiceCentralisationEcoSystem.getUserAccountDirectory();
-        userAccount = new UserAccount("warehouse121", "pass",new MedSupWarehouseAdminRole());
-        MedSupWarehouse medSupWarehouse = new MedSupWarehouse("warehouse121","warehouse1");
-        medSupWarehouseDirectory = medicalServiceCentralisationEcoSystem.getMedSupWarehouseDirectory();
-        medSupWarehouseDirectory.addMedSupWarehouse(medSupWarehouse);
-        userAccount.setMedSupWarehouse(medSupWarehouse);
-        if(usersList.checkIfUserIsUnique("warehouse121")){
+        userAccount = new UserAccount("deliveryagency121", "pass",new DeliveryAgencyAdminRole());
+        DeliveryAgency deliveryAgency = new DeliveryAgency("deliveryagency121","deliveryagency1");
+        deliveryAgencyDirectory = medicalServiceCentralisationEcoSystem.getDeliveryAgencyDirectory();
+        deliveryAgencyDirectory.addDeliveryAgency(deliveryAgency);
+        userAccount.setDeliveryAgency(deliveryAgency);
+        if(usersList.checkIfUserIsUnique("deliveryagency121")){
             usersList.addUserAccount(userAccount);
         }
         
-        userAccount = new UserAccount("warehouse122", "pass",new MedSupWarehouseAdminRole());
-        medSupWarehouse = new MedSupWarehouse("warehouse122","warehouse2");
-        medSupWarehouseDirectory.addMedSupWarehouse(medSupWarehouse);
-        userAccount.setMedSupWarehouse(medSupWarehouse);
-        if(usersList.checkIfUserIsUnique("warehouse122")){
+        userAccount = new UserAccount("deliveryagency122", "pass",new DeliveryAgencyAdminRole());
+        deliveryAgency = new DeliveryAgency("deliveryagency122","deliveryagency2");
+        deliveryAgencyDirectory.addDeliveryAgency(deliveryAgency);
+        userAccount.setDeliveryAgency(deliveryAgency);
+        if(usersList.checkIfUserIsUnique("deliveryagency122")){
             usersList.addUserAccount(userAccount);
         }    
     }

@@ -417,6 +417,8 @@ public class CustomerSupportAccountsPage extends javax.swing.JPanel {
         UserAccountDirectory usersList = medicalServiceCentralisationEcoSystem.getUserAccountDirectory();
         userAccount = new UserAccount("custsupp121", "pass",new CustomerSupportTeamAdminRole());
         CustomerSupportTeam customerSupportTeam = new CustomerSupportTeam("custsupp121","custteam1");
+        customerSupportTeamDirectory = medicalServiceCentralisationEcoSystem.getCustomerSupportTeamDirectory();
+        customerSupportTeamDirectory.addCustomerSupportTeam(customerSupportTeam);
         userAccount.setCustomerSupportTeam(customerSupportTeam);
         if(usersList.checkIfUserIsUnique("custsupp121")){
             usersList.addUserAccount(userAccount);
@@ -424,6 +426,7 @@ public class CustomerSupportAccountsPage extends javax.swing.JPanel {
         
         userAccount = new UserAccount("custsupp122", "pass",new CustomerSupportTeamAdminRole());
         customerSupportTeam = new CustomerSupportTeam("custsupp122","custteam2");
+        customerSupportTeamDirectory.addCustomerSupportTeam(customerSupportTeam);
         userAccount.setCustomerSupportTeam(customerSupportTeam);
         if(usersList.checkIfUserIsUnique("custsupp122")){
             usersList.addUserAccount(userAccount);

@@ -15,6 +15,7 @@ public class MedSupEquip {
     String medSupEquip_name;
     String medSupEquip_price;
     String medSupEquip_quantity;
+    String medSupWarehouseId;
     
     public String getMedSupEquip_name() {
         return medSupEquip_name;
@@ -38,6 +39,14 @@ public class MedSupEquip {
 
     public void setMedSupEquip_quantity(String medSupEquip_quantity) {
         this.medSupEquip_quantity = medSupEquip_quantity;
+    }
+
+    public String getMedSupWarehouseId() {
+        return medSupWarehouseId;
+    }
+
+    public void setMedSupWarehouseId(String medSupWarehouseId) {
+        this.medSupWarehouseId = medSupWarehouseId;
     }
     
     @Override

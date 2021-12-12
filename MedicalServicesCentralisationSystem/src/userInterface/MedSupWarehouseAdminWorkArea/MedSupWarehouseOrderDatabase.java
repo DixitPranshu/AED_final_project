@@ -15,6 +15,7 @@ import MainCentralisationSystem.UserAccount;
 import MainCentralisationSystem.UserAccountDirectory;
 import MedicalEquipmentWarehouse.MedSupWarehouse;
 import MedicalEquipmentWarehouse.MedSupWarehouseDirectory;
+import MedicalEquipmentWarehouse.Orders.Order;
 import MedicalEquipmentWarehouse.Orders.OrderDirectory;
 import userInterface.SystemAdminWorkArea.*;
 import java.awt.CardLayout;
@@ -29,7 +30,7 @@ import javax.swing.table.DefaultTableModel;
  *
  * @author Shreya
  */
-public class MedSupWarehouseDatabase extends javax.swing.JPanel {
+public class MedSupWarehouseOrderDatabase extends javax.swing.JPanel {
 
     /**
      * Creates new form OperationalAccountsPage
@@ -41,18 +42,14 @@ public class MedSupWarehouseDatabase extends javax.swing.JPanel {
 //    PatientMedSupEquipDirectory patientMedSupEquipDirectory;
     MedSupEquipDirectory medSupEquipDirectory;
     MedSupWarehouse medSupWarehouseCurrent;
-    public MedSupWarehouseDatabase(JPanel userProcessContainer , MedicalServiceCentralisationEcoSystem medicalServiceCentralisationEcoSystem, MedSupWarehouse medSupWarehouse) {
+    
+    public MedSupWarehouseOrderDatabase(JPanel userProcessContainer , MedicalServiceCentralisationEcoSystem medicalServiceCentralisationEcoSystem, MedSupWarehouse medSupWarehouse) {
         initComponents();
         this.userProcessContainer = userProcessContainer;
         this.medicalServiceCentralisationEcoSystem = medicalServiceCentralisationEcoSystem;
         this.medSupWarehouseCurrent = medSupWarehouse;
-        if(medSupWarehouse.getMedSupEquipDirectory() == null){
-            medSupWarehouse.setMedSupEquipDirectory(new MedSupEquipDirectory());
-        }
-        if(medSupWarehouseCurrent.getOrderDirectory()== null){
-            medSupWarehouseCurrent.setOrderDirectory(new OrderDirectory());
-        }
-        addrecordstotable();
+        
+        addneworderstotable();
     }
 
     /**
@@ -66,18 +63,19 @@ public class MedSupWarehouseDatabase extends javax.swing.JPanel {
 
         jLabelTitle = new javax.swing.JLabel();
         jButtonHome = new javax.swing.JButton();
-        jButtonCreate = new javax.swing.JButton();
         jButtonUpdate = new javax.swing.JButton();
-        jButtonDelete = new javax.swing.JButton();
+        jButtonAssignDeliveryAgency = new javax.swing.JButton();
         jLabelPatientID = new javax.swing.JLabel();
         jTextFieldMedSupEquipName = new javax.swing.JTextField();
         jLabelPatientName = new javax.swing.JLabel();
         jLabelTitle2 = new javax.swing.JLabel();
         jTextFieldMedSupEquipPrice = new javax.swing.JTextField();
         jScrollPane1 = new javax.swing.JScrollPane();
-        jTableMedSupEquipDB = new javax.swing.JTable();
+        jTableNewOrders = new javax.swing.JTable();
         jLabelPatientName1 = new javax.swing.JLabel();
         jTextFieldMedSupEquipQuantity = new javax.swing.JTextField();
+        jComboBoxDeliveryAgency = new javax.swing.JComboBox<>();
+        jLabelPatientName2 = new javax.swing.JLabel();
 
         setBackground(new java.awt.Color(0, 70, 169));
         setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
@@ -85,8 +83,8 @@ public class MedSupWarehouseDatabase extends javax.swing.JPanel {
         jLabelTitle.setFont(new java.awt.Font("Tahoma", 1, 48)); // NOI18N
         jLabelTitle.setForeground(new java.awt.Color(255, 255, 255));
         jLabelTitle.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jLabelTitle.setText("All Equipment");
-        add(jLabelTitle, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 380, 706, -1));
+        jLabelTitle.setText("New Orders");
+        add(jLabelTitle, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 350, 706, -1));
 
         jButtonHome.setBackground(new java.awt.Color(0, 70, 169));
         jButtonHome.setFont(new java.awt.Font("Tahoma", 0, 24)); // NOI18N
@@ -99,14 +97,6 @@ public class MedSupWarehouseDatabase extends javax.swing.JPanel {
         });
         add(jButtonHome, new org.netbeans.lib.awtextra.AbsoluteConstraints(1040, 60, -1, -1));
 
-        jButtonCreate.setText("CREATE");
-        jButtonCreate.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButtonCreateActionPerformed(evt);
-            }
-        });
-        add(jButtonCreate, new org.netbeans.lib.awtextra.AbsoluteConstraints(648, 219, -1, -1));
-
         jButtonUpdate.setText("UPDATE");
         jButtonUpdate.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -115,13 +105,13 @@ public class MedSupWarehouseDatabase extends javax.swing.JPanel {
         });
         add(jButtonUpdate, new org.netbeans.lib.awtextra.AbsoluteConstraints(830, 220, -1, -1));
 
-        jButtonDelete.setText("DELETE");
-        jButtonDelete.addActionListener(new java.awt.event.ActionListener() {
+        jButtonAssignDeliveryAgency.setText("ASSIGN");
+        jButtonAssignDeliveryAgency.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButtonDeleteActionPerformed(evt);
+                jButtonAssignDeliveryAgencyActionPerformed(evt);
             }
         });
-        add(jButtonDelete, new org.netbeans.lib.awtextra.AbsoluteConstraints(650, 290, -1, -1));
+        add(jButtonAssignDeliveryAgency, new org.netbeans.lib.awtextra.AbsoluteConstraints(250, 600, -1, -1));
 
         jLabelPatientID.setForeground(new java.awt.Color(255, 255, 255));
         jLabelPatientID.setHorizontalAlignment(javax.swing.SwingConstants.TRAILING);
@@ -143,7 +133,7 @@ public class MedSupWarehouseDatabase extends javax.swing.JPanel {
         jLabelTitle2.setFont(new java.awt.Font("Tahoma", 1, 48)); // NOI18N
         jLabelTitle2.setForeground(new java.awt.Color(255, 255, 255));
         jLabelTitle2.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jLabelTitle2.setText("Medical Supplies Equipment Database");
+        jLabelTitle2.setText("Medical Supplies Order Database");
         add(jLabelTitle2, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 50, 940, -1));
 
         jTextFieldMedSupEquipPrice.addActionListener(new java.awt.event.ActionListener() {
@@ -153,33 +143,33 @@ public class MedSupWarehouseDatabase extends javax.swing.JPanel {
         });
         add(jTextFieldMedSupEquipPrice, new org.netbeans.lib.awtextra.AbsoluteConstraints(310, 240, 270, -1));
 
-        jTableMedSupEquipDB.setModel(new javax.swing.table.DefaultTableModel(
+        jTableNewOrders.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
-                {null, null, null},
-                {null, null, null},
-                {null, null, null},
-                {null, null, null}
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null}
             },
             new String [] {
-                "Medical Equipment Name", "Medical Equipment Price", "Medical Equipment Count"
+                "Order ID", "Medical Equipment Names", "Medical Equipment Total Price", "Hospital ID"
             }
         ) {
             boolean[] canEdit = new boolean [] {
-                false, false, false
+                false, false, false, false
             };
 
             public boolean isCellEditable(int rowIndex, int columnIndex) {
                 return canEdit [columnIndex];
             }
         });
-        jScrollPane1.setViewportView(jTableMedSupEquipDB);
+        jScrollPane1.setViewportView(jTableNewOrders);
 
-        add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(260, 470, 430, 110));
+        add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(160, 430, 680, 110));
 
         jLabelPatientName1.setForeground(new java.awt.Color(255, 255, 255));
         jLabelPatientName1.setHorizontalAlignment(javax.swing.SwingConstants.TRAILING);
-        jLabelPatientName1.setText("Medical Equipment Quantity");
-        add(jLabelPatientName1, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 280, 140, -1));
+        jLabelPatientName1.setText("Delivery Agency");
+        add(jLabelPatientName1, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 600, -1, -1));
 
         jTextFieldMedSupEquipQuantity.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -187,6 +177,14 @@ public class MedSupWarehouseDatabase extends javax.swing.JPanel {
             }
         });
         add(jTextFieldMedSupEquipQuantity, new org.netbeans.lib.awtextra.AbsoluteConstraints(310, 280, 270, -1));
+
+        jComboBoxDeliveryAgency.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
+        add(jComboBoxDeliveryAgency, new org.netbeans.lib.awtextra.AbsoluteConstraints(160, 600, -1, -1));
+
+        jLabelPatientName2.setForeground(new java.awt.Color(255, 255, 255));
+        jLabelPatientName2.setHorizontalAlignment(javax.swing.SwingConstants.TRAILING);
+        jLabelPatientName2.setText("Medical Equipment Quantity");
+        add(jLabelPatientName2, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 280, 140, -1));
     }// </editor-fold>//GEN-END:initComponents
 
     private void jButtonHomeActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonHomeActionPerformed
@@ -203,33 +201,6 @@ public class MedSupWarehouseDatabase extends javax.swing.JPanel {
         // TODO add your handling code here:
     }//GEN-LAST:event_jTextFieldMedSupEquipPriceActionPerformed
 
-    private void jButtonCreateActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonCreateActionPerformed
-        // TODO add your handling code here:
-        DefaultTableModel model = (DefaultTableModel) jTableMedSupEquipDB.getModel();
-        MedSupWarehouseDirectory medSupWarehouseDirectory = medicalServiceCentralisationEcoSystem.getMedSupWarehouseDirectory();
-        ArrayList<MedSupWarehouse> medSupWarehouseList = medSupWarehouseDirectory.getMedSupWarehouseList();
-        for(MedSupWarehouse medSupWarehouse: medSupWarehouseList){
-            if(medSupWarehouse.getMedSupWarehouseId().equals(medSupWarehouseCurrent.getMedSupWarehouseId())){
-                MedSupEquipDirectory medSupEquipDirectory = medSupWarehouseCurrent.getMedSupEquipDirectory();
-                MedSupEquip medSupEquip = new MedSupEquip();
-                String medSupEquip_name = jTextFieldMedSupEquipName.getText();
-                String medSupEquip_price = jTextFieldMedSupEquipPrice.getText();
-                String medSupEquip_quantity = jTextFieldMedSupEquipQuantity.getText();
-                medSupEquip.setMedSupEquip_name(medSupEquip_name);
-                medSupEquip.setMedSupEquip_price(medSupEquip_price);
-                medSupEquip.setMedSupEquip_quantity(medSupEquip_quantity);
-                medSupEquip.setMedSupWarehouseId(medSupWarehouse.getMedSupWarehouseId());
-                medSupEquipDirectory.addMedSupEquip(medSupEquip);
-                medSupWarehouseCurrent.setMedSupEquipDirectory(medSupEquipDirectory);
-                JOptionPane.showMessageDialog(this, "New MedSupEquip Information has been added.");
-                model.addRow(new Object[]{medSupEquip,medSupEquip.getMedSupEquip_price(),medSupEquip.getMedSupEquip_quantity()});
-                clearFields();
-                
-            }
-        }
-        
-    }//GEN-LAST:event_jButtonCreateActionPerformed
-
     private void jTextFieldMedSupEquipQuantityActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextFieldMedSupEquipQuantityActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_jTextFieldMedSupEquipQuantityActionPerformed
@@ -238,9 +209,14 @@ public class MedSupWarehouseDatabase extends javax.swing.JPanel {
         // TODO add your handling code here:
     }//GEN-LAST:event_jButtonUpdateActionPerformed
 
-    private void jButtonDeleteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonDeleteActionPerformed
+    private void jButtonAssignDeliveryAgencyActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonAssignDeliveryAgencyActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_jButtonDeleteActionPerformed
+        DefaultTableModel model = (DefaultTableModel) jTableNewOrders.getModel();
+        int selected_row_ix = jTableNewOrders.getSelectedRow();
+        Order order = (Order) model.getValueAt(selected_row_ix, 0);
+        String delivery_agency_id = (String) jComboBoxDeliveryAgency.getSelectedItem();
+        order.setDelivery_agency_id(delivery_agency_id);
+    }//GEN-LAST:event_jButtonAssignDeliveryAgencyActionPerformed
     /*private Customer set_user_input_values(Customer customer, ArrayList<String> user_input){
         
         customer.getUserAccount().setPassword(user_input.get(1));
@@ -280,17 +256,18 @@ public class MedSupWarehouseDatabase extends javax.swing.JPanel {
     
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton jButtonCreate;
-    private javax.swing.JButton jButtonDelete;
+    private javax.swing.JButton jButtonAssignDeliveryAgency;
     private javax.swing.JButton jButtonHome;
     private javax.swing.JButton jButtonUpdate;
+    private javax.swing.JComboBox<String> jComboBoxDeliveryAgency;
     private javax.swing.JLabel jLabelPatientID;
     private javax.swing.JLabel jLabelPatientName;
     private javax.swing.JLabel jLabelPatientName1;
+    private javax.swing.JLabel jLabelPatientName2;
     private javax.swing.JLabel jLabelTitle;
     private javax.swing.JLabel jLabelTitle2;
     private javax.swing.JScrollPane jScrollPane1;
-    private javax.swing.JTable jTableMedSupEquipDB;
+    private javax.swing.JTable jTableNewOrders;
     private javax.swing.JTextField jTextFieldMedSupEquipName;
     private javax.swing.JTextField jTextFieldMedSupEquipPrice;
     private javax.swing.JTextField jTextFieldMedSupEquipQuantity;
@@ -302,19 +279,20 @@ public class MedSupWarehouseDatabase extends javax.swing.JPanel {
         jTextFieldMedSupEquipQuantity.setText("");
     }
 
-    private void addrecordstotable() {
+    private void addneworderstotable() {
         
-        medSupEquipDirectory = medSupWarehouseCurrent.getMedSupEquipDirectory();
-        ArrayList<MedSupEquip> medSupEquipList = medSupEquipDirectory.getMedSupEquipList();
-        DefaultTableModel model = (DefaultTableModel) jTableMedSupEquipDB.getModel();
+        OrderDirectory orderDirectory = medSupWarehouseCurrent.getOrderDirectory();
+        ArrayList<Order> orderList = orderDirectory.getOrderList();
+        DefaultTableModel model = (DefaultTableModel) jTableNewOrders.getModel();
         model.setRowCount(0);
 //        DefaultComboBoxModel dc = new DefaultComboBoxModel();
         
-        for(MedSupEquip medSupEquip: medSupEquipList)
+        for(Order order: orderList)
         {
-            model.addRow(new Object[]{medSupEquip, medSupEquip.getMedSupEquip_price(), medSupEquip.getMedSupEquip_quantity()});
-
+            if(order.getStatus().equals("new")){
+                model.addRow(new Object[]{order, order.getMedSupEquipItemsWithQuantity(), order.getOrder_amount(),order.getWarehouseId()});
+            }
         }
-        jTableMedSupEquipDB.setModel(model);
+        jTableNewOrders.setModel(model);
     }
 }

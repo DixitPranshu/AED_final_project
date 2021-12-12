@@ -26,6 +26,7 @@ import MainCentralisationSystem.Role.Role;
 import MainCentralisationSystem.Role.TechnicianRole;
 import HospitalManagement.Technician.Technician;
 import HospitalManagement.Technician.TechnicianDirectory;
+import MainCentralisationSystem.Role.MedSupEquipAdminRole;
 
 import MainCentralisationSystem.UserAccount;
 import MainCentralisationSystem.UserAccountDirectory;
@@ -216,7 +217,7 @@ public class MedSupAdminAccountsPage extends javax.swing.JPanel {
         ArrayList<String> user_input = check_empty_field();
         UserAccountDirectory usersList = hospitalManagementEcoSystem.getUserAccountDirectory();
         if(usersList.checkIfUserIsUnique(user_input.get(0))){
-                userAccount = new UserAccount(user_input.get(0), user_input.get(3), new PathologistRole());
+                userAccount = new UserAccount(user_input.get(0), user_input.get(2), new MedSupEquipAdminRole());
                 usersList.addUserAccount(userAccount);
                 MedSupEquipAdmin medSupEquipAdmin = new MedSupEquipAdmin();
                 medSupEquipAdmin.setMedSupEquipAdminId(user_input.get(0));
