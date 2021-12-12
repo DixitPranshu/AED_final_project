@@ -16,6 +16,8 @@ import HospitalManagement.FrontDeskOperator.FrontDeskOperatorDirectory;
 import HospitalManagement.Accountant.AccountantDirectory;
 import HospitalManagement.Patient.PatientDirectory;
 import HospitalManagement.LabTest.LabTestDirectory;
+import HospitalManagement.MedSupEquipAdmin.MedSupEquipAdmin;
+import HospitalManagement.MedSupEquipInternal.MedSupEquipInternalDirectory;
 import java.util.HashMap;
 
 /**
@@ -39,6 +41,8 @@ public class Hospital {
 //    HashMap<String, String> labTests = new HashMap<>();
     LabTestDirectory labTestDirectory;
     
+    MedSupEquipAdmin medSupEquipAdmin;
+    MedSupEquipInternalDirectory medSupEquipInternalDirectory;
     //    UserAccount userAccount;
 
     
@@ -134,6 +138,22 @@ public class Hospital {
 
     public void setPatientDirectory(PatientDirectory patientDirectory) {
         this.patientDirectory = patientDirectory;
+    }
+
+    public MedSupEquipInternalDirectory getMedSupEquipInternalDirectory() {
+        return medSupEquipInternalDirectory;
+    }
+
+    public void setMedSupEquipInternalDirectory(MedSupEquipInternalDirectory medSupEquipInternalDirectory) {
+        this.medSupEquipInternalDirectory = medSupEquipInternalDirectory;
+    }
+
+    public MedSupEquipAdmin getMedSupEquipAdmin() {
+        return medSupEquipAdmin;
+    }
+
+    public void setMedSupEquipAdmin(MedSupEquipAdmin medSupEquipAdmin) {
+        this.medSupEquipAdmin = medSupEquipAdmin;
     }
     
     
