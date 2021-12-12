@@ -19,6 +19,7 @@ public class Patient {
     String patient_id;
     String patient_name;
     String patient_phone_number;
+    String patient_email;
     ArrayList<PatientTest> patientTestList = new ArrayList<>();
     
     public String getPatient_id() {
@@ -43,6 +44,14 @@ public class Patient {
 
     public void setPatient_phone_number(String patient_phone_number) {
         this.patient_phone_number = patient_phone_number;
+    }
+
+    public String getPatient_email() {
+        return patient_email;
+    }
+
+    public void setPatient_email(String patient_email) {
+        this.patient_email = patient_email;
     }
 
     public ArrayList<PatientTest> getPatientTestList() {
