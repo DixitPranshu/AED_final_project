@@ -6,6 +6,7 @@
 package MedicalEquipmentWarehouse;
 
 import MainCentralisationSystem.UserAccountDirectory;
+import MedicalEquipmentWarehouse.MedSupEquip.MedSupEquipDirectory;
 
 import java.util.HashMap;
 
@@ -17,7 +18,7 @@ public class MedSupWarehouse {
     
     String medSupWarehouseId;
     String medSupWarehouseName;
-    
+    MedSupEquipDirectory medSupEquipDirectory;
     UserAccountDirectory UserAccountDirectory;
     
     
@@ -43,6 +44,14 @@ public class MedSupWarehouse {
 
     public void setMedSupWarehouseId(String medSupWarehouseId) {
         this.medSupWarehouseId = medSupWarehouseId;
+    }
+
+    public MedSupEquipDirectory getMedSupEquipDirectory() {
+        return medSupEquipDirectory;
+    }
+
+    public void setMedSupEquipDirectory(MedSupEquipDirectory medSupEquipDirectory) {
+        this.medSupEquipDirectory = medSupEquipDirectory;
     }
     
     

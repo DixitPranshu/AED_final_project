@@ -3,15 +3,17 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package userInterface.HospitalManagement.MedTechnicalWorkArea;
+package userInterface.MedSupWarehouseAdminWorkArea;
 
 
+import userInterface.HospitalManagement.MedTechnicalWorkArea.*;
 import HospitalManagement.Hospital.Hospital;
-import HospitalManagement.LabTest.LabTest;
-import HospitalManagement.LabTest.LabTestDirectory;
+import MedicalEquipmentWarehouse.MedSupEquip.MedSupEquip;
+import MedicalEquipmentWarehouse.MedSupEquip.MedSupEquipDirectory;
 import MainCentralisationSystem.MedicalServiceCentralisationEcoSystem;
 import MainCentralisationSystem.UserAccount;
 import MainCentralisationSystem.UserAccountDirectory;
+import MedicalEquipmentWarehouse.MedSupWarehouse;
 import userInterface.SystemAdminWorkArea.*;
 import java.awt.CardLayout;
 import java.util.ArrayList;
@@ -25,25 +27,26 @@ import javax.swing.table.DefaultTableModel;
  *
  * @author Shreya
  */
-public class MedTechnicalTestDatabase extends javax.swing.JPanel {
+public class MedSupWarehouseDatabase extends javax.swing.JPanel {
 
     /**
      * Creates new form OperationalAccountsPage
      */
     JPanel userProcessContainer;
-    MedicalServiceCentralisationEcoSystem hospitalManagementEcoSystem;
+    MedicalServiceCentralisationEcoSystem medicalServiceCentralisationEcoSystem;
     UserAccount userAccount;
     UserAccountDirectory userAccountDirectory;
-//    PatientTestDirectory patientTestDirectory;
-    LabTestDirectory labTestDirectory;
-    Hospital hospital;
-    public MedTechnicalTestDatabase(JPanel userProcessContainer , MedicalServiceCentralisationEcoSystem hospitalManagementEcoSystem, Hospital hospital) {
+//    PatientMedSupEquipDirectory patientMedSupEquipDirectory;
+    MedSupEquipDirectory medSupEquipDirectory;
+    MedSupWarehouse medSupWarehouse;
+    public MedSupWarehouseDatabase(JPanel userProcessContainer , MedicalServiceCentralisationEcoSystem medicalServiceCentralisationEcoSystem, MedSupWarehouse medSupWarehouse) {
         initComponents();
         this.userProcessContainer = userProcessContainer;
-        this.hospitalManagementEcoSystem = hospitalManagementEcoSystem;
-        this.hospital = hospital;
-        if(hospital.getLabTestDirectory()== null)
-           hospital.setLabTestDirectory(new LabTestDirectory());
+        this.medicalServiceCentralisationEcoSystem = medicalServiceCentralisationEcoSystem;
+        this.medSupWarehouse = medSupWarehouse;
+        if(medSupWarehouse.getMedSupEquipDirectory() == null){
+            medSupWarehouse.setMedSupEquipDirectory(new MedSupEquipDirectory());
+        }
         addrecordstotable();
     }
 
@@ -60,15 +63,16 @@ public class MedTechnicalTestDatabase extends javax.swing.JPanel {
         jButtonHome = new javax.swing.JButton();
         jButtonCreate = new javax.swing.JButton();
         jButtonUpdate = new javax.swing.JButton();
-        jButtonView = new javax.swing.JButton();
         jButtonDelete = new javax.swing.JButton();
         jLabelPatientID = new javax.swing.JLabel();
-        jTextFieldTestName = new javax.swing.JTextField();
+        jTextFieldMedSupEquipName = new javax.swing.JTextField();
         jLabelPatientName = new javax.swing.JLabel();
         jLabelTitle2 = new javax.swing.JLabel();
-        jTextFieldTestPrice = new javax.swing.JTextField();
+        jTextFieldMedSupEquipPrice = new javax.swing.JTextField();
         jScrollPane1 = new javax.swing.JScrollPane();
-        jTableTestDB = new javax.swing.JTable();
+        jTableMedSupEquipDB = new javax.swing.JTable();
+        jLabelPatientName1 = new javax.swing.JLabel();
+        jTextFieldMedSupEquipQuantity = new javax.swing.JTextField();
 
         setBackground(new java.awt.Color(0, 70, 169));
         setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
@@ -88,7 +92,7 @@ public class MedTechnicalTestDatabase extends javax.swing.JPanel {
                 jButtonHomeActionPerformed(evt);
             }
         });
-        add(jButtonHome, new org.netbeans.lib.awtextra.AbsoluteConstraints(846, 62, -1, -1));
+        add(jButtonHome, new org.netbeans.lib.awtextra.AbsoluteConstraints(1040, 60, -1, -1));
 
         jButtonCreate.setText("CREATE");
         jButtonCreate.addActionListener(new java.awt.event.ActionListener() {
@@ -99,71 +103,85 @@ public class MedTechnicalTestDatabase extends javax.swing.JPanel {
         add(jButtonCreate, new org.netbeans.lib.awtextra.AbsoluteConstraints(648, 219, -1, -1));
 
         jButtonUpdate.setText("UPDATE");
-        add(jButtonUpdate, new org.netbeans.lib.awtextra.AbsoluteConstraints(830, 220, -1, -1));
-
-        jButtonView.setText("VIEW");
-        jButtonView.addActionListener(new java.awt.event.ActionListener() {
+        jButtonUpdate.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButtonViewActionPerformed(evt);
+                jButtonUpdateActionPerformed(evt);
             }
         });
-        add(jButtonView, new org.netbeans.lib.awtextra.AbsoluteConstraints(840, 290, -1, -1));
+        add(jButtonUpdate, new org.netbeans.lib.awtextra.AbsoluteConstraints(830, 220, -1, -1));
 
         jButtonDelete.setText("DELETE");
+        jButtonDelete.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButtonDeleteActionPerformed(evt);
+            }
+        });
         add(jButtonDelete, new org.netbeans.lib.awtextra.AbsoluteConstraints(650, 290, -1, -1));
 
         jLabelPatientID.setForeground(new java.awt.Color(255, 255, 255));
         jLabelPatientID.setHorizontalAlignment(javax.swing.SwingConstants.TRAILING);
-        jLabelPatientID.setText("Test Name");
-        add(jLabelPatientID, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 200, 104, -1));
+        jLabelPatientID.setText("Medical Equiment Name");
+        add(jLabelPatientID, new org.netbeans.lib.awtextra.AbsoluteConstraints(114, 200, 120, -1));
 
-        jTextFieldTestName.addActionListener(new java.awt.event.ActionListener() {
+        jTextFieldMedSupEquipName.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jTextFieldTestNameActionPerformed(evt);
+                jTextFieldMedSupEquipNameActionPerformed(evt);
             }
         });
-        add(jTextFieldTestName, new org.netbeans.lib.awtextra.AbsoluteConstraints(311, 200, 270, -1));
+        add(jTextFieldMedSupEquipName, new org.netbeans.lib.awtextra.AbsoluteConstraints(311, 200, 270, -1));
 
         jLabelPatientName.setForeground(new java.awt.Color(255, 255, 255));
         jLabelPatientName.setHorizontalAlignment(javax.swing.SwingConstants.TRAILING);
-        jLabelPatientName.setText("Test Price");
-        add(jLabelPatientName, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 240, 100, -1));
+        jLabelPatientName.setText("Medical Equipment Price");
+        add(jLabelPatientName, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 240, 130, -1));
 
         jLabelTitle2.setFont(new java.awt.Font("Tahoma", 1, 48)); // NOI18N
         jLabelTitle2.setForeground(new java.awt.Color(255, 255, 255));
         jLabelTitle2.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jLabelTitle2.setText("Hospital Test Database");
-        add(jLabelTitle2, new org.netbeans.lib.awtextra.AbsoluteConstraints(136, 43, 706, -1));
+        jLabelTitle2.setText("Medical Supplies Equipment Database");
+        add(jLabelTitle2, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 50, 940, -1));
 
-        jTextFieldTestPrice.addActionListener(new java.awt.event.ActionListener() {
+        jTextFieldMedSupEquipPrice.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jTextFieldTestPriceActionPerformed(evt);
+                jTextFieldMedSupEquipPriceActionPerformed(evt);
             }
         });
-        add(jTextFieldTestPrice, new org.netbeans.lib.awtextra.AbsoluteConstraints(310, 240, 270, -1));
+        add(jTextFieldMedSupEquipPrice, new org.netbeans.lib.awtextra.AbsoluteConstraints(310, 240, 270, -1));
 
-        jTableTestDB.setModel(new javax.swing.table.DefaultTableModel(
+        jTableMedSupEquipDB.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
-                {null, null},
-                {null, null},
-                {null, null},
-                {null, null}
+                {null, null, null},
+                {null, null, null},
+                {null, null, null},
+                {null, null, null}
             },
             new String [] {
-                "Test Name", "Test Price"
+                "Medical Equipment Name", "Medical Equipment Price", "Medical Equipment Count"
             }
         ) {
             boolean[] canEdit = new boolean [] {
-                false, true
+                false, false, false
             };
 
             public boolean isCellEditable(int rowIndex, int columnIndex) {
                 return canEdit [columnIndex];
             }
         });
-        jScrollPane1.setViewportView(jTableTestDB);
+        jScrollPane1.setViewportView(jTableMedSupEquipDB);
 
-        add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(260, 460, 430, 110));
+        add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(260, 470, 430, 110));
+
+        jLabelPatientName1.setForeground(new java.awt.Color(255, 255, 255));
+        jLabelPatientName1.setHorizontalAlignment(javax.swing.SwingConstants.TRAILING);
+        jLabelPatientName1.setText("Medical Equipment Quantity");
+        add(jLabelPatientName1, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 280, 140, -1));
+
+        jTextFieldMedSupEquipQuantity.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jTextFieldMedSupEquipQuantityActionPerformed(evt);
+            }
+        });
+        add(jTextFieldMedSupEquipQuantity, new org.netbeans.lib.awtextra.AbsoluteConstraints(310, 280, 270, -1));
     }// </editor-fold>//GEN-END:initComponents
 
     private void jButtonHomeActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonHomeActionPerformed
@@ -172,33 +190,43 @@ public class MedTechnicalTestDatabase extends javax.swing.JPanel {
             crdLyt.show(userProcessContainer,"Sysadmin");
     }//GEN-LAST:event_jButtonHomeActionPerformed
 
-    private void jTextFieldTestNameActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextFieldTestNameActionPerformed
+    private void jTextFieldMedSupEquipNameActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextFieldMedSupEquipNameActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_jTextFieldTestNameActionPerformed
+    }//GEN-LAST:event_jTextFieldMedSupEquipNameActionPerformed
 
-    private void jButtonViewActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonViewActionPerformed
+    private void jTextFieldMedSupEquipPriceActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextFieldMedSupEquipPriceActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_jButtonViewActionPerformed
-
-    private void jTextFieldTestPriceActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextFieldTestPriceActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jTextFieldTestPriceActionPerformed
+    }//GEN-LAST:event_jTextFieldMedSupEquipPriceActionPerformed
 
     private void jButtonCreateActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonCreateActionPerformed
         // TODO add your handling code here:
-        DefaultTableModel model = (DefaultTableModel) jTableTestDB.getModel();
-        LabTestDirectory labTestDirectory = hospital.getLabTestDirectory();
-        LabTest labTest = new LabTest();
-        String test_name = jTextFieldTestName.getText();
-        String test_price = jTextFieldTestPrice.getText();
-        labTest.setTest_name(test_name);
-        labTest.setTest_price(test_price);
-        labTestDirectory.addTest(labTest);
-        hospital.setLabTestDirectory(labTestDirectory);
-        JOptionPane.showMessageDialog(this, "New Test Information has been added.");
-        model.addRow(new Object[]{labTest,labTest.getTest_price()});
+        DefaultTableModel model = (DefaultTableModel) jTableMedSupEquipDB.getModel();
+        MedSupEquipDirectory medSupEquipDirectory = medSupWarehouse.getMedSupEquipDirectory();
+        MedSupEquip medSupEquip = new MedSupEquip();
+        String medSupEquip_name = jTextFieldMedSupEquipName.getText();
+        String medSupEquip_price = jTextFieldMedSupEquipPrice.getText();
+        String medSupEquip_quantity = jTextFieldMedSupEquipQuantity.getText();
+        medSupEquip.setMedSupEquip_name(medSupEquip_name);
+        medSupEquip.setMedSupEquip_price(medSupEquip_price);
+        medSupEquip.setMedSupEquip_quantity(medSupEquip_quantity);
+        medSupEquipDirectory.addMedSupEquip(medSupEquip);
+        medSupWarehouse.setMedSupEquipDirectory(medSupEquipDirectory);
+        JOptionPane.showMessageDialog(this, "New MedSupEquip Information has been added.");
+        model.addRow(new Object[]{medSupEquip,medSupEquip.getMedSupEquip_price(),medSupEquip.getMedSupEquip_quantity()});
         clearFields();
     }//GEN-LAST:event_jButtonCreateActionPerformed
+
+    private void jTextFieldMedSupEquipQuantityActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextFieldMedSupEquipQuantityActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jTextFieldMedSupEquipQuantityActionPerformed
+
+    private void jButtonUpdateActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonUpdateActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jButtonUpdateActionPerformed
+
+    private void jButtonDeleteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonDeleteActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jButtonDeleteActionPerformed
     /*private Customer set_user_input_values(Customer customer, ArrayList<String> user_input){
         
         customer.getUserAccount().setPassword(user_input.get(1));
@@ -242,35 +270,37 @@ public class MedTechnicalTestDatabase extends javax.swing.JPanel {
     private javax.swing.JButton jButtonDelete;
     private javax.swing.JButton jButtonHome;
     private javax.swing.JButton jButtonUpdate;
-    private javax.swing.JButton jButtonView;
     private javax.swing.JLabel jLabelPatientID;
     private javax.swing.JLabel jLabelPatientName;
+    private javax.swing.JLabel jLabelPatientName1;
     private javax.swing.JLabel jLabelTitle;
     private javax.swing.JLabel jLabelTitle2;
     private javax.swing.JScrollPane jScrollPane1;
-    private javax.swing.JTable jTableTestDB;
-    private javax.swing.JTextField jTextFieldTestName;
-    private javax.swing.JTextField jTextFieldTestPrice;
+    private javax.swing.JTable jTableMedSupEquipDB;
+    private javax.swing.JTextField jTextFieldMedSupEquipName;
+    private javax.swing.JTextField jTextFieldMedSupEquipPrice;
+    private javax.swing.JTextField jTextFieldMedSupEquipQuantity;
     // End of variables declaration//GEN-END:variables
 
     private void clearFields() {
-        jTextFieldTestName.setText("");
-        jTextFieldTestPrice.setText("");
+        jTextFieldMedSupEquipName.setText("");
+        jTextFieldMedSupEquipPrice.setText("");
+        jTextFieldMedSupEquipQuantity.setText("");
     }
 
     private void addrecordstotable() {
         
-        labTestDirectory = hospital.getLabTestDirectory();
-        ArrayList<LabTest> labTestList = labTestDirectory.getLabTestList();
-        DefaultTableModel model = (DefaultTableModel) jTableTestDB.getModel();
+        medSupEquipDirectory = medSupWarehouse.getMedSupEquipDirectory();
+        ArrayList<MedSupEquip> medSupEquipList = medSupEquipDirectory.getMedSupEquipList();
+        DefaultTableModel model = (DefaultTableModel) jTableMedSupEquipDB.getModel();
         model.setRowCount(0);
 //        DefaultComboBoxModel dc = new DefaultComboBoxModel();
         
-        for(LabTest labTest: labTestList)
+        for(MedSupEquip medSupEquip: medSupEquipList)
         {
-            model.addRow(new Object[]{labTest, labTest.getTest_price()});
+            model.addRow(new Object[]{medSupEquip, medSupEquip.getMedSupEquip_price(), medSupEquip.getMedSupEquip_quantity()});
 
         }
-        jTableTestDB.setModel(model);
+        jTableMedSupEquipDB.setModel(model);
     }
 }

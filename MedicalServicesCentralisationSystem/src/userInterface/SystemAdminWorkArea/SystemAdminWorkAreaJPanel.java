@@ -53,6 +53,7 @@ public class SystemAdminWorkAreaJPanel extends javax.swing.JPanel {
         jPanel2 = new javax.swing.JPanel();
         jButtonCreateHospital = new javax.swing.JButton();
         jButtonCreateCustomerSupport = new javax.swing.JButton();
+        jButtonCreateWarehouse = new javax.swing.JButton();
         bgdimg = new javax.swing.JLabel();
         jPanel1 = new javax.swing.JPanel();
 
@@ -67,18 +68,16 @@ public class SystemAdminWorkAreaJPanel extends javax.swing.JPanel {
 
         jButtonCreateHospital.setBackground(new java.awt.Color(204, 204, 204));
         jButtonCreateHospital.setFont(new java.awt.Font("Tahoma", 1, 24)); // NOI18N
-        jButtonCreateHospital.setForeground(new java.awt.Color(255, 255, 255));
         jButtonCreateHospital.setText("Manage Hospitals");
         jButtonCreateHospital.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jButtonCreateHospitalActionPerformed(evt);
             }
         });
-        jPanel2.add(jButtonCreateHospital, new org.netbeans.lib.awtextra.AbsoluteConstraints(440, 340, 401, -1));
+        jPanel2.add(jButtonCreateHospital, new org.netbeans.lib.awtextra.AbsoluteConstraints(440, 300, 401, -1));
 
         jButtonCreateCustomerSupport.setBackground(new java.awt.Color(204, 204, 204));
         jButtonCreateCustomerSupport.setFont(new java.awt.Font("Tahoma", 1, 24)); // NOI18N
-        jButtonCreateCustomerSupport.setForeground(new java.awt.Color(255, 255, 255));
         jButtonCreateCustomerSupport.setText("Manage Customer Support");
         jButtonCreateCustomerSupport.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -86,6 +85,16 @@ public class SystemAdminWorkAreaJPanel extends javax.swing.JPanel {
             }
         });
         jPanel2.add(jButtonCreateCustomerSupport, new org.netbeans.lib.awtextra.AbsoluteConstraints(440, 420, 401, -1));
+
+        jButtonCreateWarehouse.setBackground(new java.awt.Color(204, 204, 204));
+        jButtonCreateWarehouse.setFont(new java.awt.Font("Tahoma", 1, 24)); // NOI18N
+        jButtonCreateWarehouse.setText("Manage Warehouses");
+        jButtonCreateWarehouse.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButtonCreateWarehouseActionPerformed(evt);
+            }
+        });
+        jPanel2.add(jButtonCreateWarehouse, new org.netbeans.lib.awtextra.AbsoluteConstraints(440, 350, 401, -1));
 
         bgdimg.setIcon(new javax.swing.ImageIcon(getClass().getResource("/userInterface/Images/SystemAdminWorkAreaJPanel.jpg"))); // NOI18N
         jPanel2.add(bgdimg, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 1740, 1080));
@@ -126,11 +135,20 @@ public class SystemAdminWorkAreaJPanel extends javax.swing.JPanel {
         cardLayout.show(userProcessContainer,"CustomerSupportAccountsPage");
     }//GEN-LAST:event_jButtonCreateCustomerSupportActionPerformed
 
+    private void jButtonCreateWarehouseActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonCreateWarehouseActionPerformed
+        // TODO add your handling code here:
+        MedicalEquipWarehouseAccountsPage medicalEquipWarehouseAccountsPage = new MedicalEquipWarehouseAccountsPage(userProcessContainer,medicalServiceCentralisationEcoSystem);
+        userProcessContainer.add("MedicalEquipWarehouseAccountsPage",medicalEquipWarehouseAccountsPage);
+        CardLayout cardLayout = (CardLayout) userProcessContainer.getLayout();
+        cardLayout.show(userProcessContainer,"MedicalEquipWarehouseAccountsPage");
+    }//GEN-LAST:event_jButtonCreateWarehouseActionPerformed
+
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JLabel bgdimg;
     private javax.swing.JButton jButtonCreateCustomerSupport;
     private javax.swing.JButton jButtonCreateHospital;
+    private javax.swing.JButton jButtonCreateWarehouse;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
     private javax.swing.JSplitPane jSplitPane;

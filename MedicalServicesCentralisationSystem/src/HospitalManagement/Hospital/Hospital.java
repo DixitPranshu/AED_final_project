@@ -15,7 +15,7 @@ import HospitalManagement.Technician.TechnicianDirectory;
 import HospitalManagement.FrontDeskOperator.FrontDeskOperatorDirectory;
 import HospitalManagement.Accountant.AccountantDirectory;
 import HospitalManagement.Patient.PatientDirectory;
-import HospitalManagement.PatientTest.LabTestDirectory;
+import HospitalManagement.LabTest.LabTestDirectory;
 import java.util.HashMap;
 
 /**
