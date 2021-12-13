@@ -75,7 +75,7 @@ public class SystemAdminWorkAreaJPanel extends javax.swing.JPanel {
                 jButtonCreateHospitalActionPerformed(evt);
             }
         });
-        jPanel2.add(jButtonCreateHospital, new org.netbeans.lib.awtextra.AbsoluteConstraints(440, 300, 401, -1));
+        jPanel2.add(jButtonCreateHospital, new org.netbeans.lib.awtextra.AbsoluteConstraints(610, 630, 401, -1));
 
         jButtonCreateCustomerSupport.setBackground(new java.awt.Color(204, 204, 204));
         jButtonCreateCustomerSupport.setFont(new java.awt.Font("Tahoma", 1, 24)); // NOI18N
@@ -85,7 +85,7 @@ public class SystemAdminWorkAreaJPanel extends javax.swing.JPanel {
                 jButtonCreateCustomerSupportActionPerformed(evt);
             }
         });
-        jPanel2.add(jButtonCreateCustomerSupport, new org.netbeans.lib.awtextra.AbsoluteConstraints(440, 470, 401, -1));
+        jPanel2.add(jButtonCreateCustomerSupport, new org.netbeans.lib.awtextra.AbsoluteConstraints(610, 800, 401, -1));
 
         jButtonCreateWarehouse.setBackground(new java.awt.Color(204, 204, 204));
         jButtonCreateWarehouse.setFont(new java.awt.Font("Tahoma", 1, 24)); // NOI18N
@@ -95,7 +95,7 @@ public class SystemAdminWorkAreaJPanel extends javax.swing.JPanel {
                 jButtonCreateWarehouseActionPerformed(evt);
             }
         });
-        jPanel2.add(jButtonCreateWarehouse, new org.netbeans.lib.awtextra.AbsoluteConstraints(440, 350, 401, -1));
+        jPanel2.add(jButtonCreateWarehouse, new org.netbeans.lib.awtextra.AbsoluteConstraints(610, 710, 401, -1));
 
         jButtonCreateCustomerSupport1.setBackground(new java.awt.Color(204, 204, 204));
         jButtonCreateCustomerSupport1.setFont(new java.awt.Font("Tahoma", 1, 24)); // NOI18N
@@ -105,7 +105,7 @@ public class SystemAdminWorkAreaJPanel extends javax.swing.JPanel {
                 jButtonCreateCustomerSupport1ActionPerformed(evt);
             }
         });
-        jPanel2.add(jButtonCreateCustomerSupport1, new org.netbeans.lib.awtextra.AbsoluteConstraints(440, 560, 401, -1));
+        jPanel2.add(jButtonCreateCustomerSupport1, new org.netbeans.lib.awtextra.AbsoluteConstraints(610, 890, 401, -1));
 
         bgdimg.setIcon(new javax.swing.ImageIcon(getClass().getResource("/userInterface/Images/SystemAdminWorkAreaJPanel.jpg"))); // NOI18N
         jPanel2.add(bgdimg, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 1740, 1080));
