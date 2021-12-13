@@ -114,7 +114,7 @@ public class CustomerSupportAccountsPage extends javax.swing.JPanel {
         });
         jScrollPane1.setViewportView(jTableEmployee);
 
-        add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(150, 500, 787, 110));
+        add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 680, 787, 110));
 
         jButtonCreate.setBackground(new java.awt.Color(0, 0, 0));
         jButtonCreate.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
@@ -126,7 +126,7 @@ public class CustomerSupportAccountsPage extends javax.swing.JPanel {
             }
         });
         add(jButtonCreate, new org.netbeans.lib.awtextra.AbsoluteConstraints(645, 219, 100, 40));
-        add(jTextFieldTeamName, new org.netbeans.lib.awtextra.AbsoluteConstraints(235, 236, 351, -1));
+        add(jTextFieldTeamName, new org.netbeans.lib.awtextra.AbsoluteConstraints(240, 280, 351, 30));
 
         jButtonUpdate.setBackground(new java.awt.Color(0, 0, 0));
         jButtonUpdate.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
@@ -137,9 +137,9 @@ public class CustomerSupportAccountsPage extends javax.swing.JPanel {
                 jButtonUpdateActionPerformed(evt);
             }
         });
-        add(jButtonUpdate, new org.netbeans.lib.awtextra.AbsoluteConstraints(894, 219, 100, 40));
+        add(jButtonUpdate, new org.netbeans.lib.awtextra.AbsoluteConstraints(650, 420, 100, 40));
 
-        jLabelPassword.setFont(new java.awt.Font("Dubai Medium", 1, 14)); // NOI18N
+        jLabelPassword.setFont(new java.awt.Font("Dubai Medium", 1, 16)); // NOI18N
         jLabelPassword.setText("Password:");
         add(jLabelPassword, new org.netbeans.lib.awtextra.AbsoluteConstraints(127, 356, 104, -1));
 
@@ -155,9 +155,9 @@ public class CustomerSupportAccountsPage extends javax.swing.JPanel {
                 jTextFieldTeamIDActionPerformed(evt);
             }
         });
-        add(jTextFieldTeamID, new org.netbeans.lib.awtextra.AbsoluteConstraints(235, 198, 351, -1));
+        add(jTextFieldTeamID, new org.netbeans.lib.awtextra.AbsoluteConstraints(235, 198, 351, 30));
 
-        jLabelEmpID.setFont(new java.awt.Font("Dubai Medium", 1, 14)); // NOI18N
+        jLabelEmpID.setFont(new java.awt.Font("Dubai Medium", 1, 16)); // NOI18N
         jLabelEmpID.setText("Team ID:");
         add(jLabelEmpID, new org.netbeans.lib.awtextra.AbsoluteConstraints(127, 198, 104, -1));
 
@@ -172,11 +172,11 @@ public class CustomerSupportAccountsPage extends javax.swing.JPanel {
         });
         add(jButtonDelete, new org.netbeans.lib.awtextra.AbsoluteConstraints(645, 309, 100, 40));
 
-        jLabelEmpName.setFont(new java.awt.Font("Dubai Medium", 1, 14)); // NOI18N
+        jLabelEmpName.setFont(new java.awt.Font("Dubai Medium", 1, 16)); // NOI18N
         jLabelEmpName.setText("Team Name:");
-        add(jLabelEmpName, new org.netbeans.lib.awtextra.AbsoluteConstraints(127, 239, -1, -1));
+        add(jLabelEmpName, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 280, -1, -1));
 
-        bgdimg.setIcon(new javax.swing.ImageIcon(getClass().getResource("/userInterface/Images/DeliveryAgencyAccountsPage_1920x1183.jpeg"))); // NOI18N
+        bgdimg.setIcon(new javax.swing.ImageIcon(getClass().getResource("/userInterface/Images/CustomerSupport.png"))); // NOI18N
         add(bgdimg, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, -10, 1920, 1200));
     }// </editor-fold>//GEN-END:initComponents
 

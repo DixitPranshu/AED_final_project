@@ -74,15 +74,17 @@ public class DeliveryAgencyAccountsPage extends javax.swing.JPanel {
         jLabelEmpID = new javax.swing.JLabel();
         jButtonDelete = new javax.swing.JButton();
         jLabelEmpName = new javax.swing.JLabel();
+        jLabel2 = new javax.swing.JLabel();
 
         setBackground(new java.awt.Color(0, 70, 169));
+        setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        jLabel1.setFont(new java.awt.Font("Tahoma", 1, 48)); // NOI18N
-        jLabel1.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel1.setFont(new java.awt.Font("Times New Roman", 1, 48)); // NOI18N
         jLabel1.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jLabel1.setText("Med Equip Warehouse");
+        jLabel1.setText("Delivery Accounts");
+        add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 43, 832, -1));
 
-        jButton2.setBackground(new java.awt.Color(0, 70, 169));
+        jButton2.setBackground(new java.awt.Color(0, 0, 0));
         jButton2.setFont(new java.awt.Font("Tahoma", 0, 24)); // NOI18N
         jButton2.setForeground(new java.awt.Color(255, 255, 255));
         jButton2.setText("HOME");
@@ -91,6 +93,7 @@ public class DeliveryAgencyAccountsPage extends javax.swing.JPanel {
                 jButton2ActionPerformed(evt);
             }
         });
+        add(jButton2, new org.netbeans.lib.awtextra.AbsoluteConstraints(830, 50, -1, -1));
 
         jTableEmployee.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
@@ -118,114 +121,73 @@ public class DeliveryAgencyAccountsPage extends javax.swing.JPanel {
         });
         jScrollPane1.setViewportView(jTableEmployee);
 
+        add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(138, 463, 787, 217));
+
+        jButtonCreate.setBackground(new java.awt.Color(0, 0, 0));
+        jButtonCreate.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
+        jButtonCreate.setForeground(new java.awt.Color(255, 255, 255));
         jButtonCreate.setText("CREATE");
         jButtonCreate.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jButtonCreateActionPerformed(evt);
             }
         });
+        add(jButtonCreate, new org.netbeans.lib.awtextra.AbsoluteConstraints(645, 219, 140, 40));
+        add(jTextFieldTeamName, new org.netbeans.lib.awtextra.AbsoluteConstraints(235, 236, 351, -1));
 
+        jButtonUpdate.setBackground(new java.awt.Color(0, 0, 0));
+        jButtonUpdate.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
+        jButtonUpdate.setForeground(new java.awt.Color(255, 255, 255));
         jButtonUpdate.setText("UPDATE");
         jButtonUpdate.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jButtonUpdateActionPerformed(evt);
             }
         });
+        add(jButtonUpdate, new org.netbeans.lib.awtextra.AbsoluteConstraints(840, 220, 140, 40));
 
+        jLabelPassword.setFont(new java.awt.Font("Dubai Medium", 1, 16)); // NOI18N
         jLabelPassword.setForeground(new java.awt.Color(255, 255, 255));
         jLabelPassword.setText("Password:");
+        add(jLabelPassword, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 350, 130, -1));
 
         jTextFieldTeamPassword.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jTextFieldTeamPasswordActionPerformed(evt);
             }
         });
+        add(jTextFieldTeamPassword, new org.netbeans.lib.awtextra.AbsoluteConstraints(235, 350, 351, 26));
 
         jTextFieldTeamID.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jTextFieldTeamIDActionPerformed(evt);
             }
         });
+        add(jTextFieldTeamID, new org.netbeans.lib.awtextra.AbsoluteConstraints(235, 198, 351, -1));
 
+        jLabelEmpID.setFont(new java.awt.Font("Dubai Medium", 1, 16)); // NOI18N
         jLabelEmpID.setForeground(new java.awt.Color(255, 255, 255));
         jLabelEmpID.setText("Delivery ID");
+        add(jLabelEmpID, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 190, 130, -1));
 
+        jButtonDelete.setBackground(new java.awt.Color(0, 0, 0));
+        jButtonDelete.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
+        jButtonDelete.setForeground(new java.awt.Color(255, 255, 255));
         jButtonDelete.setText("DELETE");
         jButtonDelete.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jButtonDeleteActionPerformed(evt);
             }
         });
+        add(jButtonDelete, new org.netbeans.lib.awtextra.AbsoluteConstraints(645, 309, 140, 40));
 
+        jLabelEmpName.setFont(new java.awt.Font("Dubai Medium", 1, 16)); // NOI18N
         jLabelEmpName.setForeground(new java.awt.Color(255, 255, 255));
         jLabelEmpName.setText("Delivery Name:");
+        add(jLabelEmpName, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 230, 140, -1));
 
-        javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
-        this.setLayout(layout);
-        layout.setHorizontalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(layout.createSequentialGroup()
-                        .addContainerGap()
-                        .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 832, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(jButton2))
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(127, 127, 127)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                                .addComponent(jLabelEmpID, javax.swing.GroupLayout.DEFAULT_SIZE, 104, Short.MAX_VALUE)
-                                .addComponent(jLabelPassword, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                            .addComponent(jLabelEmpName))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                            .addComponent(jTextFieldTeamID, javax.swing.GroupLayout.DEFAULT_SIZE, 351, Short.MAX_VALUE)
-                            .addComponent(jTextFieldTeamName)
-                            .addComponent(jTextFieldTeamPassword, javax.swing.GroupLayout.Alignment.TRAILING))
-                        .addGap(59, 59, 59)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jButtonCreate)
-                            .addComponent(jButtonDelete))
-                        .addGap(178, 178, 178)
-                        .addComponent(jButtonUpdate))
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(138, 138, 138)
-                        .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 787, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addContainerGap(216, Short.MAX_VALUE))
-        );
-        layout.setVerticalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addGap(43, 43, 43)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel1)
-                    .addComponent(jButton2))
-                .addGap(97, 97, 97)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jLabelEmpID)
-                    .addComponent(jTextFieldTeamID, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(18, 18, 18)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(jLabelEmpName)
-                            .addComponent(jTextFieldTeamName, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(1, 1, 1)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(jButtonCreate)
-                            .addComponent(jButtonUpdate))))
-                .addGap(53, 53, 53)
-                .addComponent(jButtonDelete)
-                .addGap(18, 18, 18)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabelPassword)
-                    .addComponent(jTextFieldTeamPassword, javax.swing.GroupLayout.PREFERRED_SIZE, 26, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(87, 87, 87)
-                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 217, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(410, Short.MAX_VALUE))
-        );
+        jLabel2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/userInterface/Images/DeliveryAgencyAccountsPage_1920x1183.jpeg"))); // NOI18N
+        add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 1920, 1190));
     }// </editor-fold>//GEN-END:initComponents
 
     private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
@@ -381,6 +343,7 @@ public class DeliveryAgencyAccountsPage extends javax.swing.JPanel {
     private javax.swing.JButton jButtonDelete;
     private javax.swing.JButton jButtonUpdate;
     private javax.swing.JLabel jLabel1;
+    private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabelEmpID;
     private javax.swing.JLabel jLabelEmpName;
     private javax.swing.JLabel jLabelPassword;
