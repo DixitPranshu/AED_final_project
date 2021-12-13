@@ -56,31 +56,22 @@ public class MedSupAdminWorkAreaJPanel extends javax.swing.JPanel {
         jPanel2 = new javax.swing.JPanel();
         jButtonTestDatabase = new javax.swing.JButton();
         jButtonPlaceOrder = new javax.swing.JButton();
+        jLabel1 = new javax.swing.JLabel();
 
         setPreferredSize(new java.awt.Dimension(1720, 1080));
-        setLayout(new java.awt.BorderLayout());
+        setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         jSplitPane.setPreferredSize(new java.awt.Dimension(1720, 1080));
 
         jPanel1.setPreferredSize(new java.awt.Dimension(0, 1080));
-
-        javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
-        jPanel1.setLayout(jPanel1Layout);
-        jPanel1Layout.setHorizontalGroup(
-            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 0, Short.MAX_VALUE)
-        );
-        jPanel1Layout.setVerticalGroup(
-            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 1100, Short.MAX_VALUE)
-        );
-
+        jPanel1.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
         jSplitPane.setLeftComponent(jPanel1);
 
         jPanel2.setBackground(new java.awt.Color(0, 70, 169));
         jPanel2.setPreferredSize(new java.awt.Dimension(1720, 1080));
+        jPanel2.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        jButtonTestDatabase.setBackground(new java.awt.Color(0, 70, 169));
+        jButtonTestDatabase.setBackground(new java.awt.Color(0, 0, 0));
         jButtonTestDatabase.setFont(new java.awt.Font("Tahoma", 1, 24)); // NOI18N
         jButtonTestDatabase.setForeground(new java.awt.Color(255, 255, 255));
         jButtonTestDatabase.setText("Medical Supplies Database");
@@ -89,8 +80,9 @@ public class MedSupAdminWorkAreaJPanel extends javax.swing.JPanel {
                 jButtonTestDatabaseActionPerformed(evt);
             }
         });
+        jPanel2.add(jButtonTestDatabase, new org.netbeans.lib.awtextra.AbsoluteConstraints(240, 387, 430, 70));
 
-        jButtonPlaceOrder.setBackground(new java.awt.Color(0, 70, 169));
+        jButtonPlaceOrder.setBackground(new java.awt.Color(0, 0, 0));
         jButtonPlaceOrder.setFont(new java.awt.Font("Tahoma", 1, 24)); // NOI18N
         jButtonPlaceOrder.setForeground(new java.awt.Color(255, 255, 255));
         jButtonPlaceOrder.setText("Place Order");
@@ -99,31 +91,14 @@ public class MedSupAdminWorkAreaJPanel extends javax.swing.JPanel {
                 jButtonPlaceOrderActionPerformed(evt);
             }
         });
+        jPanel2.add(jButtonPlaceOrder, new org.netbeans.lib.awtextra.AbsoluteConstraints(240, 477, 430, 70));
 
-        javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
-        jPanel2.setLayout(jPanel2Layout);
-        jPanel2Layout.setHorizontalGroup(
-            jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel2Layout.createSequentialGroup()
-                .addGap(420, 420, 420)
-                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addComponent(jButtonTestDatabase, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(jButtonPlaceOrder, javax.swing.GroupLayout.DEFAULT_SIZE, 401, Short.MAX_VALUE))
-                .addContainerGap(1005, Short.MAX_VALUE))
-        );
-        jPanel2Layout.setVerticalGroup(
-            jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel2Layout.createSequentialGroup()
-                .addGap(280, 280, 280)
-                .addComponent(jButtonTestDatabase)
-                .addGap(50, 50, 50)
-                .addComponent(jButtonPlaceOrder)
-                .addContainerGap(696, Short.MAX_VALUE))
-        );
+        jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/userInterface/Images/MedSupAdminWorkAreaJPanel_1920x1183.jpeg"))); // NOI18N
+        jPanel2.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 1830, 1100));
 
         jSplitPane.setRightComponent(jPanel2);
 
-        add(jSplitPane, java.awt.BorderLayout.CENTER);
+        add(jSplitPane, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 1833, 1102));
     }// </editor-fold>//GEN-END:initComponents
 
     private void jButtonPlaceOrderActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonPlaceOrderActionPerformed
@@ -145,6 +120,7 @@ public class MedSupAdminWorkAreaJPanel extends javax.swing.JPanel {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton jButtonPlaceOrder;
     private javax.swing.JButton jButtonTestDatabase;
+    private javax.swing.JLabel jLabel1;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
     private javax.swing.JSplitPane jSplitPane;
