@@ -65,6 +65,7 @@ public class MedTechnicalEmployeeAttendance extends javax.swing.JPanel {
         jButtonView = new javax.swing.JButton();
         jScrollPane1 = new javax.swing.JScrollPane();
         jTableEmployee = new javax.swing.JTable();
+        bgdimg = new javax.swing.JLabel();
 
         setBackground(new java.awt.Color(0, 70, 169));
         setForeground(new java.awt.Color(255, 255, 255));
@@ -89,12 +90,11 @@ public class MedTechnicalEmployeeAttendance extends javax.swing.JPanel {
 
         jLabel1.setBackground(new java.awt.Color(0, 70, 169));
         jLabel1.setFont(new java.awt.Font("Tahoma", 1, 48)); // NOI18N
-        jLabel1.setForeground(new java.awt.Color(255, 255, 255));
         jLabel1.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel1.setText("Employee Attendance");
-        add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 31, 891, -1));
+        add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(430, 40, 891, -1));
 
-        jButton2.setBackground(new java.awt.Color(0, 70, 169));
+        jButton2.setBackground(new java.awt.Color(0, 0, 0));
         jButton2.setFont(new java.awt.Font("Tahoma", 1, 24)); // NOI18N
         jButton2.setForeground(new java.awt.Color(255, 255, 255));
         jButton2.setText("HOME");
@@ -103,7 +103,7 @@ public class MedTechnicalEmployeeAttendance extends javax.swing.JPanel {
                 jButton2ActionPerformed(evt);
             }
         });
-        add(jButton2, new org.netbeans.lib.awtextra.AbsoluteConstraints(905, 50, -1, -1));
+        add(jButton2, new org.netbeans.lib.awtextra.AbsoluteConstraints(1720, 50, -1, -1));
 
         jLabel3.setFont(new java.awt.Font("Lucida Grande", 0, 18)); // NOI18N
         jLabel3.setForeground(new java.awt.Color(255, 255, 255));
@@ -115,20 +115,20 @@ public class MedTechnicalEmployeeAttendance extends javax.swing.JPanel {
                 jTextFieldEmpIDActionPerformed(evt);
             }
         });
-        add(jTextFieldEmpID, new org.netbeans.lib.awtextra.AbsoluteConstraints(292, 200, 110, -1));
+        add(jTextFieldEmpID, new org.netbeans.lib.awtextra.AbsoluteConstraints(740, 300, 190, -1));
 
-        jLabelEmpID.setForeground(new java.awt.Color(255, 255, 255));
+        jLabelEmpID.setFont(new java.awt.Font("Dubai Medium", 1, 16)); // NOI18N
         jLabelEmpID.setText("Employee ID:");
-        add(jLabelEmpID, new org.netbeans.lib.awtextra.AbsoluteConstraints(178, 200, 104, -1));
+        add(jLabelEmpID, new org.netbeans.lib.awtextra.AbsoluteConstraints(590, 300, 100, -1));
 
-        jLabelEmpName.setForeground(new java.awt.Color(255, 255, 255));
+        jLabelEmpName.setFont(new java.awt.Font("Dubai Medium", 1, 16)); // NOI18N
         jLabelEmpName.setText("Employee Name:");
-        add(jLabelEmpName, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 250, -1, -1));
-        add(jTextFieldEmpName, new org.netbeans.lib.awtextra.AbsoluteConstraints(290, 250, 110, -1));
+        add(jLabelEmpName, new org.netbeans.lib.awtextra.AbsoluteConstraints(570, 360, 130, -1));
+        add(jTextFieldEmpName, new org.netbeans.lib.awtextra.AbsoluteConstraints(740, 360, 190, -1));
 
-        jLabelDept.setForeground(new java.awt.Color(255, 255, 255));
+        jLabelDept.setFont(new java.awt.Font("Dubai Medium", 1, 16)); // NOI18N
         jLabelDept.setText("Role:");
-        add(jLabelDept, new org.netbeans.lib.awtextra.AbsoluteConstraints(190, 320, 104, -1));
+        add(jLabelDept, new org.netbeans.lib.awtextra.AbsoluteConstraints(630, 420, 100, -1));
 
         jComboBoxDept.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Pathologist", "Radiologist", "Technician", " ", " " }));
         jComboBoxDept.addActionListener(new java.awt.event.ActionListener() {
@@ -136,15 +136,18 @@ public class MedTechnicalEmployeeAttendance extends javax.swing.JPanel {
                 jComboBoxDeptActionPerformed(evt);
             }
         });
-        add(jComboBoxDept, new org.netbeans.lib.awtextra.AbsoluteConstraints(310, 310, -1, -1));
+        add(jComboBoxDept, new org.netbeans.lib.awtextra.AbsoluteConstraints(740, 410, 170, 30));
 
+        jButtonView.setBackground(new java.awt.Color(0, 0, 0));
+        jButtonView.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
+        jButtonView.setForeground(new java.awt.Color(255, 255, 255));
         jButtonView.setText("Search");
         jButtonView.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jButtonViewActionPerformed(evt);
             }
         });
-        add(jButtonView, new org.netbeans.lib.awtextra.AbsoluteConstraints(480, 200, -1, -1));
+        add(jButtonView, new org.netbeans.lib.awtextra.AbsoluteConstraints(750, 483, 100, 40));
 
         jTableEmployee.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
@@ -159,7 +162,11 @@ public class MedTechnicalEmployeeAttendance extends javax.swing.JPanel {
         ));
         jScrollPane1.setViewportView(jTableEmployee);
 
-        add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 420, 787, 217));
+        add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(1230, 520, 670, 110));
+
+        bgdimg.setFont(new java.awt.Font("Dubai Medium", 1, 16)); // NOI18N
+        bgdimg.setIcon(new javax.swing.ImageIcon(getClass().getResource("/userInterface/Images/MedTechnicalEmployeeAttendance.png"))); // NOI18N
+        add(bgdimg, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, -10, 1920, 1200));
     }// </editor-fold>//GEN-END:initComponents
     
     private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
@@ -232,6 +239,7 @@ public class MedTechnicalEmployeeAttendance extends javax.swing.JPanel {
     
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JLabel bgdimg;
     private javax.swing.JButton jButton2;
     private javax.swing.JButton jButtonView;
     private javax.swing.JComboBox<String> jComboBoxDept;

@@ -5,11 +5,12 @@
 package userInterface;
 
 import CustomerSupportTeam.CustomerSupportTeam;
+import DeliveryAgency.DeliveryAgency;
 import MainCentralisationSystem.MedicalServiceCentralisationEcoSystem;
 
 import userInterface.HospitalManagement.HospitalAdminWorkArea.HospitalAdminWorkAreaJPanel;
 import userInterface.CustomerSupport.CustomerSupportAdminWorkArea.CustomerSupportTeamAdminWorkAreaJPanel;
-
+import userInterface.MedSupWarehouseAdminWorkArea.MedSupWarehouseDatabase;
 import HospitalManagement.Hospital.Hospital;
 
 
@@ -18,6 +19,7 @@ import MainCentralisationSystem.UserAccountDirectory;
 
 import HospitalManagement.DB4OUtil.HospitalManagementDB4OUtil;
 import HospitalManagement.Hospital.HospitalDirectory;
+import MedicalEquipmentWarehouse.MedSupWarehouse;
 
 import java.awt.CardLayout;
 import java.awt.event.ActionEvent;
@@ -34,7 +36,11 @@ import javax.swing.JPanel;
 import javax.swing.JTextArea;
 import javax.swing.JTextField;
 import userInterface.CustomerSupport.CustomerSupportMemberWorkArea.CustomerSupportMemberWorkAreaJPanel;
+import userInterface.DeliveryAgency.DeliveryAgencyOrderDatabase;
+import userInterface.HospitalManagement.AdministrativeWorkArea.MedSuppEquipPatient;
 import userInterface.HospitalManagement.MedTechnicalWorkArea.MedTechnicalWorkAreaJPanel;
+import userInterface.HospitalManagement.MedicalSuppliesWorkArea.MedSupAdminWorkAreaJPanel;
+import userInterface.MedSupWarehouseAdminWorkArea.MedSupWarehouseAdminWorkAreaJPanel;
 import userInterface.SystemAdminWorkArea.SystemAdminWorkAreaJPanel;
 
 public class HospitalManagementMainJFrame extends javax.swing.JFrame {
@@ -248,6 +254,38 @@ public class HospitalManagementMainJFrame extends javax.swing.JFrame {
                 CardLayout crdLyt = (CardLayout) jPanelWorkArea.getLayout();
                 crdLyt.next(jPanelWorkArea);
             }
+            else if(userAccountLogin.getRole().toString().equals("MedSupWarehouseAdmin"))
+            {
+                MedSupWarehouse medSupWarehouse = userAccountLogin.getMedSupWarehouse();
+                MedSupWarehouseAdminWorkAreaJPanel medSupWarehouseAdminWorkAreaJPanel = new MedSupWarehouseAdminWorkAreaJPanel(jPanelWorkArea, medicalServiceCentralisationEcoSystem, medSupWarehouse);
+                jPanelWorkArea.add("medSupWarehouseAdminWorkAreaJPanel",medSupWarehouseAdminWorkAreaJPanel);
+                CardLayout crdLyt = (CardLayout) jPanelWorkArea.getLayout();
+                crdLyt.next(jPanelWorkArea);
+            }
+            else if(userAccountLogin.getRole().toString().equals("MedSupEquipAdmin"))
+            {
+                Hospital hospital = userAccountLogin.getHospital();
+                MedSupAdminWorkAreaJPanel medSupAdminWorkAreaJPanel = new MedSupAdminWorkAreaJPanel(jPanelWorkArea, medicalServiceCentralisationEcoSystem, hospital);
+                jPanelWorkArea.add("medSupAdminWorkAreaJPanel",medSupAdminWorkAreaJPanel);
+                CardLayout crdLyt = (CardLayout) jPanelWorkArea.getLayout();
+                crdLyt.next(jPanelWorkArea);
+            }
+            else if(userAccountLogin.getRole().toString().equals("DeliveryAgencyAdmin"))
+            {
+                DeliveryAgency deliveryAgency = userAccountLogin.getDeliveryAgency();
+                DeliveryAgencyOrderDatabase deliveryAgencyOrderDatabase = new DeliveryAgencyOrderDatabase(jPanelWorkArea, medicalServiceCentralisationEcoSystem, deliveryAgency);
+                jPanelWorkArea.add("DeliveryAgencyOrderDatabase",deliveryAgencyOrderDatabase);
+                CardLayout crdLyt = (CardLayout) jPanelWorkArea.getLayout();
+                crdLyt.next(jPanelWorkArea);
+            }
+            else if(userAccountLogin.getRole().toString().equals("FrontDeskOperator"))
+            {
+                Hospital hospital = userAccountLogin.getHospital();
+                MedSuppEquipPatient medSuppEquipPatient = new MedSuppEquipPatient(jPanelWorkArea, medicalServiceCentralisationEcoSystem, hospital);
+                jPanelWorkArea.add("medSuppEquipPatient",medSuppEquipPatient);
+                CardLayout crdLyt = (CardLayout) jPanelWorkArea.getLayout();
+                crdLyt.next(jPanelWorkArea);
+            }
             
         }
         else{
@@ -269,7 +307,7 @@ public class HospitalManagementMainJFrame extends javax.swing.JFrame {
         jPanelWorkArea.removeAll();
         JPanel blankJP = new JPanel();
         jPanelWorkArea.add("blank", blankJP);
-        jLabel3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/userinterface/Images/MainJFrameWallpaper.png"))); // NOI18N
+        jLabel3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/userinterface/Images/HospitalMainJFrame.jpg"))); // NOI18N
         jLabel3.setPreferredSize(new java.awt.Dimension(1181, 1080));
         jPanelWorkArea.add(jLabel3, "blank");
         CardLayout crdLyt = (CardLayout) jPanelWorkArea.getLayout();
@@ -308,6 +346,7 @@ public class HospitalManagementMainJFrame extends javax.swing.JFrame {
                 String gtext = chatbox.getText().toLowerCase();
                 chatarea.append("YOU -> "+gtext+"\n");
                 chatbox.setText("");
+                String req_cat  = "";
                 
                 if(gtext.contains("hi")){
                     bot("Hi please help me with your name, phone number, email and pincode",chatarea);
@@ -323,18 +362,38 @@ public class HospitalManagementMainJFrame extends javax.swing.JFrame {
                 }
                 else if(gtext.contains("book") && gtext.contains("test")){
                     bot("Okay. Please tell me the test date.",chatarea);
+                    req_cat = "MedicalTest";
+                }
+                else if(gtext.contains("equipment") || gtext.contains("order")){
+                    bot("Okay. Please tell me the test date.",chatarea);
+                    req_cat = "MedicalEquipment";
                 }
                 else if(gtext.contains("2021")){
 //                    SimpleDateFormat formatter = new SimpleDateFormat("MM.dd.yyyy", Locale.ENGLISH);
 //                    Date date = formatter.parse(gtext);
                     user_input.add(gtext);
-                    bot("Okay. What test do you want to do?",chatarea);
+                    if(req_cat.equals("MedicalTest")){
+                        bot("Okay. What test do you want to do?",chatarea);
+                    }
+                    else{
+                        bot("Okay. What equipment do you want to order?",chatarea);
+                    }
                 }
                 else if(gtext.contains("blood")){
 //                    SimpleDateFormat formatter = new SimpleDateFormat("MM.dd.yyyy", Locale.ENGLISH);
 //                    Date date = formatter.parse(gtext);
                     user_input.add("MedicalTest");
                     user_input.add(gtext);
+                    bot("A request has been raised. You'll receive an update shortly from the hospital.",chatarea);
+                    CustomerSupportMemberWorkAreaJPanel customerSupportMemberWorkAreaJPanel = new CustomerSupportMemberWorkAreaJPanel(jPanelWorkArea, medicalServiceCentralisationEcoSystem);
+                    customerSupportMemberWorkAreaJPanel.raise_request(user_input);
+                }  
+                else if(gtext.contains("bed") || gtext.contains("oxygen")){
+//                    SimpleDateFormat formatter = new SimpleDateFormat("MM.dd.yyyy", Locale.ENGLISH);
+//                    Date date = formatter.parse(gtext);
+                    user_input.add("MedicalEquipment");
+                    user_input.add(gtext);
+                    user_input.add("BOT");
                     bot("A request has been raised. You'll receive an update shortly from the hospital.",chatarea);
                     CustomerSupportMemberWorkAreaJPanel customerSupportMemberWorkAreaJPanel = new CustomerSupportMemberWorkAreaJPanel(jPanelWorkArea, medicalServiceCentralisationEcoSystem);
                     customerSupportMemberWorkAreaJPanel.raise_request(user_input);

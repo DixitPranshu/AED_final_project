@@ -52,6 +52,7 @@ public class AdministrativeReceptionistWorkAreaJPanel extends javax.swing.JPanel
         jPanel2 = new javax.swing.JPanel();
         jButtonPatientManagement = new javax.swing.JButton();
         jButtonAppointmentManagement = new javax.swing.JButton();
+        bgdimg = new javax.swing.JLabel();
 
         setPreferredSize(new java.awt.Dimension(1720, 1080));
         setLayout(new java.awt.BorderLayout());
@@ -59,12 +60,17 @@ public class AdministrativeReceptionistWorkAreaJPanel extends javax.swing.JPanel
         jSplitPane.setPreferredSize(new java.awt.Dimension(1720, 1080));
 
         jPanel1.setPreferredSize(new java.awt.Dimension(0, 1080));
+        jPanel1.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+        jSplitPane.setLeftComponent(jPanel1);
 
         jPanel2.setBackground(new java.awt.Color(0, 70, 169));
-        jPanel2.setPreferredSize(new java.awt.Dimension(1720, 1080));
+        jPanel2.setMaximumSize(new java.awt.Dimension(1920, 1183));
+        jPanel2.setMinimumSize(new java.awt.Dimension(1920, 1183));
+        jPanel2.setPreferredSize(new java.awt.Dimension(1920, 1183));
+        jPanel2.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        jButtonPatientManagement.setBackground(new java.awt.Color(0, 70, 169));
-        jButtonPatientManagement.setFont(new java.awt.Font("Tahoma", 1, 24)); // NOI18N
+        jButtonPatientManagement.setBackground(new java.awt.Color(0, 0, 0));
+        jButtonPatientManagement.setFont(new java.awt.Font("Dubai Medium", 1, 24)); // NOI18N
         jButtonPatientManagement.setForeground(new java.awt.Color(255, 255, 255));
         jButtonPatientManagement.setText("Patient Management");
         jButtonPatientManagement.addActionListener(new java.awt.event.ActionListener() {
@@ -72,9 +78,10 @@ public class AdministrativeReceptionistWorkAreaJPanel extends javax.swing.JPanel
                 jButtonPatientManagementActionPerformed(evt);
             }
         });
+        jPanel2.add(jButtonPatientManagement, new org.netbeans.lib.awtextra.AbsoluteConstraints(300, 290, 401, -1));
 
-        jButtonAppointmentManagement.setBackground(new java.awt.Color(0, 70, 169));
-        jButtonAppointmentManagement.setFont(new java.awt.Font("Tahoma", 1, 24)); // NOI18N
+        jButtonAppointmentManagement.setBackground(new java.awt.Color(0, 0, 0));
+        jButtonAppointmentManagement.setFont(new java.awt.Font("Dubai Medium", 1, 24)); // NOI18N
         jButtonAppointmentManagement.setForeground(new java.awt.Color(255, 255, 255));
         jButtonAppointmentManagement.setText("Appointment Management");
         jButtonAppointmentManagement.addActionListener(new java.awt.event.ActionListener() {
@@ -82,46 +89,12 @@ public class AdministrativeReceptionistWorkAreaJPanel extends javax.swing.JPanel
                 jButtonAppointmentManagementActionPerformed(evt);
             }
         });
+        jPanel2.add(jButtonAppointmentManagement, new org.netbeans.lib.awtextra.AbsoluteConstraints(310, 420, 401, -1));
 
-        javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
-        jPanel2.setLayout(jPanel2Layout);
-        jPanel2Layout.setHorizontalGroup(
-            jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel2Layout.createSequentialGroup()
-                .addGap(420, 420, 420)
-                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addComponent(jButtonPatientManagement, javax.swing.GroupLayout.DEFAULT_SIZE, 401, Short.MAX_VALUE)
-                    .addComponent(jButtonAppointmentManagement, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                .addContainerGap(892, Short.MAX_VALUE))
-        );
-        jPanel2Layout.setVerticalGroup(
-            jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel2Layout.createSequentialGroup()
-                .addGap(280, 280, 280)
-                .addComponent(jButtonPatientManagement)
-                .addGap(50, 50, 50)
-                .addComponent(jButtonAppointmentManagement)
-                .addContainerGap(670, Short.MAX_VALUE))
-        );
+        bgdimg.setIcon(new javax.swing.ImageIcon(getClass().getResource("/userInterface/Images/AdministrativeReceptionistWorkAreaJPanel_new.jpg"))); // NOI18N
+        jPanel2.add(bgdimg, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, -1, -1));
 
-        javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
-        jPanel1.setLayout(jPanel1Layout);
-        jPanel1Layout.setHorizontalGroup(
-            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, 1713, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap())
-        );
-        jPanel1Layout.setVerticalGroup(
-            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel1Layout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, 1078, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-        );
-
-        jSplitPane.setLeftComponent(jPanel1);
+        jSplitPane.setRightComponent(jPanel2);
 
         add(jSplitPane, java.awt.BorderLayout.CENTER);
     }// </editor-fold>//GEN-END:initComponents
@@ -143,6 +116,7 @@ public class AdministrativeReceptionistWorkAreaJPanel extends javax.swing.JPanel
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JLabel bgdimg;
     private javax.swing.JButton jButtonAppointmentManagement;
     private javax.swing.JButton jButtonPatientManagement;
     private javax.swing.JPanel jPanel1;

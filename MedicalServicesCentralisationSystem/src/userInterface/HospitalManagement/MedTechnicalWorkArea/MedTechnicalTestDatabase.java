@@ -7,8 +7,8 @@ package userInterface.HospitalManagement.MedTechnicalWorkArea;
 
 
 import HospitalManagement.Hospital.Hospital;
-import HospitalManagement.PatientTest.LabTest;
-import HospitalManagement.PatientTest.LabTestDirectory;
+import HospitalManagement.LabTest.LabTest;
+import HospitalManagement.LabTest.LabTestDirectory;
 import MainCentralisationSystem.MedicalServiceCentralisationEcoSystem;
 import MainCentralisationSystem.UserAccount;
 import MainCentralisationSystem.UserAccountDirectory;
@@ -31,16 +31,16 @@ public class MedTechnicalTestDatabase extends javax.swing.JPanel {
      * Creates new form OperationalAccountsPage
      */
     JPanel userProcessContainer;
-    MedicalServiceCentralisationEcoSystem hospitalManagementEcoSystem;
+    MedicalServiceCentralisationEcoSystem medicalServiceCentralisationEcoSystem;
     UserAccount userAccount;
     UserAccountDirectory userAccountDirectory;
 //    PatientTestDirectory patientTestDirectory;
     LabTestDirectory labTestDirectory;
     Hospital hospital;
-    public MedTechnicalTestDatabase(JPanel userProcessContainer , MedicalServiceCentralisationEcoSystem hospitalManagementEcoSystem, Hospital hospital) {
+    public MedTechnicalTestDatabase(JPanel userProcessContainer , MedicalServiceCentralisationEcoSystem medicalServiceCentralisationEcoSystem, Hospital hospital) {
         initComponents();
         this.userProcessContainer = userProcessContainer;
-        this.hospitalManagementEcoSystem = hospitalManagementEcoSystem;
+        this.medicalServiceCentralisationEcoSystem = medicalServiceCentralisationEcoSystem;
         this.hospital = hospital;
         if(hospital.getLabTestDirectory()== null)
            hospital.setLabTestDirectory(new LabTestDirectory());
@@ -60,7 +60,6 @@ public class MedTechnicalTestDatabase extends javax.swing.JPanel {
         jButtonHome = new javax.swing.JButton();
         jButtonCreate = new javax.swing.JButton();
         jButtonUpdate = new javax.swing.JButton();
-        jButtonView = new javax.swing.JButton();
         jButtonDelete = new javax.swing.JButton();
         jLabelPatientID = new javax.swing.JLabel();
         jTextFieldTestName = new javax.swing.JTextField();
@@ -69,68 +68,64 @@ public class MedTechnicalTestDatabase extends javax.swing.JPanel {
         jTextFieldTestPrice = new javax.swing.JTextField();
         jScrollPane1 = new javax.swing.JScrollPane();
         jTableTestDB = new javax.swing.JTable();
+        bgdimg = new javax.swing.JLabel();
 
         setBackground(new java.awt.Color(0, 70, 169));
         setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        jLabelTitle.setFont(new java.awt.Font("Tahoma", 1, 48)); // NOI18N
-        jLabelTitle.setForeground(new java.awt.Color(255, 255, 255));
+        jLabelTitle.setFont(new java.awt.Font("Times New Roman", 1, 48)); // NOI18N
         jLabelTitle.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabelTitle.setText("All tests");
-        add(jLabelTitle, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 380, 706, -1));
+        add(jLabelTitle, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 800, 706, -1));
 
-        jButtonHome.setBackground(new java.awt.Color(0, 70, 169));
-        jButtonHome.setFont(new java.awt.Font("Tahoma", 0, 24)); // NOI18N
-        jButtonHome.setForeground(new java.awt.Color(255, 255, 255));
+        jButtonHome.setBackground(new java.awt.Color(255, 255, 255));
+        jButtonHome.setFont(new java.awt.Font("Tahoma", 1, 16)); // NOI18N
         jButtonHome.setText("HOME");
         jButtonHome.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jButtonHomeActionPerformed(evt);
             }
         });
-        add(jButtonHome, new org.netbeans.lib.awtextra.AbsoluteConstraints(846, 62, -1, -1));
+        add(jButtonHome, new org.netbeans.lib.awtextra.AbsoluteConstraints(1680, 60, 130, 40));
 
+        jButtonCreate.setBackground(new java.awt.Color(255, 255, 255));
+        jButtonCreate.setFont(new java.awt.Font("Tahoma", 1, 16)); // NOI18N
         jButtonCreate.setText("CREATE");
         jButtonCreate.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jButtonCreateActionPerformed(evt);
             }
         });
-        add(jButtonCreate, new org.netbeans.lib.awtextra.AbsoluteConstraints(648, 219, -1, -1));
+        add(jButtonCreate, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 720, -1, -1));
 
+        jButtonUpdate.setBackground(new java.awt.Color(255, 255, 255));
+        jButtonUpdate.setFont(new java.awt.Font("Tahoma", 1, 16)); // NOI18N
         jButtonUpdate.setText("UPDATE");
-        add(jButtonUpdate, new org.netbeans.lib.awtextra.AbsoluteConstraints(830, 220, -1, -1));
+        add(jButtonUpdate, new org.netbeans.lib.awtextra.AbsoluteConstraints(320, 720, -1, -1));
 
-        jButtonView.setText("VIEW");
-        jButtonView.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButtonViewActionPerformed(evt);
-            }
-        });
-        add(jButtonView, new org.netbeans.lib.awtextra.AbsoluteConstraints(840, 290, -1, -1));
-
+        jButtonDelete.setBackground(new java.awt.Color(255, 255, 255));
+        jButtonDelete.setFont(new java.awt.Font("Tahoma", 1, 16)); // NOI18N
         jButtonDelete.setText("DELETE");
-        add(jButtonDelete, new org.netbeans.lib.awtextra.AbsoluteConstraints(650, 290, -1, -1));
+        add(jButtonDelete, new org.netbeans.lib.awtextra.AbsoluteConstraints(530, 720, -1, -1));
 
-        jLabelPatientID.setForeground(new java.awt.Color(255, 255, 255));
+        jLabelPatientID.setFont(new java.awt.Font("Dubai Medium", 1, 16)); // NOI18N
         jLabelPatientID.setHorizontalAlignment(javax.swing.SwingConstants.TRAILING);
         jLabelPatientID.setText("Test Name");
-        add(jLabelPatientID, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 200, 104, -1));
+        add(jLabelPatientID, new org.netbeans.lib.awtextra.AbsoluteConstraints(190, 560, 104, -1));
 
         jTextFieldTestName.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jTextFieldTestNameActionPerformed(evt);
             }
         });
-        add(jTextFieldTestName, new org.netbeans.lib.awtextra.AbsoluteConstraints(311, 200, 270, -1));
+        add(jTextFieldTestName, new org.netbeans.lib.awtextra.AbsoluteConstraints(340, 560, 280, 30));
 
-        jLabelPatientName.setForeground(new java.awt.Color(255, 255, 255));
+        jLabelPatientName.setFont(new java.awt.Font("Dubai Medium", 1, 16)); // NOI18N
         jLabelPatientName.setHorizontalAlignment(javax.swing.SwingConstants.TRAILING);
         jLabelPatientName.setText("Test Price");
-        add(jLabelPatientName, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 240, 100, -1));
+        add(jLabelPatientName, new org.netbeans.lib.awtextra.AbsoluteConstraints(190, 620, 100, -1));
 
-        jLabelTitle2.setFont(new java.awt.Font("Tahoma", 1, 48)); // NOI18N
-        jLabelTitle2.setForeground(new java.awt.Color(255, 255, 255));
+        jLabelTitle2.setFont(new java.awt.Font("Times New Roman", 1, 48)); // NOI18N
         jLabelTitle2.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabelTitle2.setText("Hospital Test Database");
         add(jLabelTitle2, new org.netbeans.lib.awtextra.AbsoluteConstraints(136, 43, 706, -1));
@@ -140,7 +135,7 @@ public class MedTechnicalTestDatabase extends javax.swing.JPanel {
                 jTextFieldTestPriceActionPerformed(evt);
             }
         });
-        add(jTextFieldTestPrice, new org.netbeans.lib.awtextra.AbsoluteConstraints(310, 240, 270, -1));
+        add(jTextFieldTestPrice, new org.netbeans.lib.awtextra.AbsoluteConstraints(340, 620, 280, 30));
 
         jTableTestDB.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
@@ -163,7 +158,10 @@ public class MedTechnicalTestDatabase extends javax.swing.JPanel {
         });
         jScrollPane1.setViewportView(jTableTestDB);
 
-        add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(260, 460, 430, 110));
+        add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(200, 880, 430, 110));
+
+        bgdimg.setIcon(new javax.swing.ImageIcon(getClass().getResource("/userInterface/Images/MedTechnicalTestDatabase.png"))); // NOI18N
+        add(bgdimg, new org.netbeans.lib.awtextra.AbsoluteConstraints(-6, -10, 1930, 1200));
     }// </editor-fold>//GEN-END:initComponents
 
     private void jButtonHomeActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonHomeActionPerformed
@@ -175,10 +173,6 @@ public class MedTechnicalTestDatabase extends javax.swing.JPanel {
     private void jTextFieldTestNameActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextFieldTestNameActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_jTextFieldTestNameActionPerformed
-
-    private void jButtonViewActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonViewActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jButtonViewActionPerformed
 
     private void jTextFieldTestPriceActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextFieldTestPriceActionPerformed
         // TODO add your handling code here:
@@ -238,11 +232,11 @@ public class MedTechnicalTestDatabase extends javax.swing.JPanel {
     
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JLabel bgdimg;
     private javax.swing.JButton jButtonCreate;
     private javax.swing.JButton jButtonDelete;
     private javax.swing.JButton jButtonHome;
     private javax.swing.JButton jButtonUpdate;
-    private javax.swing.JButton jButtonView;
     private javax.swing.JLabel jLabelPatientID;
     private javax.swing.JLabel jLabelPatientName;
     private javax.swing.JLabel jLabelTitle;

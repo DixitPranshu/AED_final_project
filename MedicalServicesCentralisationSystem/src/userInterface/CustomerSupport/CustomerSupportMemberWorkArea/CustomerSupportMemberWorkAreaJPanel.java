@@ -78,7 +78,6 @@ public class CustomerSupportMemberWorkAreaJPanel extends javax.swing.JPanel {
         jButtonUpdate = new javax.swing.JButton();
         jLabelPassword = new javax.swing.JLabel();
         jTextFieldNotes = new javax.swing.JTextField();
-        jButtonView = new javax.swing.JButton();
         jTextFieldCustName = new javax.swing.JTextField();
         jLabelEmpID = new javax.swing.JLabel();
         jButtonDelete = new javax.swing.JButton();
@@ -96,16 +95,18 @@ public class CustomerSupportMemberWorkAreaJPanel extends javax.swing.JPanel {
         jButtonSearchMedEquip = new javax.swing.JButton();
         jLabelEmpName5 = new javax.swing.JLabel();
         jDateChooserTestDate = new com.toedter.calendar.JDateChooser();
+        bgdimg = new javax.swing.JLabel();
 
         setBackground(new java.awt.Color(0, 70, 169));
+        setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        jLabel1.setFont(new java.awt.Font("Tahoma", 1, 48)); // NOI18N
-        jLabel1.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel1.setFont(new java.awt.Font("Times New Roman", 1, 48)); // NOI18N
         jLabel1.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel1.setText("Customer Support Members");
+        add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(670, 40, 706, -1));
 
-        jButton2.setBackground(new java.awt.Color(0, 70, 169));
-        jButton2.setFont(new java.awt.Font("Tahoma", 0, 24)); // NOI18N
+        jButton2.setBackground(new java.awt.Color(0, 0, 0));
+        jButton2.setFont(new java.awt.Font("Tahoma", 1, 24)); // NOI18N
         jButton2.setForeground(new java.awt.Color(255, 255, 255));
         jButton2.setText("HOME");
         jButton2.addActionListener(new java.awt.event.ActionListener() {
@@ -113,6 +114,7 @@ public class CustomerSupportMemberWorkAreaJPanel extends javax.swing.JPanel {
                 jButton2ActionPerformed(evt);
             }
         });
+        add(jButton2, new org.netbeans.lib.awtextra.AbsoluteConstraints(1730, 50, -1, -1));
 
         jTableRequests.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
@@ -140,79 +142,113 @@ public class CustomerSupportMemberWorkAreaJPanel extends javax.swing.JPanel {
         });
         jScrollPane1.setViewportView(jTableRequests);
 
+        add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(900, 870, 870, 100));
+
+        jButtonCreate.setBackground(new java.awt.Color(0, 0, 0));
+        jButtonCreate.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
+        jButtonCreate.setForeground(new java.awt.Color(255, 255, 255));
         jButtonCreate.setText("CREATE");
         jButtonCreate.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jButtonCreateActionPerformed(evt);
             }
         });
+        add(jButtonCreate, new org.netbeans.lib.awtextra.AbsoluteConstraints(1730, 430, 90, 40));
+        add(jTextFieldCustPhone, new org.netbeans.lib.awtextra.AbsoluteConstraints(1220, 460, 421, -1));
 
+        jButtonUpdate.setBackground(new java.awt.Color(0, 0, 0));
+        jButtonUpdate.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
+        jButtonUpdate.setForeground(new java.awt.Color(255, 255, 255));
         jButtonUpdate.setText("UPDATE");
         jButtonUpdate.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jButtonUpdateActionPerformed(evt);
             }
         });
+        add(jButtonUpdate, new org.netbeans.lib.awtextra.AbsoluteConstraints(1730, 510, 90, 40));
 
-        jLabelPassword.setForeground(new java.awt.Color(255, 255, 255));
+        jLabelPassword.setFont(new java.awt.Font("Dubai Medium", 1, 16)); // NOI18N
+        jLabelPassword.setHorizontalAlignment(javax.swing.SwingConstants.TRAILING);
         jLabelPassword.setText("Notes");
+        add(jLabelPassword, new org.netbeans.lib.awtextra.AbsoluteConstraints(1070, 770, 88, -1));
 
         jTextFieldNotes.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jTextFieldNotesActionPerformed(evt);
             }
         });
-
-        jButtonView.setText("VIEW");
+        add(jTextFieldNotes, new org.netbeans.lib.awtextra.AbsoluteConstraints(1220, 740, 403, 65));
 
         jTextFieldCustName.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jTextFieldCustNameActionPerformed(evt);
             }
         });
+        add(jTextFieldCustName, new org.netbeans.lib.awtextra.AbsoluteConstraints(1220, 410, 421, -1));
 
-        jLabelEmpID.setForeground(new java.awt.Color(255, 255, 255));
+        jLabelEmpID.setFont(new java.awt.Font("Dubai Medium", 1, 16)); // NOI18N
+        jLabelEmpID.setHorizontalAlignment(javax.swing.SwingConstants.TRAILING);
         jLabelEmpID.setText("Customer Name");
+        add(jLabelEmpID, new org.netbeans.lib.awtextra.AbsoluteConstraints(1010, 410, 150, -1));
 
+        jButtonDelete.setBackground(new java.awt.Color(0, 0, 0));
+        jButtonDelete.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
+        jButtonDelete.setForeground(new java.awt.Color(255, 255, 255));
         jButtonDelete.setText("DELETE");
         jButtonDelete.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jButtonDeleteActionPerformed(evt);
             }
         });
+        add(jButtonDelete, new org.netbeans.lib.awtextra.AbsoluteConstraints(1730, 590, 90, 40));
 
-        jLabelEmpName.setForeground(new java.awt.Color(255, 255, 255));
+        jLabelEmpName.setFont(new java.awt.Font("Dubai Medium", 1, 16)); // NOI18N
+        jLabelEmpName.setHorizontalAlignment(javax.swing.SwingConstants.TRAILING);
         jLabelEmpName.setText("Customer Phone");
+        add(jLabelEmpName, new org.netbeans.lib.awtextra.AbsoluteConstraints(1010, 460, 150, -1));
 
+        jRadioButtonMedTest.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
         jRadioButtonMedTest.setText("Medical Test");
         jRadioButtonMedTest.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jRadioButtonMedTestActionPerformed(evt);
             }
         });
+        add(jRadioButtonMedTest, new org.netbeans.lib.awtextra.AbsoluteConstraints(1220, 610, -1, -1));
 
+        jRadioButtonConsultation.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
         jRadioButtonConsultation.setText("Consulation");
         jRadioButtonConsultation.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jRadioButtonConsultationActionPerformed(evt);
             }
         });
+        add(jRadioButtonConsultation, new org.netbeans.lib.awtextra.AbsoluteConstraints(1370, 610, -1, -1));
 
+        jRadioButtonMedEquipment.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
         jRadioButtonMedEquipment.setText("Medical equipment");
         jRadioButtonMedEquipment.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jRadioButtonMedEquipmentActionPerformed(evt);
             }
         });
+        add(jRadioButtonMedEquipment, new org.netbeans.lib.awtextra.AbsoluteConstraints(1510, 610, -1, -1));
 
-        jLabelEmpName1.setForeground(new java.awt.Color(255, 255, 255));
+        jLabelEmpName1.setFont(new java.awt.Font("Dubai Medium", 1, 16)); // NOI18N
+        jLabelEmpName1.setHorizontalAlignment(javax.swing.SwingConstants.TRAILING);
         jLabelEmpName1.setText("Request Category");
+        add(jLabelEmpName1, new org.netbeans.lib.awtextra.AbsoluteConstraints(1010, 610, 150, -1));
 
-        jLabelEmpName2.setForeground(new java.awt.Color(255, 255, 255));
+        jLabelEmpName2.setFont(new java.awt.Font("Dubai Medium", 1, 16)); // NOI18N
+        jLabelEmpName2.setHorizontalAlignment(javax.swing.SwingConstants.TRAILING);
         jLabelEmpName2.setText("Customer Email");
+        add(jLabelEmpName2, new org.netbeans.lib.awtextra.AbsoluteConstraints(1010, 510, 150, -1));
+        add(jTextFieldCustEmail, new org.netbeans.lib.awtextra.AbsoluteConstraints(1220, 510, 421, -1));
 
-        jLabelEmpName3.setForeground(new java.awt.Color(255, 255, 255));
+        jLabelEmpName3.setFont(new java.awt.Font("Dubai Medium", 1, 16)); // NOI18N
+        jLabelEmpName3.setHorizontalAlignment(javax.swing.SwingConstants.TRAILING);
         jLabelEmpName3.setText("Customer Pincode");
+        add(jLabelEmpName3, new org.netbeans.lib.awtextra.AbsoluteConstraints(1010, 560, 150, -1));
 
         jTextFieldCustPincode.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -224,169 +260,49 @@ public class CustomerSupportMemberWorkAreaJPanel extends javax.swing.JPanel {
                 jTextFieldCustPincodeKeyPressed(evt);
             }
         });
+        add(jTextFieldCustPincode, new org.netbeans.lib.awtextra.AbsoluteConstraints(1220, 560, 421, -1));
 
+        jButtonSearchMedTest.setBackground(new java.awt.Color(0, 0, 0));
+        jButtonSearchMedTest.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
+        jButtonSearchMedTest.setForeground(new java.awt.Color(255, 255, 255));
         jButtonSearchMedTest.setText("ADD MEDICAL TEST");
         jButtonSearchMedTest.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jButtonSearchMedTestActionPerformed(evt);
             }
         });
+        add(jButtonSearchMedTest, new org.netbeans.lib.awtextra.AbsoluteConstraints(820, 340, 240, 30));
 
+        jButtonSearchConsultation.setBackground(new java.awt.Color(0, 0, 0));
+        jButtonSearchConsultation.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
+        jButtonSearchConsultation.setForeground(new java.awt.Color(255, 255, 255));
         jButtonSearchConsultation.setText("SEARCH CONSULTATION");
         jButtonSearchConsultation.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jButtonSearchConsultationActionPerformed(evt);
             }
         });
+        add(jButtonSearchConsultation, new org.netbeans.lib.awtextra.AbsoluteConstraints(1150, 340, 260, 30));
 
+        jButtonSearchMedEquip.setBackground(new java.awt.Color(0, 0, 0));
+        jButtonSearchMedEquip.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
+        jButtonSearchMedEquip.setForeground(new java.awt.Color(255, 255, 255));
         jButtonSearchMedEquip.setText("SEARCH MED EQUIP");
         jButtonSearchMedEquip.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jButtonSearchMedEquipActionPerformed(evt);
             }
         });
+        add(jButtonSearchMedEquip, new org.netbeans.lib.awtextra.AbsoluteConstraints(1480, 340, 240, 30));
 
-        jLabelEmpName5.setForeground(new java.awt.Color(255, 255, 255));
+        jLabelEmpName5.setFont(new java.awt.Font("Dubai Medium", 1, 16)); // NOI18N
+        jLabelEmpName5.setHorizontalAlignment(javax.swing.SwingConstants.TRAILING);
         jLabelEmpName5.setText("Date ");
+        add(jLabelEmpName5, new org.netbeans.lib.awtextra.AbsoluteConstraints(1010, 670, 150, -1));
+        add(jDateChooserTestDate, new org.netbeans.lib.awtextra.AbsoluteConstraints(1230, 670, 170, 30));
 
-        javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
-        this.setLayout(layout);
-        layout.setHorizontalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(136, 136, 136)
-                        .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 706, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(jButton2)
-                        .addGap(0, 0, Short.MAX_VALUE))
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(96, 96, 96)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                            .addGroup(layout.createSequentialGroup()
-                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                                        .addComponent(jButtonSearchMedTest)
-                                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                            .addComponent(jLabelEmpID, javax.swing.GroupLayout.PREFERRED_SIZE, 104, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                            .addComponent(jLabelEmpName2)))
-                                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                                        .addComponent(jLabelEmpName)
-                                        .addGap(35, 35, 35)))
-                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                                    .addComponent(jTextFieldCustName)
-                                    .addComponent(jTextFieldCustPhone)
-                                    .addComponent(jTextFieldCustEmail, javax.swing.GroupLayout.PREFERRED_SIZE, 421, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addGroup(layout.createSequentialGroup()
-                                        .addGap(52, 52, 52)
-                                        .addComponent(jButtonSearchConsultation)
-                                        .addGap(18, 18, 18)
-                                        .addComponent(jButtonSearchMedEquip))))
-                            .addGroup(layout.createSequentialGroup()
-                                .addGap(23, 23, 23)
-                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addGroup(layout.createSequentialGroup()
-                                        .addComponent(jLabelEmpName3)
-                                        .addGap(18, 18, 18)
-                                        .addComponent(jTextFieldCustPincode))
-                                    .addGroup(layout.createSequentialGroup()
-                                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                            .addGroup(layout.createSequentialGroup()
-                                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                                    .addComponent(jLabelEmpName1)
-                                                    .addComponent(jLabelEmpName5))
-                                                .addGap(18, 18, 18)
-                                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                                    .addComponent(jDateChooserTestDate, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                                    .addGroup(layout.createSequentialGroup()
-                                                        .addComponent(jRadioButtonMedTest)
-                                                        .addGap(18, 18, 18)
-                                                        .addComponent(jRadioButtonConsultation)
-                                                        .addGap(18, 18, 18)
-                                                        .addComponent(jRadioButtonMedEquipment))))
-                                            .addGroup(layout.createSequentialGroup()
-                                                .addComponent(jLabelPassword, javax.swing.GroupLayout.PREFERRED_SIZE, 88, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                                .addGap(18, 18, 18)
-                                                .addComponent(jTextFieldNotes, javax.swing.GroupLayout.PREFERRED_SIZE, 403, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                                        .addGap(0, 0, Short.MAX_VALUE)))))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jButtonCreate)
-                            .addComponent(jButtonDelete))
-                        .addGap(178, 178, 178)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jButtonView)
-                            .addComponent(jButtonUpdate)))
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                        .addContainerGap(96, Short.MAX_VALUE)
-                        .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 1007, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(12, 12, 12)))
-                .addGap(238, 238, 238))
-        );
-        layout.setVerticalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addGap(43, 43, 43)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel1)
-                    .addComponent(jButton2))
-                .addGap(41, 41, 41)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jButtonSearchMedTest)
-                    .addComponent(jButtonSearchConsultation)
-                    .addComponent(jButtonSearchMedEquip))
-                .addGap(33, 33, 33)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(layout.createSequentialGroup()
-                        .addComponent(jLabelEmpID)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(layout.createSequentialGroup()
-                                .addGap(7, 7, 7)
-                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                                    .addComponent(jButtonCreate)
-                                    .addComponent(jButtonUpdate))
-                                .addGap(14, 14, 14))
-                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                                .addGap(6, 6, 6)
-                                .addComponent(jLabelEmpName)))
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(layout.createSequentialGroup()
-                                .addGap(47, 47, 47)
-                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                                    .addComponent(jButtonDelete)
-                                    .addComponent(jButtonView)))
-                            .addGroup(layout.createSequentialGroup()
-                                .addGap(12, 12, 12)
-                                .addComponent(jLabelEmpName2)
-                                .addGap(24, 24, 24)
-                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                                    .addComponent(jTextFieldCustPincode, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addComponent(jLabelEmpName3, javax.swing.GroupLayout.Alignment.LEADING)))))
-                    .addGroup(layout.createSequentialGroup()
-                        .addComponent(jTextFieldCustName, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(18, 18, 18)
-                        .addComponent(jTextFieldCustPhone, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(12, 12, 12)
-                        .addComponent(jTextFieldCustEmail, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addGap(18, 18, 18)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jRadioButtonMedTest)
-                    .addComponent(jRadioButtonConsultation)
-                    .addComponent(jRadioButtonMedEquipment)
-                    .addComponent(jLabelEmpName1))
-                .addGap(50, 50, 50)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addComponent(jLabelEmpName5)
-                    .addComponent(jDateChooserTestDate, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(43, 43, 43)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jTextFieldNotes, javax.swing.GroupLayout.PREFERRED_SIZE, 65, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jLabelPassword))
-                .addGap(55, 55, 55)
-                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 180, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(310, Short.MAX_VALUE))
-        );
+        bgdimg.setIcon(new javax.swing.ImageIcon(getClass().getResource("/userInterface/Images/CustomerSupportMemberWorkAreaJPanel.png"))); // NOI18N
+        add(bgdimg, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 1920, 1180));
     }// </editor-fold>//GEN-END:initComponents
 
     private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
@@ -416,7 +332,6 @@ public class CustomerSupportMemberWorkAreaJPanel extends javax.swing.JPanel {
         int last_case_id_int = Integer.parseInt(last_case_id.replaceAll("[\\D]", ""));
         last_case_id_int++;
         
-
         request.setCase_id(last_case_id);
         request.setCustomer_name(user_input.get(0));
         request.setCustomer_phone(user_input.get(1));
@@ -426,12 +341,12 @@ public class CustomerSupportMemberWorkAreaJPanel extends javax.swing.JPanel {
         request.setRequest_date(user_input.get(4));
         request.setRequest_category(user_input.get(5));
         request.setRequest_description(user_input.get(6));
+        request.setMode(user_input.get(7));
         request.setModified_time(current_timeStamp);
         request.setRequest_status("new");
         requestList.addRequest(request);
         String last_case_id_new = "REQUEST" + String.format("%03d", last_case_id_int);
         requestList.setLast_case_id(last_case_id_new);
-        
             
         JOptionPane.showMessageDialog(this, "New Request Information has been added.");
         model.addRow(new Object[]{request,request.getCustomer_name(),request.getCustomer_phone(),request.getCustomer_email(),request.getCustomer_pincode(),request.getRequest_date(),request.getRequest_category(),request.getRequest_description(),current_timeStamp});
@@ -628,7 +543,7 @@ public class CustomerSupportMemberWorkAreaJPanel extends javax.swing.JPanel {
         user_input.add(user_request_date);
         user_input.add(request_category);
         user_input.add(user_cust_notes);
-        
+        user_input.add("HUMAN");
         return user_input;
         
     }
@@ -636,6 +551,7 @@ public class CustomerSupportMemberWorkAreaJPanel extends javax.swing.JPanel {
     
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JLabel bgdimg;
     private javax.swing.JButton jButton2;
     private javax.swing.JButton jButtonCreate;
     private javax.swing.JButton jButtonDelete;
@@ -643,7 +559,6 @@ public class CustomerSupportMemberWorkAreaJPanel extends javax.swing.JPanel {
     private javax.swing.JButton jButtonSearchMedEquip;
     private javax.swing.JButton jButtonSearchMedTest;
     private javax.swing.JButton jButtonUpdate;
-    private javax.swing.JButton jButtonView;
     private com.toedter.calendar.JDateChooser jDateChooserTestDate;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabelEmpID;
