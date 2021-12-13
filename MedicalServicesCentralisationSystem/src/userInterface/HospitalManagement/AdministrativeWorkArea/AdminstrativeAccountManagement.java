@@ -104,7 +104,6 @@ public class AdminstrativeAccountManagement extends javax.swing.JPanel {
         setBackground(new java.awt.Color(0, 70, 169));
         setForeground(new java.awt.Color(255, 255, 255));
         setPreferredSize(new java.awt.Dimension(1181, 1080));
-        setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         jPanel1.setBackground(new java.awt.Color(0, 70, 169));
         jPanel1.setPreferredSize(new java.awt.Dimension(1381, 100));
@@ -120,14 +119,11 @@ public class AdminstrativeAccountManagement extends javax.swing.JPanel {
             .addGap(0, 89, Short.MAX_VALUE)
         );
 
-        add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(1245, 0, 0, 89));
-
         jLabelTitle.setBackground(new java.awt.Color(0, 70, 169));
         jLabelTitle.setFont(new java.awt.Font("Tahoma", 1, 48)); // NOI18N
         jLabelTitle.setForeground(new java.awt.Color(255, 255, 255));
         jLabelTitle.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabelTitle.setText("ACCOUNTS MANAGEMENT");
-        add(jLabelTitle, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 31, 891, -1));
 
         jButtonHome.setBackground(new java.awt.Color(0, 70, 169));
         jButtonHome.setFont(new java.awt.Font("Tahoma", 1, 24)); // NOI18N
@@ -138,35 +134,26 @@ public class AdminstrativeAccountManagement extends javax.swing.JPanel {
                 jButtonHomeActionPerformed(evt);
             }
         });
-        add(jButtonHome, new org.netbeans.lib.awtextra.AbsoluteConstraints(905, 50, -1, -1));
 
         jTextFieldPatientID.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jTextFieldPatientIDActionPerformed(evt);
             }
         });
-        add(jTextFieldPatientID, new org.netbeans.lib.awtextra.AbsoluteConstraints(292, 200, 150, -1));
 
         jLabelPatientID.setForeground(new java.awt.Color(255, 255, 255));
         jLabelPatientID.setText("Patient ID :");
-        add(jLabelPatientID, new org.netbeans.lib.awtextra.AbsoluteConstraints(200, 200, 104, -1));
 
         jLabelPatientName.setForeground(new java.awt.Color(255, 255, 255));
         jLabelPatientName.setText("Patient Name:");
-        add(jLabelPatientName, new org.netbeans.lib.awtextra.AbsoluteConstraints(190, 240, -1, -1));
-        add(jTextFieldPatientName, new org.netbeans.lib.awtextra.AbsoluteConstraints(292, 238, 150, -1));
 
         jButtonDelete.setText("DELETE");
-        add(jButtonDelete, new org.netbeans.lib.awtextra.AbsoluteConstraints(660, 750, -1, -1));
 
         jButtonCreate.setText("CREATE");
-        add(jButtonCreate, new org.netbeans.lib.awtextra.AbsoluteConstraints(550, 750, -1, -1));
 
         jButtonUpdate.setText("UPDATE");
-        add(jButtonUpdate, new org.netbeans.lib.awtextra.AbsoluteConstraints(780, 750, -1, -1));
 
         jButtonView.setText("VIEW");
-        add(jButtonView, new org.netbeans.lib.awtextra.AbsoluteConstraints(890, 750, 70, 20));
 
         jTableAccounts.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
@@ -187,146 +174,109 @@ public class AdminstrativeAccountManagement extends javax.swing.JPanel {
         ));
         jScrollPane1.setViewportView(jTableAccounts);
 
-        add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 830, 900, 180));
-
         jTextFieldPhoneNum.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jTextFieldPhoneNumActionPerformed(evt);
             }
         });
-        add(jTextFieldPhoneNum, new org.netbeans.lib.awtextra.AbsoluteConstraints(600, 200, 150, 20));
 
         jLabelPhoneNum.setForeground(new java.awt.Color(255, 255, 255));
         jLabelPhoneNum.setText("Phone Number :");
-        add(jLabelPhoneNum, new org.netbeans.lib.awtextra.AbsoluteConstraints(500, 200, 104, 10));
 
         jLabelInsuaranceNum.setForeground(new java.awt.Color(255, 255, 255));
         jLabelInsuaranceNum.setText("Insurance Number :");
-        add(jLabelInsuaranceNum, new org.netbeans.lib.awtextra.AbsoluteConstraints(490, 240, -1, 10));
-        add(jTextFieldInsuranceNum, new org.netbeans.lib.awtextra.AbsoluteConstraints(600, 240, 150, 20));
 
         jTextFieldConsultationFee.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jTextFieldConsultationFeeActionPerformed(evt);
             }
         });
-        add(jTextFieldConsultationFee, new org.netbeans.lib.awtextra.AbsoluteConstraints(290, 370, 150, -1));
 
         jLabelConsultationFee.setForeground(new java.awt.Color(255, 255, 255));
         jLabelConsultationFee.setText("Consultation Fee : ");
-        add(jLabelConsultationFee, new org.netbeans.lib.awtextra.AbsoluteConstraints(180, 370, 104, -1));
 
         jLabelTestFee.setForeground(new java.awt.Color(255, 255, 255));
         jLabelTestFee.setText("Test Fee :");
-        add(jLabelTestFee, new org.netbeans.lib.awtextra.AbsoluteConstraints(210, 410, -1, -1));
-        add(jTextFieldTestFee, new org.netbeans.lib.awtextra.AbsoluteConstraints(290, 410, 150, -1));
 
         jTextFieldAdmissionFee.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jTextFieldAdmissionFeeActionPerformed(evt);
             }
         });
-        add(jTextFieldAdmissionFee, new org.netbeans.lib.awtextra.AbsoluteConstraints(290, 460, 150, -1));
 
         jLabelAdmissionFee.setForeground(new java.awt.Color(255, 255, 255));
         jLabelAdmissionFee.setText("Admission Charges :");
-        add(jLabelAdmissionFee, new org.netbeans.lib.awtextra.AbsoluteConstraints(180, 460, 104, -1));
 
         jLabelAmbulanceFee.setForeground(new java.awt.Color(255, 255, 255));
         jLabelAmbulanceFee.setText("Ambulance Fee :");
-        add(jLabelAmbulanceFee, new org.netbeans.lib.awtextra.AbsoluteConstraints(190, 500, -1, -1));
-        add(jTextFieldAmbulanceFee, new org.netbeans.lib.awtextra.AbsoluteConstraints(290, 500, 150, -1));
 
         jTextFielddDiscount.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jTextFielddDiscountActionPerformed(evt);
             }
         });
-        add(jTextFielddDiscount, new org.netbeans.lib.awtextra.AbsoluteConstraints(290, 790, 150, -1));
 
         jLabelDiscount.setForeground(new java.awt.Color(255, 255, 255));
         jLabelDiscount.setText("Discount Applied :");
-        add(jLabelDiscount, new org.netbeans.lib.awtextra.AbsoluteConstraints(180, 790, 104, -1));
 
         jLabelAdvancePaid.setForeground(new java.awt.Color(255, 255, 255));
         jLabelAdvancePaid.setText("Advance Paid :");
-        add(jLabelAdvancePaid, new org.netbeans.lib.awtextra.AbsoluteConstraints(630, 520, -1, -1));
-        add(jTextFieldAdvancePaid, new org.netbeans.lib.awtextra.AbsoluteConstraints(750, 520, 150, -1));
 
         jTextFieldAmountDue.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jTextFieldAmountDueActionPerformed(evt);
             }
         });
-        add(jTextFieldAmountDue, new org.netbeans.lib.awtextra.AbsoluteConstraints(750, 570, 150, -1));
 
         jLabelAmountDue.setForeground(new java.awt.Color(255, 255, 255));
         jLabelAmountDue.setText("Amount Due :");
-        add(jLabelAmountDue, new org.netbeans.lib.awtextra.AbsoluteConstraints(630, 570, 104, -1));
 
         jLabelPharmacyBill.setForeground(new java.awt.Color(255, 255, 255));
         jLabelPharmacyBill.setText("Pharmacy Bill :");
-        add(jLabelPharmacyBill, new org.netbeans.lib.awtextra.AbsoluteConstraints(190, 540, -1, -1));
-        add(jTextFieldPharmacyBill, new org.netbeans.lib.awtextra.AbsoluteConstraints(290, 540, 150, -1));
 
         jTextFieldICUServices.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jTextFieldICUServicesActionPerformed(evt);
             }
         });
-        add(jTextFieldICUServices, new org.netbeans.lib.awtextra.AbsoluteConstraints(290, 580, 150, -1));
 
         jLabelICUServices.setForeground(new java.awt.Color(255, 255, 255));
         jLabelICUServices.setText("ICU Services :");
-        add(jLabelICUServices, new org.netbeans.lib.awtextra.AbsoluteConstraints(190, 580, 104, -1));
 
         jLabelMedicalEquipment.setForeground(new java.awt.Color(255, 255, 255));
         jLabelMedicalEquipment.setText("Medical Equipment :");
-        add(jLabelMedicalEquipment, new org.netbeans.lib.awtextra.AbsoluteConstraints(180, 620, -1, -1));
-        add(jTextFieldMedicalEquipment, new org.netbeans.lib.awtextra.AbsoluteConstraints(290, 620, 150, -1));
 
         jTextFieldRoomRentServices.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jTextFieldRoomRentServicesActionPerformed(evt);
             }
         });
-        add(jTextFieldRoomRentServices, new org.netbeans.lib.awtextra.AbsoluteConstraints(290, 660, 150, -1));
 
         jLabelRoomRentServices.setForeground(new java.awt.Color(255, 255, 255));
         jLabelRoomRentServices.setText("Room Rent Service :");
-        add(jLabelRoomRentServices, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 660, 104, -1));
 
         jLabelNursingCharges.setForeground(new java.awt.Color(255, 255, 255));
         jLabelNursingCharges.setText("Nursing Charges :");
-        add(jLabelNursingCharges, new org.netbeans.lib.awtextra.AbsoluteConstraints(180, 700, -1, -1));
-        add(jTextFieldNursingCharges, new org.netbeans.lib.awtextra.AbsoluteConstraints(290, 700, 150, -1));
 
         jTextFieldEmpID8.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jTextFieldEmpID8ActionPerformed(evt);
             }
         });
-        add(jTextFieldEmpID8, new org.netbeans.lib.awtextra.AbsoluteConstraints(290, 750, 150, -1));
 
         jLabelTAX.setForeground(new java.awt.Color(255, 255, 255));
         jLabelTAX.setText("TAX :");
-        add(jLabelTAX, new org.netbeans.lib.awtextra.AbsoluteConstraints(200, 750, 104, -1));
 
         jLabelGrandTotal.setForeground(new java.awt.Color(255, 255, 255));
         jLabelGrandTotal.setText("Grand Total :");
-        add(jLabelGrandTotal, new org.netbeans.lib.awtextra.AbsoluteConstraints(630, 620, -1, -1));
-        add(jTextFieldGrandTotal, new org.netbeans.lib.awtextra.AbsoluteConstraints(750, 620, 150, -1));
 
         jLabelSubTitle.setFont(new java.awt.Font("Tahoma", 1, 24)); // NOI18N
         jLabelSubTitle.setForeground(new java.awt.Color(255, 255, 255));
         jLabelSubTitle.setText("FEE PARTICULARS");
-        add(jLabelSubTitle, new org.netbeans.lib.awtextra.AbsoluteConstraints(190, 320, 250, 20));
 
         jButtonSearch.setText("SEARCH");
-        add(jButtonSearch, new org.netbeans.lib.awtextra.AbsoluteConstraints(870, 200, -1, -1));
 
         jButtonAddtoCart.setText("Add to Cart");
-        add(jButtonAddtoCart, new org.netbeans.lib.awtextra.AbsoluteConstraints(220, 1040, -1, -1));
 
         jButtonCheckout.setText("Checkout");
         jButtonCheckout.addActionListener(new java.awt.event.ActionListener() {
@@ -334,7 +284,224 @@ public class AdminstrativeAccountManagement extends javax.swing.JPanel {
                 jButtonCheckoutActionPerformed(evt);
             }
         });
-        add(jButtonCheckout, new org.netbeans.lib.awtextra.AbsoluteConstraints(660, 1040, -1, -1));
+
+        javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
+        this.setLayout(layout);
+        layout.setHorizontalGroup(
+            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(layout.createSequentialGroup()
+                .addGap(10, 10, 10)
+                .addComponent(jLabelTitle, javax.swing.GroupLayout.PREFERRED_SIZE, 891, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(4, 4, 4)
+                .addComponent(jButtonHome))
+            .addGroup(layout.createSequentialGroup()
+                .addGap(200, 200, 200)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(92, 92, 92)
+                        .addComponent(jTextFieldPatientID, javax.swing.GroupLayout.PREFERRED_SIZE, 150, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(jLabelPatientID, javax.swing.GroupLayout.PREFERRED_SIZE, 104, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(58, 58, 58)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(100, 100, 100)
+                        .addComponent(jTextFieldPhoneNum, javax.swing.GroupLayout.PREFERRED_SIZE, 150, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(jLabelPhoneNum, javax.swing.GroupLayout.PREFERRED_SIZE, 104, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(120, 120, 120)
+                .addComponent(jButtonSearch))
+            .addGroup(layout.createSequentialGroup()
+                .addGap(190, 190, 190)
+                .addComponent(jLabelPatientName)
+                .addGap(34, 34, 34)
+                .addComponent(jTextFieldPatientName, javax.swing.GroupLayout.PREFERRED_SIZE, 150, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(48, 48, 48)
+                .addComponent(jLabelInsuaranceNum)
+                .addGap(15, 15, 15)
+                .addComponent(jTextFieldInsuranceNum, javax.swing.GroupLayout.PREFERRED_SIZE, 150, javax.swing.GroupLayout.PREFERRED_SIZE))
+            .addGroup(layout.createSequentialGroup()
+                .addGap(190, 190, 190)
+                .addComponent(jLabelSubTitle, javax.swing.GroupLayout.PREFERRED_SIZE, 250, javax.swing.GroupLayout.PREFERRED_SIZE))
+            .addGroup(layout.createSequentialGroup()
+                .addGap(180, 180, 180)
+                .addComponent(jLabelConsultationFee, javax.swing.GroupLayout.PREFERRED_SIZE, 104, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(6, 6, 6)
+                .addComponent(jTextFieldConsultationFee, javax.swing.GroupLayout.PREFERRED_SIZE, 150, javax.swing.GroupLayout.PREFERRED_SIZE))
+            .addGroup(layout.createSequentialGroup()
+                .addGap(210, 210, 210)
+                .addComponent(jLabelTestFee)
+                .addGap(31, 31, 31)
+                .addComponent(jTextFieldTestFee, javax.swing.GroupLayout.PREFERRED_SIZE, 150, javax.swing.GroupLayout.PREFERRED_SIZE))
+            .addGroup(layout.createSequentialGroup()
+                .addGap(180, 180, 180)
+                .addComponent(jLabelAdmissionFee, javax.swing.GroupLayout.PREFERRED_SIZE, 104, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(6, 6, 6)
+                .addComponent(jTextFieldAdmissionFee, javax.swing.GroupLayout.PREFERRED_SIZE, 150, javax.swing.GroupLayout.PREFERRED_SIZE))
+            .addGroup(layout.createSequentialGroup()
+                .addGap(190, 190, 190)
+                .addComponent(jLabelAmbulanceFee)
+                .addGap(20, 20, 20)
+                .addComponent(jTextFieldAmbulanceFee, javax.swing.GroupLayout.PREFERRED_SIZE, 150, javax.swing.GroupLayout.PREFERRED_SIZE))
+            .addGroup(layout.createSequentialGroup()
+                .addGap(630, 630, 630)
+                .addComponent(jLabelAdvancePaid)
+                .addGap(48, 48, 48)
+                .addComponent(jTextFieldAdvancePaid, javax.swing.GroupLayout.PREFERRED_SIZE, 150, javax.swing.GroupLayout.PREFERRED_SIZE))
+            .addGroup(layout.createSequentialGroup()
+                .addGap(190, 190, 190)
+                .addComponent(jLabelPharmacyBill)
+                .addGap(31, 31, 31)
+                .addComponent(jTextFieldPharmacyBill, javax.swing.GroupLayout.PREFERRED_SIZE, 150, javax.swing.GroupLayout.PREFERRED_SIZE))
+            .addGroup(layout.createSequentialGroup()
+                .addGap(190, 190, 190)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(100, 100, 100)
+                        .addComponent(jTextFieldICUServices, javax.swing.GroupLayout.PREFERRED_SIZE, 150, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(jLabelICUServices, javax.swing.GroupLayout.PREFERRED_SIZE, 104, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(190, 190, 190)
+                .addComponent(jLabelAmountDue, javax.swing.GroupLayout.PREFERRED_SIZE, 104, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(16, 16, 16)
+                .addComponent(jTextFieldAmountDue, javax.swing.GroupLayout.PREFERRED_SIZE, 150, javax.swing.GroupLayout.PREFERRED_SIZE))
+            .addGroup(layout.createSequentialGroup()
+                .addGap(180, 180, 180)
+                .addComponent(jLabelMedicalEquipment)
+                .addGap(15, 15, 15)
+                .addComponent(jTextFieldMedicalEquipment, javax.swing.GroupLayout.PREFERRED_SIZE, 150, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(190, 190, 190)
+                .addComponent(jLabelGrandTotal)
+                .addGap(57, 57, 57)
+                .addComponent(jTextFieldGrandTotal, javax.swing.GroupLayout.PREFERRED_SIZE, 150, javax.swing.GroupLayout.PREFERRED_SIZE))
+            .addGroup(layout.createSequentialGroup()
+                .addGap(170, 170, 170)
+                .addComponent(jLabelRoomRentServices, javax.swing.GroupLayout.PREFERRED_SIZE, 104, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(16, 16, 16)
+                .addComponent(jTextFieldRoomRentServices, javax.swing.GroupLayout.PREFERRED_SIZE, 150, javax.swing.GroupLayout.PREFERRED_SIZE))
+            .addGroup(layout.createSequentialGroup()
+                .addGap(180, 180, 180)
+                .addComponent(jLabelNursingCharges)
+                .addGap(24, 24, 24)
+                .addComponent(jTextFieldNursingCharges, javax.swing.GroupLayout.PREFERRED_SIZE, 150, javax.swing.GroupLayout.PREFERRED_SIZE))
+            .addGroup(layout.createSequentialGroup()
+                .addGap(200, 200, 200)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jLabelTAX, javax.swing.GroupLayout.PREFERRED_SIZE, 104, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(90, 90, 90)
+                        .addComponent(jTextFieldEmpID8, javax.swing.GroupLayout.PREFERRED_SIZE, 150, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addGap(110, 110, 110)
+                .addComponent(jButtonCreate)
+                .addGap(39, 39, 39)
+                .addComponent(jButtonDelete)
+                .addGap(51, 51, 51)
+                .addComponent(jButtonUpdate)
+                .addGap(39, 39, 39)
+                .addComponent(jButtonView, javax.swing.GroupLayout.PREFERRED_SIZE, 70, javax.swing.GroupLayout.PREFERRED_SIZE))
+            .addGroup(layout.createSequentialGroup()
+                .addGap(180, 180, 180)
+                .addComponent(jLabelDiscount, javax.swing.GroupLayout.PREFERRED_SIZE, 104, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(6, 6, 6)
+                .addComponent(jTextFielddDiscount, javax.swing.GroupLayout.PREFERRED_SIZE, 150, javax.swing.GroupLayout.PREFERRED_SIZE))
+            .addGroup(layout.createSequentialGroup()
+                .addGap(30, 30, 30)
+                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 900, javax.swing.GroupLayout.PREFERRED_SIZE))
+            .addGroup(layout.createSequentialGroup()
+                .addGap(220, 220, 220)
+                .addComponent(jButtonAddtoCart)
+                .addGap(351, 351, 351)
+                .addComponent(jButtonCheckout))
+        );
+        layout.setVerticalGroup(
+            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(layout.createSequentialGroup()
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(31, 31, 31)
+                        .addComponent(jLabelTitle))
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(50, 50, 50)
+                        .addComponent(jButtonHome)))
+                .addGap(111, 111, 111)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jTextFieldPatientID, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jLabelPatientID)
+                    .addComponent(jTextFieldPhoneNum, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jLabelPhoneNum, javax.swing.GroupLayout.PREFERRED_SIZE, 10, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jButtonSearch))
+                .addGap(15, 15, 15)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jTextFieldPatientName, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(2, 2, 2)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(jLabelPatientName)
+                            .addComponent(jLabelInsuaranceNum, javax.swing.GroupLayout.PREFERRED_SIZE, 10, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(jTextFieldInsuranceNum, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                .addGap(60, 60, 60)
+                .addComponent(jLabelSubTitle, javax.swing.GroupLayout.PREFERRED_SIZE, 20, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(30, 30, 30)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jLabelConsultationFee)
+                    .addComponent(jTextFieldConsultationFee, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(20, 20, 20)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jLabelTestFee)
+                    .addComponent(jTextFieldTestFee, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(30, 30, 30)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jLabelAdmissionFee)
+                    .addComponent(jTextFieldAdmissionFee, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(20, 20, 20)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jLabelAmbulanceFee)
+                    .addComponent(jTextFieldAmbulanceFee, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jLabelAdvancePaid)
+                    .addComponent(jTextFieldAdvancePaid, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jLabelPharmacyBill)
+                    .addComponent(jTextFieldPharmacyBill, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(10, 10, 10)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(10, 10, 10)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(jTextFieldICUServices, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(jLabelICUServices)))
+                    .addComponent(jLabelAmountDue)
+                    .addComponent(jTextFieldAmountDue, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(20, 20, 20)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jLabelMedicalEquipment)
+                    .addComponent(jTextFieldMedicalEquipment, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jLabelGrandTotal)
+                    .addComponent(jTextFieldGrandTotal, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(20, 20, 20)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jLabelRoomRentServices)
+                    .addComponent(jTextFieldRoomRentServices, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(20, 20, 20)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jLabelNursingCharges)
+                    .addComponent(jTextFieldNursingCharges, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(30, 30, 30)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jLabelTAX)
+                    .addComponent(jTextFieldEmpID8, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jButtonCreate)
+                    .addComponent(jButtonDelete)
+                    .addComponent(jButtonUpdate)
+                    .addComponent(jButtonView, javax.swing.GroupLayout.PREFERRED_SIZE, 20, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(17, 17, 17)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jLabelDiscount)
+                    .addComponent(jTextFielddDiscount, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(20, 20, 20)
+                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 180, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(30, 30, 30)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jButtonAddtoCart)
+                    .addComponent(jButtonCheckout)))
+        );
     }// </editor-fold>//GEN-END:initComponents
     
     private void jButtonHomeActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonHomeActionPerformed

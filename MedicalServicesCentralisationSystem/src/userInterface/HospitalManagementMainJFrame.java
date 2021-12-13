@@ -307,7 +307,7 @@ public class HospitalManagementMainJFrame extends javax.swing.JFrame {
         jPanelWorkArea.removeAll();
         JPanel blankJP = new JPanel();
         jPanelWorkArea.add("blank", blankJP);
-        jLabel3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/userinterface/Images/MainJFrameWallpaper.png"))); // NOI18N
+        jLabel3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/userinterface/Images/HospitalMainJFrame.jpg"))); // NOI18N
         jLabel3.setPreferredSize(new java.awt.Dimension(1181, 1080));
         jPanelWorkArea.add(jLabel3, "blank");
         CardLayout crdLyt = (CardLayout) jPanelWorkArea.getLayout();
