@@ -363,6 +363,7 @@ public class MedSuppEquipPatient extends javax.swing.JPanel {
         patientOrder.setOrder_id(user_input.get(2));
         patientOrder.setOrder_item(user_input.get(3));
         patientOrder.setOrder_date(user_input.get(4));
+        patientOrder.setItem_count(user_input.get(6));
         
         ArrayList<PatientOrder> patientOrderList = newPatient.getPatientOrderList();
 
@@ -377,11 +378,11 @@ public class MedSuppEquipPatient extends javax.swing.JPanel {
             
         }
         else{
-            message = "\n\nHi " + user_input.get(1) +", this your bot Alfred. I wanted to let you know that your " + user_input.get(6) + user_input.get(3) +" for date " +user_input.get(4) + " in " + hospital.getHospitalName() +" has been booked";
+            message = "\n\nHi " + user_input.get(1) +", this your bot Alfred. I wanted to let you know that your " + user_input.get(6) + " " +user_input.get(3) +" for date " +user_input.get(4) + " in " + hospital.getHospitalName() +" has been booked";
         }
         System.out.println("message: "+message);
         sendMessageTwilio = new SendMessageTwilio();
-//        sendMessageTwilio.sendMessage(message, user_input.get(0));
+        sendMessageTwilio.sendMessage(message, user_input.get(0));
         
         model.addRow(new Object[]{newPatient,newPatient.getPatient_name(),patientOrder.getOrder_id(), patientOrder.getOrder_item(),patientOrder.getOrder_date()});
         populateNewRequestsTable();
@@ -412,27 +413,16 @@ public class MedSuppEquipPatient extends javax.swing.JPanel {
         jTextFieldPatientId.setText(select_patient_details.getPatient_id());
         jTextFieldPatientName.setText(select_patient_details.getPatient_name());
         jTextFieldPatientEmail.setText(select_patient_details.getPatient_email());
-//        jTextFieldAvailableAt.setText("");  
-//            
-//        String test_id = model.getValueAt(selected_row_ix, 2).toString();
-//        ArrayList<PatientTest> patientTestList = select_patient_details.getPatientTestList();
-//        for(PatientTest patientTest: patientTestList){
-//            if(patientTest.getTest_id().equals(test_id)){
-//                jTextFieldOrderDate.setText(patientTest.getTest_date());
-//                jTextFieldTestID.setText(patientTest.getTest_id());
-//                jComboBoxEquipment.setSelectedItem(patientTest.getLabTest().getTest_name());
-//                if(patientTest.getReport_avalaible().toLowerCase().equals("no")){
-//                    jRadioButtonYes.setSelected(false);
-//                    jRadioButtonNo.setSelected(true);
-//                }
-//                else{
-//                    jRadioButtonYes.setSelected(true);
-//                    jRadioButtonNo.setSelected(false);
-//                }
-//                jTextFieldAvailableAt.setText(patientTest.getReport_availibility_time());
-//            
-//            }   
-//        }
+        String order_id = model.getValueAt(selected_row_ix, 2).toString();
+        ArrayList<PatientOrder> patientOrderList = select_patient_details.getPatientOrderList();
+        for(PatientOrder patientOrder: patientOrderList){
+            if(patientOrder.getOrder_id().equals(order_id)){
+                jTextFieldOrderDate.setText(patientOrder.getOrder_date());
+                jTextFieldOrderID.setText(patientOrder.getOrder_id());
+                jComboBoxEquipment.setSelectedItem(patientOrder.getOrder_item());
+                jTextFieldQuantity.setText(patientOrder.getItem_count());
+            }   
+        }
     }//GEN-LAST:event_jTableAllTestsMouseClicked
 
     private void jButtonUpdateActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonUpdateActionPerformed

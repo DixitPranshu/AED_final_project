@@ -14,11 +14,11 @@ import com.twilio.type.PhoneNumber;
  */
 public class SendMessageTwilio {
     
-//    public static final String ACCOUNT_SID = "ACa1509bbf13d2f60f8628c8688e210eb0";
-//    public static final String AUTH_TOKEN = "d5e6d739396e33a300b308a46d00e366";
+    public static final String ACCOUNT_SID = System.getenv("TWILIO_ACCOUNT_SID");
+    public static final String AUTH_TOKEN = System.getenv("TWILIO_AUTH_TOKEN");
 
     public void sendMessage(String message_to_send, String phone_num_to_send) {
-//        Twilio.init(ACCOUNT_SID, AUTH_TOKEN);
+        Twilio.init(ACCOUNT_SID, AUTH_TOKEN);
         Message message = Message.creator(
                 new com.twilio.type.PhoneNumber(phone_num_to_send),
                 new com.twilio.type.PhoneNumber("+18578872899"),
