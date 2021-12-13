@@ -70,7 +70,6 @@ public class CustomerSupportMemberWorkAreaJPanel extends javax.swing.JPanel {
     private void initComponents() {
 
         jLabel1 = new javax.swing.JLabel();
-        jButton2 = new javax.swing.JButton();
         jScrollPane1 = new javax.swing.JScrollPane();
         jTableRequests = new javax.swing.JTable();
         jButtonCreate = new javax.swing.JButton();
@@ -90,9 +89,6 @@ public class CustomerSupportMemberWorkAreaJPanel extends javax.swing.JPanel {
         jTextFieldCustEmail = new javax.swing.JTextField();
         jLabelEmpName3 = new javax.swing.JLabel();
         jTextFieldCustPincode = new javax.swing.JTextField();
-        jButtonSearchMedTest = new javax.swing.JButton();
-        jButtonSearchConsultation = new javax.swing.JButton();
-        jButtonSearchMedEquip = new javax.swing.JButton();
         jLabelEmpName5 = new javax.swing.JLabel();
         jDateChooserTestDate = new com.toedter.calendar.JDateChooser();
         bgdimg = new javax.swing.JLabel();
@@ -103,18 +99,7 @@ public class CustomerSupportMemberWorkAreaJPanel extends javax.swing.JPanel {
         jLabel1.setFont(new java.awt.Font("Times New Roman", 1, 48)); // NOI18N
         jLabel1.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel1.setText("Customer Support Members");
-        add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(670, 40, 706, -1));
-
-        jButton2.setBackground(new java.awt.Color(0, 0, 0));
-        jButton2.setFont(new java.awt.Font("Tahoma", 1, 24)); // NOI18N
-        jButton2.setForeground(new java.awt.Color(255, 255, 255));
-        jButton2.setText("HOME");
-        jButton2.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton2ActionPerformed(evt);
-            }
-        });
-        add(jButton2, new org.netbeans.lib.awtextra.AbsoluteConstraints(1730, 50, -1, -1));
+        add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(340, 40, 706, -1));
 
         jTableRequests.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
@@ -142,7 +127,7 @@ public class CustomerSupportMemberWorkAreaJPanel extends javax.swing.JPanel {
         });
         jScrollPane1.setViewportView(jTableRequests);
 
-        add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(900, 870, 870, 100));
+        add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(570, 870, 870, 100));
 
         jButtonCreate.setBackground(new java.awt.Color(0, 0, 0));
         jButtonCreate.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
@@ -153,8 +138,8 @@ public class CustomerSupportMemberWorkAreaJPanel extends javax.swing.JPanel {
                 jButtonCreateActionPerformed(evt);
             }
         });
-        add(jButtonCreate, new org.netbeans.lib.awtextra.AbsoluteConstraints(1730, 430, 90, 40));
-        add(jTextFieldCustPhone, new org.netbeans.lib.awtextra.AbsoluteConstraints(1220, 460, 421, -1));
+        add(jButtonCreate, new org.netbeans.lib.awtextra.AbsoluteConstraints(1400, 430, 90, 40));
+        add(jTextFieldCustPhone, new org.netbeans.lib.awtextra.AbsoluteConstraints(890, 460, 421, -1));
 
         jButtonUpdate.setBackground(new java.awt.Color(0, 0, 0));
         jButtonUpdate.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
@@ -165,31 +150,31 @@ public class CustomerSupportMemberWorkAreaJPanel extends javax.swing.JPanel {
                 jButtonUpdateActionPerformed(evt);
             }
         });
-        add(jButtonUpdate, new org.netbeans.lib.awtextra.AbsoluteConstraints(1730, 510, 90, 40));
+        add(jButtonUpdate, new org.netbeans.lib.awtextra.AbsoluteConstraints(1400, 510, 90, 40));
 
         jLabelPassword.setFont(new java.awt.Font("Dubai Medium", 1, 16)); // NOI18N
         jLabelPassword.setHorizontalAlignment(javax.swing.SwingConstants.TRAILING);
         jLabelPassword.setText("Notes");
-        add(jLabelPassword, new org.netbeans.lib.awtextra.AbsoluteConstraints(1070, 770, 88, -1));
+        add(jLabelPassword, new org.netbeans.lib.awtextra.AbsoluteConstraints(740, 770, 88, -1));
 
         jTextFieldNotes.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jTextFieldNotesActionPerformed(evt);
             }
         });
-        add(jTextFieldNotes, new org.netbeans.lib.awtextra.AbsoluteConstraints(1220, 740, 403, 65));
+        add(jTextFieldNotes, new org.netbeans.lib.awtextra.AbsoluteConstraints(890, 740, 403, 65));
 
         jTextFieldCustName.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jTextFieldCustNameActionPerformed(evt);
             }
         });
-        add(jTextFieldCustName, new org.netbeans.lib.awtextra.AbsoluteConstraints(1220, 410, 421, -1));
+        add(jTextFieldCustName, new org.netbeans.lib.awtextra.AbsoluteConstraints(890, 410, 421, -1));
 
         jLabelEmpID.setFont(new java.awt.Font("Dubai Medium", 1, 16)); // NOI18N
         jLabelEmpID.setHorizontalAlignment(javax.swing.SwingConstants.TRAILING);
         jLabelEmpID.setText("Customer Name");
-        add(jLabelEmpID, new org.netbeans.lib.awtextra.AbsoluteConstraints(1010, 410, 150, -1));
+        add(jLabelEmpID, new org.netbeans.lib.awtextra.AbsoluteConstraints(680, 410, 150, -1));
 
         jButtonDelete.setBackground(new java.awt.Color(0, 0, 0));
         jButtonDelete.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
@@ -200,12 +185,12 @@ public class CustomerSupportMemberWorkAreaJPanel extends javax.swing.JPanel {
                 jButtonDeleteActionPerformed(evt);
             }
         });
-        add(jButtonDelete, new org.netbeans.lib.awtextra.AbsoluteConstraints(1730, 590, 90, 40));
+        add(jButtonDelete, new org.netbeans.lib.awtextra.AbsoluteConstraints(1400, 590, 90, 40));
 
         jLabelEmpName.setFont(new java.awt.Font("Dubai Medium", 1, 16)); // NOI18N
         jLabelEmpName.setHorizontalAlignment(javax.swing.SwingConstants.TRAILING);
         jLabelEmpName.setText("Customer Phone");
-        add(jLabelEmpName, new org.netbeans.lib.awtextra.AbsoluteConstraints(1010, 460, 150, -1));
+        add(jLabelEmpName, new org.netbeans.lib.awtextra.AbsoluteConstraints(680, 460, 150, -1));
 
         jRadioButtonMedTest.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
         jRadioButtonMedTest.setText("Medical Test");
@@ -214,7 +199,7 @@ public class CustomerSupportMemberWorkAreaJPanel extends javax.swing.JPanel {
                 jRadioButtonMedTestActionPerformed(evt);
             }
         });
-        add(jRadioButtonMedTest, new org.netbeans.lib.awtextra.AbsoluteConstraints(1220, 610, -1, -1));
+        add(jRadioButtonMedTest, new org.netbeans.lib.awtextra.AbsoluteConstraints(890, 610, -1, -1));
 
         jRadioButtonConsultation.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
         jRadioButtonConsultation.setText("Consulation");
@@ -223,7 +208,7 @@ public class CustomerSupportMemberWorkAreaJPanel extends javax.swing.JPanel {
                 jRadioButtonConsultationActionPerformed(evt);
             }
         });
-        add(jRadioButtonConsultation, new org.netbeans.lib.awtextra.AbsoluteConstraints(1370, 610, -1, -1));
+        add(jRadioButtonConsultation, new org.netbeans.lib.awtextra.AbsoluteConstraints(1040, 610, -1, -1));
 
         jRadioButtonMedEquipment.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
         jRadioButtonMedEquipment.setText("Medical equipment");
@@ -232,23 +217,23 @@ public class CustomerSupportMemberWorkAreaJPanel extends javax.swing.JPanel {
                 jRadioButtonMedEquipmentActionPerformed(evt);
             }
         });
-        add(jRadioButtonMedEquipment, new org.netbeans.lib.awtextra.AbsoluteConstraints(1510, 610, -1, -1));
+        add(jRadioButtonMedEquipment, new org.netbeans.lib.awtextra.AbsoluteConstraints(1180, 610, -1, -1));
 
         jLabelEmpName1.setFont(new java.awt.Font("Dubai Medium", 1, 16)); // NOI18N
         jLabelEmpName1.setHorizontalAlignment(javax.swing.SwingConstants.TRAILING);
         jLabelEmpName1.setText("Request Category");
-        add(jLabelEmpName1, new org.netbeans.lib.awtextra.AbsoluteConstraints(1010, 610, 150, -1));
+        add(jLabelEmpName1, new org.netbeans.lib.awtextra.AbsoluteConstraints(680, 610, 150, -1));
 
         jLabelEmpName2.setFont(new java.awt.Font("Dubai Medium", 1, 16)); // NOI18N
         jLabelEmpName2.setHorizontalAlignment(javax.swing.SwingConstants.TRAILING);
         jLabelEmpName2.setText("Customer Email");
-        add(jLabelEmpName2, new org.netbeans.lib.awtextra.AbsoluteConstraints(1010, 510, 150, -1));
-        add(jTextFieldCustEmail, new org.netbeans.lib.awtextra.AbsoluteConstraints(1220, 510, 421, -1));
+        add(jLabelEmpName2, new org.netbeans.lib.awtextra.AbsoluteConstraints(680, 510, 150, -1));
+        add(jTextFieldCustEmail, new org.netbeans.lib.awtextra.AbsoluteConstraints(890, 510, 421, -1));
 
         jLabelEmpName3.setFont(new java.awt.Font("Dubai Medium", 1, 16)); // NOI18N
         jLabelEmpName3.setHorizontalAlignment(javax.swing.SwingConstants.TRAILING);
         jLabelEmpName3.setText("Customer Pincode");
-        add(jLabelEmpName3, new org.netbeans.lib.awtextra.AbsoluteConstraints(1010, 560, 150, -1));
+        add(jLabelEmpName3, new org.netbeans.lib.awtextra.AbsoluteConstraints(680, 560, 150, -1));
 
         jTextFieldCustPincode.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -260,56 +245,17 @@ public class CustomerSupportMemberWorkAreaJPanel extends javax.swing.JPanel {
                 jTextFieldCustPincodeKeyPressed(evt);
             }
         });
-        add(jTextFieldCustPincode, new org.netbeans.lib.awtextra.AbsoluteConstraints(1220, 560, 421, -1));
-
-        jButtonSearchMedTest.setBackground(new java.awt.Color(0, 0, 0));
-        jButtonSearchMedTest.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
-        jButtonSearchMedTest.setForeground(new java.awt.Color(255, 255, 255));
-        jButtonSearchMedTest.setText("ADD MEDICAL TEST");
-        jButtonSearchMedTest.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButtonSearchMedTestActionPerformed(evt);
-            }
-        });
-        add(jButtonSearchMedTest, new org.netbeans.lib.awtextra.AbsoluteConstraints(820, 340, 240, 30));
-
-        jButtonSearchConsultation.setBackground(new java.awt.Color(0, 0, 0));
-        jButtonSearchConsultation.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
-        jButtonSearchConsultation.setForeground(new java.awt.Color(255, 255, 255));
-        jButtonSearchConsultation.setText("SEARCH CONSULTATION");
-        jButtonSearchConsultation.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButtonSearchConsultationActionPerformed(evt);
-            }
-        });
-        add(jButtonSearchConsultation, new org.netbeans.lib.awtextra.AbsoluteConstraints(1150, 340, 260, 30));
-
-        jButtonSearchMedEquip.setBackground(new java.awt.Color(0, 0, 0));
-        jButtonSearchMedEquip.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
-        jButtonSearchMedEquip.setForeground(new java.awt.Color(255, 255, 255));
-        jButtonSearchMedEquip.setText("SEARCH MED EQUIP");
-        jButtonSearchMedEquip.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButtonSearchMedEquipActionPerformed(evt);
-            }
-        });
-        add(jButtonSearchMedEquip, new org.netbeans.lib.awtextra.AbsoluteConstraints(1480, 340, 240, 30));
+        add(jTextFieldCustPincode, new org.netbeans.lib.awtextra.AbsoluteConstraints(890, 560, 421, -1));
 
         jLabelEmpName5.setFont(new java.awt.Font("Dubai Medium", 1, 16)); // NOI18N
         jLabelEmpName5.setHorizontalAlignment(javax.swing.SwingConstants.TRAILING);
         jLabelEmpName5.setText("Date ");
-        add(jLabelEmpName5, new org.netbeans.lib.awtextra.AbsoluteConstraints(1010, 670, 150, -1));
-        add(jDateChooserTestDate, new org.netbeans.lib.awtextra.AbsoluteConstraints(1230, 670, 170, 30));
+        add(jLabelEmpName5, new org.netbeans.lib.awtextra.AbsoluteConstraints(680, 670, 150, -1));
+        add(jDateChooserTestDate, new org.netbeans.lib.awtextra.AbsoluteConstraints(900, 670, 170, 30));
 
         bgdimg.setIcon(new javax.swing.ImageIcon(getClass().getResource("/userInterface/Images/CustomerSupportMemberWorkAreaJPanel.png"))); // NOI18N
         add(bgdimg, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 1920, 1180));
     }// </editor-fold>//GEN-END:initComponents
-
-    private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
-        // TODO add your handling code here:
-        CardLayout crdLyt = (CardLayout) userProcessContainer.getLayout();
-            crdLyt.show(userProcessContainer,"Sysadmin");
-    }//GEN-LAST:event_jButton2ActionPerformed
 
     private void jTextFieldNotesActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextFieldNotesActionPerformed
         // TODO add your handling code here:
@@ -434,23 +380,6 @@ public class CustomerSupportMemberWorkAreaJPanel extends javax.swing.JPanel {
         
     }//GEN-LAST:event_jTableRequestsMouseClicked
 
-    private void jButtonSearchMedTestActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonSearchMedTestActionPerformed
-        // TODO add your handling code here:
-        System.out.println("jTextFieldCustPincode.getText(): "+jTextFieldCustPincode.getText());
-        CustomerSupportMemberSearchMedicalTests customerSupportMemberSearchMedicalTests = new CustomerSupportMemberSearchMedicalTests(userProcessContainer, medicalServiceCentralisationEcoSystem, jTextFieldCustPincode.getText());
-        userProcessContainer.add("CustomerSupportMemberSearchMedicalTests",customerSupportMemberSearchMedicalTests);
-        CardLayout cardLayout = (CardLayout) userProcessContainer.getLayout();
-        cardLayout.show(userProcessContainer,"CustomerSupportMemberSearchMedicalTests");
-    }//GEN-LAST:event_jButtonSearchMedTestActionPerformed
-
-    private void jButtonSearchConsultationActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonSearchConsultationActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jButtonSearchConsultationActionPerformed
-
-    private void jButtonSearchMedEquipActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonSearchMedEquipActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jButtonSearchMedEquipActionPerformed
-
     private void jRadioButtonMedTestActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jRadioButtonMedTestActionPerformed
         // TODO add your handling code here:
         if(jRadioButtonMedTest.isSelected()){
@@ -552,12 +481,8 @@ public class CustomerSupportMemberWorkAreaJPanel extends javax.swing.JPanel {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JLabel bgdimg;
-    private javax.swing.JButton jButton2;
     private javax.swing.JButton jButtonCreate;
     private javax.swing.JButton jButtonDelete;
-    private javax.swing.JButton jButtonSearchConsultation;
-    private javax.swing.JButton jButtonSearchMedEquip;
-    private javax.swing.JButton jButtonSearchMedTest;
     private javax.swing.JButton jButtonUpdate;
     private com.toedter.calendar.JDateChooser jDateChooserTestDate;
     private javax.swing.JLabel jLabel1;

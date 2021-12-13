@@ -75,7 +75,6 @@ public class MedSuppEquipPatient extends javax.swing.JPanel {
     private void initComponents() {
 
         jLabelTitle = new javax.swing.JLabel();
-        jButtonHome = new javax.swing.JButton();
         jLabelTitle1 = new javax.swing.JLabel();
         jScrollPane1 = new javax.swing.JScrollPane();
         jTableNewTests = new javax.swing.JTable();
@@ -111,17 +110,6 @@ public class MedSuppEquipPatient extends javax.swing.JPanel {
         jLabelTitle.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabelTitle.setText("Equipment Order Request");
         add(jLabelTitle, new org.netbeans.lib.awtextra.AbsoluteConstraints(136, 43, 706, -1));
-
-        jButtonHome.setBackground(new java.awt.Color(0, 70, 169));
-        jButtonHome.setFont(new java.awt.Font("Tahoma", 0, 24)); // NOI18N
-        jButtonHome.setForeground(new java.awt.Color(255, 255, 255));
-        jButtonHome.setText("HOME");
-        jButtonHome.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButtonHomeActionPerformed(evt);
-            }
-        });
-        add(jButtonHome, new org.netbeans.lib.awtextra.AbsoluteConstraints(846, 62, -1, -1));
 
         jLabelTitle1.setFont(new java.awt.Font("Tahoma", 1, 48)); // NOI18N
         jLabelTitle1.setForeground(new java.awt.Color(255, 255, 255));
@@ -303,12 +291,6 @@ public class MedSuppEquipPatient extends javax.swing.JPanel {
         add(jTextFieldMode, new org.netbeans.lib.awtextra.AbsoluteConstraints(300, 430, 270, -1));
     }// </editor-fold>//GEN-END:initComponents
 
-    private void jButtonHomeActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonHomeActionPerformed
-        // TODO add your handling code here:
-//        CardLayout crdLyt = (CardLayout) userProcessContainer.getLayout();
-//            crdLyt.show(userProcessContainer,"Sysadmin");
-    }//GEN-LAST:event_jButtonHomeActionPerformed
-
     private void jButtonViewActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonViewActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_jButtonViewActionPerformed
@@ -456,7 +438,6 @@ public class MedSuppEquipPatient extends javax.swing.JPanel {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton jButtonCreate;
     private javax.swing.JButton jButtonDelete;
-    private javax.swing.JButton jButtonHome;
     private javax.swing.JButton jButtonUpdate;
     private javax.swing.JButton jButtonView;
     private javax.swing.JComboBox<String> jComboBoxEquipment;
