@@ -426,6 +426,7 @@ public class CustomerSupportMemberWorkAreaJPanel extends javax.swing.JPanel {
         request.setRequest_date(user_input.get(4));
         request.setRequest_category(user_input.get(5));
         request.setRequest_description(user_input.get(6));
+        request.setMode(user_input.get(7));
         request.setModified_time(current_timeStamp);
         request.setRequest_status("new");
         requestList.addRequest(request);
@@ -628,7 +629,7 @@ public class CustomerSupportMemberWorkAreaJPanel extends javax.swing.JPanel {
         user_input.add(user_request_date);
         user_input.add(request_category);
         user_input.add(user_cust_notes);
-        
+        user_input.add("HUMAN");
         return user_input;
         
     }

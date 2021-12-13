@@ -22,6 +22,7 @@ public class Patient {
     String patient_email;
 
     ArrayList<PatientTest> patientTestList = new ArrayList<>();
+    ArrayList<PatientOrder> patientOrderList = new ArrayList<>();
     
     public String getPatient_id() {
         return patient_id;
@@ -61,6 +62,14 @@ public class Patient {
 
     public void setPatientTestList(ArrayList<PatientTest> patientTestList) {
         this.patientTestList = patientTestList;
+    }
+
+    public ArrayList<PatientOrder> getPatientOrderList() {
+        return patientOrderList;
+    }
+
+    public void setPatientOrderList(ArrayList<PatientOrder> patientOrderList) {
+        this.patientOrderList = patientOrderList;
     }
     
     @Override

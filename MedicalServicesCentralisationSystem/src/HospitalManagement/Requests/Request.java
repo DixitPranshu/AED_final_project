@@ -26,6 +26,15 @@ public class Request {
     String request_status;
     String request_description;
     String modified_time;
+    String mode;
+
+    public String getMode() {
+        return mode;
+    }
+
+    public void setMode(String mode) {
+        this.mode = mode;
+    }
     
     public String getCase_id() {
         return case_id;

@@ -37,6 +37,7 @@ import javax.swing.JTextArea;
 import javax.swing.JTextField;
 import userInterface.CustomerSupport.CustomerSupportMemberWorkArea.CustomerSupportMemberWorkAreaJPanel;
 import userInterface.DeliveryAgency.DeliveryAgencyOrderDatabase;
+import userInterface.HospitalManagement.AdministrativeWorkArea.MedSuppEquipPatient;
 import userInterface.HospitalManagement.MedTechnicalWorkArea.MedTechnicalWorkAreaJPanel;
 import userInterface.HospitalManagement.MedicalSuppliesWorkArea.MedSupAdminWorkAreaJPanel;
 import userInterface.MedSupWarehouseAdminWorkArea.MedSupWarehouseAdminWorkAreaJPanel;
@@ -277,6 +278,14 @@ public class HospitalManagementMainJFrame extends javax.swing.JFrame {
                 CardLayout crdLyt = (CardLayout) jPanelWorkArea.getLayout();
                 crdLyt.next(jPanelWorkArea);
             }
+            else if(userAccountLogin.getRole().toString().equals("FrontDeskOperator"))
+            {
+                Hospital hospital = userAccountLogin.getHospital();
+                MedSuppEquipPatient medSuppEquipPatient = new MedSuppEquipPatient(jPanelWorkArea, medicalServiceCentralisationEcoSystem, hospital);
+                jPanelWorkArea.add("medSuppEquipPatient",medSuppEquipPatient);
+                CardLayout crdLyt = (CardLayout) jPanelWorkArea.getLayout();
+                crdLyt.next(jPanelWorkArea);
+            }
             
         }
         else{
@@ -337,6 +346,7 @@ public class HospitalManagementMainJFrame extends javax.swing.JFrame {
                 String gtext = chatbox.getText().toLowerCase();
                 chatarea.append("YOU -> "+gtext+"\n");
                 chatbox.setText("");
+                String req_cat  = "";
                 
                 if(gtext.contains("hi")){
                     bot("Hi please help me with your name, phone number, email and pincode",chatarea);
@@ -352,18 +362,38 @@ public class HospitalManagementMainJFrame extends javax.swing.JFrame {
                 }
                 else if(gtext.contains("book") && gtext.contains("test")){
                     bot("Okay. Please tell me the test date.",chatarea);
+                    req_cat = "MedicalTest";
+                }
+                else if(gtext.contains("equipment") || gtext.contains("order")){
+                    bot("Okay. Please tell me the test date.",chatarea);
+                    req_cat = "MedicalEquipment";
                 }
                 else if(gtext.contains("2021")){
 //                    SimpleDateFormat formatter = new SimpleDateFormat("MM.dd.yyyy", Locale.ENGLISH);
 //                    Date date = formatter.parse(gtext);
                     user_input.add(gtext);
-                    bot("Okay. What test do you want to do?",chatarea);
+                    if(req_cat.equals("MedicalTest")){
+                        bot("Okay. What test do you want to do?",chatarea);
+                    }
+                    else{
+                        bot("Okay. What equipment do you want to order?",chatarea);
+                    }
                 }
                 else if(gtext.contains("blood")){
 //                    SimpleDateFormat formatter = new SimpleDateFormat("MM.dd.yyyy", Locale.ENGLISH);
 //                    Date date = formatter.parse(gtext);
                     user_input.add("MedicalTest");
                     user_input.add(gtext);
+                    bot("A request has been raised. You'll receive an update shortly from the hospital.",chatarea);
+                    CustomerSupportMemberWorkAreaJPanel customerSupportMemberWorkAreaJPanel = new CustomerSupportMemberWorkAreaJPanel(jPanelWorkArea, medicalServiceCentralisationEcoSystem);
+                    customerSupportMemberWorkAreaJPanel.raise_request(user_input);
+                }  
+                else if(gtext.contains("bed") || gtext.contains("oxygen")){
+//                    SimpleDateFormat formatter = new SimpleDateFormat("MM.dd.yyyy", Locale.ENGLISH);
+//                    Date date = formatter.parse(gtext);
+                    user_input.add("MedicalEquipment");
+                    user_input.add(gtext);
+                    user_input.add("BOT");
                     bot("A request has been raised. You'll receive an update shortly from the hospital.",chatarea);
                     CustomerSupportMemberWorkAreaJPanel customerSupportMemberWorkAreaJPanel = new CustomerSupportMemberWorkAreaJPanel(jPanelWorkArea, medicalServiceCentralisationEcoSystem);
                     customerSupportMemberWorkAreaJPanel.raise_request(user_input);
