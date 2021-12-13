@@ -257,11 +257,8 @@ public class DeliveryAgencyOrderDatabase extends javax.swing.JPanel {
             ArrayList<Order> orderList = orderDirectory.getOrderList();
             
                 for(Order order: orderList)
-                    if(order!=null){
-                        if(order.getStatus().equals("new") && order.getDelivery_agency_id().equals(deliveryAgencyCurrent.getDeliveryAgencyId())){
+            if(order.getStatus().equals("new") && order.getDelivery_agency_id().equals(deliveryAgencyCurrent.getDeliveryAgencyId())){
                 model.addRow(new Object[]{order, order.getMedSupEquipItemsWithQuantity(), order.getOrder_amount(),order.getWarehouseId(),order.getStatus()});
-            
-                    }
             }
             }
             
