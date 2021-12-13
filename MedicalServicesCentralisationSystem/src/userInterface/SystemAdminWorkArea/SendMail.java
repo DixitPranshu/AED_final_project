@@ -30,7 +30,7 @@ public class SendMail {
         String to = to_email;
 
         // Sender's email ID needs to be mentioned
-        String from = "pranshu4dixit@gmail.com";
+        String from = "bostonmedicalcentralservices@gmail.com";
 
         // Assuming you are sending email from through gmails smtp
         String host = "smtp.gmail.com";
@@ -50,7 +50,7 @@ public class SendMail {
 
             protected PasswordAuthentication getPasswordAuthentication() {
 
-                return new PasswordAuthentication("pranshu4dixit@gmail.com", "Pr@nshu7022");
+                return new PasswordAuthentication("bostonmedicalcentralservices@gmail.com", "pranshurocks");
 
             }
 
@@ -111,7 +111,7 @@ public class SendMail {
         String to = to_email;
 
         // Sender's email ID needs to be mentioned
-        String from = "pranshu4dixit@gmail.com";
+        String from = "bostonmedicalcentralservices@gmail.com";
 
         // Assuming you are sending email from through gmails smtp
         String host = "smtp.gmail.com";
@@ -131,7 +131,7 @@ public class SendMail {
 
             protected PasswordAuthentication getPasswordAuthentication() {
 
-                return new PasswordAuthentication("pranshu4dixit@gmail.com", "Pr@nshu7022");
+                return new PasswordAuthentication("bostonmedicalcentralservices@gmail.com", "pranshurocks");
 
             }
 

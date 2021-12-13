@@ -78,7 +78,6 @@ public class CustomerSupportMemberWorkAreaJPanel extends javax.swing.JPanel {
         jButtonUpdate = new javax.swing.JButton();
         jLabelPassword = new javax.swing.JLabel();
         jTextFieldNotes = new javax.swing.JTextField();
-        jButtonView = new javax.swing.JButton();
         jTextFieldCustName = new javax.swing.JTextField();
         jLabelEmpID = new javax.swing.JLabel();
         jButtonDelete = new javax.swing.JButton();
@@ -162,8 +161,6 @@ public class CustomerSupportMemberWorkAreaJPanel extends javax.swing.JPanel {
                 jTextFieldNotesActionPerformed(evt);
             }
         });
-
-        jButtonView.setText("VIEW");
 
         jTextFieldCustName.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -315,9 +312,7 @@ public class CustomerSupportMemberWorkAreaJPanel extends javax.swing.JPanel {
                             .addComponent(jButtonCreate)
                             .addComponent(jButtonDelete))
                         .addGap(178, 178, 178)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jButtonView)
-                            .addComponent(jButtonUpdate)))
+                        .addComponent(jButtonUpdate))
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                         .addContainerGap(96, Short.MAX_VALUE)
                         .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 1007, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -353,9 +348,7 @@ public class CustomerSupportMemberWorkAreaJPanel extends javax.swing.JPanel {
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(layout.createSequentialGroup()
                                 .addGap(47, 47, 47)
-                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                                    .addComponent(jButtonDelete)
-                                    .addComponent(jButtonView)))
+                                .addComponent(jButtonDelete))
                             .addGroup(layout.createSequentialGroup()
                                 .addGap(12, 12, 12)
                                 .addComponent(jLabelEmpName2)
@@ -416,7 +409,6 @@ public class CustomerSupportMemberWorkAreaJPanel extends javax.swing.JPanel {
         int last_case_id_int = Integer.parseInt(last_case_id.replaceAll("[\\D]", ""));
         last_case_id_int++;
         
-
         request.setCase_id(last_case_id);
         request.setCustomer_name(user_input.get(0));
         request.setCustomer_phone(user_input.get(1));
@@ -432,7 +424,6 @@ public class CustomerSupportMemberWorkAreaJPanel extends javax.swing.JPanel {
         requestList.addRequest(request);
         String last_case_id_new = "REQUEST" + String.format("%03d", last_case_id_int);
         requestList.setLast_case_id(last_case_id_new);
-        
             
         JOptionPane.showMessageDialog(this, "New Request Information has been added.");
         model.addRow(new Object[]{request,request.getCustomer_name(),request.getCustomer_phone(),request.getCustomer_email(),request.getCustomer_pincode(),request.getRequest_date(),request.getRequest_category(),request.getRequest_description(),current_timeStamp});
@@ -644,7 +635,6 @@ public class CustomerSupportMemberWorkAreaJPanel extends javax.swing.JPanel {
     private javax.swing.JButton jButtonSearchMedEquip;
     private javax.swing.JButton jButtonSearchMedTest;
     private javax.swing.JButton jButtonUpdate;
-    private javax.swing.JButton jButtonView;
     private com.toedter.calendar.JDateChooser jDateChooserTestDate;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabelEmpID;

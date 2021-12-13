@@ -19,7 +19,17 @@ public class PatientOrder {
     
     String order_id;
     String order_item;
+    String item_count;
 
+    public String getItem_count() {
+        return item_count;
+    }
+
+    public void setItem_count(String item_count) {
+        this.item_count = item_count;
+    }
+    
+    
     public String getOrder_item() {
         return order_item;
     }
