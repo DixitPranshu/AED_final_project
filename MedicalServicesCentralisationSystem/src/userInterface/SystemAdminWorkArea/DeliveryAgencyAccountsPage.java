@@ -70,7 +70,6 @@ public class DeliveryAgencyAccountsPage extends javax.swing.JPanel {
         jButtonUpdate = new javax.swing.JButton();
         jLabelPassword = new javax.swing.JLabel();
         jTextFieldTeamPassword = new javax.swing.JTextField();
-        jButtonView = new javax.swing.JButton();
         jTextFieldTeamID = new javax.swing.JTextField();
         jLabelEmpID = new javax.swing.JLabel();
         jButtonDelete = new javax.swing.JButton();
@@ -142,8 +141,6 @@ public class DeliveryAgencyAccountsPage extends javax.swing.JPanel {
             }
         });
 
-        jButtonView.setText("VIEW");
-
         jTextFieldTeamID.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jTextFieldTeamIDActionPerformed(evt);
@@ -191,9 +188,7 @@ public class DeliveryAgencyAccountsPage extends javax.swing.JPanel {
                             .addComponent(jButtonCreate)
                             .addComponent(jButtonDelete))
                         .addGap(178, 178, 178)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jButtonView)
-                            .addComponent(jButtonUpdate)))
+                        .addComponent(jButtonUpdate))
                     .addGroup(layout.createSequentialGroup()
                         .addGap(138, 138, 138)
                         .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 787, javax.swing.GroupLayout.PREFERRED_SIZE)))
@@ -222,9 +217,7 @@ public class DeliveryAgencyAccountsPage extends javax.swing.JPanel {
                             .addComponent(jButtonCreate)
                             .addComponent(jButtonUpdate))))
                 .addGap(53, 53, 53)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jButtonDelete)
-                    .addComponent(jButtonView))
+                .addComponent(jButtonDelete)
                 .addGap(18, 18, 18)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabelPassword)
@@ -387,7 +380,6 @@ public class DeliveryAgencyAccountsPage extends javax.swing.JPanel {
     private javax.swing.JButton jButtonCreate;
     private javax.swing.JButton jButtonDelete;
     private javax.swing.JButton jButtonUpdate;
-    private javax.swing.JButton jButtonView;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabelEmpID;
     private javax.swing.JLabel jLabelEmpName;
