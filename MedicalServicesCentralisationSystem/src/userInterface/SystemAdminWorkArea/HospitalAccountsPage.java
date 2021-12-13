@@ -80,6 +80,7 @@ public class HospitalAccountsPage extends javax.swing.JPanel {
         bgdimg = new javax.swing.JLabel();
 
         setBackground(new java.awt.Color(0, 70, 169));
+        setPreferredSize(new java.awt.Dimension(1920, 1183));
         setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         jLabel1.setFont(new java.awt.Font("Times New Roman", 1, 48)); // NOI18N
@@ -97,7 +98,7 @@ public class HospitalAccountsPage extends javax.swing.JPanel {
                 jButton2ActionPerformed(evt);
             }
         });
-        add(jButton2, new org.netbeans.lib.awtextra.AbsoluteConstraints(1010, 40, -1, -1));
+        add(jButton2, new org.netbeans.lib.awtextra.AbsoluteConstraints(930, 40, -1, -1));
 
         jTableEmployee.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
@@ -192,9 +193,9 @@ public class HospitalAccountsPage extends javax.swing.JPanel {
         add(jLabelEmpName1, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 310, 120, -1));
         add(jTextFieldHospPincode, new org.netbeans.lib.awtextra.AbsoluteConstraints(240, 310, 280, -1));
 
-        bgdimg.setIcon(new javax.swing.ImageIcon(getClass().getResource("/userInterface/Images/HospitalAccountsPage.jpg"))); // NOI18N
+        bgdimg.setIcon(new javax.swing.ImageIcon(getClass().getResource("/userInterface/Images/HospitalAccounts_latest.jpg"))); // NOI18N
         bgdimg.setToolTipText("");
-        add(bgdimg, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 1190, 1090));
+        add(bgdimg, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, -20, 1920, 1220));
     }// </editor-fold>//GEN-END:initComponents
 
     private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
