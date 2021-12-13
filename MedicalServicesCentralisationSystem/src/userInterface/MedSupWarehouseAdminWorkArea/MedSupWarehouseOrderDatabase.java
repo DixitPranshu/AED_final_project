@@ -193,7 +193,7 @@ public class MedSupWarehouseOrderDatabase extends javax.swing.JPanel {
     private void jButtonHomeActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonHomeActionPerformed
         // TODO add your handling code here:
         CardLayout crdLyt = (CardLayout) userProcessContainer.getLayout();
-            crdLyt.show(userProcessContainer,"medSupWarehouseAdminWorkAreaJPanel");
+            crdLyt.show(userProcessContainer,"Sysadmin");
     }//GEN-LAST:event_jButtonHomeActionPerformed
 
     private void jTextFieldMedSupEquipNameActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextFieldMedSupEquipNameActionPerformed
