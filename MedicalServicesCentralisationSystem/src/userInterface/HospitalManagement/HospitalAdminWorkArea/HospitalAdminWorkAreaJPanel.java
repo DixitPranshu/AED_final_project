@@ -57,7 +57,6 @@ public class HospitalAdminWorkAreaJPanel extends javax.swing.JPanel {
         jButtonMedTechnicalAccountsPage = new javax.swing.JButton();
         jButtonAdministrativeAccountsPage = new javax.swing.JButton();
         jButtonOperationalAccountsPage = new javax.swing.JButton();
-        btnManageAdmin2 = new javax.swing.JButton();
         jButtonMedTechnicalAccountsPage1 = new javax.swing.JButton();
         bgdimg = new javax.swing.JLabel();
         jPanel1 = new javax.swing.JPanel();
@@ -79,7 +78,7 @@ public class HospitalAdminWorkAreaJPanel extends javax.swing.JPanel {
                 jButtonMedTechnicalAccountsPageActionPerformed(evt);
             }
         });
-        jPanel2.add(jButtonMedTechnicalAccountsPage, new org.netbeans.lib.awtextra.AbsoluteConstraints(210, 820, 220, 30));
+        jPanel2.add(jButtonMedTechnicalAccountsPage, new org.netbeans.lib.awtextra.AbsoluteConstraints(210, 840, 220, 30));
 
         jButtonAdministrativeAccountsPage.setBackground(new java.awt.Color(228, 238, 247));
         jButtonAdministrativeAccountsPage.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
@@ -99,17 +98,7 @@ public class HospitalAdminWorkAreaJPanel extends javax.swing.JPanel {
                 jButtonOperationalAccountsPageActionPerformed(evt);
             }
         });
-        jPanel2.add(jButtonOperationalAccountsPage, new org.netbeans.lib.awtextra.AbsoluteConstraints(210, 770, 220, 30));
-
-        btnManageAdmin2.setBackground(new java.awt.Color(228, 238, 247));
-        btnManageAdmin2.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
-        btnManageAdmin2.setText("Search Employee");
-        btnManageAdmin2.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnManageAdmin2ActionPerformed(evt);
-            }
-        });
-        jPanel2.add(btnManageAdmin2, new org.netbeans.lib.awtextra.AbsoluteConstraints(211, 919, 220, 30));
+        jPanel2.add(jButtonOperationalAccountsPage, new org.netbeans.lib.awtextra.AbsoluteConstraints(210, 780, 220, 30));
 
         jButtonMedTechnicalAccountsPage1.setBackground(new java.awt.Color(228, 238, 247));
         jButtonMedTechnicalAccountsPage1.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
@@ -119,7 +108,7 @@ public class HospitalAdminWorkAreaJPanel extends javax.swing.JPanel {
                 jButtonMedTechnicalAccountsPage1ActionPerformed(evt);
             }
         });
-        jPanel2.add(jButtonMedTechnicalAccountsPage1, new org.netbeans.lib.awtextra.AbsoluteConstraints(210, 870, 220, 30));
+        jPanel2.add(jButtonMedTechnicalAccountsPage1, new org.netbeans.lib.awtextra.AbsoluteConstraints(210, 900, 220, 30));
 
         bgdimg.setIcon(new javax.swing.ImageIcon(getClass().getResource("/userInterface/Images/HospitalAdminWorkArea.jpg"))); // NOI18N
         jPanel2.add(bgdimg, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 1740, 1080));
@@ -156,13 +145,6 @@ public class HospitalAdminWorkAreaJPanel extends javax.swing.JPanel {
         cardLayout.show(userProcessContainer,"OperationalAccountsPage");
     }//GEN-LAST:event_jButtonOperationalAccountsPageActionPerformed
 
-    private void btnManageAdmin2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnManageAdmin2ActionPerformed
-        //       ManageDeliveryManWorkArena manageDeliveryManWorkArena = new ManageDeliveryManWorkArena(userProcessContainer,hospitalManagementEcoSystem);
-        //        userProcessContainer.add("manageDeliveryManWorkArena",manageDeliveryManWorkArena);
-        //        CardLayout cardLayout = (CardLayout) userProcessContainer.getLayout();
-        //        cardLayout.show(userProcessContainer,"manageDeliveryManWorkArena");
-    }//GEN-LAST:event_btnManageAdmin2ActionPerformed
-
     private void jButtonMedTechnicalAccountsPage1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonMedTechnicalAccountsPage1ActionPerformed
         // TODO add your handling code here:
         MedSupAdminAccountsPage medSupAdminAccountsPage = new MedSupAdminAccountsPage(userProcessContainer,hospitalManagementEcoSystem, hospital);
@@ -175,7 +157,6 @@ public class HospitalAdminWorkAreaJPanel extends javax.swing.JPanel {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JLabel bgdimg;
-    private javax.swing.JButton btnManageAdmin2;
     private javax.swing.JButton jButtonAdministrativeAccountsPage;
     private javax.swing.JButton jButtonMedTechnicalAccountsPage;
     private javax.swing.JButton jButtonMedTechnicalAccountsPage1;

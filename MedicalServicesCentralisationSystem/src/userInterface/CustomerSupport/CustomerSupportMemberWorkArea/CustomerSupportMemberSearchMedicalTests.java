@@ -89,16 +89,18 @@ public class CustomerSupportMemberSearchMedicalTests extends javax.swing.JPanel 
         jButtonSearch3 = new javax.swing.JButton();
         jLabelEmpName7 = new javax.swing.JLabel();
         jLabelEmpName8 = new javax.swing.JLabel();
+        bgdimg = new javax.swing.JLabel();
 
         setBackground(new java.awt.Color(0, 70, 169));
+        setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        jLabel1.setFont(new java.awt.Font("Tahoma", 1, 48)); // NOI18N
-        jLabel1.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel1.setFont(new java.awt.Font("Times New Roman", 1, 56)); // NOI18N
         jLabel1.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel1.setText("Lab Test Directory");
+        add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(530, 30, 750, 110));
 
-        jButton2.setBackground(new java.awt.Color(0, 70, 169));
-        jButton2.setFont(new java.awt.Font("Tahoma", 0, 24)); // NOI18N
+        jButton2.setBackground(new java.awt.Color(0, 0, 0));
+        jButton2.setFont(new java.awt.Font("Tahoma", 1, 24)); // NOI18N
         jButton2.setForeground(new java.awt.Color(255, 255, 255));
         jButton2.setText("HOME");
         jButton2.addActionListener(new java.awt.event.ActionListener() {
@@ -106,6 +108,7 @@ public class CustomerSupportMemberSearchMedicalTests extends javax.swing.JPanel 
                 jButton2ActionPerformed(evt);
             }
         });
+        add(jButton2, new org.netbeans.lib.awtextra.AbsoluteConstraints(1720, 50, 120, 60));
 
         jTableRequests.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
@@ -137,24 +140,35 @@ public class CustomerSupportMemberSearchMedicalTests extends javax.swing.JPanel 
         });
         jScrollPane1.setViewportView(jTableRequests);
 
+        add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(720, 750, 331, 122));
+
+        jButtonSearch.setBackground(new java.awt.Color(0, 0, 0));
+        jButtonSearch.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
+        jButtonSearch.setForeground(new java.awt.Color(255, 255, 255));
         jButtonSearch.setText("SEARCH");
         jButtonSearch.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jButtonSearchActionPerformed(evt);
             }
         });
+        add(jButtonSearch, new org.netbeans.lib.awtextra.AbsoluteConstraints(1300, 490, 110, 60));
 
         jTextFieldTestName.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jTextFieldTestNameActionPerformed(evt);
             }
         });
+        add(jTextFieldTestName, new org.netbeans.lib.awtextra.AbsoluteConstraints(1070, 350, 421, -1));
 
-        jLabelEmpID.setForeground(new java.awt.Color(255, 255, 255));
-        jLabelEmpID.setText("Test Name");
+        jLabelEmpID.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
+        jLabelEmpID.setHorizontalAlignment(javax.swing.SwingConstants.TRAILING);
+        jLabelEmpID.setText("Test Name :");
+        add(jLabelEmpID, new org.netbeans.lib.awtextra.AbsoluteConstraints(890, 350, 120, -1));
 
-        jLabelEmpID1.setForeground(new java.awt.Color(255, 255, 255));
-        jLabelEmpID1.setText("Pincode");
+        jLabelEmpID1.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
+        jLabelEmpID1.setHorizontalAlignment(javax.swing.SwingConstants.TRAILING);
+        jLabelEmpID1.setText("Pincode :");
+        add(jLabelEmpID1, new org.netbeans.lib.awtextra.AbsoluteConstraints(900, 420, 110, -1));
 
         jTextFieldPincode.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -166,25 +180,36 @@ public class CustomerSupportMemberSearchMedicalTests extends javax.swing.JPanel 
                 jTextFieldPincodeKeyPressed(evt);
             }
         });
+        add(jTextFieldPincode, new org.netbeans.lib.awtextra.AbsoluteConstraints(1070, 420, 421, -1));
 
+        jButtonRefresh.setBackground(new java.awt.Color(0, 0, 0));
+        jButtonRefresh.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
+        jButtonRefresh.setForeground(new java.awt.Color(255, 255, 255));
         jButtonRefresh.setText("REFRESH");
         jButtonRefresh.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jButtonRefreshActionPerformed(evt);
             }
         });
+        add(jButtonRefresh, new org.netbeans.lib.awtextra.AbsoluteConstraints(1450, 490, 110, 60));
 
         jComboBoxHospitalList.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
+        add(jComboBoxHospitalList, new org.netbeans.lib.awtextra.AbsoluteConstraints(1070, 480, -1, -1));
 
-        jLabelEmpName6.setForeground(new java.awt.Color(255, 255, 255));
-        jLabelEmpName6.setText("Hospital");
+        jLabelEmpName6.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
+        jLabelEmpName6.setHorizontalAlignment(javax.swing.SwingConstants.TRAILING);
+        jLabelEmpName6.setText("Hospital :");
+        add(jLabelEmpName6, new org.netbeans.lib.awtextra.AbsoluteConstraints(910, 480, 100, -1));
 
+        jButtonSearch1.setBackground(new java.awt.Color(0, 0, 0));
+        jButtonSearch1.setForeground(new java.awt.Color(255, 255, 255));
         jButtonSearch1.setText("ADD TO CART");
         jButtonSearch1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jButtonSearch1ActionPerformed(evt);
             }
         });
+        add(jButtonSearch1, new org.netbeans.lib.awtextra.AbsoluteConstraints(810, 910, 130, 50));
 
         jTableRequests2.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
@@ -216,122 +241,40 @@ public class CustomerSupportMemberSearchMedicalTests extends javax.swing.JPanel 
         });
         jScrollPane3.setViewportView(jTableRequests2);
 
+        add(jScrollPane3, new org.netbeans.lib.awtextra.AbsoluteConstraints(1180, 750, 291, 158));
+
+        jButtonSearch2.setBackground(new java.awt.Color(0, 0, 0));
+        jButtonSearch2.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
+        jButtonSearch2.setForeground(new java.awt.Color(255, 255, 255));
         jButtonSearch2.setText("DELETE");
         jButtonSearch2.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jButtonSearch2ActionPerformed(evt);
             }
         });
+        add(jButtonSearch2, new org.netbeans.lib.awtextra.AbsoluteConstraints(1560, 730, 120, 40));
 
+        jButtonSearch3.setBackground(new java.awt.Color(0, 0, 0));
+        jButtonSearch3.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
+        jButtonSearch3.setForeground(new java.awt.Color(255, 255, 255));
         jButtonSearch3.setText("SUBMIT");
         jButtonSearch3.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jButtonSearch3ActionPerformed(evt);
             }
         });
+        add(jButtonSearch3, new org.netbeans.lib.awtextra.AbsoluteConstraints(1560, 890, 120, 40));
 
-        jLabelEmpName7.setForeground(new java.awt.Color(255, 255, 255));
+        jLabelEmpName7.setFont(new java.awt.Font("Dubai Medium", 1, 24)); // NOI18N
         jLabelEmpName7.setText("CART");
+        add(jLabelEmpName7, new org.netbeans.lib.awtextra.AbsoluteConstraints(1180, 700, -1, -1));
 
-        jLabelEmpName8.setForeground(new java.awt.Color(255, 255, 255));
+        jLabelEmpName8.setFont(new java.awt.Font("Dubai Medium", 1, 24)); // NOI18N
         jLabelEmpName8.setText("TEST SEARCH RESULTS");
+        add(jLabelEmpName8, new org.netbeans.lib.awtextra.AbsoluteConstraints(720, 700, -1, -1));
 
-        javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
-        this.setLayout(layout);
-        layout.setHorizontalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addGap(136, 136, 136)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addGroup(layout.createSequentialGroup()
-                        .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 706, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(jButton2))
-                    .addGroup(layout.createSequentialGroup()
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                                        .addGap(0, 0, Short.MAX_VALUE)
-                                        .addComponent(jLabelEmpID, javax.swing.GroupLayout.PREFERRED_SIZE, 104, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                        .addComponent(jTextFieldTestName, javax.swing.GroupLayout.PREFERRED_SIZE, 421, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 187, Short.MAX_VALUE)
-                                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                            .addComponent(jLabelEmpID1, javax.swing.GroupLayout.PREFERRED_SIZE, 104, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                            .addComponent(jLabelEmpName6))
-                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                            .addComponent(jComboBoxHospitalList, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                            .addComponent(jTextFieldPincode, javax.swing.GroupLayout.PREFERRED_SIZE, 421, javax.swing.GroupLayout.PREFERRED_SIZE))))
-                                .addGap(186, 186, 186))
-                            .addGroup(layout.createSequentialGroup()
-                                .addGap(105, 105, 105)
-                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(jLabelEmpName8)
-                                    .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 331, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addComponent(jButtonSearch1))
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 133, Short.MAX_VALUE)
-                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(jScrollPane3, javax.swing.GroupLayout.PREFERRED_SIZE, 291, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addComponent(jLabelEmpName7))
-                                .addGap(48, 48, 48)))
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(layout.createSequentialGroup()
-                                .addComponent(jButtonSearch)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 35, Short.MAX_VALUE)
-                                .addComponent(jButtonRefresh))
-                            .addGroup(layout.createSequentialGroup()
-                                .addGap(52, 52, 52)
-                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(jButtonSearch3)
-                                    .addComponent(jButtonSearch2))
-                                .addGap(0, 0, Short.MAX_VALUE)))))
-                .addContainerGap(124, Short.MAX_VALUE))
-        );
-        layout.setVerticalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addGap(43, 43, 43)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel1)
-                    .addComponent(jButton2))
-                .addGap(40, 40, 40)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addComponent(jTextFieldTestName, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jLabelEmpID))
-                .addGap(33, 33, 33)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jTextFieldPincode, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jLabelEmpID1)
-                    .addComponent(jButtonSearch)
-                    .addComponent(jButtonRefresh))
-                .addGap(18, 18, 18)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabelEmpName6)
-                    .addComponent(jComboBoxHospitalList, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(12, 12, 12)
-                        .addComponent(jLabelEmpName7))
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(18, 18, 18)
-                        .addComponent(jLabelEmpName8)))
-                .addGap(18, 18, 18)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(15, 15, 15)
-                        .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 122, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addComponent(jScrollPane3, javax.swing.GroupLayout.PREFERRED_SIZE, 158, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addGroup(layout.createSequentialGroup()
-                        .addComponent(jButtonSearch2)
-                        .addGap(18, 18, 18)
-                        .addComponent(jButtonSearch3)))
-                .addGap(19, 19, 19)
-                .addComponent(jButtonSearch1)
-                .addContainerGap(585, Short.MAX_VALUE))
-        );
+        bgdimg.setIcon(new javax.swing.ImageIcon(getClass().getResource("/userInterface/Images/CustomerSupportMemberSearchMedicalTests.png"))); // NOI18N
+        add(bgdimg, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 1920, 1180));
     }// </editor-fold>//GEN-END:initComponents
 
     private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
@@ -437,6 +380,7 @@ public class CustomerSupportMemberSearchMedicalTests extends javax.swing.JPanel 
     
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JLabel bgdimg;
     private javax.swing.JButton jButton2;
     private javax.swing.JButton jButtonRefresh;
     private javax.swing.JButton jButtonSearch;
