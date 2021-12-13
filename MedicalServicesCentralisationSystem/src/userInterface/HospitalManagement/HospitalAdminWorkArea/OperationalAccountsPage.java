@@ -126,7 +126,11 @@ public class OperationalAccountsPage extends javax.swing.JPanel {
         });
         jScrollPane1.setViewportView(jTableEmployee);
 
+<<<<<<< HEAD
         add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 690, 570, 90));
+=======
+        add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(580, 390, 570, 90));
+>>>>>>> b10ebf3e17590649219c5c85b28d7c2f509bce7d
 
         jButtonCreate.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
         jButtonCreate.setText("CREATE");
@@ -135,8 +139,13 @@ public class OperationalAccountsPage extends javax.swing.JPanel {
                 jButtonCreateActionPerformed(evt);
             }
         });
+<<<<<<< HEAD
         add(jButtonCreate, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 520, 110, 40));
         add(jTextFieldEmpName, new org.netbeans.lib.awtextra.AbsoluteConstraints(270, 280, 270, -1));
+=======
+        add(jButtonCreate, new org.netbeans.lib.awtextra.AbsoluteConstraints(610, 570, -1, -1));
+        add(jTextFieldEmpName, new org.netbeans.lib.awtextra.AbsoluteConstraints(250, 480, 270, -1));
+>>>>>>> b10ebf3e17590649219c5c85b28d7c2f509bce7d
 
         jButtonUpdate.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
         jButtonUpdate.setText("UPDATE");
@@ -145,40 +154,68 @@ public class OperationalAccountsPage extends javax.swing.JPanel {
                 jButtonUpdateActionPerformed(evt);
             }
         });
+<<<<<<< HEAD
         add(jButtonUpdate, new org.netbeans.lib.awtextra.AbsoluteConstraints(300, 520, 110, 40));
+=======
+        add(jButtonUpdate, new org.netbeans.lib.awtextra.AbsoluteConstraints(760, 550, -1, -1));
+>>>>>>> b10ebf3e17590649219c5c85b28d7c2f509bce7d
 
         jLabelPassword.setFont(new java.awt.Font("Tahoma", 1, 16)); // NOI18N
         jLabelPassword.setHorizontalAlignment(javax.swing.SwingConstants.TRAILING);
         jLabelPassword.setText("Password:");
+<<<<<<< HEAD
         add(jLabelPassword, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 390, 140, -1));
+=======
+        add(jLabelPassword, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 630, 140, -1));
+>>>>>>> b10ebf3e17590649219c5c85b28d7c2f509bce7d
 
         jTextFieldPassword.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jTextFieldPasswordActionPerformed(evt);
             }
         });
+<<<<<<< HEAD
         add(jTextFieldPassword, new org.netbeans.lib.awtextra.AbsoluteConstraints(270, 390, 270, -1));
+=======
+        add(jTextFieldPassword, new org.netbeans.lib.awtextra.AbsoluteConstraints(260, 620, 270, -1));
+>>>>>>> b10ebf3e17590649219c5c85b28d7c2f509bce7d
 
         jTextFieldEmpID.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jTextFieldEmpIDActionPerformed(evt);
             }
         });
+<<<<<<< HEAD
         add(jTextFieldEmpID, new org.netbeans.lib.awtextra.AbsoluteConstraints(270, 230, 270, -1));
+=======
+        add(jTextFieldEmpID, new org.netbeans.lib.awtextra.AbsoluteConstraints(240, 410, 270, -1));
+>>>>>>> b10ebf3e17590649219c5c85b28d7c2f509bce7d
 
         jLabelRole.setFont(new java.awt.Font("Tahoma", 1, 16)); // NOI18N
         jLabelRole.setHorizontalAlignment(javax.swing.SwingConstants.TRAILING);
         jLabelRole.setText("Role:");
+<<<<<<< HEAD
         add(jLabelRole, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 330, 140, -1));
 
         jComboBoxRole.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
         jComboBoxRole.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Doctor", "Nurse" }));
         add(jComboBoxRole, new org.netbeans.lib.awtextra.AbsoluteConstraints(270, 330, 90, -1));
+=======
+        add(jLabelRole, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 560, 140, -1));
+
+        jComboBoxRole.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
+        jComboBoxRole.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Doctor", "Nurse" }));
+        add(jComboBoxRole, new org.netbeans.lib.awtextra.AbsoluteConstraints(250, 560, 90, -1));
+>>>>>>> b10ebf3e17590649219c5c85b28d7c2f509bce7d
 
         jLabelEmpID.setFont(new java.awt.Font("Tahoma", 1, 16)); // NOI18N
         jLabelEmpID.setHorizontalAlignment(javax.swing.SwingConstants.TRAILING);
         jLabelEmpID.setText("Employee ID:");
+<<<<<<< HEAD
         add(jLabelEmpID, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 230, 140, -1));
+=======
+        add(jLabelEmpID, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 410, 140, -1));
+>>>>>>> b10ebf3e17590649219c5c85b28d7c2f509bce7d
 
         jButtonDelete.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
         jButtonDelete.setText("DELETE");
@@ -187,12 +224,20 @@ public class OperationalAccountsPage extends javax.swing.JPanel {
                 jButtonDeleteActionPerformed(evt);
             }
         });
+<<<<<<< HEAD
         add(jButtonDelete, new org.netbeans.lib.awtextra.AbsoluteConstraints(450, 520, 110, 40));
+=======
+        add(jButtonDelete, new org.netbeans.lib.awtextra.AbsoluteConstraints(890, 540, -1, -1));
+>>>>>>> b10ebf3e17590649219c5c85b28d7c2f509bce7d
 
         jLabelEmpName.setFont(new java.awt.Font("Tahoma", 1, 16)); // NOI18N
         jLabelEmpName.setHorizontalAlignment(javax.swing.SwingConstants.TRAILING);
         jLabelEmpName.setText("Employee Name:");
+<<<<<<< HEAD
         add(jLabelEmpName, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 280, 140, -1));
+=======
+        add(jLabelEmpName, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 480, 140, -1));
+>>>>>>> b10ebf3e17590649219c5c85b28d7c2f509bce7d
 
         bgdimg.setIcon(new javax.swing.ImageIcon(getClass().getResource("/userInterface/Images/OperationalAccountsPage_latest.jpeg"))); // NOI18N
         add(bgdimg, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, -1, -1));
@@ -201,7 +246,7 @@ public class OperationalAccountsPage extends javax.swing.JPanel {
     private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
         // TODO add your handling code here:
         CardLayout crdLyt = (CardLayout) userProcessContainer.getLayout();
-            crdLyt.show(userProcessContainer,"Sysadmin");
+            crdLyt.show(userProcessContainer,"hospitalAdminWorkAreaJPanel");
     }//GEN-LAST:event_jButton2ActionPerformed
 
     private void jTextFieldPasswordActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextFieldPasswordActionPerformed

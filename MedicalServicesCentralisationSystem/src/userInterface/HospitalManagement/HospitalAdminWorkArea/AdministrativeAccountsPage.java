@@ -99,7 +99,6 @@ public class AdministrativeAccountsPage extends javax.swing.JPanel {
 
         jButton2.setBackground(new java.awt.Color(0, 0, 0));
         jButton2.setFont(new java.awt.Font("Tahoma", 1, 24)); // NOI18N
-        jButton2.setForeground(new java.awt.Color(255, 255, 255));
         jButton2.setText("HOME");
         jButton2.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -207,7 +206,7 @@ public class AdministrativeAccountsPage extends javax.swing.JPanel {
     private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
         // TODO add your handling code here:
         CardLayout crdLyt = (CardLayout) userProcessContainer.getLayout();
-            crdLyt.show(userProcessContainer,"Sysadmin");
+            crdLyt.show(userProcessContainer,"hospitalAdminWorkAreaJPanel");
     }//GEN-LAST:event_jButton2ActionPerformed
 
     private void jTextFieldPasswordActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextFieldPasswordActionPerformed
